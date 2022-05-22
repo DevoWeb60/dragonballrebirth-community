@@ -26,6 +26,7 @@ return new class extends Migration
             $table->foreign('object_id')->references('id')->on('object_items');
             $table->unsignedBigInteger('waiting_duration_id');
             $table->foreign('waiting_duration_id')->references('id')->on('waiting_durations');
+            $table->string('thumbnail', 255);
             $table->timestamps();
         });
     }

@@ -1,0 +1,77 @@
+.work {
+    @include card;
+    position: relative;
+    overflow: hidden;
+    width: 46%;
+    flex-grow: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    margin: 20px;
+
+    h2 {
+        color: $white;
+        font-size: $fs-subtitle;
+    }
+
+    .content {
+        .gain,
+        .using {
+            display: flex;
+            align-items: center;
+            h3 {
+                font-size: $fs-menu;
+                color: $orange;
+                margin-right: 10px;
+            }
+            p {
+                display: flex;
+                align-items: center;
+                color: $white;
+                font-size: $fs-text;
+
+                img {
+                    margin-left: 10px;
+                    width: 30px;
+                }
+            }
+        }
+    }
+
+    .duration {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        font-size: calc($fs-subtitle + 5px);
+        color: $orange;
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .location {
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        color: $white;
+        text-align: right;
+
+        h4 {
+            margin: 0;
+            font-size: $fs-menu;
+            font-weight: 600;
+        }
+
+        .planet {
+            @include SpaceBetweenCenter;
+            flex-direction: row-reverse;
+            margin-bottom: 10px;
+
+            img {
+                margin-left: 10px;
+            }
+        }
+    }
+}

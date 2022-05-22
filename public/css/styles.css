@@ -259,7 +259,7 @@ h3 {
 
 h2.title {
   color: #ff8b17;
-  font-size: 50px;
+  font-size: 2.5rem;
 }
 
 .shadow {
@@ -268,9 +268,10 @@ h2.title {
 
 .container {
   position: relative;
-  width: 80%;
+  width: 87%;
   margin: 50px auto;
   z-index: 10;
+  padding-bottom: 10px;
 }
 
 .flex-galery {
@@ -292,8 +293,8 @@ a {
 
 .rs-links {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
+  right: 20px;
+  bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -402,8 +403,8 @@ header nav ul li.nav-link ul li.nav-link-dropdown {
   margin: 0;
 }
 header nav ul li.nav-link ul li.nav-link-dropdown a {
-  font-size: 16px;
-  padding: 20px;
+  font-size: calc(1rem - 2px);
+  padding: 15px;
   display: block;
   transition: 0.4s ease-in-out;
   width: 100%;
@@ -417,11 +418,14 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
 .nav-link-dropdown a {
   text-transform: uppercase;
   color: #fff;
-  font-size: 20px;
+  font-size: 1.15rem;
 }
 
 #character-section {
   transform: translateX(5%);
+}
+#character-section h2.title {
+  transform: translateX(-5vw);
 }
 
 .character {
@@ -450,6 +454,7 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   align-items: center;
   color: #fff;
   background: #2591cc;
+  font-size: 1.55rem;
   margin: 0;
   padding: 10px 20px;
   letter-spacing: 2px;
@@ -492,6 +497,7 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   justify-content: space-between;
   align-items: center;
   margin: 0;
+  font-size: 1.15rem;
   padding: 10px;
   height: 50px;
   border-radius: 5px;
@@ -510,6 +516,7 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   font-weight: 600;
   text-align: center;
   padding: 10px;
+  font-size: 1rem;
 }
 .character .caps p .step,
 .character .story-unlock p .step {
@@ -534,13 +541,13 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   flex-direction: column;
   position: relative;
   width: 350px;
-  margin: 70px 15px 20px 15px;
+  margin: 80px 15px 20px 15px;
   flex-grow: 1;
 }
 .object h3 {
-  margin-top: 15%;
+  margin-top: 40px;
   margin-bottom: 25px;
-  font-size: 25px;
+  font-size: 1.55rem;
   text-align: center;
   color: #333;
   text-shadow: 2px 2px 1px #fff;
@@ -551,9 +558,10 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 25%;
+  max-width: 100px;
 }
 .object .content {
-  min-height: calc(100% - (58px + 15% + 25px));
+  min-height: calc(100% - 123px);
   display: grid;
   width: 100%;
   grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(60px, auto);
@@ -566,14 +574,14 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   background-color: #fff1e3;
   color: #e37200;
   line-height: 150%;
-  font-size: 18px;
+  font-size: 1rem;
   border-radius: 0 5px 5px 0;
   margin: 5px 0;
 }
 .object .description h5,
 .object .duration h5,
 .object .using h5 {
-  font-size: 20px;
+  font-size: 1.15rem;
   margin: 0;
   margin-bottom: 10px;
   font-weight: 600;
@@ -604,6 +612,81 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
 }
 .object .duration h5 {
   margin-right: 10px;
+}
+
+.work {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  width: 46%;
+  flex-grow: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  margin: 20px;
+}
+.work h2 {
+  color: #fff;
+  font-size: 1.55rem;
+}
+.work .content .gain,
+.work .content .using {
+  display: flex;
+  align-items: center;
+}
+.work .content .gain h3,
+.work .content .using h3 {
+  font-size: 1.15rem;
+  color: #ff8b17;
+  margin-right: 10px;
+}
+.work .content .gain p,
+.work .content .using p {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1rem;
+}
+.work .content .gain p img,
+.work .content .using p img {
+  margin-left: 10px;
+  width: 30px;
+}
+.work .duration {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-size: calc(1.55rem + 5px);
+  color: #ff8b17;
+}
+.work .duration h3 {
+  margin: 0;
+}
+.work .location {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  color: #fff;
+  text-align: right;
+}
+.work .location h4 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.work .location .planet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-bottom: 10px;
+}
+.work .location .planet img {
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 1400px) {

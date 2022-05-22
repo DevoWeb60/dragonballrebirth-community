@@ -1,4 +1,4 @@
-$object-title-margin-top: 15%;
+$object-title-margin-top: 40px;
 $object-title-margin-bottom: 25px;
 .object {
     @include card;
@@ -6,13 +6,13 @@ $object-title-margin-bottom: 25px;
     flex-direction: column;
     position: relative;
     width: 350px;
-    margin: 70px 15px 20px 15px;
+    margin: 80px 15px 20px 15px;
     flex-grow: 1;
 
     h3 {
         margin-top: $object-title-margin-top;
         margin-bottom: $object-title-margin-bottom;
-        font-size: 25px;
+        font-size: $fs-subtitle;
         text-align: center;
         color: $black;
         text-shadow: 2px 2px 1px $white;
@@ -24,6 +24,7 @@ $object-title-margin-bottom: 25px;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 25%;
+        max-width: 100px;
     }
 
     .content {
@@ -47,12 +48,12 @@ $object-title-margin-bottom: 25px;
         background-color: lighten($orange, 40);
         color: darken($orange, 10);
         line-height: 150%;
-        font-size: 18px;
+        font-size: $fs-text;
         border-radius: 0 5px 5px 0;
         margin: 5px 0;
 
         h5 {
-            font-size: 20px;
+            font-size: $fs-menu;
             margin: 0;
             margin-bottom: 10px;
             font-weight: 600;

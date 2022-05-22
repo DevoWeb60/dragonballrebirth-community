@@ -1,5 +1,9 @@
 #character-section {
     transform: translateX(5%);
+
+    h2.title {
+        transform: translateX(-5vw);
+    }
 }
 
 .character {
@@ -23,6 +27,7 @@
             @include SpaceBetweenCenter;
             color: $white;
             background: $blue;
+            font-size: $fs-subtitle;
             margin: 0;
             padding: 10px 20px;
             letter-spacing: 2px;
@@ -63,6 +68,7 @@
         h3 {
             @include SpaceBetweenCenter;
             margin: 0;
+            font-size: $fs-menu;
             padding: 10px;
             height: 50px;
             border-radius: 5px;
@@ -81,6 +87,7 @@
             font-weight: 600;
             text-align: center;
             padding: 10px;
+            font-size: $fs-text;
 
             & .step {
                 font-weight: 900;

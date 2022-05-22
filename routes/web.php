@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\WorkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get("/personnages", [CharacterController::class, 'index']);
 
 // OBJECTS
 Route::get("/objets", [ObjectController::class, 'index']);
+
+// WORKS
+Route::get("/metiers", [WorkController::class, 'index']);
 
 
 

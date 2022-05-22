@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Character;
-use App\Models\Caps;
-use App\Models\Story;
-use App\Models\CapsScarecity;
+use App\Models\Work;
+use App\Models\Planet;
+use App\Models\MapCase;
+use App\Models\ObjectItem;
 use Illuminate\Http\Request;
+use App\Models\WaitingDuration;
 
-class CharacterController extends Controller
+class WorkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,17 +18,12 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        $characters = Character::all();
-        $capsules = Caps::all();
-        $capsScarecity = CapsScarecity::find(1);
-        $stories = Story::all();
-
-
-        return view('characters', [
-            'characters' => $characters,
-            'capsules' => $capsules,
-            'capsScarecity' => $capsScarecity,
-            'stories' => $stories
+        return view('works', [
+            'works' => Work::all(),
+            'mapCases' => MapCase::all(),
+            'planets' => Planet::all(),
+            'waitingDurations' => WaitingDuration::all(),
+            'objects' => ObjectItem::all(),
         ]);
     }
 
@@ -55,10 +51,10 @@ class CharacterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Character  $character
+     * @param  \App\Models\Work  $work
      * @return \Illuminate\Http\Response
      */
-    public function show(Character $character)
+    public function show(Work $work)
     {
         //
     }
@@ -66,10 +62,10 @@ class CharacterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Character  $character
+     * @param  \App\Models\Work  $work
      * @return \Illuminate\Http\Response
      */
-    public function edit(Character $character)
+    public function edit(Work $work)
     {
         //
     }
@@ -78,10 +74,10 @@ class CharacterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Character  $character
+     * @param  \App\Models\Work  $work
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Character $character)
+    public function update(Request $request, Work $work)
     {
         //
     }
@@ -89,10 +85,10 @@ class CharacterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Character  $character
+     * @param  \App\Models\Work  $work
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Character $character)
+    public function destroy(Work $work)
     {
         //
     }

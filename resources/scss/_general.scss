@@ -37,7 +37,7 @@ h3 {
 
 h2.title {
     color: $orange;
-    font-size: 50px;
+    font-size: $fs-title;
 }
 
 .shadow {
@@ -45,9 +45,10 @@ h2.title {
 }
 .container {
     position: relative;
-    width: 80%;
+    width: 87%;
     margin: 50px auto;
     z-index: 10;
+    padding-bottom: 10px;
 }
 .flex-galery {
     display: flex;
@@ -68,8 +69,8 @@ a {
 
 .rs-links {
     position: fixed;
-    right: 30px;
-    bottom: 30px;
+    right: 20px;
+    bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

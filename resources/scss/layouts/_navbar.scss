@@ -65,7 +65,7 @@ header {
                     backdrop-filter: blur(10px);
                     opacity: 0;
                     pointer-events: none;
-                    border-radius: 10px;
+                    border-radius: $border-radius;
                     box-shadow: $box-shadow;
                     transition: $transition;
                     overflow: hidden;
@@ -74,8 +74,8 @@ header {
                         width: 100%;
                         margin: 0;
                         a {
-                            font-size: 16px;
-                            padding: 20px;
+                            font-size: calc($fs-text - 2px);
+                            padding: 15px;
                             display: block;
                             transition: $transition;
                             width: 100%;
@@ -96,5 +96,5 @@ header {
 .nav-link-dropdown a {
     text-transform: uppercase;
     color: $white;
-    font-size: 20px;
+    font-size: $fs-menu;
 }
