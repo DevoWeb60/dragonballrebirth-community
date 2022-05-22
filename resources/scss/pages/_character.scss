@@ -1,0 +1,99 @@
+#character-section {
+    transform: translateX(5%);
+}
+
+.character {
+    @include card;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    margin: 50px 80px 50px 60px;
+    width: 400px;
+    padding-left: 125px;
+
+    .shadow {
+        width: 225px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -9%);
+
+        h2 {
+            @include SpaceBetweenCenter;
+            color: $white;
+            background: $blue;
+            margin: 0;
+            padding: 10px 20px;
+            letter-spacing: 2px;
+            transform: translateY(1px);
+            img {
+                margin-left: 20px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .presentation {
+            padding: 15px;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+            background: $blue;
+            text-align: center;
+
+            .avatar {
+                clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+                background: $black;
+                img {
+                    object-fit: cover;
+                    width: 200px;
+                    display: block;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .caps,
+    .story-unlock {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 4px solid darken($orange, 9);
+        background: rgba(255, 255, 255, 0.1);
+
+        h3 {
+            @include SpaceBetweenCenter;
+            margin: 0;
+            padding: 10px;
+            height: 50px;
+            border-radius: 5px;
+            margin: 2px;
+            margin-bottom: 10px;
+            background: darken($orange, 9);
+            color: $white;
+
+            img {
+                width: 30px;
+            }
+        }
+
+        p {
+            margin: 0;
+            font-weight: 600;
+            text-align: center;
+            padding: 10px;
+
+            & .step {
+                font-weight: 900;
+            }
+        }
+    }
+
+    .caps {
+        border-color: darken($green, 10);
+        margin-top: 20px;
+
+        h3 {
+            background: darken($green, 10);
+        }
+    }
+}

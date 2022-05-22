@@ -1,0 +1,87 @@
+$object-title-margin-top: 15%;
+$object-title-margin-bottom: 25px;
+.object {
+    @include card;
+    @include SpaceBetweenCenter;
+    flex-direction: column;
+    position: relative;
+    width: 350px;
+    margin: 70px 15px 20px 15px;
+    flex-grow: 1;
+
+    h3 {
+        margin-top: $object-title-margin-top;
+        margin-bottom: $object-title-margin-bottom;
+        font-size: 25px;
+        text-align: center;
+        color: $black;
+        text-shadow: 2px 2px 1px $white;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 25%;
+    }
+
+    .content {
+        min-height: calc(
+            100% -
+                (58px + $object-title-margin-top + $object-title-margin-bottom)
+        );
+        display: grid;
+        width: 100%;
+        grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(
+                60px,
+                auto
+            );
+    }
+
+    .description,
+    .duration,
+    .using {
+        border-left: 5px solid darken($orange, 10);
+        padding: 20px 10px;
+        background-color: lighten($orange, 40);
+        color: darken($orange, 10);
+        line-height: 150%;
+        font-size: 18px;
+        border-radius: 0 5px 5px 0;
+        margin: 5px 0;
+
+        h5 {
+            font-size: 20px;
+            margin: 0;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .description {
+        color: darken($blue, 10);
+        border-color: darken($blue, 10);
+        background-color: lighten($blue, 40);
+    }
+    .using {
+        color: darken($green, 10);
+        border-color: darken($green, 10);
+        background-color: lighten($green, 40);
+    }
+    .duration {
+        @include SpaceBetweenCenter;
+        h5,
+        p {
+            margin: 0;
+        }
+
+        h5 {
+            margin-right: 10px;
+        }
+    }
+}
