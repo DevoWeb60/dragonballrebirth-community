@@ -689,6 +689,109 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   margin-left: 10px;
 }
 
+.capsule {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  width: 300px;
+  margin: 50px 20px;
+  flex-grow: 1;
+}
+.capsule h3 {
+  color: #fff;
+  font-size: 1.55rem;
+}
+.capsule .level {
+  color: #ffb164;
+  font-size: 1.15rem;
+}
+.capsule .level .lvl-number {
+  font-size: 1.55rem;
+  color: #ff8b17;
+}
+.capsule .icon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(30px, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+.capsule .icon img {
+  width: 35px;
+  height: 35px;
+}
+.capsule .icon h4 {
+  margin: 0;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.capsule .stats {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+}
+.capsule .stats h4 {
+  font-size: 1.15rem;
+  color: #ff8b17;
+  font-family: "Edo SZ";
+  text-shadow: 1px 1px 1px #000;
+  margin-bottom: 40px;
+}
+.capsule .stats h4 .bonus,
+.capsule .stats h4 .malus {
+  font-size: 1rem;
+  margin: 0 15px;
+}
+.capsule .stats h4 .bonus {
+  color: #25cc33;
+}
+.capsule .stats h4 .malus {
+  color: #e15c5c;
+}
+.capsule .stats .strength,
+.capsule .stats .vitality,
+.capsule .stats .energy,
+.capsule .stats .defense {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 900;
+}
+.capsule .stats .strength .attribute,
+.capsule .stats .vitality .attribute,
+.capsule .stats .energy .attribute,
+.capsule .stats .defense .attribute {
+  margin-right: 20px;
+  letter-spacing: 2px;
+  font-family: "Edo SZ";
+  text-shadow: 1px 1px 1px #000;
+}
+.capsule .stats .strength.positive,
+.capsule .stats .vitality.positive,
+.capsule .stats .energy.positive,
+.capsule .stats .defense.positive {
+  color: #25cc33;
+}
+.capsule .stats .strength.negative,
+.capsule .stats .vitality.negative,
+.capsule .stats .energy.negative,
+.capsule .stats .defense.negative {
+  color: #e15c5c;
+}
+
 @media screen and (max-width: 1400px) {
   .container {
     width: 95%;

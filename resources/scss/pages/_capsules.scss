@@ -1,0 +1,94 @@
+.capsule {
+    @include card;
+    position: relative;
+    width: 300px;
+    margin: 50px 20px;
+    flex-grow: 1;
+
+    h3 {
+        color: $white;
+        font-size: $fs-subtitle;
+    }
+    .level {
+        color: lighten($orange, 15);
+        font-size: $fs-menu;
+
+        .lvl-number {
+            font-size: $fs-subtitle;
+            color: $orange;
+        }
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(30px, -50%);
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        padding: 10px;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        color: $white;
+
+        img {
+            width: 35px;
+            height: 35px;
+        }
+
+        h4 {
+            margin: 0;
+            margin-left: 15px;
+            font-weight: 500;
+            font-size: $fs-text;
+        }
+    }
+
+    .stats {
+        @include card;
+        h4 {
+            font-size: $fs-menu;
+            color: $orange;
+            font-family: "Edo SZ";
+            text-shadow: 1px 1px 1px #000;
+            margin-bottom: 40px;
+
+            .bonus,
+            .malus {
+                font-size: $fs-text;
+                margin: 0 15px;
+            }
+            .bonus {
+                color: $green;
+            }
+            .malus {
+                color: lighten($red, 15);
+            }
+        }
+
+        .strength,
+        .vitality,
+        .energy,
+        .defense {
+            @include SpaceBetweenCenter;
+            width: 100%;
+            font-weight: 900;
+
+            & .attribute {
+                margin-right: 20px;
+                letter-spacing: 2px;
+                font-family: "Edo SZ";
+                text-shadow: 1px 1px 1px #000;
+            }
+
+            &.positive {
+                color: $green;
+            }
+            &.negative {
+                color: lighten($red, 15);
+            }
+        }
+    }
+}

@@ -17,7 +17,27 @@ class MapCaseFactory extends Factory
     public function definition()
     {
         return [
-            'case' => "C-3"
+            [
+                'case' => "C-3"
+            ],
+            [
+                'case' => "C-4"
+            ],
+            [
+                'case' => "C-5"
+            ],
+            [
+                'case' => "C-6"
+            ],
+            [
+                'case' => "C-7"
+            ],
+            [
+                'case' => "C-8"
+            ],
+            [
+                'case' => "C-9"
+            ],
         ];
     }
 }
