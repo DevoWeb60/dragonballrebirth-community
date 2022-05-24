@@ -7,7 +7,7 @@
             @foreach ($caps as $capsule)
                 @if ($capsule->caps_scarecities_id !== 1)
                     <div class="capsule">
-                        <h3>{{ $capsule->name }}</h3>
+                        <h3 class="title">{{ $capsule->name }}</h3>
                         <h3 class="level">Niv. <span class="lvl-number">{{ $capsule->min_level }}</span> requis</h3>
 
                         @foreach ($capsScarecity as $scarecity)

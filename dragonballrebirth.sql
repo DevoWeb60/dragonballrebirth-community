@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : lun. 23 mai 2022 à 07:05
+-- Généré le : mar. 24 mai 2022 à 12:36
 -- Version du serveur : 5.7.34
 -- Version de PHP : 7.4.21
 
@@ -783,6 +783,7 @@ CREATE TABLE `trains` (
   `required_level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `step_id` int(11) NOT NULL,
   `duration_id` bigint(20) UNSIGNED NOT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `specificity` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
@@ -792,22 +793,22 @@ CREATE TABLE `trains` (
 -- Déchargement des données de la table `trains`
 --
 
-INSERT INTO `trains` (`id`, `name`, `icon`, `map_case_id`, `planet_id`, `gain`, `required_level`, `step_id`, `duration_id`, `created_at`, `updated_at`, `specificity`) VALUES
-(1, 'Salle de l\'horloge', 'https://www.dragonballrebirth.fr/img/training/popo.png', 2, 1, 'Obtention des magies 2 et 3', '', 1, 1, '2022-05-18 20:03:07', '2022-05-18 20:03:07', '1 fois par magie'),
-(2, 'Baba la Voyante', '', 16, 1, '+1 / +2 Défense', '', 1, 3, '2022-05-19 23:24:55', '2022-05-19 23:24:55', 'Illimité'),
-(3, 'Kame House', '', 88, 1, '+1 / +2 Force', '', 1, 3, '2022-05-19 23:24:57', '2022-05-19 23:24:57', 'Illimité'),
-(4, 'Kami-Sama', '', 2, 1, '+1 / +2 Énergie', '', 1, 3, '2022-05-19 23:24:58', '2022-05-19 23:24:58', 'Illimité'),
-(5, 'Karine', '', 4, 1, '+100 / +200 Vitalité', '', 1, 3, '2022-05-19 23:24:59', '2022-05-19 23:24:59', 'Illimité'),
-(6, 'Maison', '', 77, 1, '+1 / +2 Esquive', '', 1, 3, '2022-05-19 23:25:00', '2022-05-19 23:25:00', 'Limité à 100 points'),
-(7, 'Tsuru-Sennin', '', 20, 1, '+1 / +2 Critique', '', 1, 3, '2022-05-19 23:25:01', '2022-05-19 23:25:01', 'Limité à 100 points'),
-(8, 'Kaïo', 'https://www.dragonballrebirth.fr/img/training/kaio.png', 4, 2, '+2 partout', '', 18, 4, '2022-05-19 23:25:02', '2022-05-19 23:25:02', 'Unique'),
-(9, 'Vaisseau de Freezer', '', 41, 3, '+300 / +400 Vitalité', '', 28, 5, '2022-05-19 23:25:03', '2022-05-19 23:25:03', 'Illimité'),
-(10, 'Grand Chef Namek', 'https://www.dragonballrebirth.fr/img/training/grandchef.png', 20, 3, '+5 dans une statistique', '10', 40, 4, '2022-05-19 23:25:04', '2022-05-19 23:25:04', 'Unique'),
-(11, 'Reecom', '', 69, 3, '+3 / +4 Défense', '', 47, 5, '2022-05-19 23:25:05', '2022-05-19 23:25:05', 'Illimité'),
-(12, 'Ginyu', '', 69, 3, '+3 / +4 Énergie', '', 49, 5, '2022-05-19 23:25:06', '2022-05-19 23:25:06', 'Illimité'),
-(13, 'Nail', '', 75, 3, '+3 / +4 Force', '', 55, 5, '2022-05-19 23:25:07', '2022-05-19 23:25:07', 'Illimité'),
-(14, 'Salle de l\'Esprit et du Temps', 'https://www.dragonballrebirth.fr/img/training/dende.png', 2, 1, 'Réduction durée des entraînements 2% / 5%', '14 puis 18', 108, 6, '2022-05-19 23:25:08', '2022-05-19 23:25:08', 'Limité à deux entraînements'),
-(15, 'Eveil du vieux Kaioshin', 'https://www.dragonballrebirth.fr/img/training/daikaioshin.png', 11, 2, '+10 points dans toutes les statistiques et +10 points bonus', '28', 230, 7, '2022-05-19 23:25:09', '2022-05-19 23:25:09', 'Unique');
+INSERT INTO `trains` (`id`, `name`, `icon`, `map_case_id`, `planet_id`, `gain`, `required_level`, `step_id`, `duration_id`, `thumbnail`, `created_at`, `updated_at`, `specificity`) VALUES
+(1, 'Salle de l\'horloge', 'https://www.dragonballrebirth.fr/img/training/popo.png', 2, 1, 'Obtention des magies 2 et 3', '', 1, 1, 'https://www.dragonballrebirth.fr/img/training/banner/salle_horloge.jpg', '2022-05-18 20:03:07', '2022-05-18 20:03:07', '1 fois par magie'),
+(2, 'Baba la Voyante', '', 16, 1, '+1 / +2 Défense', '', 1, 3, 'https://www.dragonballrebirth.fr/img/training/banner/baba.png', '2022-05-19 23:24:55', '2022-05-19 23:24:55', 'Illimité'),
+(3, 'Kame House', '', 88, 1, '+1 / +2 Force', '', 1, 3, 'https://www.dragonballrebirth.fr/img/training/banner/kamehouse.png', '2022-05-19 23:24:57', '2022-05-19 23:24:57', 'Illimité'),
+(4, 'Kami-Sama', '', 2, 1, '+1 / +2 Énergie', '', 1, 3, 'https://www.dragonballrebirth.fr/img/training/banner/kamikyuden.png', '2022-05-19 23:24:58', '2022-05-19 23:24:58', 'Illimité'),
+(5, 'Karine', '', 4, 1, '+100 / +200 Vitalité', '', 1, 3, 'https://www.dragonballrebirth.fr/img/training/banner/karinetower.png', '2022-05-19 23:24:59', '2022-05-19 23:24:59', 'Illimité'),
+(6, 'Maison', '', 77, 1, '+1 / +2 Esquive', '', 1, 3, 'https://www.dragonballrebirth.fr/img/training/banner/gokuhouse.png', '2022-05-19 23:25:00', '2022-05-19 23:25:00', 'Limité à 100 points'),
+(7, 'Tsuru-Sennin', '', 20, 1, '+1 / +2 Critique', '', 1, 3, 'https://www.dragonballrebirth.fr/img/training/banner/fishing-2.png', '2022-05-19 23:25:01', '2022-05-19 23:25:01', 'Limité à 100 points'),
+(8, 'Kaïo', 'https://www.dragonballrebirth.fr/img/training/kaio.png', 4, 2, '+2 partout', '', 18, 4, 'https://www.dragonballrebirth.fr/img/training/banner/kaioplanet.png', '2022-05-19 23:25:02', '2022-05-19 23:25:02', 'Unique'),
+(9, 'Vaisseau de Freezer', '', 41, 3, '+300 / +400 Vitalité', '', 28, 5, 'https://www.dragonballrebirth.fr/img/training/banner/vaisseax-freezer.png', '2022-05-19 23:25:03', '2022-05-19 23:25:03', 'Illimité'),
+(10, 'Grand Chef Namek', 'https://www.dragonballrebirth.fr/img/training/grandchef.png', 20, 3, '+5 dans une statistique', '10', 40, 4, 'https://www.dragonballrebirth.fr/img/training/banner/chefnamek.jpg', '2022-05-19 23:25:04', '2022-05-19 23:25:04', 'Unique'),
+(11, 'Reecom', '', 69, 3, '+3 / +4 Défense', '', 47, 5, 'https://www.dragonballrebirth.fr/img/training/banner/namek.png', '2022-05-19 23:25:05', '2022-05-19 23:25:05', 'Illimité'),
+(12, 'Ginyu', '', 69, 3, '+3 / +4 Énergie', '', 49, 5, 'https://www.dragonballrebirth.fr/img/training/banner/namek.png', '2022-05-19 23:25:06', '2022-05-19 23:25:06', 'Illimité'),
+(13, 'Nail', '', 75, 3, '+3 / +4 Force', '', 55, 5, 'https://www.dragonballrebirth.fr/img/training/banner/namek-village.png', '2022-05-19 23:25:07', '2022-05-19 23:25:07', 'Illimité'),
+(14, 'Salle de l\'Esprit et du Temps', 'https://www.dragonballrebirth.fr/img/training/dende.png', 2, 1, 'Réduction durée des entraînements 2% / 5%', '14 puis 18', 108, 6, 'https://www.dragonballrebirth.fr/img/training/banner/timechamber.png', '2022-05-19 23:25:08', '2022-05-19 23:25:08', 'Limité à deux entraînements'),
+(15, 'Eveil du vieux Kaioshin', 'https://www.dragonballrebirth.fr/img/training/daikaioshin.png', 11, 2, '+10 points dans toutes les statistiques et +10 points bonus', '28', 230, 7, 'https://www.dragonballrebirth.fr/img/training/banner/vieu-kaioshin.png ', '2022-05-19 23:25:09', '2022-05-19 23:25:09', 'Unique');
 
 -- --------------------------------------------------------
 

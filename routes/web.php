@@ -4,6 +4,8 @@ use App\Http\Controllers\CapsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TrainController;
 use App\Http\Controllers\WorkController;
 
 /*
@@ -17,7 +19,7 @@ use App\Http\Controllers\WorkController;
 |
 */
 
-Route::get('/', [ObjectController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 // CHARACTERS
 Route::get("/personnages", [CharacterController::class, 'index']);
@@ -30,6 +32,9 @@ Route::get("/metiers", [WorkController::class, 'index']);
 
 // WORKS
 Route::get("/capsules", [CapsController::class, 'index']);
+
+// TRAINS
+Route::get("/entrainements", [TrainController::class, 'index']);
 
 
 
