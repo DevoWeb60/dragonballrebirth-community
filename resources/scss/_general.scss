@@ -67,6 +67,26 @@ a {
     transition: $transition;
 }
 
+.price {
+    display: flex;
+    align-items: center;
+    color: $orange;
+    font-family: "Edo SZ";
+    text-shadow: 1px 1px 1px #000;
+    font-size: $fs-subtitle;
+    letter-spacing: 1px;
+    margin: 15px 0 0 0;
+
+    span svg {
+        width: 12px;
+        margin-left: 5px;
+
+        path {
+            fill: $black;
+        }
+    }
+}
+
 .rs-links {
     position: fixed;
     right: 20px;

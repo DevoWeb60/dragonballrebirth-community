@@ -291,6 +291,24 @@ a {
   transition: 0.4s ease-in-out;
 }
 
+.price {
+  display: flex;
+  align-items: center;
+  color: #ff8b17;
+  font-family: "Edo SZ";
+  text-shadow: 1px 1px 1px #000;
+  font-size: 1.55rem;
+  letter-spacing: 1px;
+  margin: 15px 0 0 0;
+}
+.price span svg {
+  width: 12px;
+  margin-left: 5px;
+}
+.price span svg path {
+  fill: #333;
+}
+
 .rs-links {
   position: fixed;
   right: 20px;
