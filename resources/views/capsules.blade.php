@@ -48,6 +48,9 @@
                                     </p>
                                 @endif
                         </div>
+                        @if ($capsule->price !== 0)
+                            <h4 class="price">{{ $capsule->price }}<span>@include('svg.zenis')</span></h4>
+                        @endif
                     </div>
                 @endif
             @endforeach
