@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainStoryController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\WorkController;
 
@@ -35,6 +36,9 @@ Route::get("/capsules", [CapsController::class, 'index']);
 
 // TRAINS
 Route::get("/entrainements", [TrainController::class, 'index']);
+
+// ADVENTURE MODE
+Route::get("/mode-aventure", [MainStoryController::class, 'index']);
 
 
 

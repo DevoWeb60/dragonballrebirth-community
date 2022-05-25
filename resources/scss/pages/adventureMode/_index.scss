@@ -1,0 +1,23 @@
+.mainStory {
+    h2 {
+        color: $white;
+    }
+}
+
+.saga {
+    @include card;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 20px;
+    width: 30%;
+    color: $white;
+    flex-grow: 1;
+
+    h3 {
+        color: $blue;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}

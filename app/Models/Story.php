@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Story extends Model
 {
     use HasFactory;
+
+    public function storyUnlock(){
+        return $this->belongsTo(Story::class, 'story_unlock');
+    }
 }

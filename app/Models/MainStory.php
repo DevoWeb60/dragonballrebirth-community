@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class MainStory extends Model
 {
     use HasFactory;
+
+    public function saga(){
+        return $this->hasMany(Story::class, "main_story");
+    }
 }
