@@ -1,0 +1,72 @@
+.train {
+    @include card;
+    position: relative;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-bottom: 30px;
+    background-position: bottom;
+
+    h2 {
+        display: flex;
+        align-items: center;
+        color: $white;
+        margin-bottom: 50px;
+
+        img {
+            margin-left: 20px;
+            width: 30px;
+        }
+    }
+
+    .content h4 {
+        color: $white;
+        margin: 0;
+        margin-bottom: 20px;
+        font-weight: 500;
+
+        .attribute {
+            font-family: "Edo SZ";
+            color: $orange;
+            margin-right: 30px;
+            font-size: $fs-menu;
+        }
+    }
+
+    .duration {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        font-size: $fs-subtitle;
+        color: $orange;
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .location {
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        color: $white;
+        text-align: right;
+
+        h4 {
+            margin: 0;
+            font-size: $fs-menu;
+            font-weight: 600;
+        }
+
+        .planet {
+            @include SpaceBetweenCenter;
+            flex-direction: row-reverse;
+            margin-bottom: 10px;
+
+            img {
+                margin-left: 10px;
+            }
+        }
+    }
+}

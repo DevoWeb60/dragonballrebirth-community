@@ -25,16 +25,12 @@
                                 </p>
                             </div>
                         @endif
-                        @foreach ($objectDurations as $duration)
-                            @if ($duration->id === $object->object_duration_id)
-                                <div class="duration">
-                                    <h5>Durée</h5>
-                                    <p>
-                                        {{ $duration->duration }}
-                                    </p>
-                                </div>
-                            @endif
-                        @endforeach
+                        <div class="duration">
+                            <h5>Durée</h5>
+                            <p>
+                                {{ $object->duration->duration }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             @endforeach

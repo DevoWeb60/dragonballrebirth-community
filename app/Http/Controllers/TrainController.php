@@ -19,10 +19,6 @@ class TrainController extends Controller
     {
         return view('trains', [
             'trains' => Train::all(),
-            'mapCases' => MapCase::all(),
-            'planets' => Planet::all(),
-            'waitingDurations' => WaitingDuration::all(),
-
         ]);
     }
 

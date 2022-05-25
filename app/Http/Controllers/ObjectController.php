@@ -14,7 +14,6 @@ class ObjectController extends Controller
     public function index() {
         return view('objects', [
             'objects' => ObjectItem::all(),
-            'objectDurations' => ObjectDuration::all()
         ]);
     }
 }

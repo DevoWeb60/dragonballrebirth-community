@@ -20,10 +20,6 @@ class WorkController extends Controller
     {
         return view('works', [
             'works' => Work::all(),
-            'mapCases' => MapCase::all(),
-            'planets' => Planet::all(),
-            'waitingDurations' => WaitingDuration::all(),
-            'objects' => ObjectItem::all(),
         ]);
     }
 

@@ -18,16 +18,12 @@ class CharacterController extends Controller
     public function index()
     {
         $characters = Character::all();
-        $capsules = Caps::all();
-        $capsScarecity = CapsScarecity::find(1);
-        $stories = Story::all();
+        $capsIcon = CapsScarecity::find(1);
 
 
         return view('characters', [
             'characters' => $characters,
-            'capsules' => $capsules,
-            'capsScarecity' => $capsScarecity,
-            'stories' => $stories
+            'capsIcon' => $capsIcon,
         ]);
     }
 

@@ -7,18 +7,17 @@
             @foreach ($caps as $capsule)
                 @if ($capsule->caps_scarecities_id !== 1)
                     <div class="capsule">
+                        {{-- HEADING --}}
                         <h3 class="title">{{ $capsule->name }}</h3>
                         <h3 class="level">Niv. <span class="lvl-number">{{ $capsule->min_level }}</span> requis</h3>
 
-                        @foreach ($capsScarecity as $scarecity)
-                            @if ($capsule->caps_scarecities_id === $scarecity->id)
-                            <div class="icon scarecity{{ $scarecity->id }}">
-                                <img src="{{ $scarecity->icon }}" alt="{{ $scarecity->name }}">
-                                <h4>{{ $scarecity->name }}</h4>
-                            </div>
-                            @endif
-                        @endforeach
+                        {{-- ICON  --}}
+                        <div class="icon scarecity{{ $capsule->scarecities->id }}">
+                            <img src="{{ $capsule->scarecities->icon }}" alt="{{ $capsule->scarecities->name }}">
+                            <h4>{{ $capsule->scarecities->name }}</h4>
+                        </div>
 
+                        {{-- STATS  --}}
                         <div class="stats">
                             <h4>Stats
                                 @if (!empty($capsule->bonus))

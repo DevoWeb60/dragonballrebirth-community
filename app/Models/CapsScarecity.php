@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CapsScarecity extends Model
 {
     use HasFactory;
+
 }

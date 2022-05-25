@@ -17,7 +17,6 @@ class CapsController extends Controller
     {
         return view('capsules', [
             'caps' => Caps::all(),
-            'capsScarecity' => CapsScarecity::all()
         ]);
     }
 
