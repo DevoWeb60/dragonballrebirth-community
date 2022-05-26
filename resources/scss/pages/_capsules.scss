@@ -50,6 +50,7 @@
     .stats {
         @include card;
         background: rgba(0, 0, 0, 0.7);
+        min-height: 250px;
         h4 {
             font-size: $fs-menu;
             color: $orange;

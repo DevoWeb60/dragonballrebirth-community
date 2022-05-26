@@ -12,4 +12,8 @@ class Story extends Model
     public function storyUnlock(){
         return $this->belongsTo(Story::class, 'story_unlock');
     }
+
+    public function steps(){
+        return $this->hasMany(AdventureMode::class, 'story_id');
+    }
 }

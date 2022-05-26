@@ -1,0 +1,21 @@
+.story {
+    @include card;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 20px;
+    width: 22%;
+    min-width: 250px;
+    color: $white;
+    flex-grow: 1;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    h3 {
+        font-size: $fs-subtitle;
+        color: $orange;
+        text-shadow: 2px 2px 1px $black;
+    }
+}

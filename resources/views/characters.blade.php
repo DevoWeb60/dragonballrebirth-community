@@ -10,7 +10,7 @@
                         <h2>{{$character->name}} <img src="{{$character->avatar}}transformations/base/head.png" alt="{{$character->name}}"></h2>
                         <div class="presentation">
                             <div class="avatar">
-                                <img src="{{$character->avatar}}/avatars/1.png" alt="{{$character->name}}-avatar">
+                                <img src="{{$character->avatar}}/avatars/1.png" alt="{{$character->name}}-avatar" >
                             </div>
                         </div>
                     </div>
