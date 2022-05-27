@@ -82,14 +82,14 @@
                         <h2 class="player">
                             <span>
                                 {{ $step->character->name }}
-                                <img src="{{ $step->character->avatar }}/transformations/base/head.png" alt="{{ $step->character->name }}">
+                                <img src="{{ $step->character->avatar }}transformations/base/head.png" alt="{{ $step->character->name }}">
                             </span>
                         </h2>
                         <span class="versus">VS</span>
                         <h2 class="enemy">
                             <span>
                                 {{ $step->enemy->name }}
-                                <img src="{{ $step->enemy->avatar }}/transformations/base/head.png" alt="{{ $step->enemy->name }}">
+                                <img src="{{ $step->enemy->avatar }}transformations/base/head.png" alt="{{ $step->enemy->name }}">
                             </span>
                             <span class="info">Niveau : {{ $step->enemy_level }}</span>
                             <span class="info">Vitalité : {{ number_format($step->enemy_health, 0, ' ', ' ') }}</span>
@@ -98,7 +98,7 @@
                     @else
                         <h2 class="nofight-character player">
                             {{ $step->character->name }}
-                            <img src="{{ $step->character->avatar }}/transformations/base/head.png" alt="{{ $step->character->name }}">
+                            <img src="{{ $step->character->avatar }}transformations/base/head.png" alt="{{ $step->character->name }}">
                         </h2>
                     @endif
 
@@ -110,7 +110,7 @@
                             @endif
                             @if ($reward->character_id)
                                 <p class="reward-character">{{ $reward->character->name }}
-                                    <img src="{{ $reward->character->avatar }}/transformations/base/head.png" alt="{{$reward->character->name}}">
+                                    <img src="{{ $reward->character->avatar }}transformations/base/head.png" alt="{{$reward->character->name}}">
                                 </p>
                             @endif
                             @if ($reward->object_id)
@@ -128,13 +128,13 @@
                             @if ($reward->experience)
                                 <p class="reward-character">
                                     {{ $reward->experience >= 100 ? number_format($reward->experience, 0, " ", " ") : $reward->experience."%"}} XP pour {{ $reward->rewardsOnCharacter->name }}
-                                    <img src="{{ $reward->rewardsOnCharacter->avatar }}/transformations/base/head.png" alt="{{ $reward->rewardsOnCharacter->name}}">
+                                    <img src="{{ $reward->rewardsOnCharacter->avatar }}transformations/base/head.png" alt="{{ $reward->rewardsOnCharacter->name}}">
                                 </p>
                             @endif
                             @if ($reward->skin)
                                 <p class="reward-character">
                                     Skin pour {{ $reward->rewardsOnCharacter->name }}
-                                    <img src="{{ $reward->rewardsOnCharacter->avatar }}/transformations/base/head.png" alt="{{ $reward->rewardsOnCharacter->name}}">
+                                    <img src="{{ $reward->rewardsOnCharacter->avatar }}transformations/base/head.png" alt="{{ $reward->rewardsOnCharacter->name}}">
                                 </p>
                             @endif
                         @endforeach
