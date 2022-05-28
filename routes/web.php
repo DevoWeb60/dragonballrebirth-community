@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\CapsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CapsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WorkController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StoryController;
+use App\Http\Controllers\TrainController;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\CharacterController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainStoryController;
-use App\Http\Controllers\TrainController;
-use App\Http\Controllers\WorkController;
-use App\Http\Controllers\StoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,11 @@ use App\Http\Controllers\StoryController;
 |
 */
 
+// !ADMIN
+Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index')->middleware('auth');
+
+
+// HOME
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 // CHARACTERS

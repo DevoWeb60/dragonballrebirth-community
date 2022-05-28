@@ -20,6 +20,10 @@ class CapsController extends Controller
         ]);
     }
 
+    public function api(){
+        return Caps::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

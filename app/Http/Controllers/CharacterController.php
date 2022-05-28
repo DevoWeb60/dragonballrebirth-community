@@ -27,6 +27,20 @@ class CharacterController extends Controller
         ]);
     }
 
+    public function api(){
+        $characters = Character::all();
+        $greenCaps = Caps::where('caps_scarecities_id', 1)->get();
+        $capsIcon = CapsScarecity::find(1);
+        $stories = Story::all();
+
+        return response()->json([
+            'characters' => $characters,
+            'capsIcon' => $capsIcon,
+            'greenCaps' => $greenCaps,
+            'stories' => $stories
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

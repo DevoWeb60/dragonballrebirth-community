@@ -1,0 +1,60 @@
+.sidebar {
+    background: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    text-align: center;
+    padding: 20px 40px;
+    border-right: 5px solid rgba(0, 0, 0, 0.5);
+    color: $orange;
+
+    h1.title {
+        margin-bottom: 50px;
+        font-size: calc($fs-subtitle + 3px);
+    }
+
+    .btn-home {
+        display: block;
+        margin: 40px auto;
+        border-radius: 5px;
+        border: 2px solid $orange;
+        padding: 7px 20px;
+        cursor: pointer;
+        width: fit-content;
+        color: $orange;
+        font-size: $fs-subtitle;
+        transition: $transition;
+
+        &:hover {
+            background: $orange;
+            color: $white;
+        }
+    }
+
+    .menu-item {
+        text-align: left;
+        border-left: 3px solid $orange;
+        padding-left: 15px;
+        margin-bottom: 50px;
+
+        li {
+            padding: 7px 0;
+            margin-bottom: 10px;
+        }
+        li.title {
+            font-size: calc($fs-menu + 0px);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+
+            h3 {
+                margin: 0;
+            }
+        }
+        li.page {
+            font-size: $fs-text;
+            cursor: pointer;
+            transition: $transition;
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.auth {
+    @include card;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    color: $white;
+
+    .form-group {
+        position: relative;
+        margin-bottom: 50px;
+
+        label,
+        input {
+            font-size: $fs-text;
+            padding: 10px 5px 10px 0px;
+            color: $white;
+            cursor: text;
+        }
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: $transition;
+        }
+
+        input {
+            background: none;
+            border: none;
+            border-bottom: 3px solid $orange;
+            outline: none;
+
+            &::placeholder {
+                color: transparent;
+            }
+
+            &:focus + label,
+            &:not(:placeholder-shown) + label {
+                transform: translateY(-100%);
+                font-size: calc($fs-text - 3px);
+            }
+        }
+    }
+    button {
+        position: relative;
+        background: transparent;
+        width: 100%;
+        display: block;
+        padding: 10px;
+        color: $orange;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none;
+        cursor: pointer;
+        transition: $transition;
+        overflow: hidden;
+
+        &:hover {
+            color: $white;
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: $orange;
+            transition: $transition;
+        }
+    }
+}

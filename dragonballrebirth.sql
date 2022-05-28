@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 27 mai 2022 à 14:43
+-- Généré le : sam. 28 mai 2022 à 17:54
 -- Version du serveur : 5.7.33
 -- Version de PHP : 8.1.6
 
@@ -569,7 +569,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2022_05_18_199000_create_win_conditions_table', 6),
 (26, '2022_05_20_104514_create_link_win_conditions_to_steps_table', 7),
 (27, '2022_05_20_104456_create_link_rewards_to_steps_table', 8),
-(29, '2022_05_21_201000_create_adventure_modes_table', 9);
+(29, '2022_05_21_201000_create_adventure_modes_table', 9),
+(30, '2014_10_12_200000_add_two_factor_columns_to_users_table', 10),
+(31, '2022_05_18_200420_create_rewards_table', 1),
+(32, '2022_05_22_104456_create_link_rewards_to_steps_table', 1),
+(33, '2022_05_22_104514_create_link_win_conditions_to_steps_table', 1);
 
 -- --------------------------------------------------------
 
@@ -867,6 +871,9 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `two_factor_secret` text COLLATE utf8mb4_unicode_ci,
+  `two_factor_recovery_codes` text COLLATE utf8mb4_unicode_ci,
+  `two_factor_confirmed_at` timestamp NULL DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -876,9 +883,8 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Marine Potier', 'mriou@example.net', '2022-05-18 20:03:07', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'RsR1p1KCzt', '2022-05-18 20:03:07', '2022-05-18 20:03:07'),
-(2, 'oltarba', 'contact@devoweb.fr', NULL, '$2y$10$qJxGTlhKbmF2Uk0s46jXhetbE7/K/xcnae6GczqyEhUyX7pAtLZPm', NULL, '2022-05-27 12:20:27', '2022-05-27 12:20:27');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 'oltarba', 'contact@devoweb.fr', NULL, '$2y$10$qJxGTlhKbmF2Uk0s46jXhetbE7/K/xcnae6GczqyEhUyX7pAtLZPm', NULL, NULL, NULL, NULL, '2022-05-27 12:20:27', '2022-05-27 12:20:27');
 
 -- --------------------------------------------------------
 
@@ -1243,7 +1249,7 @@ ALTER TABLE `map_cases`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT pour la table `object_durations`

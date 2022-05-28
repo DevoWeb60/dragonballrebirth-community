@@ -237,6 +237,13 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+body.admin {
+  background: linear-gradient(331deg, rgba(255, 177, 100, 0.8941176471) 9%, rgba(151, 75, 0, 0.8941176471) 91%);
+  overflow-y: visible;
+}
+body.admin .title {
+  color: #fff;
+}
 body::after {
   content: url("https://www.dragonballrebirth.fr/css/images/shop/skin-game/default/bg-logo.svg");
   position: fixed;
@@ -266,6 +273,18 @@ h2.title {
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
 }
 
+#root-app {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.7fr 3fr;
+}
+#root-app .container-dashboard {
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
 .container {
   position: relative;
   width: 87%;
@@ -279,6 +298,16 @@ h2.title {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: stretch;
+}
+
+.flex-center {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-center.column {
+  flex-direction: column;
 }
 
 ul {
@@ -1059,6 +1088,163 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
 .step-container .step .step-number h3 {
   margin: 0;
   color: #ff8b17;
+}
+
+.auth {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 50px;
+  color: #fff;
+}
+.auth .form-group {
+  position: relative;
+  margin-bottom: 50px;
+}
+.auth .form-group label,
+.auth .form-group input {
+  font-size: 1rem;
+  padding: 10px 5px 10px 0px;
+  color: #fff;
+  cursor: text;
+}
+.auth .form-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.4s ease-in-out;
+}
+.auth .form-group input {
+  background: none;
+  border: none;
+  border-bottom: 3px solid #ff8b17;
+  outline: none;
+}
+.auth .form-group input::-moz-placeholder {
+  color: transparent;
+}
+.auth .form-group input:-ms-input-placeholder {
+  color: transparent;
+}
+.auth .form-group input::placeholder {
+  color: transparent;
+}
+.auth .form-group input:not(:-moz-placeholder-shown) + label {
+  transform: translateY(-100%);
+  font-size: calc(1rem - 3px);
+}
+.auth .form-group input:not(:-ms-input-placeholder) + label {
+  transform: translateY(-100%);
+  font-size: calc(1rem - 3px);
+}
+.auth .form-group input:focus + label, .auth .form-group input:not(:placeholder-shown) + label {
+  transform: translateY(-100%);
+  font-size: calc(1rem - 3px);
+}
+.auth button {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  color: #ff8b17;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  overflow: hidden;
+}
+.auth button:hover {
+  color: #fff;
+}
+.auth button:hover::after {
+  width: 100%;
+}
+.auth button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #ff8b17;
+  transition: 0.4s ease-in-out;
+}
+
+.sidebar {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  text-align: center;
+  padding: 20px 40px;
+  border-right: 5px solid rgba(0, 0, 0, 0.5);
+  color: #ff8b17;
+}
+.sidebar h1.title {
+  margin-bottom: 50px;
+  font-size: calc(1.55rem + 3px);
+}
+.sidebar .btn-home {
+  display: block;
+  margin: 40px auto;
+  border-radius: 5px;
+  border: 2px solid #ff8b17;
+  padding: 7px 20px;
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #ff8b17;
+  font-size: 1.55rem;
+  transition: 0.4s ease-in-out;
+}
+.sidebar .btn-home:hover {
+  background: #ff8b17;
+  color: #fff;
+}
+.sidebar .menu-item {
+  text-align: left;
+  border-left: 3px solid #ff8b17;
+  padding-left: 15px;
+  margin-bottom: 50px;
+}
+.sidebar .menu-item li {
+  padding: 7px 0;
+  margin-bottom: 10px;
+}
+.sidebar .menu-item li.title {
+  font-size: calc(1.15rem + 0px);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.sidebar .menu-item li.title h3 {
+  margin: 0;
+}
+.sidebar .menu-item li.page {
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.sidebar .menu-item li.page:hover {
+  color: #fff;
+}
+
+.character-list {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.character-list img {
+  width: 30px;
+  margin-left: 15px;
 }
 
 .mainStory h2 {

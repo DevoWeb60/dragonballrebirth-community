@@ -15,6 +15,19 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 
+    &.admin {
+        background: linear-gradient(
+            331deg,
+            lighten(#ff8b17e4, 15) 9%,
+            darken(#ff8b17e4, 25) 91%
+        );
+        overflow-y: visible;
+
+        .title {
+            color: $white;
+        }
+    }
+
     &::after {
         content: url("https://www.dragonballrebirth.fr/css/images/shop/skin-game/default/bg-logo.svg");
         position: fixed;
@@ -43,6 +56,19 @@ h2.title {
 .shadow {
     filter: drop-shadow($box-shadow);
 }
+#root-app {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.7fr 3fr;
+
+    .container-dashboard {
+        height: 100vh;
+        overflow-y: scroll;
+        padding: 20px;
+    }
+}
+
 .container {
     position: relative;
     width: 87%;
@@ -55,6 +81,16 @@ h2.title {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: stretch;
+}
+.flex-center {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.column {
+        flex-direction: column;
+    }
 }
 
 ul {
