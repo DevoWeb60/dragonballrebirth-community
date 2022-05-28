@@ -11,16 +11,7 @@ import AdditionalQuest from "./pages/AdditionalQuest";
 import Story from "./pages/Story";
 
 export default function App() {
-    const [page, setPage] = useState("home");
-
-    const renderPage = () => {
-        switch (page) {
-            case "home":
-                return <Home />;
-            default:
-                return <div>404</div>;
-        }
-    };
+    const [page, setPage] = useState("character");
 
     return (
         <>

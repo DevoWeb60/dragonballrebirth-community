@@ -264,6 +264,20 @@ h3 {
   text-shadow: 2px 2px 1px black;
 }
 
+strong {
+  font-weight: 500;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+
 h2.title {
   color: #ff8b17;
   font-size: 2.5rem;
@@ -283,6 +297,13 @@ h2.title {
   height: 100vh;
   overflow-y: scroll;
   padding: 20px;
+}
+#root-app .container-dashboard h2.title {
+  display: flex;
+  justify-content: space-between;
+}
+#root-app .container-dashboard h2.title .btn-home {
+  margin: 0;
 }
 
 .container {
@@ -308,16 +329,6 @@ h2.title {
 }
 .flex-center.column {
   flex-direction: column;
-}
-
-ul {
-  padding-left: 0;
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  transition: 0.4s ease-in-out;
 }
 
 .price {
@@ -377,8 +388,31 @@ a {
   filter: brightness(0.1);
 }
 
-strong {
-  font-weight: 500;
+.btn-home {
+  display: block;
+  margin: 40px auto;
+  border-radius: 5px;
+  border: 2px solid #ff8b17;
+  padding: 7px 20px;
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #ff8b17;
+  font-size: 1.55rem;
+  transition: 0.4s ease-in-out;
+}
+.btn-home:hover {
+  background: #ff8b17;
+  color: #fff;
+}
+.btn-home.invert {
+  border-color: #fff;
+  color: #fff;
+}
+.btn-home.invert:hover {
+  background: #fff;
+  color: #ff8b17;
 }
 
 header {
@@ -573,6 +607,10 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
 .character .caps p .step,
 .character .story-unlock p .step {
   font-weight: 900;
+}
+.character .caps p .step img,
+.character .story-unlock p .step img {
+  width: 25px;
 }
 .character .caps {
   border-color: #1da128;
@@ -1187,24 +1225,6 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   margin-bottom: 50px;
   font-size: calc(1.55rem + 3px);
 }
-.sidebar .btn-home {
-  display: block;
-  margin: 40px auto;
-  border-radius: 5px;
-  border: 2px solid #ff8b17;
-  padding: 7px 20px;
-  cursor: pointer;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  color: #ff8b17;
-  font-size: 1.55rem;
-  transition: 0.4s ease-in-out;
-}
-.sidebar .btn-home:hover {
-  background: #ff8b17;
-  color: #fff;
-}
 .sidebar .menu-item {
   text-align: left;
   border-left: 3px solid #ff8b17;
@@ -1237,14 +1257,53 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 20px;
-  display: flex;
+  display: grid;
+  align-items: center;
   justify-content: space-between;
+  grid-template-columns: 0.8fr 1.7fr 1.7fr 0.5fr 0.3fr 0.3fr;
   width: 100%;
   margin-bottom: 20px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 .character-list img {
+  width: 25px;
+  margin-left: 7px;
+}
+.character-list .name,
+.character-list .story-info,
+.character-list .caps,
+.character-list .ruby {
+  display: flex;
+  align-items: center;
+}
+.character-list span.name {
+  font-family: "Edo SZ";
+}
+.character-list span.name img {
   width: 30px;
-  margin-left: 15px;
+}
+.character-list .story-info {
+  font-weight: 600;
+  color: #b05800;
+}
+.character-list span.edit,
+.character-list span.delete {
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.character-list span.edit:hover,
+.character-list span.delete:hover {
+  opacity: 0.6;
+}
+.character-list span.edit {
+  text-align: center;
+  color: #2591cc;
+}
+.character-list span.delete {
+  text-align: right;
+  color: #cc2525;
 }
 
 .mainStory h2 {

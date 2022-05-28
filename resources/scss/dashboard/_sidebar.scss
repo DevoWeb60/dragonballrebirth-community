@@ -11,24 +11,6 @@
         font-size: calc($fs-subtitle + 3px);
     }
 
-    .btn-home {
-        display: block;
-        margin: 40px auto;
-        border-radius: 5px;
-        border: 2px solid $orange;
-        padding: 7px 20px;
-        cursor: pointer;
-        width: fit-content;
-        color: $orange;
-        font-size: $fs-subtitle;
-        transition: $transition;
-
-        &:hover {
-            background: $orange;
-            color: $white;
-        }
-    }
-
     .menu-item {
         text-align: left;
         border-left: 3px solid $orange;

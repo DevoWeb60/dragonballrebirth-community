@@ -27,7 +27,7 @@
                                     </p>
                                 @else
                                     <p>
-                                        <span class="step">{{$character->ruby_cost}} rubis</span>
+                                        <span class="step">{{$character->ruby_cost}} <img src="https://www.dragonballrebirth.fr/css/images/ruby.svg" alt="rubis"></span>
                                     </p>
                                     <p>
                                         Boutique de Rubis

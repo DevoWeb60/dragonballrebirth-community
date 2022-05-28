@@ -6,7 +6,20 @@ export default function CapsSelect({
     characterCapsId = 0,
     caps,
     capsIcon,
+    selectMode,
 }) {
+    if (!selectMode) {
+        return caps.map((cap) => (
+            <>
+                {cap.id === characterCapsId && (
+                    <span>
+                        {cap.name} <img src={capsIcon} alt={cap.name} />
+                    </span>
+                )}
+            </>
+        ));
+    }
+
     if (greenCaps) {
         return (
             <select name={selectName}>
@@ -17,13 +30,9 @@ export default function CapsSelect({
                                 {characterCapsId === cap.id ? (
                                     <option value={cap.id} selected>
                                         {cap.name}
-                                        <img src={capsIcon} alt={cap.name} />
                                     </option>
                                 ) : (
-                                    <option value={cap.id}>
-                                        {cap.name}
-                                        <img src={capsIcon} alt={cap.name} />
-                                    </option>
+                                    <option value={cap.id}>{cap.name}</option>
                                 )}
                             </>
                         );
