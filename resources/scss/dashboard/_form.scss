@@ -1,15 +1,32 @@
-.auth {
+form {
     @include card;
     background: rgba(0, 0, 0, 0.7);
     padding: 50px;
     color: $white;
+
+    &.form-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .form-group {
+            width: 45%;
+
+            input,
+            select {
+                width: 100%;
+            }
+        }
+    }
 
     .form-group {
         position: relative;
         margin-bottom: 50px;
 
         label,
-        input {
+        input,
+        select {
             font-size: $fs-text;
             padding: 10px 5px 10px 0px;
             color: $white;
@@ -22,7 +39,8 @@
             transition: $transition;
         }
 
-        input {
+        input,
+        select {
             background: none;
             border: none;
             border-bottom: 3px solid $orange;

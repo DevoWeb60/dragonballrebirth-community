@@ -5,30 +5,29 @@ export default function StorySelect({
     selectName,
     characterUnlock,
     selectMode,
+    onChangeFunc,
 }) {
     if (!selectMode) {
-        return stories.map((story) => (
-            <>
-                {story.id === characterUnlock && (
-                    <span>{story.story_name}</span>
-                )}
-            </>
-        ));
+        return stories.map((story) => {
+            return (
+                story.id === characterUnlock && (
+                    <span key={story.id}>{story.story_name}</span>
+                )
+            );
+        });
     }
 
     return (
         <>
-            <select name={selectName}>
+            <select
+                name={selectName}
+                onChange={onChangeFunc}
+                value={characterUnlock}
+            >
                 {stories.map((story) => (
-                    <>
-                        {story.id === characterUnlock ? (
-                            <option value={story.id} selected>
-                                {story.story_name}
-                            </option>
-                        ) : (
-                            <option value={story.id}>{story.story_name}</option>
-                        )}
-                    </>
+                    <option value={story.id} selected key={story.id}>
+                        {story.story_name}
+                    </option>
                 ))}
             </select>
         </>

@@ -74,8 +74,6 @@ export default function Character() {
                                                 )}
                                                 <CapsSelect
                                                     caps={greenCaps}
-                                                    greenCaps={true}
-                                                    selectName="caps_id"
                                                     characterCapsId={
                                                         character.caps_id
                                                     }
@@ -109,10 +107,10 @@ export default function Character() {
                                                 setOnUpdate(character)
                                             }
                                         >
-                                            <i class="fa-solid fa-pen-to-square"></i>
+                                            <i className="fa-solid fa-pen-to-square"></i>
                                         </span>
                                         <span className="delete">
-                                            <i class="fa-solid fa-trash"></i>
+                                            <i className="fa-solid fa-trash"></i>
                                         </span>
                                     </div>
                                 );
@@ -121,7 +119,10 @@ export default function Character() {
                 </>
             ) : (
                 <UpdateCharacter
-                    character={onUpdate}
+                    characterSelect={onUpdate}
+                    caps={greenCaps}
+                    capsIcon={greenCapsIcon}
+                    stories={stories}
                     setOnUpdate={setOnUpdate}
                 />
             )}

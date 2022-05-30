@@ -7,34 +7,34 @@ export default function CapsSelect({
     caps,
     capsIcon,
     selectMode,
+    onChangeFunc,
 }) {
     if (!selectMode) {
-        return caps.map((cap) => (
-            <>
-                {cap.id === characterCapsId && (
-                    <span>
-                        {cap.name} <img src={capsIcon} alt={cap.name} />
+        return caps.map((cap) => {
+            return (
+                cap.id === characterCapsId && (
+                    <span key={cap.id}>
+                        {cap.name}
+                        {capsIcon && <img src={capsIcon} alt={cap.name} />}
                     </span>
-                )}
-            </>
-        ));
+                )
+            );
+        });
     }
 
     if (greenCaps) {
         return (
-            <select name={selectName}>
+            <select
+                name={selectName}
+                value={characterCapsId}
+                onChange={onChangeFunc}
+            >
                 {caps.map((cap) => {
                     if (cap.caps_scarecities_id === 1) {
                         return (
-                            <>
-                                {characterCapsId === cap.id ? (
-                                    <option value={cap.id} selected>
-                                        {cap.name}
-                                    </option>
-                                ) : (
-                                    <option value={cap.id}>{cap.name}</option>
-                                )}
-                            </>
+                            <option value={cap.id} key={cap.id}>
+                                {cap.name}
+                            </option>
                         );
                     }
                 })}
@@ -43,10 +43,14 @@ export default function CapsSelect({
     }
 
     return (
-        <select name={selectName}>
+        <select
+            name={selectName}
+            value={characterCapsId}
+            onChange={onChangeFunc}
+        >
             {caps.map((cap) => {
                 if (cap.caps_scarecities_id !== 1) {
-                    <option value={cap.id}>
+                    <option value={cap.id} key={cap.id}>
                         {cap.name}
                         <img src={capsIcon} alt={cap.name} />
                     </option>;

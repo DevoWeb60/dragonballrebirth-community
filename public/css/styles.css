@@ -415,6 +415,13 @@ h2.title {
   color: #ff8b17;
 }
 
+.preview {
+  padding: 40px 0;
+}
+.preview div:nth-child(1) {
+  margin: 0 auto;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -1128,7 +1135,7 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   color: #ff8b17;
 }
 
-.auth {
+form {
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -1137,51 +1144,69 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   padding: 50px;
   color: #fff;
 }
-.auth .form-group {
+form.form-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+form.form-flex .form-group {
+  width: 45%;
+}
+form.form-flex .form-group input,
+form.form-flex .form-group select {
+  width: 100%;
+}
+form .form-group {
   position: relative;
   margin-bottom: 50px;
 }
-.auth .form-group label,
-.auth .form-group input {
+form .form-group label,
+form .form-group input,
+form .form-group select {
   font-size: 1rem;
   padding: 10px 5px 10px 0px;
   color: #fff;
   cursor: text;
 }
-.auth .form-group label {
+form .form-group label {
   position: absolute;
   top: 0;
   left: 0;
   transition: 0.4s ease-in-out;
 }
-.auth .form-group input {
+form .form-group input,
+form .form-group select {
   background: none;
   border: none;
   border-bottom: 3px solid #ff8b17;
   outline: none;
 }
-.auth .form-group input::-moz-placeholder {
+form .form-group input::-moz-placeholder, form .form-group select::-moz-placeholder {
   color: transparent;
 }
-.auth .form-group input:-ms-input-placeholder {
+form .form-group input:-ms-input-placeholder, form .form-group select:-ms-input-placeholder {
   color: transparent;
 }
-.auth .form-group input::placeholder {
+form .form-group input::placeholder,
+form .form-group select::placeholder {
   color: transparent;
 }
-.auth .form-group input:not(:-moz-placeholder-shown) + label {
+form .form-group input:not(:-moz-placeholder-shown) + label, form .form-group select:not(:-moz-placeholder-shown) + label {
   transform: translateY(-100%);
   font-size: calc(1rem - 3px);
 }
-.auth .form-group input:not(:-ms-input-placeholder) + label {
+form .form-group input:not(:-ms-input-placeholder) + label, form .form-group select:not(:-ms-input-placeholder) + label {
   transform: translateY(-100%);
   font-size: calc(1rem - 3px);
 }
-.auth .form-group input:focus + label, .auth .form-group input:not(:placeholder-shown) + label {
+form .form-group input:focus + label, form .form-group input:not(:placeholder-shown) + label,
+form .form-group select:focus + label,
+form .form-group select:not(:placeholder-shown) + label {
   transform: translateY(-100%);
   font-size: calc(1rem - 3px);
 }
-.auth button {
+form button {
   position: relative;
   background: transparent;
   width: 100%;
@@ -1196,13 +1221,13 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   transition: 0.4s ease-in-out;
   overflow: hidden;
 }
-.auth button:hover {
+form button:hover {
   color: #fff;
 }
-.auth button:hover::after {
+form button:hover::after {
   width: 100%;
 }
-.auth button::after {
+form button::after {
   content: "";
   position: absolute;
   bottom: 0;

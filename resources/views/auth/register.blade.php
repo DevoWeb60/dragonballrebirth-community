@@ -3,7 +3,7 @@
 @section('content')
     <div class="container flex-center column">
         <h2 class="title">Inscription</h2>
-        <form action="{{ route('register') }}" method="POST" class="auth">
+        <form action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group" >
                 <input type="text" id="name" name="name" placeholder="name">

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container flex-center column">
         <h2 class="title">Espace administrateur {{ Auth::user() }}</h2>
-        <form action="{{ route('login') }}"  method="POST" class="auth">
+        <form action="{{ route('login') }}"  method="POST">
             @csrf
             <div class="form-group">
                 <input type="text" id="name" name="name" placeholder="pseudo">
