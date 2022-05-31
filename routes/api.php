@@ -21,4 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/character', [CharacterController::class, 'api']);
+Route::post('/character/update', [CharacterController::class, 'update']);
+Route::post('/character/create', [CharacterController::class, 'create']);
+Route::post('/character/delete', [CharacterController::class, 'destroy']);
 Route::get('/caps', [CapsController::class, 'api']);

@@ -42,24 +42,24 @@ class CharacterController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+        $character = new Character;
+
+        $character->name = $request->name;
+        $character->avatar = $request->avatar;
+        $character->ruby_cost = $request->ruby_cost;
+        $character->story_id = $request->story_id;
+        $character->caps_id = $request->caps_id;
+        $character->is_pnj = $request->is_pnj;
+        $character->step_unlock = $request->step_unlock;
+        $character->save();
+
     }
 
     /**
@@ -81,7 +81,6 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        //
     }
 
     /**
@@ -93,17 +92,26 @@ class CharacterController extends Controller
      */
     public function update(Request $request, Character $character)
     {
-        //
+        $character::where('id', $request->id)->update([
+            'name' => $request->name,
+            'avatar' => $request->avatar,
+            'ruby_cost' => $request->ruby_cost,
+            'story_id' => $request->story_id,
+            'caps_id' => $request->caps_id,
+            'is_pnj' => $request->is_pnj,
+            'step_unlock' => $request->step_unlock,
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Character  $character
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Character $character)
+    public function destroy(Character $character, Request $request)
     {
-        //
+        $character->where('id', $request->id)->delete();
     }
 }

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function CapsSelect({
@@ -8,6 +9,7 @@ export default function CapsSelect({
     capsIcon,
     selectMode,
     onChangeFunc,
+    disabled = false,
 }) {
     if (!selectMode) {
         return caps.map((cap) => {
@@ -28,6 +30,7 @@ export default function CapsSelect({
                 name={selectName}
                 value={characterCapsId}
                 onChange={onChangeFunc}
+                disabled={disabled}
             >
                 {caps.map((cap) => {
                     if (cap.caps_scarecities_id === 1) {
@@ -47,6 +50,7 @@ export default function CapsSelect({
             name={selectName}
             value={characterCapsId}
             onChange={onChangeFunc}
+            disabled={disabled}
         >
             {caps.map((cap) => {
                 if (cap.caps_scarecities_id !== 1) {

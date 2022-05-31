@@ -1,7 +1,7 @@
 form {
     @include card;
     background: rgba(0, 0, 0, 0.7);
-    padding: 50px;
+    padding: 50px 50px 20px 50px;
     color: $white;
 
     &.form-flex {
@@ -20,6 +20,17 @@ form {
         }
     }
 
+    .form-group-check {
+        width: 100%;
+
+        label {
+            margin-left: 20px;
+            color: $white;
+            font-family: "Edo SZ";
+            font-size: $fs-subtitle;
+        }
+    }
+
     .form-group {
         position: relative;
         margin-bottom: 50px;
@@ -31,6 +42,11 @@ form {
             padding: 10px 5px 10px 0px;
             color: $white;
             cursor: text;
+
+            &[disabled] {
+                opacity: 0.3;
+                cursor: default;
+            }
         }
         label {
             position: absolute;
@@ -55,6 +71,10 @@ form {
                 transform: translateY(-100%);
                 font-size: calc($fs-text - 3px);
             }
+        }
+
+        select option {
+            color: $black;
         }
     }
     button {

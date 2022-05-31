@@ -416,7 +416,7 @@ h2.title {
 }
 
 .preview {
-  padding: 40px 0;
+  padding: 60px 0 0 0;
 }
 .preview div:nth-child(1) {
   margin: 0 auto;
@@ -1141,7 +1141,7 @@ form {
   border-radius: 10px;
   padding: 20px;
   background: rgba(0, 0, 0, 0.7);
-  padding: 50px;
+  padding: 50px 50px 20px 50px;
   color: #fff;
 }
 form.form-flex {
@@ -1157,6 +1157,15 @@ form.form-flex .form-group input,
 form.form-flex .form-group select {
   width: 100%;
 }
+form .form-group-check {
+  width: 100%;
+}
+form .form-group-check label {
+  margin-left: 20px;
+  color: #fff;
+  font-family: "Edo SZ";
+  font-size: 1.55rem;
+}
 form .form-group {
   position: relative;
   margin-bottom: 50px;
@@ -1168,6 +1177,12 @@ form .form-group select {
   padding: 10px 5px 10px 0px;
   color: #fff;
   cursor: text;
+}
+form .form-group label[disabled],
+form .form-group input[disabled],
+form .form-group select[disabled] {
+  opacity: 0.3;
+  cursor: default;
 }
 form .form-group label {
   position: absolute;
@@ -1205,6 +1220,9 @@ form .form-group select:focus + label,
 form .form-group select:not(:placeholder-shown) + label {
   transform: translateY(-100%);
   font-size: calc(1rem - 3px);
+}
+form .form-group select option {
+  color: #333;
 }
 form button {
   position: relative;

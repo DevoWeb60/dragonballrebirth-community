@@ -2250,7 +2250,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function App() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("character"),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("home"),
       _useState2 = _slicedToArray(_useState, 2),
       page = _useState2[0],
       setPage = _useState2[1];
@@ -2278,9 +2278,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ CapsSelect)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -2294,12 +2297,14 @@ function CapsSelect(_ref) {
       caps = _ref.caps,
       capsIcon = _ref.capsIcon,
       selectMode = _ref.selectMode,
-      onChangeFunc = _ref.onChangeFunc;
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
 
   if (!selectMode) {
     return caps.map(function (cap) {
-      return cap.id === characterCapsId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-        children: [cap.name, capsIcon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      return cap.id === characterCapsId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+        children: [cap.name, capsIcon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
           src: capsIcon,
           alt: cap.name
         })]
@@ -2308,13 +2313,14 @@ function CapsSelect(_ref) {
   }
 
   if (greenCaps) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("select", {
       name: selectName,
       value: characterCapsId,
       onChange: onChangeFunc,
+      disabled: disabled,
       children: caps.map(function (cap) {
         if (cap.caps_scarecities_id === 1) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
             value: cap.id,
             children: cap.name
           }, cap.id);
@@ -2323,16 +2329,17 @@ function CapsSelect(_ref) {
     });
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("select", {
     name: selectName,
     value: characterCapsId,
     onChange: onChangeFunc,
+    disabled: disabled,
     children: caps.map(function (cap) {
       if (cap.caps_scarecities_id !== 1) {
         /*#__PURE__*/
-        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("option", {
+        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("option", {
           value: cap.id,
-          children: [cap.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          children: [cap.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
             src: capsIcon,
             alt: cap.name
           })]
@@ -2366,7 +2373,9 @@ function StorySelect(_ref) {
       selectName = _ref.selectName,
       characterUnlock = _ref.characterUnlock,
       selectMode = _ref.selectMode,
-      onChangeFunc = _ref.onChangeFunc;
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
 
   if (!selectMode) {
     return stories.map(function (story) {
@@ -2381,10 +2390,10 @@ function StorySelect(_ref) {
       name: selectName,
       onChange: onChangeFunc,
       value: characterUnlock,
+      disabled: disabled,
       children: stories.map(function (story) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
           value: story.id,
-          selected: true,
           children: story.story_name
         }, story.id);
       })
@@ -2605,9 +2614,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Select/CapsSelect */ "./resources/js/dashboard/components/Select/CapsSelect.js");
-/* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
-/* harmony import */ var _UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateComponent/Preview */ "./resources/js/dashboard/pages/Character/UpdateComponent/Preview.js");
+/* harmony import */ var _UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateComponent/Preview */ "./resources/js/dashboard/pages/Character/UpdateComponent/Preview.js");
+/* harmony import */ var _UpdateComponent_FormCharacter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateComponent/FormCharacter */ "./resources/js/dashboard/pages/Character/UpdateComponent/FormCharacter.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -2635,54 +2645,110 @@ function UpdateCharacter(_ref) {
       capsIcon = _ref.capsIcon,
       stories = _ref.stories;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.name),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.name || ""),
       _useState2 = _slicedToArray(_useState, 2),
       name = _useState2[0],
       setName = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.avatar),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.avatar || "https://dragonballrebirth.fr/img/characters/[nom]/"),
       _useState4 = _slicedToArray(_useState3, 2),
       avatar = _useState4[0],
       setAvatar = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.caps_id),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.caps_id || 1),
       _useState6 = _slicedToArray(_useState5, 2),
       capsId = _useState6[0],
       setCapsId = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.step_unlock),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.step_unlock || 0),
       _useState8 = _slicedToArray(_useState7, 2),
       stepUnlock = _useState8[0],
       setStepUnlock = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.story_id),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.story_id || 1),
       _useState10 = _slicedToArray(_useState9, 2),
       storyUnlock = _useState10[0],
       setStoryUnlock = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.is_pnj),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.is_pnj ? true : false),
       _useState12 = _slicedToArray(_useState11, 2),
       pnj = _useState12[0],
       setPnj = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.ruby_cost),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(characterSelect.ruby_cost || 0),
       _useState14 = _slicedToArray(_useState13, 2),
       ruby = _useState14[0],
       setRuby = _useState14[1];
+
+  var form = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
 
   var back = function back() {
     setOnUpdate(false);
   };
 
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var inputs = form.current;
+    var data = {};
+    data = {
+      name: inputs[0].value,
+      avatar: !pnj ? inputs[1].value : null,
+      step_unlock: !pnj ? Number(inputs[2].value) : null,
+      story_id: !pnj ? Number(inputs[3].value) : null,
+      ruby_cost: !pnj ? Number(inputs[4].value) : null,
+      caps_id: !pnj ? Number(inputs[5].value) : null,
+      is_pnj: !pnj ? null : 1,
+      id: characterSelect.id
+    };
+
+    if (characterSelect === "NEW") {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/character/create", data).then(function (res) {
+        if (res.status === 200) {
+          window.location = "/dashboard";
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    } else {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/character/update", data).then(function (res) {
+        if (res.status === 200) {
+          window.location = "/dashboard";
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
       className: "title",
-      children: [characterSelect.name, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      children: [characterSelect.name || "Nouveau personnages", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
         className: "btn-home invert",
         onClick: back,
         children: "Retour"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormCharacter__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      forwardRef: form,
+      handleSubmit: handleSubmit,
+      name: name,
+      setName: setName,
+      avatar: avatar,
+      setAvatar: setAvatar,
+      stepUnlock: stepUnlock,
+      setStepUnlock: setStepUnlock,
+      storyUnlock: storyUnlock,
+      setStoryUnlock: setStoryUnlock,
+      pnj: pnj,
+      setPnj: setPnj,
+      ruby: ruby,
+      setRuby: setRuby,
+      capsId: capsId,
+      setCapsId: setCapsId,
+      stories: stories,
+      caps: caps,
+      buttonText: characterSelect === "NEW" ? "Ajouter" : "Mettre à jour"
+    }), !pnj && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_1__["default"], {
       name: name,
       capsId: capsId,
       avatar: avatar,
@@ -2693,103 +2759,170 @@ function UpdateCharacter(_ref) {
       caps: caps,
       capsIcon: capsIcon,
       stories: stories
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-      action: "",
-      method: "POST",
-      "class": "form-flex",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "form-group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-          type: "text",
-          id: "name",
-          name: "name",
-          value: name,
-          onChange: function onChange(e) {
-            return setName(e.target.value);
-          },
-          placeholder: "CSS"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-          htmlFor: "name",
-          children: "Nom"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "form-group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-          type: "text",
-          id: "avatar",
-          name: "avatar",
-          value: avatar,
-          onChange: function onChange(e) {
-            return setAvatar(e.target.value);
-          },
-          placeholder: "CSS"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-          htmlFor: "avatar",
-          children: "Avatar"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "form-group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-          type: "number",
-          id: "step",
-          name: "step",
-          value: stepUnlock,
-          onChange: function onChange(e) {
-            return setStepUnlock(Number(e.target.value));
-          },
-          placeholder: "CSS"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-          htmlFor: "step_unlock",
-          children: "Etape"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "form-group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          stories: stories,
-          characterUnlock: storyUnlock,
-          selectName: "story_id",
-          selectMode: true,
-          onChangeFunc: function onChangeFunc(e) {
-            return setStoryUnlock(Number(e.target.value));
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-          htmlFor: "story_id",
-          children: "Histoire"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "form-group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-          type: "number",
-          id: "ruby",
-          name: "ruby",
-          value: ruby,
-          onChange: function onChange(e) {
-            return setRuby(Number(e.target.value));
-          },
-          placeholder: "CSS"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-          htmlFor: "ruby",
-          children: "Prix"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "form-group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          caps: caps,
-          characterCapsId: capsId,
-          selectMode: true,
-          greenCaps: true,
-          selectName: "caps_id",
-          onChangeFunc: function onChangeFunc(e) {
-            return setCapsId(Number(e.target.value));
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-          htmlFor: "caps_id",
-          children: "Capsule"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        type: "submit",
-        children: "Mettre \xE0 jour"
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Character/UpdateComponent/FormCharacter.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Character/UpdateComponent/FormCharacter.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormCharacter)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/CapsSelect */ "./resources/js/dashboard/components/Select/CapsSelect.js");
+/* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function FormCharacter(_ref) {
+  var forwardRef = _ref.forwardRef,
+      handleSubmit = _ref.handleSubmit,
+      name = _ref.name,
+      setName = _ref.setName,
+      avatar = _ref.avatar,
+      setAvatar = _ref.setAvatar,
+      stepUnlock = _ref.stepUnlock,
+      setStepUnlock = _ref.setStepUnlock,
+      storyUnlock = _ref.storyUnlock,
+      setStoryUnlock = _ref.setStoryUnlock,
+      pnj = _ref.pnj,
+      setPnj = _ref.setPnj,
+      ruby = _ref.ruby,
+      setRuby = _ref.setRuby,
+      capsId = _ref.capsId,
+      setCapsId = _ref.setCapsId,
+      stories = _ref.stories,
+      caps = _ref.caps,
+      buttonText = _ref.buttonText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+    className: "form-flex",
+    onSubmit: function onSubmit(e) {
+      return handleSubmit(e);
+    },
+    ref: forwardRef,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        id: "name",
+        name: "name",
+        value: name,
+        onChange: function onChange(e) {
+          return setName(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "name",
+        children: "Nom"
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        id: "avatar",
+        name: "avatar",
+        value: avatar,
+        onChange: function onChange(e) {
+          return setAvatar(e.target.value);
+        },
+        placeholder: "CSS",
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "avatar",
+        children: "Avatar"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "number",
+        id: "step",
+        name: "step",
+        value: stepUnlock,
+        onChange: function onChange(e) {
+          return setStepUnlock(Number(e.target.value));
+        },
+        placeholder: "CSS",
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "step_unlock",
+        children: "Etape"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        stories: stories,
+        characterUnlock: storyUnlock,
+        selectName: "story_id",
+        selectMode: true,
+        onChangeFunc: function onChangeFunc(e) {
+          return setStoryUnlock(Number(e.target.value));
+        },
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "story_id",
+        children: "Histoire"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "number",
+        id: "ruby",
+        name: "ruby",
+        value: ruby,
+        onChange: function onChange(e) {
+          return setRuby(Number(e.target.value));
+        },
+        placeholder: "CSS",
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "ruby",
+        children: "Prix"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        caps: caps,
+        characterCapsId: capsId,
+        selectMode: true,
+        greenCaps: true,
+        selectName: "caps_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setCapsId(Number(e.target.value));
+        },
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "caps_id",
+        children: "Capsule"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group-check",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "checkbox",
+        name: "is_pnj",
+        id: "isPnj",
+        checked: pnj,
+        onChange: function onChange(e) {
+          return setPnj(e.target.checked);
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "isPnj",
+        children: "PNJ"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      type: "submit",
+      children: buttonText
     })]
   });
 }
@@ -2914,12 +3047,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Character)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Select/CapsSelect */ "./resources/js/dashboard/components/Select/CapsSelect.js");
-/* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
-/* harmony import */ var _UpdateCharacter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateCharacter */ "./resources/js/dashboard/pages/Character/UpdateCharacter.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Select/CapsSelect */ "./resources/js/dashboard/components/Select/CapsSelect.js");
+/* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
+/* harmony import */ var _UpdateCharacter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UpdateCharacter */ "./resources/js/dashboard/pages/Character/UpdateCharacter.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2939,33 +3074,34 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Character() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       characters = _useState2[0],
       setCharacters = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
       greenCaps = _useState4[0],
       setGreenCaps = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState6 = _slicedToArray(_useState5, 2),
       stories = _useState6[0],
       setStories = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState8 = _slicedToArray(_useState7, 2),
       greenCapsIcon = _useState8[0],
       setGreenCapsIcon = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState10 = _slicedToArray(_useState9, 2),
       onUpdate = _useState10[0],
       setOnUpdate = _useState10[1];
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     fetch("/api/character").then(function (res) {
       return res.json();
     }).then(function (data) {
@@ -2975,80 +3111,100 @@ function Character() {
       setStories(data.stories);
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
+
+  var deleteCharacter = function deleteCharacter(character) {
+    console.log(character);
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/character/delete", {
+      id: character.id
+    }).then(function (res) {
+      if (res.status === 200) {
+        window.location = "/dashboard";
+      }
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
         className: "title",
-        children: ["Les personnages", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        children: ["Les personnages", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
           className: "btn-home invert",
+          onClick: function onClick() {
+            return setOnUpdate("NEW");
+          },
           children: "Ajouter"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "flex-galery",
         children: characters.length !== 0 && characters.map(function (character) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "character-list",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
               className: "name",
-              children: [character.name, character.avatar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+              children: [character.name, character.avatar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
                 src: character.avatar + "transformations/base/head.png",
                 alt: character.name
               })]
-            }), !character.is_pnj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-              children: [character.ruby_cost === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), !character.is_pnj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+              children: [character.ruby_cost === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "story-info",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   stories: stories,
                   characterUnlock: character.story_id,
                   selectName: "story_id",
                   selectMode: false
-                }), "\xA0 \xA0 \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                }), "\xA0 \xA0 \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
                   className: "step",
                   children: ["Etape", " ", character.step_unlock]
                 })]
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "empty"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 caps: greenCaps,
                 characterCapsId: character.caps_id,
                 capsIcon: greenCapsIcon,
                 selectMode: false
-              }), character.ruby_cost !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              }), character.ruby_cost !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
                 className: "ruby",
-                children: [character.ruby_cost, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                children: [character.ruby_cost, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
                   src: "https://www.dragonballrebirth.fr/css/images/ruby.svg",
                   alt: "ruby"
                 })]
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "empty"
               })]
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "empty"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "empty"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "pnj",
                 children: character.is_pnj && "PNJ"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
               className: "edit",
               onClick: function onClick() {
                 return setOnUpdate(character);
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                 className: "fa-solid fa-pen-to-square"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
               className: "delete",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+              onClick: function onClick() {
+                return deleteCharacter(character);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                 className: "fa-solid fa-trash"
               })
             })]
           }, character.id);
         })
       })]
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateCharacter__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_UpdateCharacter__WEBPACK_IMPORTED_MODULE_4__["default"], {
       characterSelect: onUpdate,
       caps: greenCaps,
       capsIcon: greenCapsIcon,

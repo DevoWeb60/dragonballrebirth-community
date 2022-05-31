@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CapsSelect from "../../components/Select/CapsSelect";
 import StorySelect from "../../components/Select/StorySelect";
@@ -21,13 +22,30 @@ export default function Character() {
             });
     }, []);
 
+    const deleteCharacter = (character) => {
+        console.log(character);
+        axios
+            .post("/api/character/delete", { id: character.id })
+            .then((res) => {
+                if (res.status === 200) {
+                    window.location = "/dashboard";
+                }
+            })
+            .catch((err) => console.log(err));
+    };
+
     return (
         <>
             {onUpdate === false ? (
                 <>
                     <h2 className="title">
                         Les personnages{" "}
-                        <span className="btn-home invert">Ajouter</span>
+                        <span
+                            className="btn-home invert"
+                            onClick={() => setOnUpdate("NEW")}
+                        >
+                            Ajouter
+                        </span>
                     </h2>
                     <div className="flex-galery">
                         {characters.length !== 0 &&
@@ -109,7 +127,12 @@ export default function Character() {
                                         >
                                             <i className="fa-solid fa-pen-to-square"></i>
                                         </span>
-                                        <span className="delete">
+                                        <span
+                                            className="delete"
+                                            onClick={() =>
+                                                deleteCharacter(character)
+                                            }
+                                        >
                                             <i className="fa-solid fa-trash"></i>
                                         </span>
                                     </div>
