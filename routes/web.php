@@ -23,7 +23,7 @@ use App\Http\Controllers\MainStoryController;
 */
 
 // !ADMIN
-Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index')->middleware('auth');
+Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
 
 
 // HOME

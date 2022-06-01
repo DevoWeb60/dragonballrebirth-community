@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Character;
 use App\Models\Caps;
 use App\Models\Story;
-use App\Models\CapsScarecity;
+use App\Models\Character;
 use Illuminate\Http\Request;
+use App\Models\CapsScarecity;
+use Illuminate\Support\Facades\Auth;
 
 class CharacterController extends Controller
 {
@@ -20,7 +21,6 @@ class CharacterController extends Controller
         $characters = Character::all();
         $capsIcon = CapsScarecity::find(1);
 
-
         return view('characters', [
             'characters' => $characters,
             'capsIcon' => $capsIcon,
@@ -32,6 +32,8 @@ class CharacterController extends Controller
         $greenCaps = Caps::where('caps_scarecities_id', 1)->get();
         $capsIcon = CapsScarecity::find(1);
         $stories = Story::all();
+
+
 
         return response()->json([
             'characters' => $characters,
@@ -49,38 +51,23 @@ class CharacterController extends Controller
      */
     public function create(Request $request)
     {
-        $character = new Character;
 
-        $character->name = $request->name;
-        $character->avatar = $request->avatar;
-        $character->ruby_cost = $request->ruby_cost;
-        $character->story_id = $request->story_id;
-        $character->caps_id = $request->caps_id;
-        $character->is_pnj = $request->is_pnj;
-        $character->step_unlock = $request->step_unlock;
-        $character->save();
+            $character = new Character;
 
-    }
+            $character->name = $request->name;
+            $character->avatar = $request->avatar;
+            $character->ruby_cost = $request->ruby_cost;
+            $character->story_id = $request->story_id;
+            $character->caps_id = $request->caps_id;
+            $character->is_pnj = $request->is_pnj;
+            $character->step_unlock = $request->step_unlock;
+            $character->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Character $character)
-    {
-        //
-    }
+        // }else{
+        //     redirect()->route('home.index');
+        // }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Character $character)
-    {
+
     }
 
     /**
@@ -92,15 +79,18 @@ class CharacterController extends Controller
      */
     public function update(Request $request, Character $character)
     {
-        $character::where('id', $request->id)->update([
-            'name' => $request->name,
-            'avatar' => $request->avatar,
-            'ruby_cost' => $request->ruby_cost,
-            'story_id' => $request->story_id,
-            'caps_id' => $request->caps_id,
-            'is_pnj' => $request->is_pnj,
-            'step_unlock' => $request->step_unlock,
-        ]);
+
+            $character::where('id', $request->id)->update([
+                'name' => $request->name,
+                'avatar' => $request->avatar,
+                'ruby_cost' => $request->ruby_cost,
+                'story_id' => $request->story_id,
+                'caps_id' => $request->caps_id,
+                'is_pnj' => $request->is_pnj,
+                'step_unlock' => $request->step_unlock,
+            ]);
+
+
     }
 
     /**
@@ -112,6 +102,8 @@ class CharacterController extends Controller
      */
     public function destroy(Character $character, Request $request)
     {
-        $character->where('id', $request->id)->delete();
+
+            $character->where('id', $request->id)->delete();
+
     }
 }

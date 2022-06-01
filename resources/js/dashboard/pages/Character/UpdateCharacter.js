@@ -50,7 +50,7 @@ export default function UpdateCharacter({
 
         if (characterSelect === "NEW") {
             axios
-                .post("/api/character/create", data)
+                .post("api/character/create", data)
                 .then((res) => {
                     if (res.status === 200) {
                         window.location = "/dashboard";
@@ -59,7 +59,7 @@ export default function UpdateCharacter({
                 .catch((err) => console.log(err));
         } else {
             axios
-                .post("/api/character/update", data)
+                .post("api/character/update", data)
                 .then((res) => {
                     if (res.status === 200) {
                         window.location = "/dashboard";
@@ -72,7 +72,7 @@ export default function UpdateCharacter({
     return (
         <>
             <h2 className="title">
-                {characterSelect.name || "Nouveau personnages"}{" "}
+                {characterSelect.name || "Nouveau personnages"}
                 <span className="btn-home invert" onClick={back}>
                     Retour
                 </span>

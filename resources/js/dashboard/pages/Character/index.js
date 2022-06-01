@@ -12,26 +12,31 @@ export default function Character() {
     const [onUpdate, setOnUpdate] = useState(false);
 
     useEffect(() => {
-        fetch("/api/character")
-            .then((res) => res.json())
-            .then((data) => {
-                setCharacters(data.characters);
-                setGreenCaps(data.greenCaps);
-                setGreenCapsIcon(data.capsIcon.icon);
-                setStories(data.stories);
-            });
+        axios
+            .get("api/character")
+            .then((res) => {
+                setCharacters(res.data.characters);
+                setGreenCaps(res.data.greenCaps);
+                setGreenCapsIcon(res.data.capsIcon.icon);
+                setStories(res.data.stories);
+            })
+            .catch((err) => console.log(err));
     }, []);
 
     const deleteCharacter = (character) => {
-        console.log(character);
-        axios
-            .post("/api/character/delete", { id: character.id })
-            .then((res) => {
-                if (res.status === 200) {
-                    window.location = "/dashboard";
-                }
-            })
-            .catch((err) => console.log(err));
+        const confirm = window.confirm(
+            "Voulez-vous vraiment supprimer ce personnage ?"
+        );
+        if (confirm) {
+            axios
+                .post("api/character/delete", { id: character.id })
+                .then((res) => {
+                    if (res.status === 200) {
+                        window.location = "/dashboard";
+                    }
+                })
+                .catch((err) => console.log(err));
+        }
     };
 
     return (

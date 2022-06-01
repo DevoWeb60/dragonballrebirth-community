@@ -2,7 +2,8 @@ import React from "react";
 
 export default function Sidebar({ setPage }) {
     const changePage = (newPage) => {
-        setPage(newPage);
+        localStorage.setItem("page", newPage);
+        setPage(localStorage.getItem("page"));
     };
 
     return (
