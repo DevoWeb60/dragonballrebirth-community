@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Character extends Model
@@ -16,5 +15,13 @@ class Character extends Model
 
     public function story(){
         return $this->belongsTo(Story::class);
+    }
+
+    public function category(){
+        return $this->belongsToMany(CharacterCategory::class, 'link_characters_to_categories', 'id', 'category_id');
+    }
+
+    public function mainStory(){
+        return $this->belongsTo(MainStory::class, 'main_story_id');
     }
 }

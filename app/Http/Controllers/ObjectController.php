@@ -16,4 +16,14 @@ class ObjectController extends Controller
             'objects' => ObjectItem::all(),
         ]);
     }
+
+    public function api(){
+        $objects = ObjectItem::all();
+
+        foreach ($objects as $object) {
+            $object->duration = $object->duration;
+        }
+
+        return response()->json($objects);
+    }
 }

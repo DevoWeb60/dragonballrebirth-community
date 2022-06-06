@@ -558,7 +558,7 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   flex-direction: column;
   flex-grow: 1;
   position: relative;
-  margin: 50px 80px 50px 60px;
+  margin: 50px 80px 90px 60px;
   width: 400px;
   padding-left: 125px;
 }
@@ -567,9 +567,10 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(-50%, -9%);
+  transform: translate(-50%, 9%);
 }
-.character .shadow h2 {
+.character .shadow h2,
+.character .shadow h5 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -581,10 +582,14 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   letter-spacing: 2px;
   transform: translateY(1px);
 }
-.character .shadow h2 img {
+.character .shadow h2 img,
+.character .shadow h5 img {
   margin-left: 20px;
   width: 30px;
   height: 30px;
+}
+.character .shadow h5 {
+  font-size: 13px;
 }
 .character .shadow .presentation {
   padding: 15px;
@@ -606,14 +611,16 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   border-radius: 10px;
 }
 .character .caps,
-.character .story-unlock {
+.character .story-unlock,
+.character .categories {
   border-radius: 10px;
   overflow: hidden;
   border: 4px solid #e87400;
   background: rgba(255, 255, 255, 0.1);
 }
 .character .caps h3,
-.character .story-unlock h3 {
+.character .story-unlock h3,
+.character .categories h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -628,11 +635,13 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   color: #fff;
 }
 .character .caps h3 img,
-.character .story-unlock h3 img {
+.character .story-unlock h3 img,
+.character .categories h3 img {
   width: 30px;
 }
 .character .caps p,
-.character .story-unlock p {
+.character .story-unlock p,
+.character .categories p {
   margin: 0;
   font-weight: 600;
   text-align: center;
@@ -640,11 +649,13 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   font-size: 1rem;
 }
 .character .caps p .step,
-.character .story-unlock p .step {
+.character .story-unlock p .step,
+.character .categories p .step {
   font-weight: 900;
 }
 .character .caps p .step img,
-.character .story-unlock p .step img {
+.character .story-unlock p .step img,
+.character .categories p .step img {
   width: 25px;
 }
 .character .caps {
@@ -653,6 +664,16 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
 }
 .character .caps h3 {
   background: #1da128;
+}
+.character .categories {
+  border-color: #2591cc;
+  margin-top: 20px;
+}
+.character .categories h3 {
+  background: #2591cc;
+}
+.character .categories ul li {
+  text-align: center;
 }
 
 .object {

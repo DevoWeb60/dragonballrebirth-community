@@ -38,6 +38,18 @@
                             <h3>Capsule  <img src="{{$capsIcon->icon}}" alt="{{$character->caps->name}}"> </h3>
                             <p>{{$character->caps->name}}</p>
                         </div>
+                            <div class="categories">
+                                <h3>Catégories</h3>
+                                <ul>
+                                    @if(count($character->category) !== 0)
+                                        @foreach ($character->category as $category)
+                                            <li>{{$category->name}}</li>
+                                        @endforeach
+                                    @else
+                                        <li>Aucune</li>
+                                    @endif
+                                </ul>
+                            </div>
                     </div>
                 @endif
             @endforeach

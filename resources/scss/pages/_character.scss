@@ -12,7 +12,7 @@
     flex-direction: column;
     flex-grow: 1;
     position: relative;
-    margin: 50px 80px 50px 60px;
+    margin: 50px 80px 90px 60px;
     width: 400px;
     padding-left: 125px;
 
@@ -21,9 +21,10 @@
         position: absolute;
         top: 0;
         left: 0;
-        transform: translate(-50%, -9%);
+        transform: translate(-50%, 9%);
 
-        h2 {
+        h2,
+        h5 {
             @include SpaceBetweenCenter;
             color: $white;
             background: $blue;
@@ -37,6 +38,10 @@
                 width: 30px;
                 height: 30px;
             }
+        }
+
+        h5 {
+            font-size: 13px;
         }
 
         .presentation {
@@ -59,7 +64,8 @@
     }
 
     .caps,
-    .story-unlock {
+    .story-unlock,
+    .categories {
         border-radius: 10px;
         overflow: hidden;
         border: 4px solid darken($orange, 9);
@@ -105,6 +111,19 @@
 
         h3 {
             background: darken($green, 10);
+        }
+    }
+
+    .categories {
+        border-color: $blue;
+        margin-top: 20px;
+
+        h3 {
+            background: $blue;
+        }
+
+        ul li {
+            text-align: center;
         }
     }
 }

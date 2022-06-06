@@ -144,7 +144,3 @@
         </div>
     </div>
     @endsection
-
-    {{-- @foreach ($step->conditions as $condition)
-        <span>{{ $condition->realName->condition }}</span>
-    @endforeach --}}

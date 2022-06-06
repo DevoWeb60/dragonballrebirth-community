@@ -5,17 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CapsController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ObjectController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -29,12 +21,16 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/delete', [CharacterController::class, 'destroy']);
 
     });
+
     Route::prefix('caps')->group(function(){
         Route::get('/', [CapsController::class, 'api']);
     });
 
+    Route::prefix('object')->group(function(){
+        Route::get('/', [ObjectController::class, 'api']);
+    });
+
 });
 
-Route::post('/login', [LoginController::class, 'login']);
 
 

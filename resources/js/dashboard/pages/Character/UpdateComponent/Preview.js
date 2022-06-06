@@ -76,6 +76,10 @@ export default function Preview({
                         <CapsSelect caps={caps} characterCapsId={capsId} />
                     </p>
                 </div>
+                <div class="categories">
+                    <h3>Catégories</h3>
+                    <ul></ul>
+                </div>
             </div>
         </div>
     );

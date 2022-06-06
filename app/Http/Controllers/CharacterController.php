@@ -30,20 +30,20 @@ class CharacterController extends Controller
 
     public function api(){
         $characters = Character::orderBy('is_pnj')->orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
-        $greenCaps = Caps::where('caps_scarecities_id', 1)->get();
-        $capsIcon = CapsScarecity::find(1);
-        $stories = Story::all();
-        $mainStories = MainStory::all();
+        // $greenCaps = Caps::where('caps_scarecities_id', 1)->get();
+        // $capsIcon = CapsScarecity::find(1);
+        // $stories = Story::all();
+        // $mainStories = MainStory::all();
 
+        foreach ($characters as $character) {
+            $character->caps ;
+            $character->story ;
+            $character->main_story ;
+            $character->category;
+            $character->scarecities = CapsScarecity::find(1);
+        }
 
-
-        return response()->json([
-            'characters' => $characters,
-            'capsIcon' => $capsIcon,
-            'greenCaps' => $greenCaps,
-            'stories' => $stories,
-            'mainStories' => $mainStories
-        ]);
+        return response()->json($characters);
     }
 
     /**
