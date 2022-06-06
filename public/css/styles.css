@@ -388,6 +388,17 @@ h2.title {
   filter: brightness(0.1);
 }
 
+.btn-container-dashboard {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  width: 350px;
+}
+.btn-container-dashboard span {
+  display: inline-block;
+  margin: 0 20px;
+}
+
 .btn-home {
   display: block;
   margin: 40px auto;
@@ -420,6 +431,23 @@ h2.title {
 }
 .preview div:nth-child(1) {
   margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d72a1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #155476;
 }
 
 header {
@@ -1347,6 +1375,31 @@ form button::after {
 .character-list span.delete {
   text-align: right;
   color: #cc2525;
+}
+
+.caps-container {
+  width: 45%;
+  margin: 0 10px;
+  flex-grow: 1;
+  height: 84vh;
+  overflow-y: scroll;
+}
+.caps-container .caps-list {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.caps-container .caps-list h4 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.caps-container .caps-list img {
+  margin-left: 15px;
+  width: 30px;
 }
 
 .mainStory h2 {

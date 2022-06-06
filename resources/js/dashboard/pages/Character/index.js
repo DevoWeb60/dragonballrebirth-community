@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Title from "../../components/Partials/Title";
 import CapsSelect from "../../components/Select/CapsSelect";
 import StorySelect from "../../components/Select/StorySelect";
 import UpdateCharacter from "./UpdateCharacter";
@@ -8,10 +9,12 @@ export default function Character() {
     const [characters, setCharacters] = useState([]);
     const [greenCaps, setGreenCaps] = useState([]);
     const [stories, setStories] = useState([]);
+    const [mainStories, setMainStories] = useState([]);
     const [greenCapsIcon, setGreenCapsIcon] = useState("");
     const [onUpdate, setOnUpdate] = useState(false);
+    const [requestCount, setRequestCount] = useState(0);
 
-    useEffect(() => {
+    const getData = () => {
         axios
             .get("api/character")
             .then((res) => {
@@ -19,20 +22,37 @@ export default function Character() {
                 setGreenCaps(res.data.greenCaps);
                 setGreenCapsIcon(res.data.capsIcon.icon);
                 setStories(res.data.stories);
+                setMainStories(res.data.mainStories);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                setRequestCount((count) => count + 1);
+                getData();
+            });
+    };
+
+    if (requestCount > 5) {
+        localStorage.removeItem("page");
+        localStorage.removeItem("connected");
+        window.location = "/dashboard";
+    }
+
+    useEffect(() => {
+        getData();
     }, []);
 
-    const deleteCharacter = (character) => {
+    const deleteCharacter = (characterToDelete) => {
         const confirm = window.confirm(
-            "Voulez-vous vraiment supprimer ce personnage ?"
+            "ATTENTION ! Tu es sur le point de supprimer un personnage. Cette action est irréversible."
         );
         if (confirm) {
             axios
-                .post("api/character/delete", { id: character.id })
+                .post("api/character/delete", { id: characterToDelete.id })
                 .then((res) => {
                     if (res.status === 200) {
-                        window.location = "/dashboard";
+                        const newDataCharacter = characters.filter(
+                            (character) => character.id !== characterToDelete.id
+                        );
+                        setCharacters(newDataCharacter);
                     }
                 })
                 .catch((err) => console.log(err));
@@ -43,15 +63,9 @@ export default function Character() {
         <>
             {onUpdate === false ? (
                 <>
-                    <h2 className="title">
-                        Les personnages{" "}
-                        <span
-                            className="btn-home invert"
-                            onClick={() => setOnUpdate("NEW")}
-                        >
-                            Ajouter
-                        </span>
-                    </h2>
+                    <Title setOnUpdate={setOnUpdate} getData={getData}>
+                        Les personnages
+                    </Title>
                     <div className="flex-galery">
                         {characters.length !== 0 &&
                             characters.map((character) => {
@@ -147,7 +161,11 @@ export default function Character() {
                 </>
             ) : (
                 <UpdateCharacter
+                    setDbCharacters={setCharacters}
+                    dbCharacters={characters}
                     characterSelect={onUpdate}
+                    mainStories={mainStories}
+                    setMainStories={setMainStories}
                     caps={greenCaps}
                     capsIcon={greenCapsIcon}
                     stories={stories}

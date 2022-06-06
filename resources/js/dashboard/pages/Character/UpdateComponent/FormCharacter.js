@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CapsSelect from "../../../components/Select/CapsSelect";
 import StorySelect from "../../../components/Select/StorySelect";
+import MainStoriesSelect from "../../../components/Select/MainStoriesSelect";
 
 export default function FormCharacter({
     forwardRef,
@@ -19,6 +20,9 @@ export default function FormCharacter({
     setRuby,
     capsId,
     setCapsId,
+    mainStories,
+    mainStoryId,
+    setMainStoryId,
     stories,
     caps,
     buttonText,
@@ -98,6 +102,17 @@ export default function FormCharacter({
                     disabled={pnj}
                 />
                 <label htmlFor="caps_id">Capsule</label>
+            </div>
+            <div className="form-group">
+                <MainStoriesSelect
+                    mainStories={mainStories}
+                    characterMainStory={mainStoryId}
+                    selectMode={true}
+                    selectName="main_story_id"
+                    onChangeFunc={(e) => setMainStoryId(Number(e.target.value))}
+                    disabled={pnj}
+                />
+                <label htmlFor="main_story_id">Histoire principal</label>
             </div>
             <div className="form-group-check">
                 <input

@@ -9,6 +9,9 @@ export default function UpdateCharacter({
     caps,
     capsIcon,
     stories,
+    setDbCharacters,
+    dbCharacters,
+    mainStories,
 }) {
     const [name, setName] = useState(characterSelect.name || "");
     const [avatar, setAvatar] = useState(
@@ -24,6 +27,9 @@ export default function UpdateCharacter({
     );
     const [pnj, setPnj] = useState(characterSelect.is_pnj ? true : false);
     const [ruby, setRuby] = useState(characterSelect.ruby_cost || 0);
+    const [mainStoryId, setMainStoryId] = useState(
+        characterSelect.main_story_id || 0
+    );
 
     const form = useRef();
 
@@ -44,6 +50,7 @@ export default function UpdateCharacter({
             story_id: !pnj ? Number(inputs[3].value) : null,
             ruby_cost: !pnj ? Number(inputs[4].value) : null,
             caps_id: !pnj ? Number(inputs[5].value) : null,
+            main_story_id: !pnj ? Number(inputs[6].value) : null,
             is_pnj: !pnj ? null : 1,
             id: characterSelect.id,
         };
@@ -53,7 +60,8 @@ export default function UpdateCharacter({
                 .post("api/character/create", data)
                 .then((res) => {
                     if (res.status === 200) {
-                        window.location = "/dashboard";
+                        setDbCharacters([...dbCharacters, data]);
+                        setOnUpdate(false);
                     }
                 })
                 .catch((err) => console.log(err));
@@ -62,7 +70,15 @@ export default function UpdateCharacter({
                 .post("api/character/update", data)
                 .then((res) => {
                     if (res.status === 200) {
-                        window.location = "/dashboard";
+                        let updatedDataCharacters = [];
+                        dbCharacters.forEach((character) => {
+                            if (character.id === data.id) {
+                                character = data;
+                            }
+                            updatedDataCharacters.push(character);
+                        });
+                        setDbCharacters(updatedDataCharacters);
+                        setOnUpdate(false);
                     }
                 })
                 .catch((err) => console.log(err));
@@ -95,7 +111,10 @@ export default function UpdateCharacter({
                 capsId={capsId}
                 setCapsId={setCapsId}
                 stories={stories}
+                mainStoryId={mainStoryId}
+                setMainStoryId={setMainStoryId}
                 caps={caps}
+                mainStories={mainStories}
                 buttonText={
                     characterSelect === "NEW" ? "Ajouter" : "Mettre à jour"
                 }

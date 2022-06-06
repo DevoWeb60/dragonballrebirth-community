@@ -1,18 +1,18 @@
 import React from "react";
 
-export default function StorySelect({
-    stories,
+export default function MainStoriesSelect({
+    mainStories,
     selectName,
-    characterUnlock,
+    characterMainStory,
     selectMode,
     onChangeFunc,
     disabled = false,
 }) {
     if (!selectMode) {
-        return stories.map((story) => {
+        return mainStories.map((mainStory) => {
             return (
-                story.id === characterUnlock && (
-                    <span key={story.id}>{story.story_name}</span>
+                mainStory.id === characterMainStory && (
+                    <span key={mainStory.id}>{mainStory.name}</span>
                 )
             );
         });
@@ -23,12 +23,12 @@ export default function StorySelect({
             <select
                 name={selectName}
                 onChange={onChangeFunc}
-                value={characterUnlock}
+                value={characterMainStory}
                 disabled={disabled}
             >
-                {stories.map((story) => (
-                    <option value={story.id} key={story.id}>
-                        {story.story_name}
+                {mainStories.map((mainStory) => (
+                    <option value={mainStory.id} key={mainStory.id}>
+                        {mainStory.name}
                     </option>
                 ))}
             </select>

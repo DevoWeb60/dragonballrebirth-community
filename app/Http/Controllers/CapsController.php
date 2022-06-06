@@ -21,7 +21,11 @@ class CapsController extends Controller
     }
 
     public function api(){
-        return Caps::all();
+
+        return response()->json([
+            'caps' => Caps::orderBy('caps_scarecities_id')->get(),
+            'scarecities' => CapsScarecity::all()
+        ]);
     }
 
     /**

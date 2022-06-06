@@ -22,7 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-
     Route::prefix('character')->group(function(){
         Route::get('/', [CharacterController::class, 'api']);
         Route::post('/update', [CharacterController::class, 'update']);
@@ -30,8 +29,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/delete', [CharacterController::class, 'destroy']);
 
     });
+    Route::prefix('caps')->group(function(){
+        Route::get('/', [CapsController::class, 'api']);
+    });
 
-    Route::get('/caps', [CapsController::class, 'api']);
 });
 
 Route::post('/login', [LoginController::class, 'login']);

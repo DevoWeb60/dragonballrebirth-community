@@ -26,7 +26,11 @@ export default function App() {
     }, [token]);
 
     if (!token) {
-        return <Login setToken={setToken} />;
+        return (
+            <div className="container">
+                <Login setToken={setToken} />
+            </div>
+        );
     } else {
         return (
             <>

@@ -7,6 +7,7 @@ use App\Models\Story;
 use App\Models\Character;
 use Illuminate\Http\Request;
 use App\Models\CapsScarecity;
+use App\Models\MainStory;
 use Illuminate\Support\Facades\Auth;
 
 class CharacterController extends Controller
@@ -18,7 +19,7 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        $characters = Character::all();
+        $characters = Character::orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
         $capsIcon = CapsScarecity::find(1);
 
         return view('characters', [
@@ -28,10 +29,11 @@ class CharacterController extends Controller
     }
 
     public function api(){
-        $characters = Character::all();
+        $characters = Character::orderBy('is_pnj')->orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
         $greenCaps = Caps::where('caps_scarecities_id', 1)->get();
         $capsIcon = CapsScarecity::find(1);
         $stories = Story::all();
+        $mainStories = MainStory::all();
 
 
 
@@ -39,7 +41,8 @@ class CharacterController extends Controller
             'characters' => $characters,
             'capsIcon' => $capsIcon,
             'greenCaps' => $greenCaps,
-            'stories' => $stories
+            'stories' => $stories,
+            'mainStories' => $mainStories
         ]);
     }
 
@@ -61,11 +64,8 @@ class CharacterController extends Controller
             $character->caps_id = $request->caps_id;
             $character->is_pnj = $request->is_pnj;
             $character->step_unlock = $request->step_unlock;
+            $character->main_story_id = $request->main_story_id;
             $character->save();
-
-        // }else{
-        //     redirect()->route('home.index');
-        // }
 
 
     }
@@ -88,6 +88,7 @@ class CharacterController extends Controller
                 'caps_id' => $request->caps_id,
                 'is_pnj' => $request->is_pnj,
                 'step_unlock' => $request->step_unlock,
+                'main_story_id' => $request->main_story_id,
             ]);
 
 
