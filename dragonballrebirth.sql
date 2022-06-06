@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : sam. 28 mai 2022 à 17:54
+-- Généré le : lun. 06 juin 2022 à 19:54
 -- Version du serveur : 5.7.33
 -- Version de PHP : 8.1.6
 
@@ -237,81 +237,85 @@ CREATE TABLE `characters` (
   `story_id` bigint(20) UNSIGNED DEFAULT NULL,
   `ruby_cost` int(11) DEFAULT NULL,
   `is_pnj` tinyint(1) DEFAULT NULL,
+  `main_story_id` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `characters`
 --
 
-INSERT INTO `characters` (`id`, `name`, `avatar`, `caps_id`, `step_unlock`, `story_id`, `ruby_cost`, `is_pnj`, `created_at`, `updated_at`) VALUES
-(1, 'Son Goku', 'https://www.dragonballrebirth.fr/img/characters/son-goku/', 1, 1, 1, 0, NULL, '2022-05-18 20:03:07', '2022-05-18 20:03:07'),
-(2, 'Krilin', 'https://www.dragonballrebirth.fr/img/characters/krilin/', 47, 2, 1, 0, NULL, '2022-05-20 09:44:46', '2022-05-20 09:44:46'),
-(3, 'Piccolo', 'https://www.dragonballrebirth.fr/img/characters/piccolo/', 48, 3, 1, 0, NULL, '2022-05-20 09:44:48', '2022-05-20 09:44:48'),
-(4, 'Raditz', 'https://www.dragonballrebirth.fr/img/characters/raditz/', 49, 6, 1, 0, NULL, '2022-05-20 09:44:48', '2022-05-20 09:44:48'),
-(5, 'Son Gohan', 'https://www.dragonballrebirth.fr/img/characters/son-gohan/', 50, 9, 1, 0, NULL, '2022-05-20 09:44:49', '2022-05-20 09:44:49'),
-(6, 'Yamcha', 'https://www.dragonballrebirth.fr/img/characters/yamcha/', 51, 11, 1, 0, NULL, '2022-05-20 09:44:50', '2022-05-20 09:44:50'),
-(7, 'Saibaman', 'https://www.dragonballrebirth.fr/img/characters/saibaman/', 52, 13, 1, 0, NULL, '2022-05-20 09:44:51', '2022-05-20 09:44:51'),
-(8, 'Chaozu', 'https://www.dragonballrebirth.fr/img/characters/chaozu/', 53, 14, 1, 0, NULL, '2022-05-20 09:44:51', '2022-05-20 09:44:51'),
-(9, 'Nappa', 'https://www.dragonballrebirth.fr/img/characters/nappa/', 54, 15, 1, 0, NULL, '2022-05-20 09:44:52', '2022-05-20 09:44:52'),
-(10, 'Tenshinhan', 'https://www.dragonballrebirth.fr/img/characters/tenshinhan/', 55, 16, 1, 0, NULL, '2022-05-20 09:44:53', '2022-05-20 09:44:53'),
-(11, 'Vegeta', 'https://www.dragonballrebirth.fr/img/characters/vegeta/', 56, 18, 1, 0, NULL, '2022-05-20 09:44:54', '2022-05-20 09:44:54'),
-(12, 'Yajirobe', 'https://www.dragonballrebirth.fr/img/characters/yajirobe/', 57, 22, 1, 0, NULL, '2022-05-20 09:44:54', '2022-05-20 09:44:54'),
-(13, 'Kiwi', 'https://www.dragonballrebirth.fr/img/characters/kiwi/', 58, 30, 78, 0, NULL, '2022-05-20 09:44:55', '2022-05-20 09:44:55'),
-(14, 'Dodoria', 'https://www.dragonballrebirth.fr/img/characters/dodoria/', 59, 32, 78, 0, NULL, '2022-05-20 09:44:56', '2022-05-20 09:44:56'),
-(15, 'Zabon', 'https://www.dragonballrebirth.fr/img/characters/zarbon/', 60, 37, 78, 0, NULL, '2022-05-20 09:44:57', '2022-05-20 09:44:57'),
-(16, 'Guldo', 'https://www.dragonballrebirth.fr/img/characters/guldo/', 61, 45, 78, 0, NULL, '2022-05-20 09:44:57', '2022-05-20 09:44:57'),
-(17, 'Reecom', 'https://www.dragonballrebirth.fr/img/characters/reecom/', 62, 47, 78, 0, NULL, '2022-05-20 09:44:58', '2022-05-20 09:44:58'),
-(18, 'Barta', 'https://www.dragonballrebirth.fr/img/characters/barta/', 63, 48, 78, 0, NULL, '2022-05-20 09:44:59', '2022-05-20 09:44:59'),
-(19, 'Ginyu', 'https://www.dragonballrebirth.fr/img/characters/ginyu/', 64, 49, 78, 0, NULL, '2022-05-20 09:45:00', '2022-05-20 09:45:00'),
-(20, 'Jeece', 'https://www.dragonballrebirth.fr/img/characters/jeece/', 65, 51, 78, 0, NULL, '2022-05-20 09:45:00', '2022-05-20 09:45:00'),
-(21, 'Nail', 'https://www.dragonballrebirth.fr/img/characters/nail/', 66, 53, 78, 0, NULL, '2022-05-20 09:45:01', '2022-05-20 09:45:01'),
-(22, 'Freezer', 'https://www.dragonballrebirth.fr/img/characters/freezer/', 67, 70, 78, 0, NULL, '2022-05-20 09:45:02', '2022-05-20 09:45:02'),
-(23, 'Mirai Trunks', 'https://www.dragonballrebirth.fr/img/characters/mirai-trunks/', 68, 72, 79, 0, NULL, '2022-05-20 09:45:03', '2022-05-20 09:45:03'),
-(24, 'Roi Cold', 'https://www.dragonballrebirth.fr/img/characters/king-cold/', 69, 75, 79, 0, NULL, '2022-05-20 09:45:03', '2022-05-20 09:45:03'),
-(25, 'C-19', 'https://www.dragonballrebirth.fr/img/characters/c19/', 70, 87, 79, 0, NULL, '2022-05-20 09:45:04', '2022-05-20 09:45:04'),
-(26, 'Dr. Gero', 'https://www.dragonballrebirth.fr/img/characters/drgero/', 71, 94, 79, 0, NULL, '2022-05-20 09:45:05', '2022-05-20 09:45:05'),
-(27, 'C-16', 'https://www.dragonballrebirth.fr/img/characters/c16/', 72, 110, 80, 0, NULL, '2022-05-20 09:45:06', '2022-05-20 09:45:06'),
-(28, 'Mr. Satan', 'https://www.dragonballrebirth.fr/img/characters/satan/', 73, 129, 80, 0, NULL, '2022-05-20 09:45:06', '2022-05-20 09:45:06'),
-(29, 'Cell Jr.', 'https://www.dragonballrebirth.fr/img/characters/cell-jr/', 74, 135, 80, 0, NULL, '2022-05-20 09:45:07', '2022-05-20 09:45:07'),
-(30, 'C-18', 'https://www.dragonballrebirth.fr/img/characters/c18/', 75, 150, 92, 0, NULL, '2022-05-20 09:45:08', '2022-05-20 09:45:08'),
-(31, 'C-17', 'https://www.dragonballrebirth.fr/img/characters/c17/', 76, 151, 92, 0, NULL, '2022-05-20 09:45:09', '2022-05-20 09:45:09'),
-(32, 'Cell', 'https://www.dragonballrebirth.fr/img/characters/cell/', 77, 152, 80, 0, NULL, '2022-05-20 09:45:09', '2022-05-20 09:45:09'),
-(33, 'Son Goten', 'https://www.dragonballrebirth.fr/img/characters/son-goten/', 78, 157, 81, 0, NULL, '2022-05-20 09:45:10', '2022-05-20 09:45:10'),
-(34, 'Videl', 'https://www.dragonballrebirth.fr/img/characters/videl/', 79, 158, 81, 0, NULL, '2022-05-20 09:45:11', '2022-05-20 09:45:11'),
-(35, 'Trunks', 'https://www.dragonballrebirth.fr/img/characters/trunks/', 80, 161, 81, 0, NULL, '2022-05-20 09:45:12', '2022-05-20 09:45:12'),
-(36, 'Kaioshin', 'https://www.dragonballrebirth.fr/img/characters/kaioshin/', 81, 180, 81, 0, NULL, '2022-05-20 09:45:12', '2022-05-20 09:45:12'),
-(37, 'Kibito', 'https://www.dragonballrebirth.fr/img/characters/kibito/', 82, 186, 81, 0, NULL, '2022-05-20 09:45:13', '2022-05-20 09:45:13'),
-(38, 'Puipui', 'https://www.dragonballrebirth.fr/img/characters/puipui/', 83, 192, 81, 0, NULL, '2022-05-20 09:45:14', '2022-05-20 09:45:14'),
-(39, 'Dabra', 'https://www.dragonballrebirth.fr/img/characters/dabra/', 84, 201, 81, 0, NULL, '2022-05-20 09:45:15', '2022-05-20 09:45:15'),
-(40, 'Gotenks', 'https://www.dragonballrebirth.fr/img/characters/gotenks/', 85, 230, 82, 0, NULL, '2022-05-20 09:45:15', '2022-05-20 09:45:15'),
-(41, 'Buu', 'https://www.dragonballrebirth.fr/img/characters/buu/', 86, 234, 82, 0, NULL, '2022-05-20 09:45:16', '2022-05-20 09:45:16'),
-(42, 'Vegetto', 'https://www.dragonballrebirth.fr/img/characters/vegetto/', 87, 267, 82, 0, NULL, '2022-05-20 09:45:17', '2022-05-20 09:45:17'),
-(43, 'Super Buu', 'https://www.dragonballrebirth.fr/img/characters/super-buu/', 88, 294, 82, 0, NULL, '2022-05-20 09:45:17', '2022-05-20 09:45:17'),
-(44, 'Oozaru', 'https://www.dragonballrebirth.fr/img/characters/oozaru/', 89, 1, 1, 25, NULL, '2022-05-20 09:45:18', '2022-05-20 09:45:18'),
-(45, 'Roi Vegeta', 'https://www.dragonballrebirth.fr/img/characters/king-vegeta/', 90, 1, 1, 25, NULL, '2022-05-20 09:45:19', '2022-05-20 09:45:19'),
-(46, 'Zangya', 'https://www.dragonballrebirth.fr/img/characters/zangya/', 91, 1, 1, 25, NULL, '2022-05-20 09:45:20', '2022-05-20 09:45:20'),
-(47, 'Evil Buu', 'https://www.dragonballrebirth.fr/img/characters/evil-buu/', 92, 1, 1, 25, NULL, '2022-05-20 09:45:20', '2022-05-20 09:45:20'),
-(48, 'Bido', 'https://www.dragonballrebirth.fr/img/characters/bido/', 93, 1, 1, 25, NULL, '2022-05-20 09:45:21', '2022-05-20 09:45:21'),
-(49, 'Kibitoshin', 'https://www.dragonballrebirth.fr/img/characters/kibitoshin/', 94, 1, 1, 25, NULL, '2022-05-20 09:45:22', '2022-05-20 09:45:22'),
-(50, 'Baddack', 'https://www.dragonballrebirth.fr/img/characters/baddack/', 95, 1, 85, 0, NULL, '2022-05-20 09:45:23', '2022-05-20 09:45:23'),
-(51, 'Toma', 'https://www.dragonballrebirth.fr/img/characters/toma/', 96, 5, 85, 0, NULL, '2022-05-20 09:45:23', '2022-05-20 09:45:23'),
-(52, 'Vasha', 'https://www.dragonballrebirth.fr/img/characters/vasha/', 97, 18, 85, 0, NULL, '2022-05-20 09:45:24', '2022-05-20 09:45:24'),
-(53, 'Kami Sama', 'https://www.dragonballrebirth.fr/img/characters/kami-sama/', 98, 7, 86, 0, NULL, '2022-05-20 09:45:25', '2022-05-20 09:45:25'),
-(54, 'Garlic Jr.', 'https://www.dragonballrebirth.fr/img/characters/garlic/', 99, 16, 86, 0, NULL, '2022-05-20 09:45:26', '2022-05-20 09:45:26'),
-(55, 'Toto le lapin', 'https://www.dragonballrebirth.fr/img/characters/toto/', 100, 3, 87, 0, NULL, '2022-05-20 09:45:26', '2022-05-20 09:45:26'),
-(56, 'Gokua', 'https://www.dragonballrebirth.fr/img/characters/gokua/', 101, 11, 88, 0, NULL, '2022-05-20 09:45:27', '2022-05-20 09:45:27'),
-(57, 'Bujin', 'https://www.dragonballrebirth.fr/img/characters/bujin/', 102, 33, 88, 0, NULL, '2022-05-20 09:45:28', '2022-05-20 09:45:28'),
-(58, 'Bojack', 'https://www.dragonballrebirth.fr/img/characters/bojack/', 103, 35, 88, 0, NULL, '2022-05-20 09:45:28', '2022-05-20 09:45:28'),
-(59, 'Broly', 'https://www.dragonballrebirth.fr/img/characters/broly/', 104, 20, 90, 0, NULL, '2022-05-20 09:45:29', '2022-05-20 09:45:29'),
-(60, 'Cooler', 'https://www.dragonballrebirth.fr/img/characters/cooler/', 105, 16, 91, 0, NULL, '2022-05-20 09:45:30', '2022-05-20 09:45:30'),
-(61, 'Mirai Gohan', 'https://www.dragonballrebirth.fr/img/characters/mirai-gohan/', 106, 9, 92, 0, NULL, '2022-05-20 09:45:31', '2022-05-20 09:45:31'),
-(62, 'C-14', 'https://www.dragonballrebirth.fr/img/characters/c14/', 107, 14, 94, 0, NULL, '2022-05-20 09:45:31', '2022-05-20 09:45:31'),
-(63, 'C-15', 'https://www.dragonballrebirth.fr/img/characters/c15/', 108, 16, 94, 0, NULL, '2022-05-20 09:45:32', '2022-05-20 09:45:32'),
-(64, 'C-13', 'https://www.dragonballrebirth.fr/img/characters/c13/', 109, 28, 94, 0, NULL, '2022-05-20 09:45:33', '2022-05-20 09:45:33'),
-(65, 'Thales', 'https://www.dragonballrebirth.fr/img/characters/thales/', 110, 10, 95, 0, NULL, '2022-05-20 09:45:34', '2022-05-20 09:45:34'),
-(66, 'Malfrat', NULL, NULL, NULL, NULL, NULL, 1, '2022-05-27 09:45:57', '2022-05-27 09:45:57');
+INSERT INTO `characters` (`id`, `name`, `avatar`, `caps_id`, `step_unlock`, `story_id`, `ruby_cost`, `is_pnj`, `main_story_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Son Goku', 'https://dragonballrebirth.fr/img/characters/son-goku/', 1, 1, 1, 0, NULL, 1, '2022-05-18 20:03:07', '2022-06-02 12:33:39', NULL),
+(2, 'Krilin', 'https://www.dragonballrebirth.fr/img/characters/krilin/', 47, 2, 1, 0, NULL, 1, '2022-05-20 09:44:46', '2022-05-20 09:44:46', NULL),
+(3, 'Piccolo', 'https://www.dragonballrebirth.fr/img/characters/piccolo/', 48, 3, 1, 0, NULL, 1, '2022-05-20 09:44:48', '2022-05-20 09:44:48', NULL),
+(4, 'Raditz', 'https://www.dragonballrebirth.fr/img/characters/raditz/', 49, 6, 1, 0, NULL, 1, '2022-05-20 09:44:48', '2022-05-20 09:44:48', NULL),
+(5, 'Son Gohan', 'https://www.dragonballrebirth.fr/img/characters/son-gohan/', 50, 9, 1, 0, NULL, 1, '2022-05-20 09:44:49', '2022-05-20 09:44:49', NULL),
+(6, 'Yamcha', 'https://www.dragonballrebirth.fr/img/characters/yamcha/', 51, 11, 1, 0, NULL, 1, '2022-05-20 09:44:50', '2022-05-20 09:44:50', NULL),
+(7, 'Saibaman', 'https://www.dragonballrebirth.fr/img/characters/saibaman/', 52, 13, 1, 0, NULL, 1, '2022-05-20 09:44:51', '2022-05-20 09:44:51', NULL),
+(8, 'Chaozu', 'https://www.dragonballrebirth.fr/img/characters/chaozu/', 53, 14, 1, 0, NULL, 1, '2022-05-20 09:44:51', '2022-05-20 09:44:51', NULL),
+(9, 'Nappa', 'https://www.dragonballrebirth.fr/img/characters/nappa/', 54, 15, 1, 0, NULL, 1, '2022-05-20 09:44:52', '2022-05-20 09:44:52', NULL),
+(10, 'Tenshinhan', 'https://www.dragonballrebirth.fr/img/characters/tenshinhan/', 55, 16, 1, 0, NULL, 1, '2022-05-20 09:44:53', '2022-05-20 09:44:53', NULL),
+(11, 'Vegeta', 'https://www.dragonballrebirth.fr/img/characters/vegeta/', 56, 18, 1, 0, NULL, 1, '2022-05-20 09:44:54', '2022-05-20 09:44:54', NULL),
+(12, 'Yajirobe', 'https://www.dragonballrebirth.fr/img/characters/yajirobe/', 57, 22, 1, 0, NULL, 1, '2022-05-20 09:44:54', '2022-05-20 09:44:54', NULL),
+(13, 'Kiwi', 'https://www.dragonballrebirth.fr/img/characters/kiwi/', 58, 30, 78, 0, NULL, 1, '2022-05-20 09:44:55', '2022-06-01 14:58:12', NULL),
+(14, 'Dodoria', 'https://www.dragonballrebirth.fr/img/characters/dodoria/', 59, 32, 78, 0, NULL, 1, '2022-05-20 09:44:56', '2022-05-20 09:44:56', NULL),
+(15, 'Zabon', 'https://www.dragonballrebirth.fr/img/characters/zarbon/', 60, 37, 78, 0, NULL, 1, '2022-05-20 09:44:57', '2022-05-20 09:44:57', NULL),
+(16, 'Guldo', 'https://www.dragonballrebirth.fr/img/characters/guldo/', 61, 45, 78, 0, NULL, 1, '2022-05-20 09:44:57', '2022-05-20 09:44:57', NULL),
+(17, 'Reecom', 'https://www.dragonballrebirth.fr/img/characters/reecom/', 62, 47, 78, 0, NULL, 1, '2022-05-20 09:44:58', '2022-05-20 09:44:58', NULL),
+(18, 'Barta', 'https://www.dragonballrebirth.fr/img/characters/barta/', 63, 48, 78, 0, NULL, 1, '2022-05-20 09:44:59', '2022-05-20 09:44:59', NULL),
+(19, 'Ginyu', 'https://www.dragonballrebirth.fr/img/characters/ginyu/', 64, 49, 78, 0, NULL, 1, '2022-05-20 09:45:00', '2022-05-20 09:45:00', NULL),
+(20, 'Jeece', 'https://www.dragonballrebirth.fr/img/characters/jeece/', 65, 51, 78, 0, NULL, 1, '2022-05-20 09:45:00', '2022-05-20 09:45:00', NULL),
+(21, 'Nail', 'https://www.dragonballrebirth.fr/img/characters/nail/', 66, 53, 78, 0, NULL, 1, '2022-05-20 09:45:01', '2022-05-20 09:45:01', NULL),
+(22, 'Freezer', 'https://www.dragonballrebirth.fr/img/characters/freezer/', 67, 70, 78, 0, NULL, 1, '2022-05-20 09:45:02', '2022-05-20 09:45:02', NULL),
+(23, 'Mirai Trunks', 'https://www.dragonballrebirth.fr/img/characters/mirai-trunks/', 68, 72, 79, 0, NULL, 1, '2022-05-20 09:45:03', '2022-05-20 09:45:03', NULL),
+(24, 'Roi Cold', 'https://www.dragonballrebirth.fr/img/characters/king-cold/', 69, 75, 79, 0, NULL, 1, '2022-05-20 09:45:03', '2022-05-20 09:45:03', NULL),
+(25, 'C-19', 'https://www.dragonballrebirth.fr/img/characters/c19/', 70, 87, 79, 0, NULL, 1, '2022-05-20 09:45:04', '2022-05-20 09:45:04', NULL),
+(26, 'Dr. Gero', 'https://www.dragonballrebirth.fr/img/characters/drgero/', 71, 94, 79, 0, NULL, 1, '2022-05-20 09:45:05', '2022-05-20 09:45:05', NULL),
+(27, 'C-16', 'https://www.dragonballrebirth.fr/img/characters/c16/', 72, 110, 80, 0, NULL, 1, '2022-05-20 09:45:06', '2022-05-20 09:45:06', NULL),
+(28, 'Mr. Satan', 'https://www.dragonballrebirth.fr/img/characters/satan/', 73, 129, 80, 0, NULL, 1, '2022-05-20 09:45:06', '2022-05-20 09:45:06', NULL),
+(29, 'Cell Jr.', 'https://www.dragonballrebirth.fr/img/characters/cell-jr/', 74, 135, 80, 0, NULL, 1, '2022-05-20 09:45:07', '2022-05-20 09:45:07', NULL),
+(30, 'C-18', 'https://www.dragonballrebirth.fr/img/characters/c18/', 75, 150, 92, 0, NULL, 1000, '2022-05-20 09:45:08', '2022-06-02 14:00:22', NULL),
+(31, 'C-17', 'https://www.dragonballrebirth.fr/img/characters/c17/', 76, 151, 92, 0, NULL, 1000, '2022-05-20 09:45:09', '2022-06-02 14:00:27', NULL),
+(32, 'Cell', 'https://www.dragonballrebirth.fr/img/characters/cell/', 77, 152, 80, 0, NULL, 1, '2022-05-20 09:45:09', '2022-05-20 09:45:09', NULL),
+(33, 'Son Goten', 'https://www.dragonballrebirth.fr/img/characters/son-goten/', 78, 157, 81, 0, NULL, 1, '2022-05-20 09:45:10', '2022-05-20 09:45:10', NULL),
+(34, 'Videl', 'https://www.dragonballrebirth.fr/img/characters/videl/', 79, 158, 81, 0, NULL, 1, '2022-05-20 09:45:11', '2022-05-20 09:45:11', NULL),
+(35, 'Trunks', 'https://www.dragonballrebirth.fr/img/characters/trunks/', 80, 161, 81, 0, NULL, 1, '2022-05-20 09:45:12', '2022-05-20 09:45:12', NULL),
+(36, 'Kaioshin', 'https://www.dragonballrebirth.fr/img/characters/kaioshin/', 81, 180, 81, 0, NULL, 1, '2022-05-20 09:45:12', '2022-05-20 09:45:12', NULL),
+(37, 'Kibito', 'https://www.dragonballrebirth.fr/img/characters/kibito/', 82, 186, 81, 0, NULL, 1, '2022-05-20 09:45:13', '2022-05-20 09:45:13', NULL),
+(38, 'Puipui', 'https://www.dragonballrebirth.fr/img/characters/puipui/', 83, 192, 81, 0, NULL, 1, '2022-05-20 09:45:14', '2022-05-20 09:45:14', NULL),
+(39, 'Dabra', 'https://www.dragonballrebirth.fr/img/characters/dabra/', 84, 201, 81, 0, NULL, 1, '2022-05-20 09:45:15', '2022-05-20 09:45:15', NULL),
+(40, 'Gotenks', 'https://www.dragonballrebirth.fr/img/characters/gotenks/', 85, 230, 82, 0, NULL, 1, '2022-05-20 09:45:15', '2022-05-20 09:45:15', NULL),
+(41, 'Buu', 'https://www.dragonballrebirth.fr/img/characters/buu/', 86, 234, 82, 0, NULL, 1, '2022-05-20 09:45:16', '2022-05-20 09:45:16', NULL),
+(42, 'Vegetto', 'https://www.dragonballrebirth.fr/img/characters/vegetto/', 87, 267, 82, 0, NULL, 1, '2022-05-20 09:45:17', '2022-05-20 09:45:17', NULL),
+(43, 'Super Buu', 'https://www.dragonballrebirth.fr/img/characters/super-buu/', 88, 294, 82, 0, NULL, 1, '2022-05-20 09:45:17', '2022-05-20 09:45:17', NULL),
+(44, 'Oozaru', 'https://www.dragonballrebirth.fr/img/characters/oozaru/', 89, 1, 1, 25, NULL, NULL, '2022-05-20 09:45:18', '2022-05-20 09:45:18', NULL),
+(45, 'Roi Vegeta', 'https://www.dragonballrebirth.fr/img/characters/king-vegeta/', 90, 1, 1, 25, NULL, NULL, '2022-05-20 09:45:19', '2022-05-20 09:45:19', NULL),
+(46, 'Zangya', 'https://www.dragonballrebirth.fr/img/characters/zangya/', 91, 1, 1, 25, NULL, NULL, '2022-05-20 09:45:20', '2022-05-20 09:45:20', NULL),
+(47, 'Evil Buu', 'https://www.dragonballrebirth.fr/img/characters/evil-buu/', 92, 1, 1, 25, NULL, NULL, '2022-05-20 09:45:20', '2022-05-20 09:45:20', NULL),
+(48, 'Bido', 'https://www.dragonballrebirth.fr/img/characters/bido/', 93, 1, 1, 25, NULL, NULL, '2022-05-20 09:45:21', '2022-05-20 09:45:21', NULL),
+(49, 'Kibitoshin', 'https://www.dragonballrebirth.fr/img/characters/kibitoshin/', 94, 1, 1, 25, NULL, NULL, '2022-05-20 09:45:22', '2022-05-20 09:45:22', NULL),
+(50, 'Baddack', 'https://www.dragonballrebirth.fr/img/characters/baddack/', 95, 1, 85, 0, NULL, 1000, '2022-05-20 09:45:23', '2022-06-02 13:58:37', NULL),
+(51, 'Toma', 'https://www.dragonballrebirth.fr/img/characters/toma/', 96, 5, 85, 0, NULL, 1000, '2022-05-20 09:45:23', '2022-06-02 13:59:10', NULL),
+(52, 'Vasha', 'https://www.dragonballrebirth.fr/img/characters/vasha/', 97, 18, 85, 0, NULL, 1000, '2022-05-20 09:45:24', '2022-06-02 13:59:14', NULL),
+(53, 'Kami Sama', 'https://www.dragonballrebirth.fr/img/characters/kami-sama/', 98, 7, 86, 0, NULL, 1000, '2022-05-20 09:45:25', '2022-06-02 13:59:20', NULL),
+(54, 'Garlic Jr.', 'https://www.dragonballrebirth.fr/img/characters/garlic/', 99, 16, 86, 0, NULL, 1000, '2022-05-20 09:45:26', '2022-06-02 14:00:33', NULL),
+(55, 'Toto le lapin', 'https://www.dragonballrebirth.fr/img/characters/toto/', 100, 3, 87, 0, NULL, 1000, '2022-05-20 09:45:26', '2022-06-02 13:59:31', NULL),
+(56, 'Gokua', 'https://www.dragonballrebirth.fr/img/characters/gokua/', 101, 11, 88, 0, NULL, 1000, '2022-05-20 09:45:27', '2022-06-02 13:59:35', NULL),
+(57, 'Bujin', 'https://www.dragonballrebirth.fr/img/characters/bujin/', 102, 33, 88, 0, NULL, 1000, '2022-05-20 09:45:28', '2022-06-02 13:59:54', NULL),
+(58, 'Bojack', 'https://www.dragonballrebirth.fr/img/characters/bojack/', 103, 35, 88, 0, NULL, 1000, '2022-05-20 09:45:28', '2022-06-02 13:59:58', NULL),
+(59, 'Broly', 'https://www.dragonballrebirth.fr/img/characters/broly/', 104, 20, 90, 0, NULL, 1000, '2022-05-20 09:45:29', '2022-06-02 14:00:02', NULL),
+(60, 'Cooler', 'https://www.dragonballrebirth.fr/img/characters/cooler/', 105, 16, 91, 0, NULL, 1000, '2022-05-20 09:45:30', '2022-06-02 14:00:12', NULL),
+(61, 'Mirai Gohan', 'https://www.dragonballrebirth.fr/img/characters/mirai-gohan/', 106, 9, 92, 0, NULL, 1000, '2022-05-20 09:45:31', '2022-06-02 14:00:17', NULL),
+(62, 'C-14', 'https://www.dragonballrebirth.fr/img/characters/c14/', 107, 14, 94, 0, NULL, 1000, '2022-05-20 09:45:31', '2022-06-02 14:00:37', NULL),
+(63, 'C-15', 'https://www.dragonballrebirth.fr/img/characters/c15/', 108, 16, 94, 0, NULL, 1000, '2022-05-20 09:45:32', '2022-06-02 14:00:40', NULL),
+(64, 'C-13', 'https://www.dragonballrebirth.fr/img/characters/c13/', 109, 28, 94, 0, NULL, 1000, '2022-05-20 09:45:33', '2022-06-02 14:00:44', NULL),
+(65, 'Thales', 'https://www.dragonballrebirth.fr/img/characters/thales/', 110, 10, 95, 0, NULL, 1000, '2022-05-20 09:45:34', '2022-06-02 14:00:48', NULL),
+(66, 'Malfrat', NULL, NULL, NULL, NULL, NULL, 1, NULL, '2022-05-27 09:45:57', '2022-05-27 09:45:57', NULL),
+(69, 'Sbire de freezer', NULL, NULL, NULL, NULL, NULL, 1, NULL, '2022-05-31 08:40:41', '2022-05-31 08:44:22', NULL),
+(77, 'Cell ++', 'https://dragonballrebirth.fr/img/characters/cell/', 51, 15204, 83, 0, NULL, 2, '2022-06-02 14:08:27', '2022-06-02 14:10:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -421,7 +425,9 @@ CREATE TABLE `main_stories` (
 
 INSERT INTO `main_stories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Mode Aventure : Normale', '2022-05-20 10:37:07', '2022-05-20 10:37:07'),
-(2, 'Mode Aventure : Hard', '2022-05-20 10:37:18', '2022-05-20 10:37:18');
+(2, 'Mode Aventure : Hard', '2022-05-20 10:37:18', '2022-05-20 10:37:18'),
+(1000, 'Quêtes Annexes', NULL, NULL),
+(1500, 'Aucune', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -573,7 +579,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (30, '2014_10_12_200000_add_two_factor_columns_to_users_table', 10),
 (31, '2022_05_18_200420_create_rewards_table', 1),
 (32, '2022_05_22_104456_create_link_rewards_to_steps_table', 1),
-(33, '2022_05_22_104514_create_link_win_conditions_to_steps_table', 1);
+(33, '2022_05_22_104514_create_link_win_conditions_to_steps_table', 1),
+(34, '2022_05_31_071955_add_delete_at_table', 11);
 
 -- --------------------------------------------------------
 
@@ -694,6 +701,28 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 2, 'token', 'd78fc5f9862f27dba6eaaab794e3a343d510615fed9e663fd1b62d2f90810a51', '[\"*\"]', NULL, '2022-06-01 19:48:31', '2022-06-01 19:48:31'),
+(2, 'App\\Models\\User', 2, 'token', '2762c7be61620450b230525fb493ea2bfca20b6d17512a0c412ab75686c79b00', '[\"*\"]', NULL, '2022-06-01 19:51:24', '2022-06-01 19:51:24'),
+(3, 'App\\Models\\User', 2, 'token', '72f463f852838f259cf7dccbaa7d1d72243b7512c02dd8d6f53930f83088992f', '[\"*\"]', NULL, '2022-06-01 19:57:17', '2022-06-01 19:57:17'),
+(4, 'App\\Models\\User', 2, 'token', '4ce4d09bd0682b2e72b52622c8981aa9a36e4357d588e850a26b6abe72367664', '[\"*\"]', NULL, '2022-06-01 20:01:20', '2022-06-01 20:01:20'),
+(5, 'App\\Models\\User', 2, 'token', '4fc96d528eedadd4184bac423d8cd4c54aaeee54c53bb502c06294c15e5bcbe1', '[\"*\"]', NULL, '2022-06-01 20:10:01', '2022-06-01 20:10:01'),
+(6, 'App\\Models\\User', 2, 'token', 'b2af93017eb53c01f6c15d6698950b770d4de80bc50128b3313356e3d1abec3f', '[\"*\"]', NULL, '2022-06-01 20:11:52', '2022-06-01 20:11:52'),
+(7, 'App\\Models\\User', 2, 'token', '6093a0406d017792ef3b01355350b33484bdbf5477fe375198de5b61ad890d61', '[\"*\"]', '2022-06-01 20:21:44', '2022-06-01 20:20:55', '2022-06-01 20:21:44'),
+(8, 'App\\Models\\User', 2, 'token', 'e99eb407a09b9d39b71d930872c2eae4e0637069df5da31089a84810a904e352', '[\"*\"]', '2022-06-01 20:43:07', '2022-06-01 20:34:56', '2022-06-01 20:43:07'),
+(9, 'App\\Models\\User', 2, 'token', 'afc013a36ef0e59be2fef54ecffb116676f890b9f5fe70e134630e775610d5ce', '[\"*\"]', '2022-06-02 18:14:33', '2022-06-02 12:14:23', '2022-06-02 18:14:33'),
+(10, 'App\\Models\\User', 2, 'token', 'd0eb3b6ba7c4ff239af596f655016c055f163d835836bd2d384d492b82413b24', '[\"*\"]', '2022-06-02 18:58:37', '2022-06-02 18:23:50', '2022-06-02 18:58:37'),
+(11, 'App\\Models\\User', 2, 'token', '18e180989877ed5441ff249b128a0b8fc5580d783c323eec57144321e4dac3b3', '[\"*\"]', '2022-06-02 19:00:49', '2022-06-02 18:59:09', '2022-06-02 19:00:49'),
+(12, 'App\\Models\\User', 2, 'token', '9cdd5098345fe0127a4984f42573d84158f5de87df7ed286f8a9c7dd8eb32d38', '[\"*\"]', '2022-06-02 19:02:08', '2022-06-02 19:01:52', '2022-06-02 19:02:08'),
+(13, 'App\\Models\\User', 2, 'token', '6f603343d711b009b74d9f9a6d8851023cb8f5fab2327784f7642c5f72f6847b', '[\"*\"]', '2022-06-02 19:02:30', '2022-06-02 19:02:09', '2022-06-02 19:02:30'),
+(14, 'App\\Models\\User', 2, 'token', '86a954d68c7d47e34c8b2dcfd7612362510ef0f428c4364652c6cb8a45d45171', '[\"*\"]', '2022-06-02 19:02:49', '2022-06-02 19:02:32', '2022-06-02 19:02:49'),
+(15, 'App\\Models\\User', 2, 'token', '631942bc7b8d6bea30a9846167cfb659ae26c01aff5e543b10c37e3eaa64b429', '[\"*\"]', '2022-06-02 19:02:54', '2022-06-02 19:02:50', '2022-06-02 19:02:54'),
+(16, 'App\\Models\\User', 2, 'token', '59894590dbc31272b2852294c347aa1cdd7be6cb488cae7ff73b80fc0e2fddd4', '[\"*\"]', '2022-06-02 20:10:44', '2022-06-02 19:02:56', '2022-06-02 20:10:44');
 
 -- --------------------------------------------------------
 
@@ -1047,7 +1076,8 @@ ALTER TABLE `caps_scarecities`
 ALTER TABLE `characters`
   ADD PRIMARY KEY (`id`),
   ADD KEY `characters_caps_id_foreign` (`caps_id`),
-  ADD KEY `characters_story_id_foreign` (`story_id`);
+  ADD KEY `characters_story_id_foreign` (`story_id`),
+  ADD KEY `main_story_id` (`main_story_id`);
 
 --
 -- Index pour la table `failed_jobs`
@@ -1213,7 +1243,7 @@ ALTER TABLE `caps_scarecities`
 -- AUTO_INCREMENT pour la table `characters`
 --
 ALTER TABLE `characters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT pour la table `failed_jobs`
@@ -1237,7 +1267,7 @@ ALTER TABLE `link_win_conditions_to_steps`
 -- AUTO_INCREMENT pour la table `main_stories`
 --
 ALTER TABLE `main_stories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1501;
 
 --
 -- AUTO_INCREMENT pour la table `map_cases`
@@ -1249,7 +1279,7 @@ ALTER TABLE `map_cases`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `object_durations`
@@ -1267,7 +1297,7 @@ ALTER TABLE `object_items`
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `planets`
@@ -1348,6 +1378,7 @@ ALTER TABLE `caps`
 --
 ALTER TABLE `characters`
   ADD CONSTRAINT `characters_caps_id_foreign` FOREIGN KEY (`caps_id`) REFERENCES `caps` (`id`),
+  ADD CONSTRAINT `characters_ibfk_1` FOREIGN KEY (`main_story_id`) REFERENCES `main_stories` (`id`),
   ADD CONSTRAINT `characters_story_id_foreign` FOREIGN KEY (`story_id`) REFERENCES `stories` (`id`);
 
 --
