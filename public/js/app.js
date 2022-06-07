@@ -2261,18 +2261,23 @@ function App() {
       data = _useState2[0],
       setData = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem("page") || "home"),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState4 = _slicedToArray(_useState3, 2),
-      page = _useState4[0],
-      setPage = _useState4[1];
+      requestCount = _useState4[0],
+      setRequestCount = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem("connected") || false),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem("page") || "home"),
       _useState6 = _slicedToArray(_useState5, 2),
-      token = _useState6[0],
-      setToken = _useState6[1];
+      page = _useState6[0],
+      setPage = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem("connected") || false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      token = _useState8[0],
+      setToken = _useState8[1];
 
   var getData = function getData() {
-    axios.get("api/allData").then(function (res) {
+    axios.get("api/alldata").then(function (res) {
       console.log(res.data);
       setData(res.data);
     })["catch"](function (err) {
@@ -2296,8 +2301,9 @@ function App() {
       };
     }
 
-    if (localStorage.getItem("token")) {
+    if (localStorage.getItem("connected")) {
       getData();
+      console.log("request");
     }
   }, [token]);
 
@@ -2361,6 +2367,191 @@ function Title(_ref) {
         children: "Rafraichir"
       })]
     })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/Select/CapsSelect.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/dashboard/components/Select/CapsSelect.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CapsSelect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function CapsSelect(_ref) {
+  var _ref$selectName = _ref.selectName,
+      selectName = _ref$selectName === void 0 ? "" : _ref$selectName,
+      _ref$greenCaps = _ref.greenCaps,
+      greenCaps = _ref$greenCaps === void 0 ? false : _ref$greenCaps,
+      _ref$characterCapsId = _ref.characterCapsId,
+      characterCapsId = _ref$characterCapsId === void 0 ? 0 : _ref$characterCapsId,
+      caps = _ref.caps,
+      capsIcon = _ref.capsIcon,
+      selectMode = _ref.selectMode,
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+
+  if (!selectMode) {
+    return caps.map(function (cap) {
+      return cap.id === characterCapsId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+        children: [cap.name, capsIcon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: capsIcon,
+          alt: cap.name
+        })]
+      }, cap.id);
+    });
+  }
+
+  if (greenCaps) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+      name: selectName,
+      value: characterCapsId,
+      onChange: onChangeFunc,
+      disabled: disabled,
+      children: caps.map(function (cap) {
+        if (cap.caps_scarecities_id === 1) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+            value: cap.id,
+            children: cap.name
+          }, cap.id);
+        }
+      })
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+    name: selectName,
+    value: characterCapsId,
+    onChange: onChangeFunc,
+    disabled: disabled,
+    children: caps.map(function (cap) {
+      if (cap.caps_scarecities_id !== 1) {
+        /*#__PURE__*/
+        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("option", {
+          value: cap.id,
+          children: [cap.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            src: capsIcon,
+            alt: cap.name
+          })]
+        }, cap.id);
+      }
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/Select/MainStoriesSelect.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/dashboard/components/Select/MainStoriesSelect.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MainStoriesSelect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function MainStoriesSelect(_ref) {
+  var mainStories = _ref.mainStories,
+      selectName = _ref.selectName,
+      characterMainStory = _ref.characterMainStory,
+      selectMode = _ref.selectMode,
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+
+  if (!selectMode) {
+    return mainStories.map(function (mainStory) {
+      return mainStory.id === characterMainStory && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: mainStory.name
+      }, mainStory.id);
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+      name: selectName,
+      onChange: onChangeFunc,
+      value: characterMainStory,
+      disabled: disabled,
+      children: mainStories.map(function (mainStory) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: mainStory.id,
+          children: mainStory.name
+        }, mainStory.id);
+      })
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/Select/StorySelect.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/dashboard/components/Select/StorySelect.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StorySelect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function StorySelect(_ref) {
+  var stories = _ref.stories,
+      selectName = _ref.selectName,
+      characterUnlock = _ref.characterUnlock,
+      selectMode = _ref.selectMode,
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+
+  if (!selectMode) {
+    return stories.map(function (story) {
+      return story.id === characterUnlock && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: story.story_name
+      }, story.id);
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+      name: selectName,
+      onChange: onChangeFunc,
+      value: characterUnlock,
+      disabled: disabled,
+      children: stories.map(function (story) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: story.id,
+          children: story.story_name
+        }, story.id);
+      })
+    })
   });
 }
 
@@ -2778,13 +2969,624 @@ function Caps() {
 
 /***/ }),
 
+/***/ "./resources/js/dashboard/pages/Character/UpdateCharacter.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Character/UpdateCharacter.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ UpdateCharacter)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateComponent/Preview */ "./resources/js/dashboard/pages/Character/UpdateComponent/Preview.js");
+/* harmony import */ var _UpdateComponent_FormCharacter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateComponent/FormCharacter */ "./resources/js/dashboard/pages/Character/UpdateComponent/FormCharacter.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function UpdateCharacter(_ref) {
+  var character = _ref.character,
+      setOnUpdate = _ref.setOnUpdate,
+      setCharacters = _ref.setCharacters,
+      characters = _ref.characters;
+
+  // !DATA
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1]; // !PREVIEW DATA CHARACTER
+
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.name || ""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      name = _useState4[0],
+      setName = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.avatar || "https://dragonballrebirth.fr/img/characters/[nom]/"),
+      _useState6 = _slicedToArray(_useState5, 2),
+      avatar = _useState6[0],
+      setAvatar = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.caps_id || 1),
+      _useState8 = _slicedToArray(_useState7, 2),
+      capsId = _useState8[0],
+      setCapsId = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.step_unlock || 0),
+      _useState10 = _slicedToArray(_useState9, 2),
+      stepUnlock = _useState10[0],
+      setStepUnlock = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.story_id || 1),
+      _useState12 = _slicedToArray(_useState11, 2),
+      storyUnlock = _useState12[0],
+      setStoryUnlock = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.is_pnj ? true : false),
+      _useState14 = _slicedToArray(_useState13, 2),
+      pnj = _useState14[0],
+      setPnj = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.ruby_cost || 0),
+      _useState16 = _slicedToArray(_useState15, 2),
+      ruby = _useState16[0],
+      setRuby = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.main_story_id || 0),
+      _useState18 = _slicedToArray(_useState17, 2),
+      mainStoryId = _useState18[0],
+      setMainStoryId = _useState18[1];
+
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.category || []),
+      _useState20 = _slicedToArray(_useState19, 2),
+      categories = _useState20[0],
+      setCategories = _useState20[1]; // !FORM CHARACTER
+
+
+  var form = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var inputs = form.current;
+    var data = {};
+    data = {
+      name: inputs[0].value,
+      avatar: !pnj ? inputs[1].value : null,
+      step_unlock: !pnj ? Number(inputs[2].value) : null,
+      story_id: !pnj ? Number(inputs[3].value) : null,
+      ruby_cost: !pnj ? Number(inputs[4].value) : null,
+      caps_id: !pnj ? Number(inputs[5].value) : null,
+      main_story_id: !pnj ? Number(inputs[6].value) : null,
+      is_pnj: !pnj ? null : 1,
+      id: character.id
+    };
+
+    if (character === "NEW") {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().post("api/character/create", data).then(function (res) {
+        if (res.status === 200) {
+          setCharacters([].concat(_toConsumableArray(characters), [data]));
+          setOnUpdate(false);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    } else {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().post("api/character/update", data).then(function (res) {
+        if (res.status === 200) {
+          var updatedDataCharacters = [];
+          characters.forEach(function (character) {
+            if (character.id === data.id) {
+              character = data;
+            }
+
+            updatedDataCharacters.push(character);
+          });
+          setCharacters(updatedDataCharacters);
+          setOnUpdate(false);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
+      className: "title",
+      children: [character.name || "Nouveau personnages", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        className: "btn-home invert",
+        onClick: function onClick() {
+          return setOnUpdate(false);
+        },
+        children: "Retour"
+      })]
+    }), !pnj && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      name: name,
+      capsId: capsId,
+      avatar: avatar,
+      stepUnlock: stepUnlock,
+      storyUnlock: storyUnlock,
+      ruby: ruby,
+      categories: categories
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Character/UpdateComponent/FormCharacter.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Character/UpdateComponent/FormCharacter.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormCharacter)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/CapsSelect */ "./resources/js/dashboard/components/Select/CapsSelect.js");
+/* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
+/* harmony import */ var _components_Select_MainStoriesSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Select/MainStoriesSelect */ "./resources/js/dashboard/components/Select/MainStoriesSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function FormCharacter(_ref) {
+  var forwardRef = _ref.forwardRef,
+      handleSubmit = _ref.handleSubmit,
+      name = _ref.name,
+      setName = _ref.setName,
+      avatar = _ref.avatar,
+      setAvatar = _ref.setAvatar,
+      stepUnlock = _ref.stepUnlock,
+      setStepUnlock = _ref.setStepUnlock,
+      storyUnlock = _ref.storyUnlock,
+      setStoryUnlock = _ref.setStoryUnlock,
+      pnj = _ref.pnj,
+      setPnj = _ref.setPnj,
+      ruby = _ref.ruby,
+      setRuby = _ref.setRuby,
+      capsId = _ref.capsId,
+      setCapsId = _ref.setCapsId,
+      mainStories = _ref.mainStories,
+      mainStoryId = _ref.mainStoryId,
+      setMainStoryId = _ref.setMainStoryId,
+      stories = _ref.stories,
+      caps = _ref.caps,
+      buttonText = _ref.buttonText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+    className: "form-flex",
+    onSubmit: function onSubmit(e) {
+      return handleSubmit(e);
+    },
+    ref: forwardRef,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "text",
+        id: "name",
+        name: "name",
+        value: name,
+        onChange: function onChange(e) {
+          return setName(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "name",
+        children: "Nom"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "text",
+        id: "avatar",
+        name: "avatar",
+        value: avatar,
+        onChange: function onChange(e) {
+          return setAvatar(e.target.value);
+        },
+        placeholder: "CSS",
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "avatar",
+        children: "Avatar"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "number",
+        id: "step",
+        name: "step",
+        value: stepUnlock,
+        onChange: function onChange(e) {
+          return setStepUnlock(Number(e.target.value));
+        },
+        placeholder: "CSS",
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "step_unlock",
+        children: "Etape"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        stories: stories,
+        characterUnlock: storyUnlock,
+        selectName: "story_id",
+        selectMode: true,
+        onChangeFunc: function onChangeFunc(e) {
+          return setStoryUnlock(Number(e.target.value));
+        },
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "story_id",
+        children: "Histoire"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "number",
+        id: "ruby",
+        name: "ruby",
+        value: ruby,
+        onChange: function onChange(e) {
+          return setRuby(Number(e.target.value));
+        },
+        placeholder: "CSS",
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "ruby",
+        children: "Prix"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        caps: caps,
+        characterCapsId: capsId,
+        selectMode: true,
+        greenCaps: true,
+        selectName: "caps_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setCapsId(Number(e.target.value));
+        },
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "caps_id",
+        children: "Capsule"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_MainStoriesSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        mainStories: mainStories,
+        characterMainStory: mainStoryId,
+        selectMode: true,
+        selectName: "main_story_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setMainStoryId(Number(e.target.value));
+        },
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "main_story_id",
+        children: "Histoire principal"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group-check",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "checkbox",
+        name: "is_pnj",
+        id: "isPnj",
+        checked: pnj,
+        onChange: function onChange(e) {
+          return setPnj(e.target.checked);
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "isPnj",
+        children: "PNJ"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      type: "submit",
+      children: buttonText
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Character/UpdateComponent/Preview.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Character/UpdateComponent/Preview.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Preview)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/CapsSelect */ "./resources/js/dashboard/components/Select/CapsSelect.js");
+/* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function Preview(_ref) {
+  var capsIcon = _ref.capsIcon,
+      caps = _ref.caps,
+      stories = _ref.stories,
+      name = _ref.name,
+      avatar = _ref.avatar,
+      capsId = _ref.capsId,
+      stepUnlock = _ref.stepUnlock,
+      storyUnlock = _ref.storyUnlock,
+      ruby = _ref.ruby;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "preview",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "character",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "shadow",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+          children: [name, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: avatar + "transformations/base/head.png",
+            alt: name
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "presentation",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "avatar",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              src: avatar + "avatars/1.png",
+              alt: name + "-avatar"
+            })
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "story-unlock",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+          children: "D\xE9bloquer"
+        }), ruby === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            children: ["\xC9tape N\xB0", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "step",
+              children: stepUnlock
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "step",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                stories: stories,
+                characterUnlock: storyUnlock
+              })
+            })
+          })]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              className: "step",
+              children: [ruby, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: "https://www.dragonballrebirth.fr/css/images/ruby.svg",
+                alt: "rubis"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            children: "Boutique de Rubis"
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "caps",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
+          children: ["Capsule", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: capsIcon,
+            alt: ""
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            caps: caps,
+            characterCapsId: capsId
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        "class": "categories",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+          children: "Cat\xE9gories"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {})]
+      })]
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/dashboard/pages/Character/index.js":
 /*!*********************************************************!*\
   !*** ./resources/js/dashboard/pages/Character/index.js ***!
   \*********************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\laragon\\www\\dragonballrebirth-community\\resources\\js\\dashboard\\pages\\Character\\index.js: Identifier 'data' has already been declared. (6:36)\n\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mUpdateCharacter\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m\"./UpdateCharacter\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCharacter\u001b[39m({ data }) {\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m     \u001b[36mconst\u001b[39m [characters\u001b[33m,\u001b[39m setCharacters] \u001b[33m=\u001b[39m useState([])\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 8 |\u001b[39m     \u001b[36mconst\u001b[39m [data\u001b[33m,\u001b[39m setData] \u001b[33m=\u001b[39m useState([])\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 9 |\u001b[39m     \u001b[36mconst\u001b[39m [onUpdate\u001b[33m,\u001b[39m setOnUpdate] \u001b[33m=\u001b[39m useState(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n    at instantiate (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:358:12)\n    at Object.raise (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:3336:19)\n    at ScopeHandler.checkRedeclarationInScope (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:3520:19)\n    at ScopeHandler.declareName (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:3500:14)\n    at Object.declareNameFromIdentifier (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:12149:16)\n    at Object.checkIdentifier (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:12144:12)\n    at Object.checkLVal (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:12070:12)\n    at Object.checkLVal (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:12110:14)\n    at Object.checkLVal (C:\\laragon\\www\\dragonballrebirth-community\\node_modules\\@babel\\parser\\lib\\index.js:12110:14)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Character)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
+/* harmony import */ var _UpdateCharacter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateCharacter */ "./resources/js/dashboard/pages/Character/UpdateCharacter.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function Character(_ref) {
+  var getData = _ref.getData;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      characters = _useState2[0],
+      setCharacters = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      data = _useState4[0],
+      setData = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      onUpdate = _useState6[0],
+      setOnUpdate = _useState6[1];
+
+  var deleteCharacter = function deleteCharacter(characterToDelete) {
+    var confirm = window.confirm("ATTENTION ! Tu es sur le point de supprimer un personnage. Cette action est irréversible.");
+
+    if (confirm) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/character/delete", {
+        id: characterToDelete.id
+      }).then(function (res) {
+        if (res.status === 200) {
+          var newDataCharacter = characters.filter(function (character) {
+            return character.id !== characterToDelete.id;
+          });
+          setCharacters(newDataCharacter);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        setOnUpdate: setOnUpdate,
+        getData: getData,
+        children: "Les personnages"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "flex-galery",
+        children: characters.length !== 0 && characters.map(function (character) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "character-list",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              className: "name",
+              children: [character.name, character.avatar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                src: character.avatar + "transformations/base/head.png",
+                alt: character.name
+              })]
+            }), !character.is_pnj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+              children: [character.ruby_cost === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "story-info",
+                children: [character.story.story_name, "\xA0 \xA0 \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                  className: "step",
+                  children: ["Etape", " ", character.step_unlock]
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "empty"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                children: [character.caps.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: character.scarecities.icon,
+                  alt: character.caps.name
+                })]
+              }), character.ruby_cost !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                className: "ruby",
+                children: [character.ruby_cost, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: "https://www.dragonballrebirth.fr/css/images/ruby.svg",
+                  alt: "ruby"
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "empty"
+              })]
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "empty"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "empty"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "pnj",
+                children: character.is_pnj && "PNJ"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "edit",
+              onClick: function onClick() {
+                return setOnUpdate(character);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                className: "fa-solid fa-pen-to-square"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "delete",
+              onClick: function onClick() {
+                return deleteCharacter(character);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                className: "fa-solid fa-trash"
+              })
+            })]
+          }, character.id);
+        })
+      })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateCharacter__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      setOnUpdate: setOnUpdate,
+      character: onUpdate
+    })
+  });
+}
 
 /***/ }),
 

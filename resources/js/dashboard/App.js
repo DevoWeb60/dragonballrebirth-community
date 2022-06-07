@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 
 export default function App() {
     const [data, setData] = useState([]);
+    const [requestCount, setRequestCount] = useState(0);
     const [page, setPage] = useState(localStorage.getItem("page") || "home");
     const [token, setToken] = useState(
         localStorage.getItem("connected") || false
@@ -20,7 +21,7 @@ export default function App() {
 
     const getData = () => {
         axios
-            .get("api/allData")
+            .get("api/alldata")
             .then((res) => {
                 console.log(res.data);
                 setData(res.data);
@@ -43,8 +44,9 @@ export default function App() {
                 Authorization: `Bearer ${token}`,
             };
         }
-        if (localStorage.getItem("token")) {
+        if (localStorage.getItem("connected")) {
             getData();
+            console.log("request");
         }
     }, [token]);
 

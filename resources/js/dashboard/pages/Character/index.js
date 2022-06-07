@@ -3,11 +3,10 @@ import React, { useEffect, useState } from "react";
 import Title from "../../components/Partials/Title";
 import UpdateCharacter from "./UpdateCharacter";
 
-export default function Character({ data }) {
+export default function Character({ getData }) {
     const [characters, setCharacters] = useState([]);
     const [data, setData] = useState([]);
     const [onUpdate, setOnUpdate] = useState(false);
-    const [requestCount, setRequestCount] = useState(0);
 
     const deleteCharacter = (characterToDelete) => {
         const confirm = window.confirm(

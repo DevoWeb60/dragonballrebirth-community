@@ -3,10 +3,8 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CapsController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ObjectController;
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -16,7 +14,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
-    Route::get('/allData', [AdminController::class, 'allData']);
+    Route::get('/alldata', [AdminController::class, 'api']);
 
     Route::prefix('character')->group(function(){
         Route::post('/update', [CharacterController::class, 'update']);

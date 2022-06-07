@@ -27,7 +27,7 @@ class AdminController extends Controller
         return view('dashboard.home');
     }
 
-    public function allData(){
+    public function api(){
         $characters = Character::orderBy('is_pnj')->orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
         $stories = Story::all();
         $mainStories = MainStory::all();
@@ -111,6 +111,12 @@ class AdminController extends Controller
             "planets" => $planets,
             "rewards" => $rewards,
             "winConditions" => $winConditions,
+            "works" => $works,
+            "trains" => $trains
         ]);
+
+        // return response()->json([
+        //     "test" => "test"
+        // ]);
     }
 }
