@@ -3,16 +3,14 @@ import CapsSelect from "../../../components/Select/CapsSelect";
 import StorySelect from "../../../components/Select/StorySelect";
 
 export default function Preview({
-    character,
-    caps,
     capsIcon,
+    caps,
     stories,
     name,
     avatar,
     capsId,
     stepUnlock,
     storyUnlock,
-    pnj,
     ruby,
 }) {
     return (

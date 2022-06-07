@@ -674,6 +674,7 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
 }
 .character .categories ul li {
   text-align: center;
+  font-weight: 600;
 }
 
 .object {

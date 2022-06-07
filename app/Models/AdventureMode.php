@@ -15,9 +15,6 @@ class AdventureMode extends Model
     public function mapCase(){
         return $this->belongsTo(MapCase::class, "map_case_id");
     }
-    public function duration(){
-        return $this->belongsTo(WaitingDuration::class, "duration_id");
-    }
     public function character(){
         return $this->belongsTo(Character::class, "character_id");
     }

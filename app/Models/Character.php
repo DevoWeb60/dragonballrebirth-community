@@ -18,7 +18,7 @@ class Character extends Model
     }
 
     public function category(){
-        return $this->belongsToMany(CharacterCategory::class, 'link_characters_to_categories', 'id', 'category_id');
+        return $this->belongsToMany(CharacterCategory::class, 'link_characters_to_categories', 'character_id', 'category_id');
     }
 
     public function mainStory(){

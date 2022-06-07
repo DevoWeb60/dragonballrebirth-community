@@ -12,16 +12,39 @@ import Story from "./pages/Story";
 import Login from "./pages/Login";
 
 export default function App() {
+    const [data, setData] = useState([]);
     const [page, setPage] = useState(localStorage.getItem("page") || "home");
     const [token, setToken] = useState(
         localStorage.getItem("connected") || false
     );
+
+    const getData = () => {
+        axios
+            .get("api/allData")
+            .then((res) => {
+                console.log(res.data);
+                setData(res.data);
+            })
+            .catch((err) => {
+                setRequestCount((count) => count + 1);
+                getData();
+            });
+    };
+
+    if (requestCount > 5) {
+        localStorage.removeItem("page");
+        localStorage.removeItem("connected");
+        window.location = "/dashboard";
+    }
 
     useEffect(() => {
         if (localStorage.getItem("connected")) {
             axios.defaults.headers.common = {
                 Authorization: `Bearer ${token}`,
             };
+        }
+        if (localStorage.getItem("token")) {
+            getData();
         }
     }, [token]);
 
