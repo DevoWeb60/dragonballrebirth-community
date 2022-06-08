@@ -25,7 +25,7 @@ export default function index({ setToken }) {
     };
 
     return (
-        <div className="container flex-center column">
+        <div className="container flex-center column full-grid">
             <h2 className="title">Espace administrateur</h2>
             <form method="POST" onSubmit={(e) => handleSubmit(e)} ref={form}>
                 <div className="form-group">

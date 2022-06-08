@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Title({ setOnUpdate, children, getData }) {
+export default function Title({ setOnUpdate, children }) {
     return (
         <h2 className="title">
             {children}
@@ -10,9 +10,6 @@ export default function Title({ setOnUpdate, children, getData }) {
                     onClick={() => setOnUpdate("NEW")}
                 >
                     Ajouter
-                </span>
-                <span className="btn-home" onClick={() => getData()}>
-                    Rafraichir
                 </span>
             </span>
         </h2>

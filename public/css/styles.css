@@ -331,6 +331,11 @@ h2.title {
   flex-direction: column;
 }
 
+.full-grid {
+  width: 100vw;
+  transform: translate(-5%, 75%);
+}
+
 .price {
   display: flex;
   align-items: center;
@@ -431,6 +436,18 @@ h2.title {
 }
 .preview div:nth-child(1) {
   margin: 0 auto;
+}
+
+span.edit {
+  text-align: center;
+  color: #2591cc;
+  cursor: pointer;
+}
+
+span.delete {
+  text-align: right;
+  color: #cc2525;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -675,6 +692,7 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
 .character .categories ul li {
   text-align: center;
   font-weight: 600;
+  margin: 5px 0;
 }
 
 .object {
@@ -1305,6 +1323,16 @@ form button::after {
   background: #ff8b17;
   transition: 0.4s ease-in-out;
 }
+form .delete-categories {
+  width: 50%;
+}
+form .delete-categories li {
+  margin: 25px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .sidebar {
   background: rgba(0, 0, 0, 0.7);
@@ -1370,8 +1398,22 @@ form button::after {
   display: flex;
   align-items: center;
 }
+.character-list .character-info {
+  display: flex;
+  flex-direction: column;
+}
+.character-list .character-info .categories {
+  display: flex;
+  flex-direction: column;
+}
+.character-list .character-info .categories .category {
+  margin: 5px 0;
+  font-size: 13px;
+  font-weight: 600;
+}
 .character-list span.name {
   font-family: "Edo SZ";
+  font-size: 18px;
 }
 .character-list span.name img {
   width: 30px;
@@ -1389,14 +1431,6 @@ form button::after {
 .character-list span.edit:hover,
 .character-list span.delete:hover {
   opacity: 0.6;
-}
-.character-list span.edit {
-  text-align: center;
-  color: #2591cc;
-}
-.character-list span.delete {
-  text-align: right;
-  color: #cc2525;
 }
 
 .caps-container {

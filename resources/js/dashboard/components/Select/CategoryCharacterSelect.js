@@ -8,13 +8,24 @@ export default function CategoryCharacterSelect({
     onChangeFunc,
     disabled = false,
 }) {
+    // console.log(categories);
+    // console.log(characterCategory);
+
     if (!selectMode) {
-        return categories.map((story) => {
-            return (
-                story.id === characterCategory && (
-                    <span key={story.id}>{story.story_name}</span>
-                )
-            );
+        if (characterCategory.length === 0) {
+            return <li>Aucune</li>;
+        }
+
+        return categories.map((category) => {
+            return characterCategory.map((characterCat) => {
+                if (characterCat === category.id) {
+                    return (
+                        <li key={category.id + Math.random() * 1000}>
+                            {category.name}
+                        </li>
+                    );
+                }
+            });
         });
     }
 
@@ -23,12 +34,12 @@ export default function CategoryCharacterSelect({
             <select
                 name={selectName}
                 onChange={onChangeFunc}
-                value={characterCategory}
                 disabled={disabled}
             >
-                {categories.map((story) => (
-                    <option value={story.id} key={story.id}>
-                        {story.story_name}
+                <option value="0">Ajouter une catégorie</option>
+                {categories.map((category) => (
+                    <option value={category.id} key={category.id}>
+                        {category.name}
                     </option>
                 ))}
             </select>

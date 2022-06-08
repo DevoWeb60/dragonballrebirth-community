@@ -6,12 +6,9 @@ import axios from "axios";
 export default function UpdateCharacter({
     character,
     setOnUpdate,
-    setCharacters,
-    characters,
+    getData,
+    refreshData,
 }) {
-    // !DATA
-    const [data, setData] = useState([]);
-
     // !PREVIEW DATA CHARACTER
     const [name, setName] = useState(character.name || "");
     const [avatar, setAvatar] = useState(
@@ -25,7 +22,9 @@ export default function UpdateCharacter({
     const [mainStoryId, setMainStoryId] = useState(
         character.main_story_id || 0
     );
-    const [categories, setCategories] = useState(character.category || []);
+    const [categories, setCategories] = useState(
+        character.category?.map((cat) => cat.id) || []
+    );
 
     // !FORM CHARACTER
     const form = useRef();
@@ -44,6 +43,7 @@ export default function UpdateCharacter({
             ruby_cost: !pnj ? Number(inputs[4].value) : null,
             caps_id: !pnj ? Number(inputs[5].value) : null,
             main_story_id: !pnj ? Number(inputs[6].value) : null,
+            categories: !pnj ? categories : null,
             is_pnj: !pnj ? null : 1,
             id: character.id,
         };
@@ -53,7 +53,7 @@ export default function UpdateCharacter({
                 .post("api/character/create", data)
                 .then((res) => {
                     if (res.status === 200) {
-                        setCharacters([...characters, data]);
+                        refreshData();
                         setOnUpdate(false);
                     }
                 })
@@ -63,14 +63,7 @@ export default function UpdateCharacter({
                 .post("api/character/update", data)
                 .then((res) => {
                     if (res.status === 200) {
-                        let updatedDataCharacters = [];
-                        characters.forEach((character) => {
-                            if (character.id === data.id) {
-                                character = data;
-                            }
-                            updatedDataCharacters.push(character);
-                        });
-                        setCharacters(updatedDataCharacters);
+                        refreshData();
                         setOnUpdate(false);
                     }
                 })
@@ -89,8 +82,9 @@ export default function UpdateCharacter({
                     Retour
                 </span>
             </h2>
-            {/* <FormCharacter
+            <FormCharacter
                 forwardRef={form}
+                characterSelect={character}
                 handleSubmit={handleSubmit}
                 name={name}
                 setName={setName}
@@ -106,17 +100,16 @@ export default function UpdateCharacter({
                 setRuby={setRuby}
                 capsId={capsId}
                 setCapsId={setCapsId}
-                stories={stories}
                 mainStoryId={mainStoryId}
                 setMainStoryId={setMainStoryId}
-                caps={caps}
-                mainStories={mainStories}
-                buttonText={
-                    characterSelect === "NEW" ? "Ajouter" : "Mettre à jour"
-                }
-            /> */}
+                categories={categories}
+                setCategories={setCategories}
+                getData={getData}
+                buttonText={character === "NEW" ? "Ajouter" : "Mettre à jour"}
+            />
             {!pnj && (
                 <Preview
+                    getData={getData}
                     name={name}
                     capsId={capsId}
                     avatar={avatar}

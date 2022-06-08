@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import CapsSelect from "../../../components/Select/CapsSelect";
 import StorySelect from "../../../components/Select/StorySelect";
+import CategoryCharacterSelect from "../../../components/Select/CategoryCharacterSelect";
 
 export default function Preview({
     capsIcon,
-    caps,
-    stories,
     name,
     avatar,
     capsId,
     stepUnlock,
     storyUnlock,
+    categories,
+    setCategories,
     ruby,
+    getData,
 }) {
     return (
         <div className="preview">
@@ -44,7 +46,7 @@ export default function Preview({
                             <p>
                                 <span className="step">
                                     <StorySelect
-                                        stories={stories}
+                                        stories={getData.stories}
                                         characterUnlock={storyUnlock}
                                     />
                                 </span>
@@ -71,12 +73,20 @@ export default function Preview({
                         <img src={capsIcon} alt="" />
                     </h3>
                     <p>
-                        <CapsSelect caps={caps} characterCapsId={capsId} />
+                        <CapsSelect
+                            caps={getData.caps}
+                            characterCapsId={capsId}
+                        />
                     </p>
                 </div>
-                <div class="categories">
+                <div className="categories">
                     <h3>Catégories</h3>
-                    <ul></ul>
+                    <ul>
+                        <CategoryCharacterSelect
+                            categories={getData.categories}
+                            characterCategory={categories}
+                        />
+                    </ul>
                 </div>
             </div>
         </div>

@@ -19,11 +19,11 @@ export default function App() {
         localStorage.getItem("connected") || false
     );
 
-    const getData = () => {
+    const getAllData = () => {
         axios
             .get("api/alldata")
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 setData(res.data);
             })
             .catch((err) => {
@@ -45,8 +45,8 @@ export default function App() {
             };
         }
         if (localStorage.getItem("connected")) {
-            getData();
-            console.log("request");
+            getAllData();
+            // console.log("request");
         }
     }, [token]);
 
@@ -61,15 +61,33 @@ export default function App() {
             <>
                 <Sidebar setPage={setPage} />
                 <div className="container-dashboard">
-                    {page === "home" && <Home />}
-                    {page === "character" && <Character />}
-                    {page === "object" && <Object />}
-                    {page === "story" && <Story />}
-                    {page === "train" && <Train />}
-                    {page === "work" && <Work />}
-                    {page === "caps" && <Caps />}
-                    {page === "adventureMode" && <AdventureMode />}
-                    {page === "additionalQuest" && <AdditionalQuest />}
+                    {page === "home" && (
+                        <Home getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "character" && (
+                        <Character getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "object" && (
+                        <Object getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "story" && (
+                        <Story getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "train" && (
+                        <Train getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "work" && (
+                        <Work getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "caps" && (
+                        <Caps getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "adventureMode" && (
+                        <AdventureMode getData={data} />
+                    )}
+                    {page === "additionalQuest" && (
+                        <AdditionalQuest getData={data} />
+                    )}
                 </div>
             </>
         );

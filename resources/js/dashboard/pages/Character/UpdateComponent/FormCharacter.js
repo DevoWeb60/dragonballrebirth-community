@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import CapsSelect from "../../../components/Select/CapsSelect";
 import StorySelect from "../../../components/Select/StorySelect";
 import MainStoriesSelect from "../../../components/Select/MainStoriesSelect";
+import CategoryCharacterSelect from "../../../components/Select/CategoryCharacterSelect";
 
 export default function FormCharacter({
     forwardRef,
+    characterSelect,
     handleSubmit,
     name,
     setName,
@@ -20,13 +22,18 @@ export default function FormCharacter({
     setRuby,
     capsId,
     setCapsId,
-    mainStories,
     mainStoryId,
     setMainStoryId,
-    stories,
-    caps,
+    categories,
+    setCategories,
+    getData,
     buttonText,
 }) {
+    const deleteCategory = (id) => {
+        const newCategories = categories.filter((category) => category !== id);
+        setCategories(newCategories);
+    };
+
     return (
         <form
             className="form-flex"
@@ -70,7 +77,7 @@ export default function FormCharacter({
             </div>
             <div className="form-group">
                 <StorySelect
-                    stories={stories}
+                    stories={getData.stories}
                     characterUnlock={storyUnlock}
                     selectName="story_id"
                     selectMode={true}
@@ -93,7 +100,7 @@ export default function FormCharacter({
             </div>
             <div className="form-group">
                 <CapsSelect
-                    caps={caps}
+                    caps={getData.caps}
                     characterCapsId={capsId}
                     selectMode={true}
                     greenCaps={true}
@@ -105,7 +112,7 @@ export default function FormCharacter({
             </div>
             <div className="form-group">
                 <MainStoriesSelect
-                    mainStories={mainStories}
+                    mainStories={getData.mainStories}
                     characterMainStory={mainStoryId}
                     selectMode={true}
                     selectName="main_story_id"
@@ -113,6 +120,19 @@ export default function FormCharacter({
                     disabled={pnj}
                 />
                 <label htmlFor="main_story_id">Histoire principal</label>
+            </div>
+            <div className="form-group">
+                <CategoryCharacterSelect
+                    categories={getData.categories}
+                    characterCategory={categories}
+                    selectMode={true}
+                    selectName="category_id"
+                    onChangeFunc={(e) =>
+                        setCategories([...categories, Number(e.target.value)])
+                    }
+                    disabled={pnj}
+                />
+                <label htmlFor="category_id">Catégorie</label>
             </div>
             <div className="form-group-check">
                 <input
@@ -124,6 +144,29 @@ export default function FormCharacter({
                 />
                 <label htmlFor="isPnj">PNJ</label>
             </div>
+            {categories.length !== 0 && (
+                <ul className="delete-categories">
+                    {getData.categories.map((category) => {
+                        return categories.map((characterCat) => {
+                            if (characterCat === category.id) {
+                                return (
+                                    <li key={category + Math.random() * 1000}>
+                                        {category.name}
+                                        <span
+                                            className="delete"
+                                            onClick={() =>
+                                                deleteCategory(category.id)
+                                            }
+                                        >
+                                            <i className="fa-solid fa-trash"></i>
+                                        </span>
+                                    </li>
+                                );
+                            }
+                        });
+                    })}
+                </ul>
+            )}
             <button type="submit">{buttonText}</button>
         </form>
     );

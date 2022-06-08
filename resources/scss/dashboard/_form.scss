@@ -111,4 +111,17 @@ form {
             transition: $transition;
         }
     }
+
+    // !CHARACTER
+    .delete-categories {
+        width: 50%;
+
+        li {
+            margin: 25px 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
 }

@@ -3,10 +3,13 @@ import React, { useEffect, useState } from "react";
 import Title from "../../components/Partials/Title";
 import UpdateCharacter from "./UpdateCharacter";
 
-export default function Character({ getData }) {
+export default function Character({ getData, refreshData }) {
     const [characters, setCharacters] = useState([]);
-    const [data, setData] = useState([]);
     const [onUpdate, setOnUpdate] = useState(false);
+
+    useEffect(() => {
+        setCharacters(getData.characters);
+    }, [getData]);
 
     const deleteCharacter = (characterToDelete) => {
         const confirm = window.confirm(
@@ -17,10 +20,7 @@ export default function Character({ getData }) {
                 .post("api/character/delete", { id: characterToDelete.id })
                 .then((res) => {
                     if (res.status === 200) {
-                        const newDataCharacter = characters.filter(
-                            (character) => character.id !== characterToDelete.id
-                        );
-                        setCharacters(newDataCharacter);
+                        refreshData();
                     }
                 })
                 .catch((err) => console.log(err));
@@ -31,29 +31,48 @@ export default function Character({ getData }) {
         <>
             {onUpdate === false ? (
                 <>
-                    <Title setOnUpdate={setOnUpdate} getData={getData}>
-                        Les personnages
-                    </Title>
+                    <Title setOnUpdate={setOnUpdate}>Les personnages</Title>
                     <div className="flex-galery">
-                        {characters.length !== 0 &&
+                        {characters &&
+                            characters.length !== 0 &&
                             characters.map((character) => {
                                 return (
                                     <div
                                         className="character-list"
                                         key={character.id}
                                     >
-                                        <span className="name">
-                                            {character.name}
-                                            {character.avatar && (
-                                                <img
-                                                    src={
-                                                        character.avatar +
-                                                        "transformations/base/head.png"
+                                        <div className="character-info">
+                                            <span className="name">
+                                                {character.name}
+                                                {character.avatar && (
+                                                    <img
+                                                        src={
+                                                            character.avatar +
+                                                            "transformations/base/head.png"
+                                                        }
+                                                        alt={character.name}
+                                                    />
+                                                )}
+                                            </span>
+                                            <span className="categories">
+                                                {character.category.map(
+                                                    (category) => {
+                                                        return (
+                                                            <span
+                                                                className="category"
+                                                                key={
+                                                                    character.id +
+                                                                    "-" +
+                                                                    category.name
+                                                                }
+                                                            >
+                                                                {category.name}
+                                                            </span>
+                                                        );
                                                     }
-                                                    alt={character.name}
-                                                />
-                                            )}
-                                        </span>
+                                                )}
+                                            </span>
+                                        </div>
                                         {!character.is_pnj ? (
                                             <>
                                                 {character.ruby_cost === 0 ? (
@@ -130,10 +149,14 @@ export default function Character({ getData }) {
                 </>
             ) : (
                 <UpdateCharacter
+                    refreshData={refreshData}
                     setOnUpdate={setOnUpdate}
                     character={onUpdate}
+                    getData={getData}
                 />
             )}
         </>
     );
+
+    // return <div>Test</div>;
 }

@@ -2276,9 +2276,9 @@ function App() {
       token = _useState8[0],
       setToken = _useState8[1];
 
-  var getData = function getData() {
+  var getAllData = function getAllData() {
     axios.get("api/alldata").then(function (res) {
-      console.log(res.data);
+      // console.log(res.data);
       setData(res.data);
     })["catch"](function (err) {
       setRequestCount(function (count) {
@@ -2302,8 +2302,7 @@ function App() {
     }
 
     if (localStorage.getItem("connected")) {
-      getData();
-      console.log("request");
+      getAllData(); // console.log("request");
     }
   }, [token]);
 
@@ -2320,7 +2319,32 @@ function App() {
         setPage: setPage
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
         className: "container-dashboard",
-        children: [page === "home" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {}), page === "character" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Character__WEBPACK_IMPORTED_MODULE_3__["default"], {}), page === "object" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Object__WEBPACK_IMPORTED_MODULE_4__["default"], {}), page === "story" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Story__WEBPACK_IMPORTED_MODULE_10__["default"], {}), page === "train" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Train__WEBPACK_IMPORTED_MODULE_7__["default"], {}), page === "work" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Work__WEBPACK_IMPORTED_MODULE_6__["default"], {}), page === "caps" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Caps__WEBPACK_IMPORTED_MODULE_5__["default"], {}), page === "adventureMode" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_AdventureMode__WEBPACK_IMPORTED_MODULE_8__["default"], {}), page === "additionalQuest" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_AdditionalQuest__WEBPACK_IMPORTED_MODULE_9__["default"], {})]
+        children: [page === "home" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          getData: data,
+          refreshData: getAllData
+        }), page === "character" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Character__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          getData: data,
+          refreshData: getAllData
+        }), page === "object" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Object__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          getData: data,
+          refreshData: getAllData
+        }), page === "story" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Story__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          getData: data,
+          refreshData: getAllData
+        }), page === "train" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Train__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          getData: data,
+          refreshData: getAllData
+        }), page === "work" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Work__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          getData: data,
+          refreshData: getAllData
+        }), page === "caps" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_Caps__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          getData: data,
+          refreshData: getAllData
+        }), page === "adventureMode" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_AdventureMode__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          getData: data
+        }), page === "additionalQuest" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_AdditionalQuest__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          getData: data
+        })]
       })]
     });
   }
@@ -2347,25 +2371,18 @@ __webpack_require__.r(__webpack_exports__);
 
 function Title(_ref) {
   var setOnUpdate = _ref.setOnUpdate,
-      children = _ref.children,
-      getData = _ref.getData;
+      children = _ref.children;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
     className: "title",
-    children: [children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+    children: [children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
       className: "btn-container-dashboard",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         className: "btn-home invert",
         onClick: function onClick() {
           return setOnUpdate("NEW");
         },
         children: "Ajouter"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-        className: "btn-home",
-        onClick: function onClick() {
-          return getData();
-        },
-        children: "Rafraichir"
-      })]
+      })
     })]
   });
 }
@@ -2447,6 +2464,73 @@ function CapsSelect(_ref) {
           })]
         }, cap.id);
       }
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/Select/CategoryCharacterSelect.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/dashboard/components/Select/CategoryCharacterSelect.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CategoryCharacterSelect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function CategoryCharacterSelect(_ref) {
+  var categories = _ref.categories,
+      selectName = _ref.selectName,
+      characterCategory = _ref.characterCategory,
+      selectMode = _ref.selectMode,
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+
+  // console.log(categories);
+  // console.log(characterCategory);
+  if (!selectMode) {
+    if (characterCategory.length === 0) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: "Aucune"
+      });
+    }
+
+    return categories.map(function (category) {
+      return characterCategory.map(function (characterCat) {
+        if (characterCat === category.id) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: category.name
+          }, category.id + Math.random() * 1000);
+        }
+      });
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+      name: selectName,
+      onChange: onChangeFunc,
+      disabled: disabled,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+        value: "0",
+        children: "Ajouter une cat\xE9gorie"
+      }), categories.map(function (category) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: category.id,
+          children: category.name
+        }, category.id);
+      })]
     })
   });
 }
@@ -2987,14 +3071,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3015,62 +3091,60 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function UpdateCharacter(_ref) {
+  var _character$category;
+
   var character = _ref.character,
       setOnUpdate = _ref.setOnUpdate,
-      setCharacters = _ref.setCharacters,
-      characters = _ref.characters;
+      getData = _ref.getData,
+      refreshData = _ref.refreshData;
 
-  // !DATA
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  // !PREVIEW DATA CHARACTER
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.name || ""),
       _useState2 = _slicedToArray(_useState, 2),
-      data = _useState2[0],
-      setData = _useState2[1]; // !PREVIEW DATA CHARACTER
+      name = _useState2[0],
+      setName = _useState2[1];
 
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.name || ""),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.avatar || "https://dragonballrebirth.fr/img/characters/[nom]/"),
       _useState4 = _slicedToArray(_useState3, 2),
-      name = _useState4[0],
-      setName = _useState4[1];
+      avatar = _useState4[0],
+      setAvatar = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.avatar || "https://dragonballrebirth.fr/img/characters/[nom]/"),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.caps_id || 1),
       _useState6 = _slicedToArray(_useState5, 2),
-      avatar = _useState6[0],
-      setAvatar = _useState6[1];
+      capsId = _useState6[0],
+      setCapsId = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.caps_id || 1),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.step_unlock || 0),
       _useState8 = _slicedToArray(_useState7, 2),
-      capsId = _useState8[0],
-      setCapsId = _useState8[1];
+      stepUnlock = _useState8[0],
+      setStepUnlock = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.step_unlock || 0),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.story_id || 1),
       _useState10 = _slicedToArray(_useState9, 2),
-      stepUnlock = _useState10[0],
-      setStepUnlock = _useState10[1];
+      storyUnlock = _useState10[0],
+      setStoryUnlock = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.story_id || 1),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.is_pnj ? true : false),
       _useState12 = _slicedToArray(_useState11, 2),
-      storyUnlock = _useState12[0],
-      setStoryUnlock = _useState12[1];
+      pnj = _useState12[0],
+      setPnj = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.is_pnj ? true : false),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.ruby_cost || 0),
       _useState14 = _slicedToArray(_useState13, 2),
-      pnj = _useState14[0],
-      setPnj = _useState14[1];
+      ruby = _useState14[0],
+      setRuby = _useState14[1];
 
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.ruby_cost || 0),
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.main_story_id || 0),
       _useState16 = _slicedToArray(_useState15, 2),
-      ruby = _useState16[0],
-      setRuby = _useState16[1];
+      mainStoryId = _useState16[0],
+      setMainStoryId = _useState16[1];
 
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.main_story_id || 0),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(((_character$category = character.category) === null || _character$category === void 0 ? void 0 : _character$category.map(function (cat) {
+    return cat.id;
+  })) || []),
       _useState18 = _slicedToArray(_useState17, 2),
-      mainStoryId = _useState18[0],
-      setMainStoryId = _useState18[1];
-
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(character.category || []),
-      _useState20 = _slicedToArray(_useState19, 2),
-      categories = _useState20[0],
-      setCategories = _useState20[1]; // !FORM CHARACTER
+      categories = _useState18[0],
+      setCategories = _useState18[1]; // !FORM CHARACTER
 
 
   var form = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
@@ -3087,6 +3161,7 @@ function UpdateCharacter(_ref) {
       ruby_cost: !pnj ? Number(inputs[4].value) : null,
       caps_id: !pnj ? Number(inputs[5].value) : null,
       main_story_id: !pnj ? Number(inputs[6].value) : null,
+      categories: !pnj ? categories : null,
       is_pnj: !pnj ? null : 1,
       id: character.id
     };
@@ -3094,7 +3169,7 @@ function UpdateCharacter(_ref) {
     if (character === "NEW") {
       axios__WEBPACK_IMPORTED_MODULE_3___default().post("api/character/create", data).then(function (res) {
         if (res.status === 200) {
-          setCharacters([].concat(_toConsumableArray(characters), [data]));
+          refreshData();
           setOnUpdate(false);
         }
       })["catch"](function (err) {
@@ -3103,15 +3178,7 @@ function UpdateCharacter(_ref) {
     } else {
       axios__WEBPACK_IMPORTED_MODULE_3___default().post("api/character/update", data).then(function (res) {
         if (res.status === 200) {
-          var updatedDataCharacters = [];
-          characters.forEach(function (character) {
-            if (character.id === data.id) {
-              character = data;
-            }
-
-            updatedDataCharacters.push(character);
-          });
-          setCharacters(updatedDataCharacters);
+          refreshData();
           setOnUpdate(false);
         }
       })["catch"](function (err) {
@@ -3130,7 +3197,32 @@ function UpdateCharacter(_ref) {
         },
         children: "Retour"
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormCharacter__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      forwardRef: form,
+      characterSelect: character,
+      handleSubmit: handleSubmit,
+      name: name,
+      setName: setName,
+      avatar: avatar,
+      setAvatar: setAvatar,
+      stepUnlock: stepUnlock,
+      setStepUnlock: setStepUnlock,
+      storyUnlock: storyUnlock,
+      setStoryUnlock: setStoryUnlock,
+      pnj: pnj,
+      setPnj: setPnj,
+      ruby: ruby,
+      setRuby: setRuby,
+      capsId: capsId,
+      setCapsId: setCapsId,
+      mainStoryId: mainStoryId,
+      setMainStoryId: setMainStoryId,
+      categories: categories,
+      setCategories: setCategories,
+      getData: getData,
+      buttonText: character === "NEW" ? "Ajouter" : "Mettre à jour"
     }), !pnj && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      getData: getData,
       name: name,
       capsId: capsId,
       avatar: avatar,
@@ -3160,7 +3252,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/CapsSelect */ "./resources/js/dashboard/components/Select/CapsSelect.js");
 /* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
 /* harmony import */ var _components_Select_MainStoriesSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Select/MainStoriesSelect */ "./resources/js/dashboard/components/Select/MainStoriesSelect.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Select_CategoryCharacterSelect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Select/CategoryCharacterSelect */ "./resources/js/dashboard/components/Select/CategoryCharacterSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
 
 
 
@@ -3169,6 +3275,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function FormCharacter(_ref) {
   var forwardRef = _ref.forwardRef,
+      characterSelect = _ref.characterSelect,
       handleSubmit = _ref.handleSubmit,
       name = _ref.name,
       setName = _ref.setName,
@@ -3184,21 +3291,29 @@ function FormCharacter(_ref) {
       setRuby = _ref.setRuby,
       capsId = _ref.capsId,
       setCapsId = _ref.setCapsId,
-      mainStories = _ref.mainStories,
       mainStoryId = _ref.mainStoryId,
       setMainStoryId = _ref.setMainStoryId,
-      stories = _ref.stories,
-      caps = _ref.caps,
+      categories = _ref.categories,
+      setCategories = _ref.setCategories,
+      getData = _ref.getData,
       buttonText = _ref.buttonText;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+
+  var deleteCategory = function deleteCategory(id) {
+    var newCategories = categories.filter(function (category) {
+      return category !== id;
+    });
+    setCategories(newCategories);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
     className: "form-flex",
     onSubmit: function onSubmit(e) {
       return handleSubmit(e);
     },
     ref: forwardRef,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "form-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         type: "text",
         id: "name",
         name: "name",
@@ -3207,13 +3322,13 @@ function FormCharacter(_ref) {
           return setName(e.target.value);
         },
         placeholder: "CSS"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "name",
         children: "Nom"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "form-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         type: "text",
         id: "avatar",
         name: "avatar",
@@ -3223,13 +3338,13 @@ function FormCharacter(_ref) {
         },
         placeholder: "CSS",
         disabled: pnj
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "avatar",
         children: "Avatar"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "form-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         type: "number",
         id: "step",
         name: "step",
@@ -3239,14 +3354,14 @@ function FormCharacter(_ref) {
         },
         placeholder: "CSS",
         disabled: pnj
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "step_unlock",
         children: "Etape"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "form-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        stories: stories,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        stories: getData.stories,
         characterUnlock: storyUnlock,
         selectName: "story_id",
         selectMode: true,
@@ -3254,13 +3369,13 @@ function FormCharacter(_ref) {
           return setStoryUnlock(Number(e.target.value));
         },
         disabled: pnj
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "story_id",
         children: "Histoire"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "form-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         type: "number",
         id: "ruby",
         name: "ruby",
@@ -3270,14 +3385,14 @@ function FormCharacter(_ref) {
         },
         placeholder: "CSS",
         disabled: pnj
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "ruby",
         children: "Prix"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "form-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        caps: caps,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        caps: getData.caps,
         characterCapsId: capsId,
         selectMode: true,
         greenCaps: true,
@@ -3286,14 +3401,14 @@ function FormCharacter(_ref) {
           return setCapsId(Number(e.target.value));
         },
         disabled: pnj
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "caps_id",
         children: "Capsule"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "form-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_MainStoriesSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        mainStories: mainStories,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_MainStoriesSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        mainStories: getData.mainStories,
         characterMainStory: mainStoryId,
         selectMode: true,
         selectName: "main_story_id",
@@ -3301,13 +3416,28 @@ function FormCharacter(_ref) {
           return setMainStoryId(Number(e.target.value));
         },
         disabled: pnj
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "main_story_id",
         children: "Histoire principal"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_CategoryCharacterSelect__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        categories: getData.categories,
+        characterCategory: categories,
+        selectMode: true,
+        selectName: "category_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setCategories([].concat(_toConsumableArray(categories), [Number(e.target.value)]));
+        },
+        disabled: pnj
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+        htmlFor: "category_id",
+        children: "Cat\xE9gorie"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "form-group-check",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
         type: "checkbox",
         name: "is_pnj",
         id: "isPnj",
@@ -3315,11 +3445,30 @@ function FormCharacter(_ref) {
         onChange: function onChange(e) {
           return setPnj(e.target.checked);
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "isPnj",
         children: "PNJ"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+    }), categories.length !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
+      className: "delete-categories",
+      children: getData.categories.map(function (category) {
+        return categories.map(function (characterCat) {
+          if (characterCat === category.id) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+              children: [category.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                className: "delete",
+                onClick: function onClick() {
+                  return deleteCategory(category.id);
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+                  className: "fa-solid fa-trash"
+                })
+              })]
+            }, category + Math.random() * 1000);
+          }
+        });
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
       type: "submit",
       children: buttonText
     })]
@@ -3343,7 +3492,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/CapsSelect */ "./resources/js/dashboard/components/Select/CapsSelect.js");
 /* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Select_CategoryCharacterSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Select/CategoryCharacterSelect */ "./resources/js/dashboard/components/Select/CategoryCharacterSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -3352,85 +3503,91 @@ __webpack_require__.r(__webpack_exports__);
 
 function Preview(_ref) {
   var capsIcon = _ref.capsIcon,
-      caps = _ref.caps,
-      stories = _ref.stories,
       name = _ref.name,
       avatar = _ref.avatar,
       capsId = _ref.capsId,
       stepUnlock = _ref.stepUnlock,
       storyUnlock = _ref.storyUnlock,
-      ruby = _ref.ruby;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      categories = _ref.categories,
+      setCategories = _ref.setCategories,
+      ruby = _ref.ruby,
+      getData = _ref.getData;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "preview",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "character",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "shadow",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
-          children: [name, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
+          children: [name, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
             src: avatar + "transformations/base/head.png",
             alt: name
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "presentation",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "avatar",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
               src: avatar + "avatars/1.png",
               alt: name + "-avatar"
             })
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "story-unlock",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
           children: "D\xE9bloquer"
-        }), ruby === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-            children: ["\xC9tape N\xB0", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        }), ruby === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+            children: ["\xC9tape N\xB0", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "step",
               children: stepUnlock
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "step",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                stories: stories,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                stories: getData.stories,
                 characterUnlock: storyUnlock
               })
             })
           })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               className: "step",
-              children: [ruby, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              children: [ruby, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                 src: "https://www.dragonballrebirth.fr/css/images/ruby.svg",
                 alt: "rubis"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
             children: "Boutique de Rubis"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "caps",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
-          children: ["Capsule", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
+          children: ["Capsule", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
             src: capsIcon,
             alt: ""
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            caps: caps,
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_CapsSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            caps: getData.caps,
             characterCapsId: capsId
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        "class": "categories",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "categories",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
           children: "Cat\xE9gories"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_CategoryCharacterSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            categories: getData.categories,
+            characterCategory: categories
+          })
+        })]
       })]
     })
   });
@@ -3476,22 +3633,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Character(_ref) {
-  var getData = _ref.getData;
+  var getData = _ref.getData,
+      refreshData = _ref.refreshData;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       characters = _useState2[0],
       setCharacters = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
-      data = _useState4[0],
-      setData = _useState4[1];
+      onUpdate = _useState4[0],
+      setOnUpdate = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      onUpdate = _useState6[0],
-      setOnUpdate = _useState6[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    setCharacters(getData.characters);
+  }, [getData]);
 
   var deleteCharacter = function deleteCharacter(characterToDelete) {
     var confirm = window.confirm("ATTENTION ! Tu es sur le point de supprimer un personnage. Cette action est irréversible.");
@@ -3501,10 +3658,7 @@ function Character(_ref) {
         id: characterToDelete.id
       }).then(function (res) {
         if (res.status === 200) {
-          var newDataCharacter = characters.filter(function (character) {
-            return character.id !== characterToDelete.id;
-          });
-          setCharacters(newDataCharacter);
+          refreshData();
         }
       })["catch"](function (err) {
         return console.log(err);
@@ -3516,18 +3670,28 @@ function Character(_ref) {
     children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
         setOnUpdate: setOnUpdate,
-        getData: getData,
         children: "Les personnages"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "flex-galery",
-        children: characters.length !== 0 && characters.map(function (character) {
+        children: characters && characters.length !== 0 && characters.map(function (character) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "character-list",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
-              className: "name",
-              children: [character.name, character.avatar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                src: character.avatar + "transformations/base/head.png",
-                alt: character.name
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "character-info",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                className: "name",
+                children: [character.name, character.avatar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: character.avatar + "transformations/base/head.png",
+                  alt: character.name
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "categories",
+                children: character.category.map(function (category) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    className: "category",
+                    children: category.name
+                  }, character.id + "-" + category.name);
+                })
               })]
             }), !character.is_pnj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
               children: [character.ruby_cost === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -3582,10 +3746,12 @@ function Character(_ref) {
         })
       })]
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateCharacter__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      refreshData: refreshData,
       setOnUpdate: setOnUpdate,
-      character: onUpdate
+      character: onUpdate,
+      getData: getData
     })
-  });
+  }); // return <div>Test</div>;
 }
 
 /***/ }),
@@ -3690,7 +3856,7 @@ function index(_ref) {
   }();
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "container flex-center column",
+    className: "container flex-center column full-grid",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
       className: "title",
       children: "Espace administrateur"

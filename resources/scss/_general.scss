@@ -113,6 +113,10 @@ h2.title {
         flex-direction: column;
     }
 }
+.full-grid {
+    width: 100vw;
+    transform: translate(-5%, 75%);
+}
 
 .price {
     display: flex;
@@ -219,6 +223,17 @@ h2.title {
     div:nth-child(1) {
         margin: 0 auto;
     }
+}
+span.edit {
+    text-align: center;
+    color: $blue;
+    cursor: pointer;
+}
+
+span.delete {
+    text-align: right;
+    color: $red;
+    cursor: pointer;
 }
 
 ::-webkit-scrollbar {

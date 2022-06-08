@@ -21,8 +21,25 @@
         align-items: center;
     }
 
+    .character-info {
+        display: flex;
+        flex-direction: column;
+
+        .categories {
+            display: flex;
+            flex-direction: column;
+
+            .category {
+                margin: 5px 0;
+                font-size: 13px;
+                font-weight: 600;
+            }
+        }
+    }
+
     span.name {
         font-family: "Edo SZ";
+        font-size: 18px;
 
         img {
             width: 30px;
@@ -43,15 +60,5 @@
         &:hover {
             opacity: 0.6;
         }
-    }
-
-    span.edit {
-        text-align: center;
-        color: $blue;
-    }
-
-    span.delete {
-        text-align: right;
-        color: $red;
     }
 }
