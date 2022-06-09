@@ -227,12 +227,14 @@ video {
 html,
 body {
   font-family: "Montserrat", sans-serif;
-  background: linear-gradient(331deg, rgba(92, 179, 225, 0.8941176471) 9%, rgba(17, 69, 96, 0.8941176471) 91%);
+  background: linear-gradient(331deg, rgba(92, 179, 225, 0.8941176471) 9%, rgba(17, 69, 96, 0.8941176471) 91%), url("https://www.dragonballrebirth.fr/css/images/shop/skin-game/default/bg-logo.svg");
   background-size: 100% 100%;
-  background-attachment: fixed;
-  background-position: left center;
+  background-attachment: scroll;
+  background-position: right right;
   background-repeat: no-repeat;
   color: #333;
+  margin: 0;
+  padding: 0;
   font-size: 16px;
   height: 100vh;
   overflow-y: scroll;
@@ -253,17 +255,9 @@ body.admin .title img {
   width: 40px;
   margin-left: 20px;
 }
-html::after,
-body::after {
-  content: url("https://www.dragonballrebirth.fr/css/images/shop/skin-game/default/bg-logo.svg");
-  position: fixed;
-  top: 50%;
-  right: 0;
-  width: 800px;
-  aspect-ratio: 1/1;
-  transform: translate(33%, -50%);
-  z-index: -1;
-  opacity: 0.4;
+
+html {
+  overflow-y: visible;
 }
 
 h1,
@@ -478,12 +472,12 @@ span.edit:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1d72a1;
+  background: #9dd1ed;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #155476;
+  background: #c8e5f5;
 }
 
 header {
@@ -1460,7 +1454,7 @@ form .delete-categories li {
   width: 45%;
   margin: 0 10px;
   flex-grow: 1;
-  height: 84vh;
+  height: 83vh;
   overflow-y: scroll;
 }
 .caps-container .caps-list {
