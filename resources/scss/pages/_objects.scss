@@ -9,6 +9,11 @@ $object-title-margin-bottom: 25px;
     margin: 80px 15px 20px 15px;
     flex-grow: 1;
 
+    &.admin {
+        width: 390px;
+        margin: 50px auto;
+    }
+
     h3 {
         margin-top: $object-title-margin-top;
         margin-bottom: $object-title-margin-bottom;
@@ -16,6 +21,13 @@ $object-title-margin-bottom: 25px;
         text-align: center;
         color: $black;
         text-shadow: 2px 2px 1px $white;
+
+        .min {
+            font-family: "Montserrat";
+            font-size: 18px;
+            color: $blue;
+            text-shadow: none;
+        }
     }
 
     img {

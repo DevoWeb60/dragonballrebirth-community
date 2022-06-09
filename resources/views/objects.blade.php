@@ -7,7 +7,13 @@
             @foreach ($objects as $object )
                 <div class="object">
                     <img src="{{ $object->icon }}" alt="{{ $object->name }}">
-                    <h3>{{ $object->name }}</h3>
+                    <h3>
+                        {{ $object->name }}
+                        <br><span class="min">
+                            {{ $object->consumable === 1 ? "Consommable" : null  }}
+                        </span>
+
+                    </h3>
                     <div class="content">
                         @if(!empty($object->description))
                             <div class="description">

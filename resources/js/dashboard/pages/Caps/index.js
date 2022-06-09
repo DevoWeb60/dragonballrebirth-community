@@ -11,7 +11,7 @@ export default function Caps({ getData, refreshData }) {
         setCaps(getData.caps);
     }, [getData]);
 
-    // console.log(caps);
+    console.log(caps);
 
     return (
         <>

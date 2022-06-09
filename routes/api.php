@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CapsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\CharacterController;
 
 Route::post('/login', [LoginController::class, 'login']);
@@ -27,5 +28,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/update', [CapsController::class, 'update']);
         Route::post('/create', [CapsController::class, 'create']);
         Route::post('/delete', [CapsController::class, 'destroy']);
+    });
+
+    Route::prefix('object')->group(function () {
+        Route::post('/update', [ObjectController::class, 'update']);
+        Route::post('/create', [ObjectController::class, 'create']);
+        Route::post('/delete', [ObjectController::class, 'destroy']);
     });
 });

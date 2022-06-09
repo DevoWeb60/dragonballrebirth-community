@@ -30,10 +30,11 @@ class AdminController extends Controller
 
     public function api()
     {
+        $user = Auth::user();
         $characters = Character::orderBy('is_pnj')->orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
         $stories = Story::all();
         $mainStories = MainStory::all();
-        $caps = Caps::all();
+        $caps = Caps::orderBy('caps_scarecities_id')->get();
         $categories = CharacterCategory::all();
         $steps = AdventureMode::all();
         $capsScarecities = CapsScarecity::all();
@@ -115,7 +116,8 @@ class AdminController extends Controller
             "rewards" => $rewards,
             "winConditions" => $winConditions,
             "works" => $works,
-            "trains" => $trains
+            "trains" => $trains,
+            "user" => $user
         ]);
     }
 }

@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Caps;
-use App\Models\CapsScarecity;
 use Illuminate\Http\Request;
+use App\Models\CapsScarecity;
+use Illuminate\Support\Facades\DB;
 
 class CapsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('capsules', [
@@ -20,12 +17,6 @@ class CapsController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
         $caps = new Caps;
@@ -43,13 +34,6 @@ class CapsController extends Controller
         $caps->save();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Caps  $caps
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Caps $caps)
     {
         $caps::where('id', $request->id)->update([
@@ -66,19 +50,11 @@ class CapsController extends Controller
         ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Caps  $caps
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Caps $caps, Request $request)
     {
+        if ($request->characterId) {
+            DB::update('UPDATE characters SET caps_id = NULL WHERE id = ?', [$request->characterId]);
+        }
         $caps->where('id', $request->id)->delete();
-
-        return response()->json([
-            'success' => true,
-            'id' => $request->id,
-        ]);
     }
 }

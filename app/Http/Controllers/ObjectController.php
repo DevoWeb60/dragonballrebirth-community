@@ -11,19 +11,40 @@ class ObjectController extends Controller
 {
 
 
-    public function index() {
+    public function index()
+    {
         return view('objects', [
             'objects' => ObjectItem::all(),
         ]);
     }
 
-    public function api(){
-        $objects = ObjectItem::all();
+    public function create(Request $request)
+    {
+        $object = new ObjectItem();
+        $object->name = $request->name;
+        $object->object_duration_id = $request->object_duration_id;
+        $object->description = $request->description;
+        $object->using = $request->using;
+        $object->icon = $request->icon;
+        $object->consumable = $request->consumable;
+        $object->save();
+    }
 
-        foreach ($objects as $object) {
-            $object->duration = $object->duration;
-        }
+    public function update(Request $request, ObjectItem $object)
+    {
+        $object::where('id', $request->id)->update([
+            'name' => $request->name,
+            'object_duration_id' => $request->object_duration_id,
+            'description' => $request->description,
+            'using' => $request->using,
+            'icon' => $request->icon,
+            'consumable' => $request->consumable,
+        ]);
+    }
 
-        return response()->json($objects);
+    public function destroy(Request $request)
+    {
+        $object = ObjectItem::find($request->id);
+        $object->delete();
     }
 }

@@ -95,15 +95,15 @@ export default function Character({ getData, refreshData }) {
                                                     <span className="empty"></span>
                                                 )}
                                                 <span>
-                                                    {character.caps.name}
+                                                    {character.caps?.name}
                                                     <img
                                                         src={
                                                             character
                                                                 .scarecities
-                                                                .icon
+                                                                ?.icon
                                                         }
                                                         alt={
-                                                            character.caps.name
+                                                            character.caps?.name
                                                         }
                                                     />
                                                 </span>

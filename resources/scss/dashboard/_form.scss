@@ -14,7 +14,8 @@ form {
             width: 45%;
 
             input,
-            select {
+            select,
+            textarea {
                 width: 100%;
             }
         }
@@ -37,7 +38,8 @@ form {
 
         label,
         input,
-        select {
+        select,
+        textarea {
             font-size: $fs-text;
             padding: 10px 5px 10px 0px;
             color: $white;
@@ -56,7 +58,8 @@ form {
         }
 
         input,
-        select {
+        select,
+        textarea {
             background: none;
             border: none;
             border-bottom: 3px solid $orange;

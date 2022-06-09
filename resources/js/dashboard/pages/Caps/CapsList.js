@@ -6,13 +6,16 @@ export default function CapsList({
     setOnUpdate,
     refreshData,
 }) {
-    const deleteCaps = (capsToDelete) => {
+    const deleteCaps = (capsToDelete, characterId = false) => {
         const confirm = window.confirm(
             "ATTENTION ! Tu es sur le point de supprimer une capsule. Cette action est irréversible."
         );
         if (confirm) {
             axios
-                .post("api/caps/delete", { id: capsToDelete })
+                .post("api/caps/delete", {
+                    id: capsToDelete,
+                    characterId: characterId,
+                })
                 .then((res) => {
                     if (res.status === 200) {
                         refreshData();
@@ -122,7 +125,9 @@ export default function CapsList({
                                 </span>
                                 <span
                                     className="delete"
-                                    onClick={() => deleteCaps(cap.id)}
+                                    onClick={() =>
+                                        deleteCaps(cap.id, cap.character?.id)
+                                    }
                                 >
                                     <i className="fa-solid fa-trash"></i>
                                 </span>
