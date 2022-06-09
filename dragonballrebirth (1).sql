@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 09 juin 2022 à 20:19
+-- Généré le : jeu. 09 juin 2022 à 22:16
 -- Version du serveur : 5.7.33
 -- Version de PHP : 8.1.6
 
@@ -836,7 +836,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (25, 'App\\Models\\User', 2, 'token', 'ec6922dbffa1d8decc3fdb0bc1e0b70e05ea9564885c80eca581a5664bfcc259', '[\"*\"]', NULL, '2022-06-08 14:13:04', '2022-06-08 14:13:04'),
 (26, 'App\\Models\\User', 2, 'token', '5f8e0416e7e5378620e1d039ff0fc5982b47e3f8334c2f3bdeae7414ea0c9360', '[\"*\"]', '2022-06-08 15:02:24', '2022-06-08 14:13:04', '2022-06-08 15:02:24'),
 (27, 'App\\Models\\User', 2, 'token', '6743c23b234102b40f138c1792a0fe68362def7747e1d5cadab882b1322f04bc', '[\"*\"]', '2022-06-09 16:31:30', '2022-06-08 17:03:41', '2022-06-09 16:31:30'),
-(28, 'App\\Models\\User', 2, 'token', '7b52a70a59ddb60215ee1fa6cd06f1d9dfdb98c05591f95e22042df55c09709a', '[\"*\"]', '2022-06-09 18:18:34', '2022-06-09 16:44:05', '2022-06-09 18:18:34');
+(28, 'App\\Models\\User', 2, 'token', '7b52a70a59ddb60215ee1fa6cd06f1d9dfdb98c05591f95e22042df55c09709a', '[\"*\"]', '2022-06-09 20:07:54', '2022-06-09 16:44:05', '2022-06-09 20:07:54');
 
 -- --------------------------------------------------------
 
@@ -860,7 +860,7 @@ INSERT INTO `planets` (`id`, `planet`, `created_at`, `updated_at`, `icon`) VALUE
 (1, 'Terre', '2022-05-18 20:03:07', '2022-05-18 20:03:07', 'https://www.dragonballrebirth.fr/img/icon/planet-earth.png'),
 (2, 'Monde des morts', '2022-05-19 18:51:36', '2022-05-19 18:51:36', 'https://www.dragonballrebirth.fr/img/icon/planet-kaio.png'),
 (3, 'Namek', '2022-05-19 18:53:28', '2022-05-19 18:53:29', 'https://www.dragonballrebirth.fr/img/icon/planet-namek.png'),
-(4, 'Espace', '2022-05-19 18:57:06', '2022-05-19 18:57:06', 'https://www.dragonballrebirth.fr/img/icon/planet-earth.png');
+(4, 'Espace', '2022-05-19 18:57:06', '2022-05-19 18:57:06', 'https://www.dragonballrebirth.fr/img/icon/planet-space.png');
 
 -- --------------------------------------------------------
 
@@ -1491,7 +1491,7 @@ ALTER TABLE `win_condition_bases`
 -- AUTO_INCREMENT pour la table `works`
 --
 ALTER TABLE `works`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Contraintes pour les tables déchargées

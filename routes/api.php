@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CapsController;
+use App\Http\Controllers\WorkController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ObjectController;
@@ -34,5 +35,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/update', [ObjectController::class, 'update']);
         Route::post('/create', [ObjectController::class, 'create']);
         Route::post('/delete', [ObjectController::class, 'destroy']);
+    });
+
+    Route::prefix('work')->group(function () {
+        Route::post('/update', [WorkController::class, 'update']);
+        Route::post('/create', [WorkController::class, 'create']);
+        Route::post('/delete', [WorkController::class, 'destroy']);
     });
 });

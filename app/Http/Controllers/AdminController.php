@@ -18,6 +18,7 @@ use App\Models\CapsScarecity;
 use App\Models\ObjectDuration;
 use App\Models\CharacterCategory;
 use App\Models\Train;
+use App\Models\WaitingDuration;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -46,6 +47,7 @@ class AdminController extends Controller
         $winConditions = WinCondition::all();
         $works = Work::all();
         $trains = Train::all();
+        $waitingDurations = WaitingDuration::all();
 
         foreach ($mainStories as $mainStory) {
             $mainStory->saga;
@@ -109,7 +111,7 @@ class AdminController extends Controller
             "categories" => $categories,
             "steps" => $steps,
             "capsScarecities" => $capsScarecities,
-            "mapCase" => $mapCase,
+            "mapCases" => $mapCase,
             "objectDurations" => $objectDurations,
             "objects" => $objects,
             "planets" => $planets,
@@ -117,7 +119,8 @@ class AdminController extends Controller
             "winConditions" => $winConditions,
             "works" => $works,
             "trains" => $trains,
-            "user" => $user
+            "user" => $user,
+            "waitingDurations" => $waitingDurations
         ]);
     }
 }

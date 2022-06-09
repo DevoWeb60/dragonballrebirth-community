@@ -2695,6 +2695,173 @@ function MainStoriesSelect(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/dashboard/components/Select/MapCaseSelect.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/dashboard/components/Select/MapCaseSelect.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MapCaseSelect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function MapCaseSelect(_ref) {
+  var mapCases = _ref.mapCases,
+      selectName = _ref.selectName,
+      mapCaseId = _ref.mapCaseId,
+      selectMode = _ref.selectMode,
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+
+  if (!selectMode) {
+    return mapCases.map(function (mapCase) {
+      return mapCase.id === mapCaseId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: mapCase["case"]
+      }, mapCase.id);
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+      name: selectName,
+      onChange: onChangeFunc,
+      value: mapCaseId,
+      disabled: disabled,
+      children: mapCases.map(function (mapCase) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: mapCase.id,
+          children: mapCase["case"]
+        }, mapCase.id);
+      })
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/Select/ObjectSelect.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/dashboard/components/Select/ObjectSelect.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ObjectSelect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function ObjectSelect(_ref) {
+  var objects = _ref.objects,
+      selectName = _ref.selectName,
+      objectId = _ref.objectId,
+      selectMode = _ref.selectMode,
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+
+  if (!selectMode) {
+    return objects.map(function (object) {
+      return object.id === objectId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+        children: [object.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: object.icon,
+          alt: ""
+        })]
+      }, object.id);
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+      name: selectName,
+      onChange: onChangeFunc,
+      value: objectId,
+      disabled: disabled,
+      children: objects.map(function (object) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: object.id,
+          children: object.name
+        }, object.id);
+      })
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/Select/PlanetSelect.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/dashboard/components/Select/PlanetSelect.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ PlanetSelect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function PlanetSelect(_ref) {
+  var planets = _ref.planets,
+      selectName = _ref.selectName,
+      planetId = _ref.planetId,
+      selectMode = _ref.selectMode,
+      onChangeFunc = _ref.onChangeFunc,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+
+  if (!selectMode) {
+    return planets.map(function (planet) {
+      return planet.id === planetId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "planet",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: planet.icon,
+          alt: ""
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+          children: planet.planet
+        })]
+      }, planet.id);
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+      name: selectName,
+      onChange: onChangeFunc,
+      value: planetId,
+      disabled: disabled,
+      children: planets.map(function (planet) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: planet.id,
+          children: planet.planet
+        }, planet.id);
+      })
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/dashboard/components/Select/StorySelect.js":
 /*!*****************************************************************!*\
   !*** ./resources/js/dashboard/components/Select/StorySelect.js ***!
@@ -5022,6 +5189,435 @@ function Train() {
 
 /***/ }),
 
+/***/ "./resources/js/dashboard/pages/Work/UpdateComponent/FormWork.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Work/UpdateComponent/FormWork.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormObject)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_DurationSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/DurationSelect */ "./resources/js/dashboard/components/Select/DurationSelect.js");
+/* harmony import */ var _components_Select_MapCaseSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/MapCaseSelect */ "./resources/js/dashboard/components/Select/MapCaseSelect.js");
+/* harmony import */ var _components_Select_ObjectSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Select/ObjectSelect */ "./resources/js/dashboard/components/Select/ObjectSelect.js");
+/* harmony import */ var _components_Select_PlanetSelect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Select/PlanetSelect */ "./resources/js/dashboard/components/Select/PlanetSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+function FormObject(_ref) {
+  var forwardRef = _ref.forwardRef,
+      name = _ref.name,
+      duration = _ref.duration,
+      utils = _ref.utils,
+      mapCase = _ref.mapCase,
+      object = _ref.object,
+      planet = _ref.planet,
+      thumbnail = _ref.thumbnail,
+      unlockStep = _ref.unlockStep,
+      setName = _ref.setName,
+      setDuration = _ref.setDuration,
+      setUtils = _ref.setUtils,
+      setMapCase = _ref.setMapCase,
+      setObject = _ref.setObject,
+      setPlanet = _ref.setPlanet,
+      setThumbnail = _ref.setThumbnail,
+      setUnlockStep = _ref.setUnlockStep,
+      handleSubmit = _ref.handleSubmit,
+      buttonText = _ref.buttonText,
+      getData = _ref.getData;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+    className: "form-flex",
+    onSubmit: function onSubmit(e) {
+      return handleSubmit(e);
+    },
+    ref: forwardRef,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+        type: "text",
+        id: "name",
+        name: "name",
+        value: name,
+        onChange: function onChange(e) {
+          return setName(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+        htmlFor: "name",
+        children: "Nom"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+        type: "text",
+        id: "utils",
+        name: "utils",
+        value: utils,
+        onChange: function onChange(e) {
+          return setUtils(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+        htmlFor: "utils",
+        children: "Utilit\xE9"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+        type: "text",
+        id: "thumbnail",
+        name: "thumbnail",
+        value: thumbnail,
+        onChange: function onChange(e) {
+          return setThumbnail(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+        htmlFor: "thumbnail",
+        children: "Image de fond"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+        type: "number",
+        id: "unlockStep",
+        name: "unlockStep",
+        value: unlockStep,
+        onChange: function onChange(e) {
+          return setUnlockStep(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+        htmlFor: "unlockStep",
+        children: "\xC9tape de d\xE9blocage"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "form-group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_DurationSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        durations: getData.waitingDurations,
+        durationId: duration,
+        selectName: "waiting_duration_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setDuration(Number(e.target.value));
+        },
+        selectMode: true
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "form-group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_MapCaseSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        mapCases: getData.mapCases,
+        mapCaseId: mapCase,
+        selectName: "map_case_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setMapCase(Number(e.target.value));
+        },
+        selectMode: true
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "form-group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_PlanetSelect__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        planets: getData.planets,
+        planetId: planet,
+        selectName: "planet_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setPlanet(Number(e.target.value));
+        },
+        selectMode: true
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "form-group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_ObjectSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        objects: getData.objects,
+        objectId: object,
+        selectName: "object_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setObject(Number(e.target.value));
+        },
+        selectMode: true
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+      type: "submit",
+      children: buttonText
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Work/UpdateComponent/Preview.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Work/UpdateComponent/Preview.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Preview)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_DurationSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/DurationSelect */ "./resources/js/dashboard/components/Select/DurationSelect.js");
+/* harmony import */ var _components_Select_ObjectSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/ObjectSelect */ "./resources/js/dashboard/components/Select/ObjectSelect.js");
+/* harmony import */ var _components_Select_PlanetSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Select/PlanetSelect */ "./resources/js/dashboard/components/Select/PlanetSelect.js");
+/* harmony import */ var _components_Select_MapCaseSelect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Select/MapCaseSelect */ "./resources/js/dashboard/components/Select/MapCaseSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+function Preview(_ref) {
+  var getData = _ref.getData,
+      name = _ref.name,
+      duration = _ref.duration,
+      utils = _ref.utils,
+      mapCase = _ref.mapCase,
+      object = _ref.object,
+      planet = _ref.planet,
+      thumbnail = _ref.thumbnail,
+      unlockStep = _ref.unlockStep;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    className: "work admin",
+    style: {
+      backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url(" + thumbnail + ")"
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+      children: name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "content",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "gain",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+          children: "Obtiens"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_ObjectSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            objects: getData.objects,
+            objectId: object
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "using",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+          children: "Utilit\xE9"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+          children: utils
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "duration",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_DurationSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          durations: getData.waitingDurations,
+          durationId: duration
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "location",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_PlanetSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        planets: getData.planets,
+        planetId: planet
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "case",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Select_MapCaseSelect__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            mapCases: getData.mapCases,
+            mapCaseId: mapCase
+          })
+        })
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Work/UpdateWork.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/dashboard/pages/Work/UpdateWork.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ UpdateWork)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
+/* harmony import */ var _UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateComponent/Preview */ "./resources/js/dashboard/pages/Work/UpdateComponent/Preview.js");
+/* harmony import */ var _UpdateComponent_FormWork__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateComponent/FormWork */ "./resources/js/dashboard/pages/Work/UpdateComponent/FormWork.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function UpdateWork(_ref) {
+  var getData = _ref.getData,
+      setOnUpdate = _ref.setOnUpdate,
+      work = _ref.work,
+      refreshData = _ref.refreshData;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(work.name || ""),
+      _useState2 = _slicedToArray(_useState, 2),
+      name = _useState2[0],
+      setName = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(work.waiting_duration_id || 0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      duration = _useState4[0],
+      setDuration = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(work.utils || ""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      utils = _useState6[0],
+      setUtils = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(work.map_case_id || 0),
+      _useState8 = _slicedToArray(_useState7, 2),
+      mapCase = _useState8[0],
+      setMapCase = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(work.object_id || 0),
+      _useState10 = _slicedToArray(_useState9, 2),
+      object = _useState10[0],
+      setObject = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(work.planet_id || 0),
+      _useState12 = _slicedToArray(_useState11, 2),
+      planet = _useState12[0],
+      setPlanet = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(work.thumbnail || "https://www.dragonballrebirth.fr/img/metiers/[image.png]"),
+      _useState14 = _slicedToArray(_useState13, 2),
+      thumbnail = _useState14[0],
+      setThumbnail = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(work.unlock_step || 0),
+      _useState16 = _slicedToArray(_useState15, 2),
+      unlockStep = _useState16[0],
+      setUnlockStep = _useState16[1]; // !FORM CHARACTER
+
+
+  var form = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var inputs = form.current;
+    var data = {};
+    data = {
+      name: inputs[0].value,
+      utils: inputs[1].value,
+      thumbnail: inputs[2].value,
+      unlock_step: inputs[3].value,
+      waiting_duration_id: inputs[4].value,
+      map_case_id: inputs[5].value,
+      planet_id: inputs[6].value,
+      object_id: inputs[7].value,
+      id: work.id
+    };
+    console.log(data);
+
+    if (work === "NEW") {
+      axios.post("api/work/create", data).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+          setOnUpdate(false);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    } else {
+      axios.post("api/work/update", data).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+          setOnUpdate(false);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      setOnUpdate: setOnUpdate,
+      onUpdate: work,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        children: work === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: "Nouveau m\xE9tier"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+          children: [work.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: work.icon,
+            alt: ""
+          })]
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormWork__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      forwardRef: form,
+      handleSubmit: handleSubmit,
+      buttonText: work === "NEW" ? "Ajouter" : "Mettre à jour",
+      getData: getData,
+      name: name,
+      duration: duration,
+      utils: utils,
+      mapCase: mapCase,
+      object: object,
+      planet: planet,
+      thumbnail: thumbnail,
+      unlockStep: unlockStep,
+      setName: setName,
+      setDuration: setDuration,
+      setUtils: setUtils,
+      setMapCase: setMapCase,
+      setObject: setObject,
+      setPlanet: setPlanet,
+      setThumbnail: setThumbnail,
+      setUnlockStep: setUnlockStep
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      getData: getData,
+      name: name,
+      duration: duration,
+      utils: utils,
+      mapCase: mapCase,
+      object: object,
+      planet: planet,
+      thumbnail: thumbnail,
+      unlockStep: unlockStep
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/dashboard/pages/Work/index.js":
 /*!****************************************************!*\
   !*** ./resources/js/dashboard/pages/Work/index.js ***!
@@ -5035,12 +5631,121 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
+/* harmony import */ var _UpdateWork__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateWork */ "./resources/js/dashboard/pages/Work/UpdateWork.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
-function Work() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Work"
+
+
+
+
+
+function Work(_ref) {
+  var getData = _ref.getData,
+      refreshData = _ref.refreshData;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      works = _useState2[0],
+      setWorks = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      onUpdate = _useState4[0],
+      setOnUpdate = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setWorks(getData.works);
+  }, [getData]);
+
+  var deleteWork = function deleteWork(id) {
+    var confirm = window.confirm("ATTENTION ! Tu es sur le point de supprimer un métier. Cette action est irréversible.");
+
+    if (confirm) {
+      axios.post("api/work/delete", {
+        id: id
+      }).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        setOnUpdate: setOnUpdate,
+        onUpdate: onUpdate,
+        children: "Les m\xE9tiers"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "flex-galery",
+        children: works && works.map(function (work) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "work-list",
+            style: {
+              backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(" + work.thumbnail + ")"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "name",
+              children: work.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              className: "object-reward",
+              children: [work.object.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: work.object.icon,
+                alt: ""
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: work.duration.duration
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              className: "location",
+              children: [work.map_case["case"], /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+                className: "planet",
+                children: [work.planet.planet, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                  src: work.planet.icon,
+                  alt: ""
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "edit",
+              onClick: function onClick() {
+                return setOnUpdate(work);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                className: "fa-solid fa-pen-to-square"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "delete",
+              onClick: function onClick() {
+                return deleteWork(work.id);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                className: "fa-solid fa-trash"
+              })
+            })]
+          }, work.id);
+        })
+      })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_UpdateWork__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      refreshData: refreshData,
+      getData: getData,
+      setOnUpdate: setOnUpdate,
+      work: onUpdate
+    })
   });
 }
 

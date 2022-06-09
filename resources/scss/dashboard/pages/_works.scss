@@ -1,0 +1,41 @@
+.work-list {
+    @include card;
+    margin: 20px auto;
+    width: 100%;
+    min-height: 100px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr 0.2fr;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    color: $white;
+
+    .name {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .location {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            margin-top: 10px;
+        }
+    }
+    .planet,
+    .object-reward {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 30px;
+            margin-left: 10px;
+        }
+    }
+}

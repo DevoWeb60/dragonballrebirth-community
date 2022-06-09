@@ -817,6 +817,9 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   background-attachment: fixed;
   margin: 20px;
 }
+.work.admin {
+  margin: 50px auto;
+}
 .work h2 {
   color: #fff;
   font-size: 1.55rem;
@@ -1540,6 +1543,48 @@ form .delete-categories li {
 .object-list .name img {
   width: 40px;
   margin-right: 15px;
+}
+
+.work-list {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%;
+  min-height: 100px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr 0.2fr;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  color: #fff;
+}
+.work-list .name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.work-list .location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.work-list .location span {
+  margin-top: 10px;
+}
+.work-list .planet,
+.work-list .object-reward {
+  display: flex;
+  align-items: center;
+}
+.work-list .planet img,
+.work-list .object-reward img {
+  width: 30px;
+  margin-left: 10px;
 }
 
 .mainStory h2 {
