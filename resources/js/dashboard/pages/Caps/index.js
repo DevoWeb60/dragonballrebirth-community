@@ -1,80 +1,46 @@
 import React, { useState, useEffect } from "react";
 import Title from "../../components/Partials/Title";
-import GreenCaps from "./GreenCaps";
-import OtherCaps from "./OtherCaps";
-import UpdateCaps from "./UpdateCaps/UpdateCaps";
+import CapsList from "./CapsList";
+import UpdateCaps from "./UpdateCaps";
 
-export default function Caps() {
-    const [otherCaps, setOtherCaps] = useState([]);
-    const [greenCaps, setGreenCaps] = useState([]);
-    const [otherCapsIcons, setOtherCapsIcons] = useState([]);
-    const [greenCapsIcons, setGreenCapsIcons] = useState([]);
-    const [requestCount, setRequestCount] = useState(0);
+export default function Caps({ getData, refreshData }) {
+    const [caps, setCaps] = useState([]);
     const [onUpdate, setOnUpdate] = useState(false);
 
-    const getData = () => {
-        axios
-            .get("api/caps")
-            .then((res) => {
-                const dataCaps = res.data.caps;
-                const dataIcons = res.data.scarecities;
-
-                const getOtherCaps = dataCaps.filter(
-                    (other) => other.caps_scarecities_id !== 1
-                );
-                const getGreenCaps = dataCaps.filter(
-                    (green) => green.caps_scarecities_id === 1
-                );
-                const getOtherCapsIcons = dataIcons.filter(
-                    (icon) => icon.id !== 1
-                );
-                const getGreenCapsIcons = dataIcons.filter(
-                    (icon) => icon.id === 1
-                );
-
-                setOtherCaps(getOtherCaps);
-                setGreenCaps(getGreenCaps);
-                setOtherCapsIcons(getOtherCapsIcons);
-                setGreenCapsIcons(getGreenCapsIcons);
-            })
-            .catch((err) => {
-                if (err.request.status === 429 || err.request.status === 401) {
-                    setRequestCount((count) => count + 1);
-                }
-                getData();
-            });
-    };
-
-    if (requestCount > 5) {
-        localStorage.removeItem("page");
-        localStorage.removeItem("connected");
-        window.location = "/dashboard";
-    }
-
     useEffect(() => {
-        getData();
-    }, []);
+        setCaps(getData.caps);
+    }, [getData]);
+
+    // console.log(caps);
 
     return (
         <>
             {onUpdate === false ? (
                 <>
-                    <Title setOnUpdate={setOnUpdate} getData={getData}>
+                    <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les capsules
                     </Title>
                     <div className="flex-galery">
-                        <GreenCaps
-                            greenCaps={greenCaps}
-                            greenCapsIcon={greenCapsIcons}
+                        <CapsList
+                            caps={caps}
+                            setOnUpdate={setOnUpdate}
+                            character={true}
+                            refreshData={refreshData}
                         />
-                        <OtherCaps
-                            otherCaps={otherCaps}
-                            otherCapsIcons={otherCapsIcons}
+                        <CapsList
+                            caps={caps}
+                            setOnUpdate={setOnUpdate}
+                            refreshData={refreshData}
                         />
                     </div>
                 </>
             ) : (
-                <UpdateCaps />
+                <UpdateCaps
+                    getData={getData}
+                    cap={onUpdate}
+                    setOnUpdate={setOnUpdate}
+                    refreshData={refreshData}
+                />
             )}
         </>
     );

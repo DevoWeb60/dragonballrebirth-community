@@ -9,6 +9,28 @@
         @include card;
         width: 100%;
         margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 0.2fr 0.2fr;
+        justify-content: center;
+        align-items: center;
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 1fr);
+            grid-template-rows: repeat(auto-fit, 1fr);
+            color: darken($orange, 20);
+            font-weight: 600;
+            gap: 15px;
+
+            .stat {
+                &.plus {
+                    color: darken($green, 15);
+                }
+                &.minus {
+                    color: lighten($red, 10);
+                }
+            }
+        }
 
         h4 {
             display: flex;
@@ -19,6 +41,17 @@
         img {
             margin-left: 15px;
             width: 30px;
+        }
+    }
+
+    .info {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .character-name {
+            font-family: "Edo SZ";
+            font-size: 18px;
         }
     }
 }

@@ -28,7 +28,7 @@ export default function App() {
             })
             .catch((err) => {
                 setRequestCount((count) => count + 1);
-                getData();
+                getAllData();
             });
     };
 
@@ -49,6 +49,8 @@ export default function App() {
             // console.log("request");
         }
     }, [token]);
+
+    // console.log(data);
 
     if (!token) {
         return (

@@ -1,15 +1,17 @@
 import React from "react";
 
-export default function Title({ setOnUpdate, children }) {
+export default function Title({ setOnUpdate, children, onUpdate }) {
     return (
         <h2 className="title">
             {children}
             <span className="btn-container-dashboard">
                 <span
                     className="btn-home invert"
-                    onClick={() => setOnUpdate("NEW")}
+                    onClick={() =>
+                        setOnUpdate(onUpdate === false ? "NEW" : false)
+                    }
                 >
-                    Ajouter
+                    {onUpdate === false ? "Ajouter" : "Retour"}
                 </span>
             </span>
         </h2>

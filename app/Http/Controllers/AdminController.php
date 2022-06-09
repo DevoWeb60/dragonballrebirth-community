@@ -22,16 +22,18 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         return view('dashboard.home');
     }
 
-    public function api(){
+    public function api()
+    {
         $characters = Character::orderBy('is_pnj')->orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
         $stories = Story::all();
         $mainStories = MainStory::all();
-        $caps = Caps::where('caps_scarecities_id', 1)->get();
+        $caps = Caps::all();
         $categories = CharacterCategory::all();
         $steps = AdventureMode::all();
         $capsScarecities = CapsScarecity::all();
@@ -44,16 +46,16 @@ class AdminController extends Controller
         $works = Work::all();
         $trains = Train::all();
 
-        foreach ($mainStories as $mainStory){
+        foreach ($mainStories as $mainStory) {
             $mainStory->saga;
         }
 
-        foreach ($stories as $story){
+        foreach ($stories as $story) {
             $story->storyUnlock;
             $story->steps;
         }
 
-        foreach ($trains as $train){
+        foreach ($trains as $train) {
             $train->planet;
             $train->mapCase;
             $train->duration;
@@ -66,17 +68,17 @@ class AdminController extends Controller
             $work->duration;
         }
 
-        foreach ($winConditions as $winCondition){
+        foreach ($winConditions as $winCondition) {
             $winCondition->realName;
             $winCondition->train;
             $winCondition->object;
         }
 
-        foreach ($objects as $object){
+        foreach ($objects as $object) {
             $object->duration;
         }
 
-        foreach ($steps as $step){
+        foreach ($steps as $step) {
             $step->planet;
             $step->conditions;
             $step->rewards;
@@ -87,12 +89,13 @@ class AdminController extends Controller
 
         foreach ($caps as $cap) {
             $cap->scarecities;
+            $cap->character;
         }
 
         foreach ($characters as $character) {
-            $character->caps ;
-            $character->story ;
-            $character->main_story ;
+            $character->caps;
+            $character->story;
+            $character->main_story;
             $character->category;
             $character->scarecities = CapsScarecity::find(1);
         }
@@ -114,9 +117,5 @@ class AdminController extends Controller
             "works" => $works,
             "trains" => $trains
         ]);
-
-        // return response()->json([
-        //     "test" => "test"
-        // ]);
     }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CapsSelect from "../../../components/Select/CapsSelect";
 import StorySelect from "../../../components/Select/StorySelect";
 import MainStoriesSelect from "../../../components/Select/MainStoriesSelect";
@@ -6,7 +6,6 @@ import CategoryCharacterSelect from "../../../components/Select/CategoryCharacte
 
 export default function FormCharacter({
     forwardRef,
-    characterSelect,
     handleSubmit,
     name,
     setName,

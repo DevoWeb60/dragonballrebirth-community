@@ -2284,7 +2284,7 @@ function App() {
       setRequestCount(function (count) {
         return count + 1;
       });
-      getData();
+      getAllData();
     });
   };
 
@@ -2304,7 +2304,7 @@ function App() {
     if (localStorage.getItem("connected")) {
       getAllData(); // console.log("request");
     }
-  }, [token]);
+  }, [token]); // console.log(data);
 
   if (!token) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
@@ -2371,7 +2371,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function Title(_ref) {
   var setOnUpdate = _ref.setOnUpdate,
-      children = _ref.children;
+      children = _ref.children,
+      onUpdate = _ref.onUpdate;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
     className: "title",
     children: [children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -2379,11 +2380,64 @@ function Title(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         className: "btn-home invert",
         onClick: function onClick() {
-          return setOnUpdate("NEW");
+          return setOnUpdate(onUpdate === false ? "NEW" : false);
         },
-        children: "Ajouter"
+        children: onUpdate === false ? "Ajouter" : "Retour"
       })
     })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/components/Select/CapsScarecitiesSelect.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/dashboard/components/Select/CapsScarecitiesSelect.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CapsScarecitiesSelect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function CapsScarecitiesSelect(_ref) {
+  var scarecities = _ref.scarecities,
+      selectMode = _ref.selectMode,
+      selectName = _ref.selectName,
+      capScarecityId = _ref.capScarecityId,
+      onChangeFunc = _ref.onChangeFunc;
+
+  if (!selectMode) {
+    return scarecities.map(function (scarecity) {
+      return scarecity.id === capScarecityId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "icon",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: scarecity.icon,
+          alt: scarecity.name
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+          children: scarecity.name
+        })]
+      }, scarecity.id);
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+    name: selectName,
+    value: capScarecityId,
+    onChange: onChangeFunc,
+    children: scarecities.map(function (scarecity) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+        value: scarecity.id,
+        children: scarecity.name
+      }, scarecity.id);
+    })
   });
 }
 
@@ -2816,16 +2870,16 @@ function AdventureMode() {
 
 /***/ }),
 
-/***/ "./resources/js/dashboard/pages/Caps/GreenCaps.js":
-/*!********************************************************!*\
-  !*** ./resources/js/dashboard/pages/Caps/GreenCaps.js ***!
-  \********************************************************/
+/***/ "./resources/js/dashboard/pages/Caps/CapsList.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/dashboard/pages/Caps/CapsList.js ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ GreenCaps)
+/* harmony export */   "default": () => (/* binding */ CapsList)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -2833,75 +2887,110 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function GreenCaps(_ref) {
-  var greenCaps = _ref.greenCaps,
-      greenCapsIcon = _ref.greenCapsIcon;
+function CapsList(_ref) {
+  var caps = _ref.caps,
+      _ref$character = _ref.character,
+      character = _ref$character === void 0 ? false : _ref$character,
+      setOnUpdate = _ref.setOnUpdate,
+      refreshData = _ref.refreshData;
+
+  var deleteCaps = function deleteCaps(capsToDelete) {
+    var confirm = window.confirm("ATTENTION ! Tu es sur le point de supprimer une capsule. Cette action est irréversible.");
+
+    if (confirm) {
+      axios.post("api/caps/delete", {
+        id: capsToDelete
+      }).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "caps-container",
-    children: greenCaps.length !== 0 && greenCaps.map(function (caps) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "caps-list",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          className: "name",
-          children: [caps.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-            src: greenCapsIcon[0].icon,
-            alt: caps.name
+    children: caps && caps.length !== 0 && caps.map(function (cap) {
+      var condition = character === true ? cap.scarecities.id === 1 : cap.scarecities.id !== 1;
+
+      if (condition) {
+        var _cap$character;
+
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "caps-list",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "info",
+            children: [((_cap$character = cap.character) === null || _cap$character === void 0 ? void 0 : _cap$character.id) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+              className: "character-name",
+              children: [cap.character.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                src: cap.character.avatar + "transformations/base/head.png",
+                alt: ""
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+              className: "name",
+              children: [cap.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                src: cap.scarecities.icon,
+                alt: cap.name
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "stats",
+            children: [cap.strength !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+              className: "strength",
+              children: ["Force\xA0:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: cap.strength > 0 ? "plus stat" : "minus stat",
+                children: cap.strength
+              })]
+            }), cap.defense !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+              className: "defense",
+              children: ["D\xE9fense\xA0:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: cap.defense > 0 ? "plus stat" : "minus stat",
+                children: cap.defense
+              })]
+            }), cap.energy !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+              className: "energy",
+              children: ["Energie\xA0:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: cap.energy > 0 ? "plus stat" : "minus stat",
+                children: cap.energy
+              })]
+            }), cap.vitality !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+              className: "vitality",
+              children: ["Vitalit\xE9\xA0:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: cap.vitality > 0 ? "plus stat" : "minus stat",
+                children: cap.vitality
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "edit",
+            onClick: function onClick() {
+              return setOnUpdate(cap);
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+              className: "fa-solid fa-pen-to-square"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            className: "delete",
+            onClick: function onClick() {
+              return deleteCaps(cap.id);
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+              className: "fa-solid fa-trash"
+            })
           })]
-        })
-      }, caps.id);
+        }, cap.id);
+      }
     })
   });
 }
 
 /***/ }),
 
-/***/ "./resources/js/dashboard/pages/Caps/OtherCaps.js":
-/*!********************************************************!*\
-  !*** ./resources/js/dashboard/pages/Caps/OtherCaps.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ OtherCaps)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-function OtherCaps(_ref) {
-  var otherCaps = _ref.otherCaps,
-      otherCapsIcons = _ref.otherCapsIcons;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "caps-container",
-    children: otherCaps.length !== 0 && otherCaps.map(function (caps) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "caps-list",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-          className: "name",
-          children: [caps.name, otherCapsIcons.map(function (capsIcon) {
-            if (capsIcon.id === caps.caps_scarecities_id) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-                src: capsIcon.icon,
-                alt: caps.name
-              }, capsIcon.id + caps.id);
-            }
-          })]
-        })
-      }, caps.id);
-    })
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/dashboard/pages/Caps/UpdateCaps/UpdateCaps.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/dashboard/pages/Caps/UpdateCaps/UpdateCaps.js ***!
-  \********************************************************************/
+/***/ "./resources/js/dashboard/pages/Caps/UpdateCaps.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/dashboard/pages/Caps/UpdateCaps.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2911,35 +3000,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-function UpdateCaps() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "UpdateCaps"
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/dashboard/pages/Caps/index.js":
-/*!****************************************************!*\
-  !*** ./resources/js/dashboard/pages/Caps/index.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Caps)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
-/* harmony import */ var _GreenCaps__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenCaps */ "./resources/js/dashboard/pages/Caps/GreenCaps.js");
-/* harmony import */ var _OtherCaps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./OtherCaps */ "./resources/js/dashboard/pages/Caps/OtherCaps.js");
-/* harmony import */ var _UpdateCaps_UpdateCaps__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UpdateCaps/UpdateCaps */ "./resources/js/dashboard/pages/Caps/UpdateCaps/UpdateCaps.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Caps_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Caps/UpdateComponent/Preview */ "./resources/js/dashboard/pages/Caps/UpdateComponent/Preview.js");
+/* harmony import */ var _UpdateComponent_FormCaps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateComponent/FormCaps */ "./resources/js/dashboard/pages/Caps/UpdateComponent/FormCaps.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2959,95 +3023,544 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+function UpdateCaps(_ref) {
+  var cap = _ref.cap,
+      setOnUpdate = _ref.setOnUpdate,
+      refreshData = _ref.refreshData,
+      getData = _ref.getData;
 
-function Caps() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.name || ""),
       _useState2 = _slicedToArray(_useState, 2),
-      otherCaps = _useState2[0],
-      setOtherCaps = _useState2[1];
+      name = _useState2[0],
+      setName = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.caps_scarecities_id || 1),
       _useState4 = _slicedToArray(_useState3, 2),
-      greenCaps = _useState4[0],
-      setGreenCaps = _useState4[1];
+      scarecityId = _useState4[0],
+      setScarecityId = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.min_level || 1),
       _useState6 = _slicedToArray(_useState5, 2),
-      otherCapsIcons = _useState6[0],
-      setOtherCapsIcons = _useState6[1];
+      minLevel = _useState6[0],
+      setMinLevel = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.strength || 0),
       _useState8 = _slicedToArray(_useState7, 2),
-      greenCapsIcons = _useState8[0],
-      setGreenCapsIcons = _useState8[1];
+      strength = _useState8[0],
+      setStrength = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.defense || 0),
       _useState10 = _slicedToArray(_useState9, 2),
-      requestCount = _useState10[0],
-      setRequestCount = _useState10[1];
+      defense = _useState10[0],
+      setDefense = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.energy || 0),
       _useState12 = _slicedToArray(_useState11, 2),
-      onUpdate = _useState12[0],
-      setOnUpdate = _useState12[1];
+      energy = _useState12[0],
+      setEnergy = _useState12[1];
 
-  var getData = function getData() {
-    axios.get("api/caps").then(function (res) {
-      var dataCaps = res.data.caps;
-      var dataIcons = res.data.scarecities;
-      var getOtherCaps = dataCaps.filter(function (other) {
-        return other.caps_scarecities_id !== 1;
-      });
-      var getGreenCaps = dataCaps.filter(function (green) {
-        return green.caps_scarecities_id === 1;
-      });
-      var getOtherCapsIcons = dataIcons.filter(function (icon) {
-        return icon.id !== 1;
-      });
-      var getGreenCapsIcons = dataIcons.filter(function (icon) {
-        return icon.id === 1;
-      });
-      setOtherCaps(getOtherCaps);
-      setGreenCaps(getGreenCaps);
-      setOtherCapsIcons(getOtherCapsIcons);
-      setGreenCapsIcons(getGreenCapsIcons);
-    })["catch"](function (err) {
-      if (err.request.status === 429 || err.request.status === 401) {
-        setRequestCount(function (count) {
-          return count + 1;
-        });
-      }
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.vitality || 0),
+      _useState14 = _slicedToArray(_useState13, 2),
+      vitality = _useState14[0],
+      setVitality = _useState14[1];
 
-      getData();
-    });
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.price || 5000),
+      _useState16 = _slicedToArray(_useState15, 2),
+      price = _useState16[0],
+      setPrice = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.bonus || "Bonus: +"),
+      _useState18 = _slicedToArray(_useState17, 2),
+      bonus = _useState18[0],
+      setBonus = _useState18[1];
+
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cap.malus || "Malus: -"),
+      _useState20 = _slicedToArray(_useState19, 2),
+      malus = _useState20[0],
+      setMalus = _useState20[1]; // !FORM CAPS
+
+
+  var form = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var inputs = form.current;
+    var data = {};
+    data = {
+      name: inputs[0].value,
+      caps_scarecities_id: inputs[1].value,
+      price: Number(inputs[2].value),
+      strength: Number(inputs[3].value),
+      defense: Number(inputs[4].value),
+      energy: Number(inputs[5].value),
+      vitality: Number(inputs[6].value),
+      min_level: Number(inputs[7].value),
+      bonus: inputs[8].value,
+      malus: inputs[9].value,
+      id: cap.id
+    };
+
+    if (cap === "NEW") {
+      axios.post("api/caps/create", data).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+          setOnUpdate(false);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    } else {
+      axios.post("api/caps/update", data).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+          setOnUpdate(false);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
   };
 
-  if (requestCount > 5) {
-    localStorage.removeItem("page");
-    localStorage.removeItem("connected");
-    window.location = "/dashboard";
-  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      setOnUpdate: setOnUpdate,
+      onUpdate: cap,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        children: cap === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: "Nouvelle capsule"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+          children: [cap.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: cap.scarecities.icon,
+            alt: ""
+          })]
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormCaps__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      forwardRef: form,
+      handleSubmit: handleSubmit,
+      setName: setName,
+      name: name,
+      scarecityId: scarecityId,
+      setScarecityId: setScarecityId,
+      setMinLevel: setMinLevel,
+      minLevel: minLevel,
+      setStrength: setStrength,
+      strength: strength,
+      setDefense: setDefense,
+      defense: defense,
+      setEnergy: setEnergy,
+      energy: energy,
+      setVitality: setVitality,
+      vitality: vitality,
+      setPrice: setPrice,
+      price: price,
+      setBonus: setBonus,
+      bonus: bonus,
+      setMalus: setMalus,
+      malus: malus,
+      getData: getData,
+      buttonText: cap === "NEW" ? "Ajouter" : "Mettre à jour"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Caps_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      getData: getData,
+      name: name,
+      scarecityId: scarecityId,
+      minLevel: minLevel,
+      strength: strength,
+      defense: defense,
+      energy: energy,
+      vitality: vitality,
+      price: price,
+      bonus: bonus,
+      malus: malus
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Caps/UpdateComponent/FormCaps.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Caps/UpdateComponent/FormCaps.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormCaps)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_CapsScarecitiesSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/CapsScarecitiesSelect */ "./resources/js/dashboard/components/Select/CapsScarecitiesSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function FormCaps(_ref) {
+  var forwardRef = _ref.forwardRef,
+      handleSubmit = _ref.handleSubmit,
+      setName = _ref.setName,
+      name = _ref.name,
+      setScarecityId = _ref.setScarecityId,
+      scarecityId = _ref.scarecityId,
+      setMinLevel = _ref.setMinLevel,
+      minLevel = _ref.minLevel,
+      setStrength = _ref.setStrength,
+      strength = _ref.strength,
+      setDefense = _ref.setDefense,
+      defense = _ref.defense,
+      setEnergy = _ref.setEnergy,
+      energy = _ref.energy,
+      setVitality = _ref.setVitality,
+      vitality = _ref.vitality,
+      setPrice = _ref.setPrice,
+      price = _ref.price,
+      setBonus = _ref.setBonus,
+      bonus = _ref.bonus,
+      setMalus = _ref.setMalus,
+      malus = _ref.malus,
+      setCharacterId = _ref.setCharacterId,
+      characterId = _ref.characterId,
+      buttonText = _ref.buttonText,
+      getData = _ref.getData;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+    className: "form-flex",
+    onSubmit: function onSubmit(e) {
+      return handleSubmit(e);
+    },
+    ref: forwardRef,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "text",
+        id: "name",
+        name: "name",
+        value: name,
+        onChange: function onChange(e) {
+          return setName(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "name",
+        children: "Nom"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Select_CapsScarecitiesSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        capScarecityId: scarecityId,
+        scarecities: getData.capsScarecities,
+        selectMode: true,
+        selectName: "caps_scarecities_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setScarecityId(Number(e.target.value));
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "caps_scarecities_id",
+        children: "Raret\xE9"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "number",
+        step: "100",
+        id: "price",
+        name: "price",
+        value: price,
+        onChange: function onChange(e) {
+          return setPrice(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "price",
+        children: "Prix"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "number",
+        id: "strength",
+        name: "strength",
+        value: strength,
+        onChange: function onChange(e) {
+          return setStrength(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "strength",
+        children: "Force"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "number",
+        id: "defense",
+        name: "defense",
+        value: defense,
+        onChange: function onChange(e) {
+          return setDefense(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "defense",
+        children: "D\xE9fense"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "number",
+        id: "energy",
+        name: "energy",
+        value: energy,
+        onChange: function onChange(e) {
+          return setEnergy(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "energy",
+        children: "\xC9nergie"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "number",
+        id: "vitality",
+        step: "100",
+        name: "vitality",
+        value: vitality,
+        onChange: function onChange(e) {
+          return setVitality(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "vitality",
+        children: "Vitalit\xE9"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "number",
+        id: "minLevel",
+        name: "minLevel",
+        value: minLevel,
+        onChange: function onChange(e) {
+          return setMinLevel(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "minLevel",
+        children: "Niveau requis"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "text",
+        id: "bonus",
+        name: "bonus",
+        value: bonus,
+        onChange: function onChange(e) {
+          return setBonus(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "bonus",
+        children: "Bonus"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "text",
+        id: "malus",
+        name: "malus",
+        value: malus,
+        onChange: function onChange(e) {
+          return setMalus(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "malus",
+        children: "Malus"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      type: "submit",
+      children: buttonText
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Caps/UpdateComponent/Preview.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Caps/UpdateComponent/Preview.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Preview)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_CapsScarecitiesSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/CapsScarecitiesSelect */ "./resources/js/dashboard/components/Select/CapsScarecitiesSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Preview(_ref) {
+  var name = _ref.name,
+      scarecityId = _ref.scarecityId,
+      minLevel = _ref.minLevel,
+      strength = _ref.strength,
+      defense = _ref.defense,
+      energy = _ref.energy,
+      vitality = _ref.vitality,
+      price = _ref.price,
+      bonus = _ref.bonus,
+      malus = _ref.malus,
+      characterId = _ref.characterId,
+      getData = _ref.getData;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "capsule admin",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      className: "title",
+      children: name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
+      className: "level",
+      children: ["Niv. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "lvl-number",
+        children: minLevel
+      }), " requis"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Select_CapsScarecitiesSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      capScarecityId: scarecityId,
+      scarecities: getData.capsScarecities
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "stats",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
+        children: ["Stats", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "bonus",
+          children: bonus
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "malus",
+          children: malus
+        })]
+      }), strength !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+        className: strength > 0 ? "strength positive" : "strength negative",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "attribute",
+          children: "Force "
+        }), " ", strength]
+      }), defense !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+        className: defense > 0 ? "defense positive" : "defense negative",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "attribute",
+          children: "D\xE9fense "
+        }), " ", defense]
+      }), energy !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+        className: energy > 0 ? "energy positive" : "energy negative",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "attribute",
+          children: "\xC9nergie "
+        }), " ", energy]
+      }), vitality !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+        className: vitality > 0 ? "vitality positive" : "vitality negative",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "attribute",
+          children: "Vitalit\xE9 "
+        }), " ", vitality]
+      })]
+    }), price !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
+      className: "price",
+      children: [price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: "Z"
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Caps/index.js":
+/*!****************************************************!*\
+  !*** ./resources/js/dashboard/pages/Caps/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Caps)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
+/* harmony import */ var _CapsList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CapsList */ "./resources/js/dashboard/pages/Caps/CapsList.js");
+/* harmony import */ var _UpdateCaps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateCaps */ "./resources/js/dashboard/pages/Caps/UpdateCaps.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function Caps(_ref) {
+  var getData = _ref.getData,
+      refreshData = _ref.refreshData;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      caps = _useState2[0],
+      setCaps = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      onUpdate = _useState4[0],
+      setOnUpdate = _useState4[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    getData();
-  }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    setCaps(getData.caps);
+  }, [getData]); // console.log(caps);
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setOnUpdate: setOnUpdate,
-        getData: getData,
+        onUpdate: onUpdate,
         children: "Les capsules"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "flex-galery",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_GreenCaps__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          greenCaps: greenCaps,
-          greenCapsIcon: greenCapsIcons
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_OtherCaps__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          otherCaps: otherCaps,
-          otherCapsIcons: otherCapsIcons
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CapsList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          caps: caps,
+          setOnUpdate: setOnUpdate,
+          character: true,
+          refreshData: refreshData
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CapsList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          caps: caps,
+          setOnUpdate: setOnUpdate,
+          refreshData: refreshData
         })]
       })]
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_UpdateCaps_UpdateCaps__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateCaps__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      getData: getData,
+      cap: onUpdate,
+      setOnUpdate: setOnUpdate,
+      refreshData: refreshData
+    })
   });
 }
 
@@ -3275,7 +3788,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 function FormCharacter(_ref) {
   var forwardRef = _ref.forwardRef,
-      characterSelect = _ref.characterSelect,
       handleSubmit = _ref.handleSubmit,
       name = _ref.name,
       setName = _ref.setName,
@@ -3670,6 +4182,7 @@ function Character(_ref) {
     children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
         setOnUpdate: setOnUpdate,
+        onUpdate: onUpdate,
         children: "Les personnages"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "flex-galery",

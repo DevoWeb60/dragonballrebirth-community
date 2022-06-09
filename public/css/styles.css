@@ -224,6 +224,7 @@ video {
   font-weight: normal;
   font-style: normal;
 }
+html,
 body {
   font-family: "Montserrat", sans-serif;
   background: linear-gradient(331deg, rgba(92, 179, 225, 0.8941176471) 9%, rgba(17, 69, 96, 0.8941176471) 91%);
@@ -237,13 +238,22 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+html.admin,
 body.admin {
+  font-size: 16px;
   background: linear-gradient(331deg, rgba(255, 177, 100, 0.8941176471) 9%, rgba(151, 75, 0, 0.8941176471) 91%);
   overflow-y: visible;
 }
+html.admin .title,
 body.admin .title {
   color: #fff;
 }
+html.admin .title img,
+body.admin .title img {
+  width: 40px;
+  margin-left: 20px;
+}
+html::after,
 body::after {
   content: url("https://www.dragonballrebirth.fr/css/images/shop/skin-game/default/bg-logo.svg");
   position: fixed;
@@ -440,14 +450,23 @@ h2.title {
 
 span.edit {
   text-align: center;
+  font-size: 20px;
   color: #2591cc;
   cursor: pointer;
+  transition: 0.4s ease-in-out;
 }
 
 span.delete {
   text-align: right;
+  font-size: 20px;
   color: #cc2525;
   cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+span.delete:hover,
+span.edit:hover {
+  opacity: 0.7;
 }
 
 ::-webkit-scrollbar {
@@ -863,6 +882,10 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   width: 300px;
   margin: 50px 20px;
   flex-grow: 1;
+}
+.capsule.admin {
+  width: 400px;
+  margin: 50px auto;
 }
 .capsule h3.title {
   color: #333;
@@ -1447,6 +1470,24 @@ form .delete-categories li {
   padding: 20px;
   width: 100%;
   margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.2fr 0.2fr;
+  justify-content: center;
+  align-items: center;
+}
+.caps-container .caps-list .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
+  color: #b05800;
+  font-weight: 600;
+  gap: 15px;
+}
+.caps-container .caps-list .stats .stat.plus {
+  color: #198b23;
+}
+.caps-container .caps-list .stats .stat.minus {
+  color: #de4646;
 }
 .caps-container .caps-list h4 {
   display: flex;
@@ -1456,6 +1497,15 @@ form .delete-categories li {
 .caps-container .caps-list img {
   margin-left: 15px;
   width: 30px;
+}
+.caps-container .info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.caps-container .info .character-name {
+  font-family: "Edo SZ";
+  font-size: 18px;
 }
 
 .mainStory h2 {

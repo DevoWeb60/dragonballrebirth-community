@@ -31,7 +31,9 @@ export default function Character({ getData, refreshData }) {
         <>
             {onUpdate === false ? (
                 <>
-                    <Title setOnUpdate={setOnUpdate}>Les personnages</Title>
+                    <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
+                        Les personnages
+                    </Title>
                     <div className="flex-galery">
                         {characters &&
                             characters.length !== 0 &&

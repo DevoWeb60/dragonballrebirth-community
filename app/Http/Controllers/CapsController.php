@@ -20,55 +20,27 @@ class CapsController extends Controller
         ]);
     }
 
-    public function api(){
-
-        return response()->json([
-            'caps' => Caps::orderBy('caps_scarecities_id')->get(),
-            'scarecities' => CapsScarecity::all()
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
-    }
+        $caps = new Caps;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Caps  $caps
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Caps $caps)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Caps  $caps
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Caps $caps)
-    {
-        //
+        $caps->name = $request->name;
+        $caps->caps_scarecities_id = $request->caps_scarecities_id;
+        $caps->price = $request->price;
+        $caps->min_level = $request->min_level;
+        $caps->strength = $request->strength;
+        $caps->defense = $request->defense;
+        $caps->energy = $request->energy;
+        $caps->vitality = $request->vitality;
+        $caps->bonus = $request->bonus;
+        $caps->malus = $request->malus;
+        $caps->save();
     }
 
     /**
@@ -80,7 +52,18 @@ class CapsController extends Controller
      */
     public function update(Request $request, Caps $caps)
     {
-        //
+        $caps::where('id', $request->id)->update([
+            'name' => $request->name,
+            'caps_scarecities_id' => $request->caps_scarecities_id,
+            'price' => $request->price,
+            'strength' => $request->strength,
+            'defense' => $request->defense,
+            'energy' => $request->energy,
+            'vitality' => $request->vitality,
+            'bonus' => $request->bonus,
+            'malus' => $request->malus,
+            'min_level' => $request->min_level,
+        ]);
     }
 
     /**
@@ -89,8 +72,13 @@ class CapsController extends Controller
      * @param  \App\Models\Caps  $caps
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Caps $caps)
+    public function destroy(Caps $caps, Request $request)
     {
-        //
+        $caps->where('id', $request->id)->delete();
+
+        return response()->json([
+            'success' => true,
+            'id' => $request->id,
+        ]);
     }
 }

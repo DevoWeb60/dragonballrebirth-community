@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\CapsController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CharacterController;
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -16,13 +17,15 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('/alldata', [AdminController::class, 'api']);
 
-    Route::prefix('character')->group(function(){
+    Route::prefix('character')->group(function () {
         Route::post('/update', [CharacterController::class, 'update']);
         Route::post('/create', [CharacterController::class, 'create']);
         Route::post('/delete', [CharacterController::class, 'destroy']);
     });
 
+    Route::prefix('caps')->group(function () {
+        Route::post('/update', [CapsController::class, 'update']);
+        Route::post('/create', [CapsController::class, 'create']);
+        Route::post('/delete', [CapsController::class, 'destroy']);
+    });
 });
-
-
-
