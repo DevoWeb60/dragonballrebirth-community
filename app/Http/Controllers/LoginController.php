@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $request->validate([
-            'email' => 'required|email',
+            'name' => 'required',
             'password' => 'required'
         ]);
 
-        $user = User::query()->where('email', $request->email)->first();
+        $user = User::query()->where('name', $request->name)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response([
@@ -30,7 +31,7 @@ class LoginController extends Controller
         return response()->json($token, 201);
     }
 
-        /**
+    /**
      * Log the user out of the application.
      *
      * @param  \Illuminate\Http\Request  $request

@@ -9,7 +9,7 @@ export default function index({ setToken }) {
         await axios.get("/sanctum/csrf-cookie");
         await axios
             .post("api/login", {
-                email: form.current.email.value,
+                name: form.current.name.value,
                 password: form.current.password.value,
             })
             .then((response) => {
@@ -30,12 +30,12 @@ export default function index({ setToken }) {
             <form method="POST" onSubmit={(e) => handleSubmit(e)} ref={form}>
                 <div className="form-group">
                     <input
-                        type="email"
-                        id="email"
-                        name="email"
+                        type="text"
+                        id="name"
+                        name="name"
                         placeholder="pseudo"
                     />
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="name">Pseudo</label>
                 </div>
                 <div className="form-group">
                     <input

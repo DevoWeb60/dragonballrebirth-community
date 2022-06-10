@@ -4590,7 +4590,7 @@ function index(_ref) {
             case 3:
               _context.next = 5;
               return axios.post("api/login", {
-                email: form.current.email.value,
+                name: form.current.name.value,
                 password: form.current.password.value
               }).then(function (response) {
                 axios.defaults.headers.common = {
@@ -4629,13 +4629,13 @@ function index(_ref) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "form-group",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-          type: "email",
-          id: "email",
-          name: "email",
+          type: "text",
+          id: "name",
+          name: "name",
           placeholder: "pseudo"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-          htmlFor: "email",
-          children: "Email"
+          htmlFor: "name",
+          children: "Pseudo"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "form-group",
