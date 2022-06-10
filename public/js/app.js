@@ -2304,7 +2304,7 @@ function App() {
     if (localStorage.getItem("connected")) {
       getAllData(); // console.log("request");
     }
-  }, [token]);
+  }, [token]); // console.log(data);
 
   if (!token) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
@@ -5165,6 +5165,462 @@ function Story() {
 
 /***/ }),
 
+/***/ "./resources/js/dashboard/pages/Train/UpdateComponent/FormTrain.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Train/UpdateComponent/FormTrain.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormTrain)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_DurationSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/DurationSelect */ "./resources/js/dashboard/components/Select/DurationSelect.js");
+/* harmony import */ var _components_Select_MapCaseSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/MapCaseSelect */ "./resources/js/dashboard/components/Select/MapCaseSelect.js");
+/* harmony import */ var _components_Select_PlanetSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Select/PlanetSelect */ "./resources/js/dashboard/components/Select/PlanetSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function FormTrain(_ref) {
+  var forwardRef = _ref.forwardRef,
+      handleSubmit = _ref.handleSubmit,
+      buttonText = _ref.buttonText,
+      getData = _ref.getData,
+      name = _ref.name,
+      icon = _ref.icon,
+      duration = _ref.duration,
+      mapCase = _ref.mapCase,
+      planet = _ref.planet,
+      thumbnail = _ref.thumbnail,
+      stepId = _ref.stepId,
+      requiredLevel = _ref.requiredLevel,
+      gain = _ref.gain,
+      setIcon = _ref.setIcon,
+      setGain = _ref.setGain,
+      setStepId = _ref.setStepId,
+      setRequiredLevel = _ref.setRequiredLevel,
+      setName = _ref.setName,
+      setDuration = _ref.setDuration,
+      setMapCase = _ref.setMapCase,
+      setPlanet = _ref.setPlanet,
+      setThumbnail = _ref.setThumbnail;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+    className: "form-flex",
+    onSubmit: function onSubmit(e) {
+      return handleSubmit(e);
+    },
+    ref: forwardRef,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "text",
+        id: "name",
+        name: "name",
+        value: name,
+        onChange: function onChange(e) {
+          return setName(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "name",
+        children: "Nom"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "text",
+        id: "icon",
+        name: "icon",
+        value: icon,
+        onChange: function onChange(e) {
+          return setIcon(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "icon",
+        children: "Ic\xF4ne de t\xEAte"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "text",
+        id: "thumbnail",
+        name: "thumbnail",
+        value: thumbnail,
+        onChange: function onChange(e) {
+          return setThumbnail(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "thumbnail",
+        children: "Image de fond"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "number",
+        id: "stepId",
+        name: "stepId",
+        value: stepId,
+        onChange: function onChange(e) {
+          return setStepId(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "stepId",
+        children: "\xC9tape de d\xE9blocage"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "number",
+        id: "requiredLevel",
+        name: "requiredLevel",
+        value: requiredLevel,
+        onChange: function onChange(e) {
+          return setRequiredLevel(Number(e.target.value));
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "requiredLevel",
+        children: "Niveau requis"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: "text",
+        id: "gain",
+        name: "gain",
+        value: gain,
+        onChange: function onChange(e) {
+          return setGain(e.target.value);
+        },
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        htmlFor: "gain",
+        children: "Gain"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "form-group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_DurationSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        durations: getData.waitingDurations,
+        durationId: duration,
+        selectName: "duration_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setDuration(Number(e.target.value));
+        },
+        selectMode: true
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "form-group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_MapCaseSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        mapCases: getData.mapCases,
+        mapCaseId: mapCase,
+        selectName: "map_case_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setMapCase(Number(e.target.value));
+        },
+        selectMode: true
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "form-group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_PlanetSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        planets: getData.planets,
+        planetId: planet,
+        selectName: "planet_id",
+        onChangeFunc: function onChangeFunc(e) {
+          return setPlanet(Number(e.target.value));
+        },
+        selectMode: true
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      type: "submit",
+      children: buttonText
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Train/UpdateComponent/Preview.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Train/UpdateComponent/Preview.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Preview)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_DurationSelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Select/DurationSelect */ "./resources/js/dashboard/components/Select/DurationSelect.js");
+/* harmony import */ var _components_Select_PlanetSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Select/PlanetSelect */ "./resources/js/dashboard/components/Select/PlanetSelect.js");
+/* harmony import */ var _components_Select_MapCaseSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Select/MapCaseSelect */ "./resources/js/dashboard/components/Select/MapCaseSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function Preview(_ref) {
+  var getData = _ref.getData,
+      name = _ref.name,
+      icon = _ref.icon,
+      duration = _ref.duration,
+      gain = _ref.gain,
+      stepId = _ref.stepId,
+      requiredLevel = _ref.requiredLevel,
+      mapCase = _ref.mapCase,
+      planet = _ref.planet,
+      thumbnail = _ref.thumbnail;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "train admin",
+    style: {
+      backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url(" + thumbnail + ")"
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
+      children: [name, icon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+        src: icon,
+        alt: ""
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "content",
+      children: [requiredLevel && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h4", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          className: "attribute",
+          children: "Niveau requis"
+        }), " ", requiredLevel]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h4", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          className: "attribute",
+          children: "D\xE9bloquer \xE0 l'\xE9tape "
+        }), " ", stepId]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h4", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          className: "attribute",
+          children: "Gain"
+        }), " ", gain]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "duration",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_DurationSelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          durations: getData.waitingDurations,
+          durationId: duration
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "location",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_PlanetSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        planets: getData.planets,
+        planetId: planet
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "case",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Select_MapCaseSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            mapCases: getData.mapCases,
+            mapCaseId: mapCase
+          })
+        })
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Train/UpdateTrain.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/dashboard/pages/Train/UpdateTrain.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ UpdateTrain)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
+/* harmony import */ var _UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateComponent/Preview */ "./resources/js/dashboard/pages/Train/UpdateComponent/Preview.js");
+/* harmony import */ var _UpdateComponent_FormTrain__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateComponent/FormTrain */ "./resources/js/dashboard/pages/Train/UpdateComponent/FormTrain.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function UpdateTrain(_ref) {
+  var getData = _ref.getData,
+      setOnUpdate = _ref.setOnUpdate,
+      train = _ref.train,
+      refreshData = _ref.refreshData;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.name || ""),
+      _useState2 = _slicedToArray(_useState, 2),
+      name = _useState2[0],
+      setName = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.icon || "https://www.dragonballrebirth.fr/img/training/[image]"),
+      _useState4 = _slicedToArray(_useState3, 2),
+      icon = _useState4[0],
+      setIcon = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.duration_id || 0),
+      _useState6 = _slicedToArray(_useState5, 2),
+      duration = _useState6[0],
+      setDuration = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.gain || 0),
+      _useState8 = _slicedToArray(_useState7, 2),
+      gain = _useState8[0],
+      setGain = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.step_id || 0),
+      _useState10 = _slicedToArray(_useState9, 2),
+      stepId = _useState10[0],
+      setStepId = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.required_level || 0),
+      _useState12 = _slicedToArray(_useState11, 2),
+      requiredLevel = _useState12[0],
+      setRequiredLevel = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.map_case_id || 0),
+      _useState14 = _slicedToArray(_useState13, 2),
+      mapCase = _useState14[0],
+      setMapCase = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.planet_id || 0),
+      _useState16 = _slicedToArray(_useState15, 2),
+      planet = _useState16[0],
+      setPlanet = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(train.thumbnail || "https://www.dragonballrebirth.fr/img/metiers/[image.png]"),
+      _useState18 = _slicedToArray(_useState17, 2),
+      thumbnail = _useState18[0],
+      setThumbnail = _useState18[1]; // !FORM CHARACTER
+
+
+  var form = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var inputs = form.current;
+    var data = {};
+    data = {
+      name: inputs[0].value,
+      icon: inputs[1].value,
+      thumbnail: inputs[2].value,
+      step_id: inputs[3].value,
+      required_level: inputs[4].value,
+      gain: inputs[5].value,
+      duration_id: inputs[6].value,
+      map_case_id: inputs[7].value,
+      planet_id: inputs[8].value,
+      id: train.id
+    };
+
+    if (train === "NEW") {
+      axios.post("api/train/create", data).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+          setOnUpdate(false);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    } else {
+      axios.post("api/train/update", data).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+          setOnUpdate(false);
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      setOnUpdate: setOnUpdate,
+      onUpdate: train,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        children: train === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: "Nouveau m\xE9tier"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+          children: [train.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: train.icon,
+            alt: ""
+          })]
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormTrain__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      forwardRef: form,
+      handleSubmit: handleSubmit,
+      buttonText: train === "NEW" ? "Ajouter" : "Mettre à jour",
+      getData: getData,
+      name: name,
+      duration: duration,
+      mapCase: mapCase,
+      planet: planet,
+      thumbnail: thumbnail,
+      stepId: stepId,
+      requiredLevel: requiredLevel,
+      icon: icon,
+      gain: gain,
+      setIcon: setIcon,
+      setGain: setGain,
+      setStepId: setStepId,
+      setRequiredLevel: setRequiredLevel,
+      setName: setName,
+      setDuration: setDuration,
+      setMapCase: setMapCase,
+      setPlanet: setPlanet,
+      setThumbnail: setThumbnail
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      getData: getData,
+      name: name,
+      icon: icon,
+      thumbnail: thumbnail,
+      stepId: stepId,
+      requiredLevel: requiredLevel,
+      gain: gain,
+      duration: duration,
+      mapCase: mapCase,
+      planet: planet
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/dashboard/pages/Train/index.js":
 /*!*****************************************************!*\
   !*** ./resources/js/dashboard/pages/Train/index.js ***!
@@ -5174,16 +5630,122 @@ function Story() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Train)
+/* harmony export */   "default": () => (/* binding */ train)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
+/* harmony import */ var _UpdateTrain__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateTrain */ "./resources/js/dashboard/pages/Train/UpdateTrain.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
-function Train() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Train"
+
+
+
+
+
+function train(_ref) {
+  var getData = _ref.getData,
+      refreshData = _ref.refreshData;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      trains = _useState2[0],
+      setTrains = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      onUpdate = _useState4[0],
+      setOnUpdate = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setTrains(getData.trains);
+  }, [getData]);
+  console.log(trains);
+
+  var deleteTrain = function deleteTrain(id) {
+    var confirm = window.confirm("ATTENTION ! Tu es sur le point de supprimer un entrainement. Cette action est irréversible.");
+
+    if (confirm) {
+      axios.post("api/train/delete", {
+        id: id
+      }).then(function (res) {
+        if (res.status === 200) {
+          refreshData();
+        }
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        setOnUpdate: setOnUpdate,
+        onUpdate: onUpdate,
+        children: "Les entrainements"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "flex-galery",
+        children: trains && trains.map(function (train) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "train-list",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              className: "name",
+              children: [train.name, train.icon !== null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: train.icon,
+                alt: ""
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: train.gain
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: train.duration.duration
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              className: "location",
+              children: [train.map_case["case"], /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+                className: "planet",
+                children: [train.planet.planet, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                  src: train.planet.icon,
+                  alt: ""
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "edit",
+              onClick: function onClick() {
+                return setOnUpdate(train);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                className: "fa-solid fa-pen-to-square"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "delete",
+              onClick: function onClick() {
+                return deleteTrain(train.id);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+                className: "fa-solid fa-trash"
+              })
+            })]
+          }, train.id);
+        })
+      })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_UpdateTrain__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      refreshData: refreshData,
+      getData: getData,
+      setOnUpdate: setOnUpdate,
+      train: onUpdate
+    })
   });
 }
 

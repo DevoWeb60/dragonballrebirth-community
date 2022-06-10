@@ -50,6 +50,8 @@ export default function App() {
         }
     }, [token]);
 
+    // console.log(data);
+
     if (!token) {
         return (
             <div className="container">

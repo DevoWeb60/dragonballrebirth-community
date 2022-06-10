@@ -10,11 +10,6 @@ use App\Models\WaitingDuration;
 
 class TrainController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('trains', [
@@ -22,69 +17,42 @@ class TrainController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $train = new Train();
+        $train->name = $request->name;
+        $train->icon = $request->icon;
+        $train->map_case_id = $request->map_case_id;
+        $train->planet_id = $request->planet_id;
+        $train->duration_id = $request->duration_id;
+        $train->gain   = $request->gain;
+        $train->required_level = $request->required_level;
+        $train->step_id = $request->step_id;
+        $train->thumbnail = $request->thumbnail;
+        $train->specificity = $request->specificity;
+        $train->save();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Train  $train
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Train $train)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Train  $train
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Train $train)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Train  $train
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Train $train)
     {
-        //
+        $train::where('id', $request->id)->update([
+            "name" => $request->name,
+            "icon" => $request->icon,
+            "map_case_id" => $request->map_case_id,
+            "planet_id" => $request->planet_id,
+            "duration_id" => $request->duration_id,
+            "gain"   => $request->gain,
+            "required_level" => $request->required_level,
+            "step_id" => $request->step_id,
+            "thumbnail" => $request->thumbnail,
+            "specificity" => $request->specificity,
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Train  $train
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Train $train)
+
+    public function destroy(Train $train, Request $request)
     {
-        //
+        $train::where('id', $request->id)->delete();
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\TrainController;
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -41,5 +42,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/update', [WorkController::class, 'update']);
         Route::post('/create', [WorkController::class, 'create']);
         Route::post('/delete', [WorkController::class, 'destroy']);
+    });
+
+    Route::prefix('train')->group(function () {
+        Route::post('/update', [TrainController::class, 'update']);
+        Route::post('/create', [TrainController::class, 'create']);
+        Route::post('/delete', [TrainController::class, 'destroy']);
     });
 });

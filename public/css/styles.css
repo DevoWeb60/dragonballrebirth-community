@@ -1002,6 +1002,10 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   margin-bottom: 50px;
   background-position: center;
 }
+.train.admin {
+  width: 100%;
+  margin: 50px auto;
+}
 .train h2 {
   display: flex;
   align-items: center;
@@ -1583,6 +1587,46 @@ form .delete-categories li {
 }
 .work-list .planet img,
 .work-list .object-reward img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.train-list {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  margin: 20px auto;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.7fr 0.7fr 0.3fr 0.7fr 0.1fr 0.1fr;
+}
+.train-list .name {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+}
+.train-list .name img {
+  margin-left: 15px;
+  width: 30px;
+}
+.train-list .location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.train-list .location span {
+  margin-top: 10px;
+}
+.train-list .planet,
+.train-list .object-reward {
+  display: flex;
+  align-items: center;
+}
+.train-list .planet img,
+.train-list .object-reward img {
   width: 30px;
   margin-left: 10px;
 }

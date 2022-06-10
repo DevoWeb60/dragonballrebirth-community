@@ -1,0 +1,39 @@
+.train-list {
+    @include card;
+    width: 100%;
+    margin: 20px auto;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 0.7fr 0.7fr 0.3fr 0.7fr 0.1fr 0.1fr;
+
+    .name {
+        display: flex;
+        align-items: center;
+        font-weight: bolder;
+
+        img {
+            margin-left: 15px;
+            width: 30px;
+        }
+    }
+    .location {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            margin-top: 10px;
+        }
+    }
+    .planet,
+    .object-reward {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 30px;
+            margin-left: 10px;
+        }
+    }
+}

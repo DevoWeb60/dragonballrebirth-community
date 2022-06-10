@@ -8,6 +8,11 @@
     margin-bottom: 50px;
     background-position: center;
 
+    &.admin {
+        width: 100%;
+        margin: 50px auto;
+    }
+
     h2 {
         display: flex;
         align-items: center;
