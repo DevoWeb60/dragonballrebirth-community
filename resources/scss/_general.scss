@@ -65,9 +65,14 @@ h2.title {
     color: $orange;
     font-size: $fs-title;
 }
-
 .shadow {
     filter: drop-shadow($box-shadow);
+}
+.w-50 {
+    width: 48% !important;
+}
+.w-100 {
+    width: 100% !important;
 }
 #root-app {
     position: relative;
@@ -103,6 +108,15 @@ h2.title {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: stretch;
+    gap: 10px;
+
+    div {
+        flex-grow: 1;
+    }
+
+    &.align-start {
+        align-items: flex-start;
+    }
 }
 .flex-center {
     height: 50%;

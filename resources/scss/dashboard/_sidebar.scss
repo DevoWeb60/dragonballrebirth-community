@@ -5,6 +5,21 @@
     padding: 20px 40px;
     border-right: 5px solid rgba(0, 0, 0, 0.5);
     color: $orange;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: lighten($orange, 30);
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: lighten($orange, 40);
+    }
 
     h1.title {
         margin-bottom: 50px;
@@ -30,13 +45,22 @@
                 margin: 0;
             }
         }
-        li.page {
+        li.page,
+        li.sub-page {
             font-size: $fs-text;
             cursor: pointer;
             transition: $transition;
             &:hover {
                 color: $white;
             }
+        }
+        .page {
+            font-weight: 600;
+        }
+        .sub-page {
+            margin-left: 30px;
+            margin-top: -10px;
+            list-style: circle;
         }
     }
 }

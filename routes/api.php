@@ -5,10 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CapsController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CapScarecityController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TrainController;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\CharacterController;
-use App\Http\Controllers\TrainController;
+use App\Http\Controllers\CharacterCategoryController;
+use App\Http\Controllers\MapCaseController;
+use App\Http\Controllers\ObjectDurationController;
+use App\Http\Controllers\PlanetController;
+use App\Http\Controllers\WaitingDurationController;
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -24,18 +30,36 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/update', [CharacterController::class, 'update']);
         Route::post('/create', [CharacterController::class, 'create']);
         Route::post('/delete', [CharacterController::class, 'destroy']);
+
+        Route::prefix('category')->group(function () {
+            Route::post('/create', [CharacterCategoryController::class, 'create']);
+            Route::post('/update', [CharacterCategoryController::class, 'update']);
+            Route::post('/delete', [CharacterCategoryController::class, 'destroy']);
+        });
     });
 
     Route::prefix('caps')->group(function () {
         Route::post('/update', [CapsController::class, 'update']);
         Route::post('/create', [CapsController::class, 'create']);
         Route::post('/delete', [CapsController::class, 'destroy']);
+
+        Route::prefix('scarecity')->group(function () {
+            Route::post('/create', [CapScarecityController::class, 'create']);
+            Route::post('/update', [CapScarecityController::class, 'update']);
+            Route::post('/delete', [CapScarecityController::class, 'destroy']);
+        });
     });
 
     Route::prefix('object')->group(function () {
         Route::post('/update', [ObjectController::class, 'update']);
         Route::post('/create', [ObjectController::class, 'create']);
         Route::post('/delete', [ObjectController::class, 'destroy']);
+
+        Route::prefix('duration')->group(function () {
+            Route::post('/create', [ObjectDurationController::class, 'create']);
+            Route::post('/update', [ObjectDurationController::class, 'update']);
+            Route::post('/delete', [ObjectDurationController::class, 'destroy']);
+        });
     });
 
     Route::prefix('work')->group(function () {
@@ -48,5 +72,23 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/update', [TrainController::class, 'update']);
         Route::post('/create', [TrainController::class, 'create']);
         Route::post('/delete', [TrainController::class, 'destroy']);
+    });
+
+    Route::prefix('waiting/duration')->group(function () {
+        Route::post('/update', [WaitingDurationController::class, 'update']);
+        Route::post('/create', [WaitingDurationController::class, 'create']);
+        Route::post('/delete', [WaitingDurationController::class, 'destroy']);
+    });
+
+    Route::prefix('planet')->group(function () {
+        Route::post('/update', [PlanetController::class, 'update']);
+        Route::post('/create', [PlanetController::class, 'create']);
+        Route::post('/delete', [PlanetController::class, 'destroy']);
+
+        Route::prefix('case')->group(function () {
+            Route::post('/update', [MapCaseController::class, 'update']);
+            Route::post('/create', [MapCaseController::class, 'create']);
+            Route::post('/delete', [MapCaseController::class, 'destroy']);
+        });
     });
 });

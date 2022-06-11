@@ -291,6 +291,14 @@ h2.title {
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
 }
 
+.w-50 {
+  width: 48% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
 #root-app {
   position: relative;
   width: 100%;
@@ -323,6 +331,13 @@ h2.title {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: stretch;
+  gap: 10px;
+}
+.flex-galery div {
+  flex-grow: 1;
+}
+.flex-galery.align-start {
+  align-items: flex-start;
 }
 
 .flex-center {
@@ -1294,6 +1309,7 @@ form .form-group label {
   top: 0;
   left: 0;
   transition: 0.4s ease-in-out;
+  pointer-events: none;
 }
 form .form-group input,
 form .form-group select,
@@ -1382,6 +1398,20 @@ form .delete-categories li {
   padding: 20px 40px;
   border-right: 5px solid rgba(0, 0, 0, 0.5);
   color: #ff8b17;
+  overflow-y: scroll;
+}
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #ffd8b0;
+  border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #fff1e3;
 }
 .sidebar h1.title {
   margin-bottom: 50px;
@@ -1405,13 +1435,23 @@ form .delete-categories li {
 .sidebar .menu-item li.title h3 {
   margin: 0;
 }
-.sidebar .menu-item li.page {
+.sidebar .menu-item li.page,
+.sidebar .menu-item li.sub-page {
   font-size: 1rem;
   cursor: pointer;
   transition: 0.4s ease-in-out;
 }
-.sidebar .menu-item li.page:hover {
+.sidebar .menu-item li.page:hover,
+.sidebar .menu-item li.sub-page:hover {
   color: #fff;
+}
+.sidebar .menu-item .page {
+  font-weight: 600;
+}
+.sidebar .menu-item .sub-page {
+  margin-left: 30px;
+  margin-top: -10px;
+  list-style: circle;
 }
 
 .character-list {
@@ -1531,7 +1571,7 @@ form .delete-categories li {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 20px;
-  margin: 20px auto;
+  margin: 10px auto;
   display: grid;
   grid-template-columns: 1fr 1fr 0.5fr 0.15fr 0.15fr;
   justify-content: center;
@@ -1629,6 +1669,45 @@ form .delete-categories li {
 .train-list .object-reward img {
   width: 30px;
   margin-left: 10px;
+}
+
+.item-list .category,
+.item-list .scarecity,
+.item-list .duration,
+.item-list .planet,
+.item-list .mapCase {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0px auto 20px auto;
+  display: grid;
+  align-items: center;
+  width: 100%;
+}
+.item-list .category .name,
+.item-list .scarecity .name,
+.item-list .duration .name,
+.item-list .planet .name,
+.item-list .mapCase .name {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.item-list .category .name img,
+.item-list .scarecity .name img,
+.item-list .duration .name img,
+.item-list .planet .name img,
+.item-list .mapCase .name img {
+  width: 30px;
+  margin-left: 15px;
+}
+.item-list .category,
+.item-list .scarecity,
+.item-list .duration,
+.item-list .planet,
+.item-list .mapCase {
+  grid-template-columns: 1fr 0.1fr 0.1fr;
 }
 
 .mainStory h2 {

@@ -36,18 +36,18 @@ class AdminController extends Controller
         $stories = Story::all();
         $mainStories = MainStory::all();
         $caps = Caps::orderBy('caps_scarecities_id')->get();
-        $categories = CharacterCategory::all();
+        $categories = CharacterCategory::orderBy('id', 'DESC')->get();
         $steps = AdventureMode::all();
-        $capsScarecities = CapsScarecity::all();
-        $mapCase = MapCase::all();
-        $objectDurations = ObjectDuration::all();
+        $capsScarecities = CapsScarecity::orderBy('id', 'DESC')->get();
+        $mapCase = MapCase::orderBy('id', 'DESC')->get();
+        $objectDurations = ObjectDuration::orderBy('id', 'DESC')->get();
         $objects = ObjectItem::all();
-        $planets = Planet::all();
+        $planets = Planet::orderBy('id', 'DESC')->get();
         $rewards = Rewards::all();
         $winConditions = WinCondition::all();
         $works = Work::all();
         $trains = Train::all();
-        $waitingDurations = WaitingDuration::all();
+        $waitingDurations = WaitingDuration::orderBy('id', 'DESC')->get();
 
         foreach ($mainStories as $mainStory) {
             $mainStory->saga;

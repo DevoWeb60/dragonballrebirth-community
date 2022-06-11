@@ -1,0 +1,32 @@
+.item-list {
+    .category,
+    .scarecity,
+    .duration,
+    .planet,
+    .mapCase {
+        @include card;
+        margin: 0px auto 20px auto;
+        display: grid;
+        align-items: center;
+        width: 100%;
+
+        .name {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+
+            img {
+                width: 30px;
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .category,
+    .scarecity,
+    .duration,
+    .planet,
+    .mapCase {
+        grid-template-columns: 1fr 0.1fr 0.1fr;
+    }
+}

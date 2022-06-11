@@ -2,23 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Caps;
-use App\Models\Story;
 use App\Models\Character;
-use App\Models\MainStory;
 use Illuminate\Http\Request;
 use App\Models\CapsScarecity;
-use App\Models\CharacterCategory;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+
 
 class CharacterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $characters = Character::orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
@@ -30,15 +22,9 @@ class CharacterController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(Request $request)
     {
-
         $character = new Character;
 
         $character->name = $request->name;
@@ -51,25 +37,18 @@ class CharacterController extends Controller
         $character->main_story_id = $request->main_story_id;
         $character->save();
 
-        $lastId = DB::select('SELECT id FROM characters ORDER BY id DESC LIMIT 1');
-        $lastId = $lastId[0]->id;
+        if ($request->categories) {
+            $lastId = DB::select('SELECT id FROM characters ORDER BY id DESC LIMIT 1');
+            $lastId = $lastId[0]->id;
 
-        foreach ($request->categories as $category) {
-            DB::insert('INSERT INTO link_characters_to_categories (character_id, category_id) VALUES (?, ?)', [$lastId, $category]);
+            foreach ($request->categories as $category) {
+                DB::insert('INSERT INTO link_characters_to_categories (character_id, category_id) VALUES (?, ?)', [$lastId, $category]);
+            }
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Character $character)
     {
-
-
         $character::where('id', $request->id)->update([
             'name' => $request->name,
             'avatar' => $request->avatar,
@@ -81,20 +60,15 @@ class CharacterController extends Controller
             'main_story_id' => $request->main_story_id,
         ]);
 
-        DB::table('link_characters_to_categories')->where('character_id', $request->id)->delete();
+        if ($request->categories) {
+            DB::table('link_characters_to_categories')->where('character_id', $request->id)->delete();
 
-        foreach ($request->categories as $category) {
-            DB::insert('insert into link_characters_to_categories (character_id, category_id) values (?, ?)', [$request->id, $category]);
+            foreach ($request->categories as $category) {
+                DB::insert('insert into link_characters_to_categories (character_id, category_id) values (?, ?)', [$request->id, $category]);
+            }
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Character $character, Request $request)
     {
         DB::table('link_characters_to_categories')->where('character_id', $request->id)->delete();

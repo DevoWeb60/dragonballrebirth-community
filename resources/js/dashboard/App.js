@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./pages/Home";
-import Character from "./pages/Character";
-import Object from "./pages/Object";
-import Caps from "./pages/Caps";
-import Work from "./pages/Work";
-import Train from "./pages/Train";
-import AdventureMode from "./pages/AdventureMode";
-import AdditionalQuest from "./pages/AdditionalQuest";
-import Story from "./pages/Story";
+{
+    /* !VARIOUS */
+}
+import Character from "./pages/Various/Character";
+import Object from "./pages/Various/Object";
+import Caps from "./pages/Various/Caps";
+import Work from "./pages/Various/Work";
+import Train from "./pages/Various/Train";
 import Login from "./pages/Login";
+import CategoryCharacter from "./pages/Various/Character/Sub/CategoryCharacter";
+import Scarecity from "./pages/Various/Caps/Sub/Scarecity";
+import ObjectDuration from "./pages/Various/Object/Sub/ObjectDuration";
+import WaitingDuration from "./pages/Various/WaitingDuration/WaitingDuration";
+import Planet from "./pages/Various/Planet/Planet";
+import MapCase from "./pages/Various/Planet/MapCase/MapCase";
+{
+    /* !ADVENTURE  */
+}
+{
+    /* OTHER PAGE  */
+}
+{
+    /* USERS  */
+}
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -50,8 +65,6 @@ export default function App() {
         }
     }, [token]);
 
-    // console.log(data);
-
     if (!token) {
         return (
             <div className="container">
@@ -66,11 +79,24 @@ export default function App() {
                     {page === "home" && (
                         <Home getData={data} refreshData={getAllData} />
                     )}
+                    {/* !VARIOUS */}
                     {page === "character" && (
                         <Character getData={data} refreshData={getAllData} />
                     )}
+                    {page === "characterCategory" && (
+                        <CategoryCharacter
+                            getData={data}
+                            refreshData={getAllData}
+                        />
+                    )}
                     {page === "object" && (
                         <Object getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "objectDuration" && (
+                        <ObjectDuration
+                            getData={data}
+                            refreshData={getAllData}
+                        />
                     )}
                     {page === "story" && (
                         <Story getData={data} refreshData={getAllData} />
@@ -84,12 +110,24 @@ export default function App() {
                     {page === "caps" && (
                         <Caps getData={data} refreshData={getAllData} />
                     )}
-                    {page === "adventureMode" && (
-                        <AdventureMode getData={data} />
+                    {page === "scarecity" && (
+                        <Scarecity getData={data} refreshData={getAllData} />
                     )}
-                    {page === "additionalQuest" && (
-                        <AdditionalQuest getData={data} />
+                    {page === "duration" && (
+                        <WaitingDuration
+                            getData={data}
+                            refreshData={getAllData}
+                        />
                     )}
+                    {page === "planet" && (
+                        <Planet getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "mapCase" && (
+                        <MapCase getData={data} refreshData={getAllData} />
+                    )}
+                    {/* !ADVENTURE  */}
+                    {/* OTHER PAGE  */}
+                    {/* USERS  */}
                 </div>
             </>
         );
