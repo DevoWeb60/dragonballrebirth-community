@@ -5,20 +5,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CapsController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CapScarecityController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StoryController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\ObjectController;
-use App\Http\Controllers\CharacterController;
-use App\Http\Controllers\CharacterCategoryController;
-use App\Http\Controllers\ConditionBaseController;
-use App\Http\Controllers\MainStoryController;
-use App\Http\Controllers\MapCaseController;
-use App\Http\Controllers\ObjectDurationController;
 use App\Http\Controllers\PlanetController;
 use App\Http\Controllers\RewardController;
-use App\Http\Controllers\WaitingDurationController;
+use App\Http\Controllers\MapCaseController;
+use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\MainStoryController;
+use App\Http\Controllers\CapScarecityController;
 use App\Http\Controllers\WinConditionController;
+use App\Http\Controllers\ConditionBaseController;
+use App\Http\Controllers\ObjectDurationController;
+use App\Http\Controllers\WaitingDurationController;
+use App\Http\Controllers\CharacterCategoryController;
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -114,9 +115,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::prefix('story')->group(function () {
-        // Route::post('/update', [StoryController::class, 'update']);
-        // Route::post('/create', [StoryController::class, 'create']);
-        // Route::post('/delete', [StoryController::class, 'destroy']);
+        Route::post('/update', [StoryController::class, 'update']);
+        Route::post('/create', [StoryController::class, 'create']);
+        Route::post('/delete', [StoryController::class, 'destroy']);
         Route::prefix('category')->group(function () {
             Route::post('/update', [MainStoryController::class, 'update']);
             Route::post('/create', [MainStoryController::class, 'create']);

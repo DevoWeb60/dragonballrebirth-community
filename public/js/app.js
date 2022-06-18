@@ -2230,11 +2230,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Various_WaitingDuration_WaitingDuration__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/Various/WaitingDuration/WaitingDuration */ "./resources/js/dashboard/pages/Various/WaitingDuration/WaitingDuration.js");
 /* harmony import */ var _pages_Various_Planet_Planet__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/Various/Planet/Planet */ "./resources/js/dashboard/pages/Various/Planet/Planet.js");
 /* harmony import */ var _pages_Various_Planet_MapCase_MapCase__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/Various/Planet/MapCase/MapCase */ "./resources/js/dashboard/pages/Various/Planet/MapCase/MapCase.js");
-/* harmony import */ var _pages_Adventure_Conditions_Sub_ConditionBase__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/Adventure/Conditions/Sub/ConditionBase */ "./resources/js/dashboard/pages/Adventure/Conditions/Sub/ConditionBase.js");
+/* harmony import */ var _pages_Adventure_Story__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/Adventure/Story */ "./resources/js/dashboard/pages/Adventure/Story/index.js");
 /* harmony import */ var _pages_Adventure_Story_Sub_MainStory__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/Adventure/Story/Sub/MainStory */ "./resources/js/dashboard/pages/Adventure/Story/Sub/MainStory.js");
-/* harmony import */ var _pages_Adventure_Rewards_Reward__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/Adventure/Rewards/Reward */ "./resources/js/dashboard/pages/Adventure/Rewards/Reward.js");
-/* harmony import */ var _pages_Adventure_Conditions_Conditions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/Adventure/Conditions/Conditions */ "./resources/js/dashboard/pages/Adventure/Conditions/Conditions.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_Adventure_Conditions_Conditions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/Adventure/Conditions/Conditions */ "./resources/js/dashboard/pages/Adventure/Conditions/Conditions.js");
+/* harmony import */ var _pages_Adventure_Conditions_Sub_ConditionBase__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/Adventure/Conditions/Sub/ConditionBase */ "./resources/js/dashboard/pages/Adventure/Conditions/Sub/ConditionBase.js");
+/* harmony import */ var _pages_Adventure_Rewards_Reward__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pages/Adventure/Rewards/Reward */ "./resources/js/dashboard/pages/Adventure/Rewards/Reward.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2268,6 +2269,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 {
   /* !ADVENTURE  */
 }
+
 
 
 
@@ -2333,67 +2335,67 @@ function App() {
   }, [token]);
 
   if (!token) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
       className: "container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Login__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Login__WEBPACK_IMPORTED_MODULE_8__["default"], {
         setToken: setToken
       })
     });
   } else {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_components_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_components_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setPage: setPage
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
         className: "container-dashboard",
-        children: [page === "home" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: [page === "home" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "character" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Character__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }), page === "character" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Character__WEBPACK_IMPORTED_MODULE_3__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "characterCategory" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Character_Sub_CategoryCharacter__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        }), page === "characterCategory" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Character_Sub_CategoryCharacter__WEBPACK_IMPORTED_MODULE_9__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "object" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Object__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }), page === "object" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Object__WEBPACK_IMPORTED_MODULE_4__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "objectDuration" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Object_Sub_ObjectDuration__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        }), page === "objectDuration" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Object_Sub_ObjectDuration__WEBPACK_IMPORTED_MODULE_11__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "story" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(Story, {
+        }), page === "story" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Adventure_Story__WEBPACK_IMPORTED_MODULE_15__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "train" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Train__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        }), page === "train" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Train__WEBPACK_IMPORTED_MODULE_7__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "work" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Work__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }), page === "work" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Work__WEBPACK_IMPORTED_MODULE_6__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "caps" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Caps__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        }), page === "caps" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Caps__WEBPACK_IMPORTED_MODULE_5__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "scarecity" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Caps_Sub_Scarecity__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        }), page === "scarecity" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Caps_Sub_Scarecity__WEBPACK_IMPORTED_MODULE_10__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "duration" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_WaitingDuration_WaitingDuration__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        }), page === "duration" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_WaitingDuration_WaitingDuration__WEBPACK_IMPORTED_MODULE_12__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "planet" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Planet_Planet__WEBPACK_IMPORTED_MODULE_13__["default"], {
+        }), page === "planet" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Planet_Planet__WEBPACK_IMPORTED_MODULE_13__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "mapCase" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Various_Planet_MapCase_MapCase__WEBPACK_IMPORTED_MODULE_14__["default"], {
+        }), page === "mapCase" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Various_Planet_MapCase_MapCase__WEBPACK_IMPORTED_MODULE_14__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "mainStories" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Adventure_Story_Sub_MainStory__WEBPACK_IMPORTED_MODULE_16__["default"], {
+        }), page === "mainStories" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Adventure_Story_Sub_MainStory__WEBPACK_IMPORTED_MODULE_16__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "condition" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Adventure_Conditions_Conditions__WEBPACK_IMPORTED_MODULE_18__["default"], {
+        }), page === "condition" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Adventure_Conditions_Conditions__WEBPACK_IMPORTED_MODULE_17__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "conditionBase" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Adventure_Conditions_Sub_ConditionBase__WEBPACK_IMPORTED_MODULE_15__["default"], {
+        }), page === "conditionBase" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Adventure_Conditions_Sub_ConditionBase__WEBPACK_IMPORTED_MODULE_18__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "reward" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_pages_Adventure_Rewards_Reward__WEBPACK_IMPORTED_MODULE_17__["default"], {
+        }), page === "reward" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Adventure_Rewards_Reward__WEBPACK_IMPORTED_MODULE_19__["default"], {
           getData: data,
           refreshData: getAllData
         })]
@@ -3838,7 +3840,7 @@ function ConditionUpdate(_ref) {
           placeholder: "CSS"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
           htmlFor: "name",
-          children: "Nom de la r\xE9compense"
+          children: "Nom de la condition"
         })]
       }), conditionType === conditionTypeName.object && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
@@ -4051,7 +4053,7 @@ function Conditions(_ref) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,
-        children: "Les r\xE9compenses"
+        children: "Les conditions"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "flex-galery",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
@@ -5097,6 +5099,394 @@ function MainStory(_ref) {
       })]
     })]
   });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Adventure/Story/UpdateComponent/FormStory.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Adventure/Story/UpdateComponent/FormStory.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormStory)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../components/Select/StorySelect */ "./resources/js/dashboard/components/Select/StorySelect.js");
+/* harmony import */ var _components_Select_MainStoriesSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/Select/MainStoriesSelect */ "./resources/js/dashboard/components/Select/MainStoriesSelect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function FormStory(_ref) {
+  var forwardRef = _ref.forwardRef,
+      story = _ref.story,
+      handleSubmit = _ref.handleSubmit,
+      storyUnlock = _ref.storyUnlock,
+      setStoryUnlock = _ref.setStoryUnlock,
+      mainStoryId = _ref.mainStoryId,
+      setMainStoryId = _ref.setMainStoryId,
+      getData = _ref.getData,
+      buttonText = _ref.buttonText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+    className: "form-flex",
+    onSubmit: function onSubmit(e) {
+      return handleSubmit(e);
+    },
+    ref: forwardRef,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        id: "story_name",
+        name: "story_name",
+        defaultValue: story.story_name || "",
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "story_name",
+        children: "Nom"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        id: "thumbnail",
+        name: "thumbnail",
+        defaultValue: story.thumbnail || "https://www.dragonballrebirth.fr/img/aventure/histoires/[image.png]",
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "thumbnail",
+        children: "Miniature"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "number",
+        id: "step_unlock",
+        name: "step_unlock",
+        defaultValue: story.step_unlock || 1,
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "step_unlock",
+        children: "D\xE9bloquer \xE0 l'\xE9tape"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Select_StorySelect__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        stories: getData.stories,
+        characterUnlock: storyUnlock,
+        selectName: "story_unlock",
+        selectMode: true,
+        onChangeFunc: function onChangeFunc(e) {
+          return setStoryUnlock(Number(e.target.value));
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "story_unlock",
+        children: "D\xE9bloquer \xE0 l'histoire"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "number",
+        id: "story_number",
+        name: "story_number",
+        defaultValue: story.story_number || 1,
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "story_number",
+        children: "Num\xE9ro de l'histoire (G\xE9n\xE8re les miniatures des \xE9tapes)"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Select_MainStoriesSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        mainStories: getData.mainStories,
+        characterMainStory: mainStoryId,
+        selectMode: true,
+        selectName: "main_story",
+        onChangeFunc: function onChangeFunc(e) {
+          return setMainStoryId(Number(e.target.value));
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "main_story",
+        children: "Histoire principal"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group w-100",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        id: "custom_requirement",
+        name: "custom_requirement",
+        defaultValue: story.custom_requirement || "",
+        placeholder: "CSS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "custom_requirement",
+        children: "D\xE9blocage personnalis\xE9"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "form-group-check",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "checkbox",
+        name: "visible",
+        id: "visible",
+        defaultChecked: story.visible === 1 ? true : false
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "visible",
+        children: "Publi\xE9"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      type: "submit",
+      children: buttonText
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Adventure/Story/UpdateStory.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Adventure/Story/UpdateStory.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ UpdateStory)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _UpdateComponent_FormStory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateComponent/FormStory */ "./resources/js/dashboard/pages/Adventure/Story/UpdateComponent/FormStory.js");
+/* harmony import */ var _customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../customHook/useInsertOrUpdate */ "./resources/js/dashboard/customHook/useInsertOrUpdate.js");
+/* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function UpdateStory(_ref) {
+  var _story$story_unlock, _story$main_story;
+
+  var story = _ref.story,
+      setOnUpdate = _ref.setOnUpdate,
+      getData = _ref.getData,
+      refreshData = _ref.refreshData;
+
+  // !PREVIEW DATA CHARACTER
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(((_story$story_unlock = story.story_unlock) === null || _story$story_unlock === void 0 ? void 0 : _story$story_unlock.id) || 1),
+      _useState2 = _slicedToArray(_useState, 2),
+      storyUnlock = _useState2[0],
+      setStoryUnlock = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(((_story$main_story = story.main_story) === null || _story$main_story === void 0 ? void 0 : _story$main_story.id) || 1),
+      _useState4 = _slicedToArray(_useState3, 2),
+      mainStoryId = _useState4[0],
+      setMainStoryId = _useState4[1]; // !FORM CHARACTER
+
+
+  var form = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var inputs = form.current;
+    var data = {};
+    data = {
+      story_name: inputs.story_name.value,
+      thumbnail: inputs.thumbnail.value,
+      step_unlock: Number(inputs.step_unlock.value),
+      main_story: Number(mainStoryId),
+      story_unlock: Number(storyUnlock),
+      story_number: Number(inputs.story_number.value),
+      custom_requirement: inputs.custom_requirement.value,
+      visible: inputs.visible.checked,
+      id: story.id
+    };
+    console.log(data);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(story === "NEW", "story", data, refreshData, function () {
+      return setOnUpdate(false);
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      setOnUpdate: setOnUpdate,
+      onUpdate: story,
+      children: story === "NEW" ? "Nouvelle histoire" : story.story_name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormStory__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      forwardRef: form,
+      story: story,
+      handleSubmit: handleSubmit,
+      storyUnlock: storyUnlock,
+      setStoryUnlock: setStoryUnlock,
+      mainStoryId: mainStoryId,
+      setMainStoryId: setMainStoryId,
+      getData: getData,
+      buttonText: story === "NEW" ? "Ajouter" : "Mettre à jour"
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/dashboard/pages/Adventure/Story/index.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/dashboard/pages/Adventure/Story/index.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Story)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/Partials/Title */ "./resources/js/dashboard/components/Partials/Title.js");
+/* harmony import */ var _customHook_useDelete__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../customHook/useDelete */ "./resources/js/dashboard/customHook/useDelete.js");
+/* harmony import */ var _UpdateStory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateStory */ "./resources/js/dashboard/pages/Adventure/Story/UpdateStory.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function Story(_ref) {
+  var getData = _ref.getData,
+      refreshData = _ref.refreshData;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      stories = _useState2[0],
+      setStories = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      onUpdate = _useState4[0],
+      setOnUpdate = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setStories(getData.stories);
+  }, [getData]);
+  console.log(stories);
+
+  var handleDelete = function handleDelete(id) {
+    var message = "ATTENTION ! Tu es sur le point de supprimer une histoire. Cette action est irréversible.";
+    (0,_customHook_useDelete__WEBPACK_IMPORTED_MODULE_2__.useDelete)(id, "story", refreshData, message);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        setOnUpdate: setOnUpdate,
+        onUpdate: onUpdate,
+        children: "Les histoires"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "flex-galery",
+        children: stories && stories.length !== 0 && stories.map(function (story) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "story-list",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "thumbnail",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                src: story.thumbnail,
+                alt: ""
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "story-info",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "name",
+                children: story.story_name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                children: ["Histoire N\xB0", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: story.story_number
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "main-story",
+                children: story.main_story.name
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "story-unlock",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                children: "D\xE9blocage"
+              }), story.custom_requirement.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: story.story_unlock.story_name
+                }), "\xA0 \xE0 l'\xE9tape N\xB0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: story.step_unlock
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                children: story.custom_requirement
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "visible",
+              children: story.visible === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                className: "publish",
+                children: "Publi\xE9"
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                className: "no-publish",
+                children: "Brouillon"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "edit",
+              onClick: function onClick() {
+                return setOnUpdate(story);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                className: "fa-solid fa-pen-to-square"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "delete",
+              onClick: function onClick() {
+                return handleDelete(story);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                className: "fa-solid fa-trash"
+              })
+            })]
+          }, story.id);
+        })
+      })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateStory__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      refreshData: refreshData,
+      setOnUpdate: setOnUpdate,
+      story: onUpdate,
+      getData: getData
+    })
+  }); // return <div>Test</div>;
 }
 
 /***/ }),

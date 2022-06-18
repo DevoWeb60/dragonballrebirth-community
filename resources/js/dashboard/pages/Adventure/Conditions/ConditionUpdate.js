@@ -126,7 +126,7 @@ export default function ConditionUpdate({
                         onChange={(e) => setName(e.target.value)}
                         placeholder="CSS"
                     />
-                    <label htmlFor="name">Nom de la récompense</label>
+                    <label htmlFor="name">Nom de la condition</label>
                 </div>
                 {conditionType === conditionTypeName.object && (
                     <>

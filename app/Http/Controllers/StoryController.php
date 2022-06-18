@@ -7,60 +7,46 @@ use Illuminate\Http\Request;
 
 class StoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $stories = Story::where('main_story', 0)->get();
 
-        return view('additionalQuest.index',[
+        return view('additionalQuest.index', [
             'stories' => $stories
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function create(Request $request)
     {
-        //
+        $story = new Story();
+
+        $story->story_name = $request->story_name;
+        $story->main_story = $request->main_story;
+        $story->step_unlock = $request->step_unlock;
+        $story->thumbnail = $request->thumbnail;
+        $story->story_unlock = $request->story_unlock;
+        $story->story_number = $request->story_number;
+        $story->custom_requirement = $request->custom_requirement ? $request->custom_requirement : "";
+        $story->visible = $request->visible ? 1 : 0;
+        $story->save();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Story  $story
-     * @return \Illuminate\Http\Response
-     */
     public function show(Story $story)
     {
         $storyThumbnail = null;
         $storyNumber = null;
-        if($story->main_story !== 0){
+        if ($story->main_story !== 0) {
             $storyNumber = $story->main_story;
-        }else if($story->story_number === 9){
+        } else if ($story->story_number === 9) {
             $storyThumbnail = "https://www.dragonballrebirth.fr/img/aventure/etapes/9/1.png";
-        }else{
+        } else {
             $storyNumber = $story->story_number;
         }
 
-        https://www.dragonballrebirth.fr/img/aventure/etapes/{{ $storyThumbnail }}/story-{{ $storyThumbnail }}-
+        https: //www.dragonballrebirth.fr/img/aventure/etapes/{{ $storyThumbnail }}/story-{{ $storyThumbnail }}-
 
         return view('stepShow', [
             'story' => $story,
@@ -69,37 +55,22 @@ class StoryController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Story  $story
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Story $story)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Story  $story
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Story $story)
     {
-        //
+        $story::where('id', $request->id)->update([
+            'story_name' => $request->story_name,
+            'main_story' => $request->main_story,
+            'step_unlock' => $request->step_unlock,
+            'thumbnail' => $request->thumbnail,
+            'story_unlock' => $request->story_unlock,
+            'story_number' => $request->story_number,
+            'custom_requirement' => $request->custom_requirement ? $request->custom_requirement : "",
+            'visible' => $request->visible ? 1 : 0,
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Story  $story
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Story $story)
+    public function destroy(Story $story, Request $request)
     {
-        //
+        $story->where('id', $request->id)->delete();
     }
 }

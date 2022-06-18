@@ -26,7 +26,7 @@ export default function Conditions({ getData, refreshData }) {
             {onUpdate === false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
-                        Les récompenses
+                        Les conditions
                     </Title>
                     <div className="flex-galery">
                         <h2 className="category">Basique</h2>

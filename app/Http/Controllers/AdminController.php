@@ -33,7 +33,7 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $characters = Character::orderBy('is_pnj')->orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
-        $stories = Story::all();
+        $stories = Story::orderBy('main_story')->orderBy('story_number')->get();
         $mainStories = MainStory::all();
         $caps = Caps::orderBy('caps_scarecities_id')->get();
         $categories = CharacterCategory::orderBy('id', 'DESC')->get();
@@ -74,6 +74,7 @@ class AdminController extends Controller
         foreach ($stories as $story) {
             $story->storyUnlock;
             $story->steps;
+            $story->mainStory;
         }
 
         foreach ($trains as $train) {

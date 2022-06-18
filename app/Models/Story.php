@@ -9,11 +9,18 @@ class Story extends Model
 {
     use HasFactory;
 
-    public function storyUnlock(){
+    public function storyUnlock()
+    {
         return $this->belongsTo(Story::class, 'story_unlock');
     }
 
-    public function steps(){
+    public function steps()
+    {
         return $this->hasMany(AdventureMode::class, 'story_id');
+    }
+
+    public function mainStory()
+    {
+        return $this->belongsTo(MainStory::class, 'main_story');
     }
 }

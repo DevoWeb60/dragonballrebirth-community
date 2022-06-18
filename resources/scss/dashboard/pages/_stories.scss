@@ -1,0 +1,68 @@
+.story-list {
+    @include card;
+    width: 100%;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr 0.7fr 1fr 0.5fr 0.2fr 0.2fr;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    &:nth-child(odd) {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .thumbnail {
+        box-shadow: $box-shadow;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-right: 30px;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .story-info,
+    .story-unlock,
+    .visible {
+        display: flex;
+        flex-direction: column;
+        .name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .main-story {
+            margin-top: 15px;
+            font-style: italic;
+        }
+    }
+    .story-unlock,
+    .visible {
+        justify-content: center;
+        align-items: center;
+
+        strong {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    }
+    .visible strong {
+        min-width: 70%;
+        padding: 10px;
+        border-radius: 5px;
+        color: $white;
+        text-align: center;
+        box-shadow: $box-shadow;
+        &.publish {
+            background-color: $green;
+        }
+        &.no-publish {
+            background-color: $red;
+        }
+    }
+
+    strong {
+        font-weight: 600;
+    }
+}
