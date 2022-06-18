@@ -1,5 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
+import { useDelete } from "../../../customHook/useDelete";
+import { useInsertOrUpdate } from "../../../customHook/useInsertOrUpdate";
 
 export default function Planet({ getData, refreshData }) {
     const initialIconLink = "https://www.dragonballrebirth.fr/img/icon/[image]";
@@ -11,22 +12,6 @@ export default function Planet({ getData, refreshData }) {
     useEffect(() => {
         setPlanets(getData.planets);
     }, [getData]);
-
-    const deletePlanet = (id) => {
-        const confirm = window.confirm(
-            "ATTENTION ! Tu es sur le point de supprimer une planète. Cette action est irréversible."
-        );
-        if (confirm) {
-            axios
-                .post("api/planet/delete", { id: id })
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
-    };
 
     // !FORM planet
     const form = useRef();
@@ -49,27 +34,19 @@ export default function Planet({ getData, refreshData }) {
             id: onEdit ? onEdit.id : null,
         };
 
-        if (onEdit === false) {
-            axios
-                .post("api/planet/create", data)
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                        switchUpdateToCreate();
-                    }
-                })
-                .catch((err) => console.log(err));
-        } else {
-            axios
-                .post("api/planet/update", data)
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                        switchUpdateToCreate();
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
+        useInsertOrUpdate(
+            onEdit === false,
+            "planet",
+            data,
+            refreshData,
+            switchUpdateToCreate
+        );
+    };
+
+    const handleDelete = (id) => {
+        const message =
+            "ATTENTION ! Tu es sur le point de supprimer une planète. Cette action est irréversible.";
+        useDelete(id, "planet", refreshData, message);
     };
 
     return (
@@ -79,7 +56,7 @@ export default function Planet({ getData, refreshData }) {
                 {onEdit && (
                     <span
                         onClick={switchUpdateToCreate}
-                        class="btn-home invert"
+                        className="btn-home invert"
                     >
                         Annuler la modification
                     </span>
@@ -107,7 +84,7 @@ export default function Planet({ getData, refreshData }) {
                                 </span>
                                 <span
                                     className="delete"
-                                    onClick={() => deletePlanet(planet.id)}
+                                    onClick={() => handleDelete(planet.id)}
                                 >
                                     <i className="fa-solid fa-trash"></i>
                                 </span>

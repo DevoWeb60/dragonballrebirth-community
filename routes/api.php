@@ -11,10 +11,14 @@ use App\Http\Controllers\TrainController;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\CharacterCategoryController;
+use App\Http\Controllers\ConditionBaseController;
+use App\Http\Controllers\MainStoryController;
 use App\Http\Controllers\MapCaseController;
 use App\Http\Controllers\ObjectDurationController;
 use App\Http\Controllers\PlanetController;
+use App\Http\Controllers\RewardController;
 use App\Http\Controllers\WaitingDurationController;
+use App\Http\Controllers\WinConditionController;
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -89,6 +93,34 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::post('/update', [MapCaseController::class, 'update']);
             Route::post('/create', [MapCaseController::class, 'create']);
             Route::post('/delete', [MapCaseController::class, 'destroy']);
+        });
+    });
+
+    Route::prefix('condition')->group(function () {
+        Route::post('/update', [WinConditionController::class, 'update']);
+        Route::post('/create', [WinConditionController::class, 'create']);
+        Route::post('/delete', [WinConditionController::class, 'destroy']);
+        Route::prefix('base')->group(function () {
+            Route::post('/update', [ConditionBaseController::class, 'update']);
+            Route::post('/create', [ConditionBaseController::class, 'create']);
+            Route::post('/delete', [ConditionBaseController::class, 'destroy']);
+        });
+    });
+
+    Route::prefix('reward')->group(function () {
+        Route::post('/update', [RewardController::class, 'update']);
+        Route::post('/create', [RewardController::class, 'create']);
+        Route::post('/delete', [RewardController::class, 'destroy']);
+    });
+
+    Route::prefix('story')->group(function () {
+        // Route::post('/update', [StoryController::class, 'update']);
+        // Route::post('/create', [StoryController::class, 'create']);
+        // Route::post('/delete', [StoryController::class, 'destroy']);
+        Route::prefix('category')->group(function () {
+            Route::post('/update', [MainStoryController::class, 'update']);
+            Route::post('/create', [MainStoryController::class, 'create']);
+            Route::post('/delete', [MainStoryController::class, 'destroy']);
         });
     });
 });

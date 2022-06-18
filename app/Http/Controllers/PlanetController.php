@@ -11,14 +11,14 @@ class PlanetController extends Controller
     {
         $planet = new Planet();
 
-        $planet->case = $request->name;
+        $planet->planet = $request->name;
         $planet->save();
     }
 
     public function update(Request $request, Planet $planet)
     {
         $planet::where('id', $request->id)->update([
-            'case' => $request->name,
+            'planet' => $request->name,
         ]);
     }
 

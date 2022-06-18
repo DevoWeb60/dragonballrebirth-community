@@ -3,7 +3,9 @@
     .scarecity,
     .duration,
     .planet,
-    .mapCase {
+    .mapCase,
+    .condition-base,
+    .main-story {
         @include card;
         margin: 0px auto 20px auto;
         display: grid;
@@ -26,7 +28,9 @@
     .scarecity,
     .duration,
     .planet,
-    .mapCase {
+    .mapCase,
+    .condition-base,
+    .main-story {
         grid-template-columns: 1fr 0.1fr 0.1fr;
     }
 }

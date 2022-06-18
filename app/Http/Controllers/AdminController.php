@@ -12,13 +12,13 @@ use App\Models\Character;
 use App\Models\MainStory;
 use App\Models\ObjectItem;
 use App\Models\WinCondition;
-use Illuminate\Http\Request;
 use App\Models\AdventureMode;
 use App\Models\CapsScarecity;
 use App\Models\ObjectDuration;
 use App\Models\CharacterCategory;
 use App\Models\Train;
 use App\Models\WaitingDuration;
+use App\Models\WinConditionBase;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -43,11 +43,29 @@ class AdminController extends Controller
         $objectDurations = ObjectDuration::orderBy('id', 'DESC')->get();
         $objects = ObjectItem::all();
         $planets = Planet::orderBy('id', 'DESC')->get();
-        $rewards = Rewards::all();
-        $winConditions = WinCondition::all();
+        $rewards = Rewards::orderBy('zenis', 'DESC')->orderBy('character_id')->orderBy('object_id')->orderBy('caps_id')->get();
+        $winConditions = WinCondition::orderBy('id', 'DESC')->get();
         $works = Work::all();
         $trains = Train::all();
         $waitingDurations = WaitingDuration::orderBy('id', 'DESC')->get();
+        $winConditionBase = WinConditionBase::orderBy('id', 'DESC')->get();
+        $stepsStories = AdventureMode::orderBy('story_id')->orderBy('step_number')->get();
+
+        foreach ($stepsStories as $step) {
+            $step->planet;
+            $step->mapCase;
+            $step->character;
+            $step->enemy;
+            $step->conditions;
+            $step->rewards;
+        }
+
+        foreach ($rewards as $reward) {
+            $reward->character;
+            $reward->object;
+            $reward->caps;
+            $reward->rewardsOnCharacter;
+        }
 
         foreach ($mainStories as $mainStory) {
             $mainStory->saga;
@@ -120,7 +138,8 @@ class AdminController extends Controller
             "works" => $works,
             "trains" => $trains,
             "user" => $user,
-            "waitingDurations" => $waitingDurations
+            "waitingDurations" => $waitingDurations,
+            "winConditionBase" => $winConditionBase
         ]);
     }
 }

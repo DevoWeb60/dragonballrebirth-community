@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 09 juin 2022 à 22:16
+-- Généré le : sam. 18 juin 2022 à 14:45
 -- Version du serveur : 5.7.33
 -- Version de PHP : 8.1.6
 
@@ -220,7 +220,7 @@ INSERT INTO `caps_scarecities` (`id`, `name`, `icon`, `created_at`, `updated_at`
 (2, 'Commune', 'https://www.dragonballrebirth.fr/css/images/capsules/capsule-1-1.png', '2022-05-19 16:38:41', '2022-05-19 16:38:43'),
 (3, 'Rare', 'https://www.dragonballrebirth.fr/css/images/capsules/capsule-1-2.png', '2022-05-19 16:38:44', '2022-05-19 16:38:44'),
 (4, 'Épique', 'https://www.dragonballrebirth.fr/css/images/capsules/capsule-1-3.svg', '2022-05-19 16:39:14', '2022-05-19 16:39:14'),
-(5, 'Légendaire', 'https://www.dragonballrebirth.fr/css/images/capsules/capsule-1-4.png', '2022-05-19 16:39:38', '2022-05-19 16:39:39');
+(5, 'Légendaire', 'https://www.dragonballrebirth.fr/css/images/capsules/capsule-1-4.png', '2022-05-19 16:39:38', '2022-06-11 13:24:51');
 
 -- --------------------------------------------------------
 
@@ -247,7 +247,7 @@ CREATE TABLE `characters` (
 --
 
 INSERT INTO `characters` (`id`, `name`, `avatar`, `caps_id`, `step_unlock`, `story_id`, `ruby_cost`, `is_pnj`, `main_story_id`, `created_at`, `updated_at`) VALUES
-(1, 'Son Goku', 'https://dragonballrebirth.fr/img/characters/son-goku/', 1, 1, 1, 0, NULL, 1, '2022-05-18 20:03:07', '2022-06-08 18:15:32'),
+(1, 'Son Goku', 'https://dragonballrebirth.fr/img/characters/son-goku/', 1, 1, 1, 0, NULL, 1, '2022-05-18 20:03:07', '2022-06-11 12:36:11'),
 (2, 'Krilin', 'https://www.dragonballrebirth.fr/img/characters/krilin/', 47, 2, 1, 0, NULL, 1, '2022-05-20 09:44:46', '2022-05-20 09:44:46'),
 (3, 'Piccolo', 'https://www.dragonballrebirth.fr/img/characters/piccolo/', 48, 3, 1, 0, NULL, 1, '2022-05-20 09:44:48', '2022-05-20 09:44:48'),
 (4, 'Raditz', 'https://www.dragonballrebirth.fr/img/characters/raditz/', 49, 6, 1, 0, NULL, 1, '2022-05-20 09:44:48', '2022-06-08 18:18:36'),
@@ -276,8 +276,8 @@ INSERT INTO `characters` (`id`, `name`, `avatar`, `caps_id`, `step_unlock`, `sto
 (27, 'C-16', 'https://www.dragonballrebirth.fr/img/characters/c16/', 72, 110, 80, 0, NULL, 1, '2022-05-20 09:45:06', '2022-06-08 18:42:10'),
 (28, 'Mr. Satan', 'https://www.dragonballrebirth.fr/img/characters/satan/', 73, 129, 80, 0, NULL, 1, '2022-05-20 09:45:06', '2022-06-08 18:42:15'),
 (29, 'Cell Jr.', 'https://www.dragonballrebirth.fr/img/characters/cell-jr/', 74, 135, 80, 0, NULL, 1, '2022-05-20 09:45:07', '2022-06-08 18:42:23'),
-(30, 'C-18', 'https://www.dragonballrebirth.fr/img/characters/c18/', 75, 150, 92, 0, NULL, 1000, '2022-05-20 09:45:08', '2022-06-08 18:45:04'),
-(31, 'C-17', 'https://www.dragonballrebirth.fr/img/characters/c17/', 76, 151, 92, 0, NULL, 1000, '2022-05-20 09:45:09', '2022-06-08 18:45:09'),
+(30, 'C-18', 'https://www.dragonballrebirth.fr/img/characters/c18/', 75, 150, 92, 0, NULL, 100, '2022-05-20 09:45:08', '2022-06-08 18:45:04'),
+(31, 'C-17', 'https://www.dragonballrebirth.fr/img/characters/c17/', 76, 151, 92, 0, NULL, 100, '2022-05-20 09:45:09', '2022-06-08 18:45:09'),
 (32, 'Cell', 'https://www.dragonballrebirth.fr/img/characters/cell/', 77, 152, 80, 0, NULL, 1, '2022-05-20 09:45:09', '2022-06-08 18:42:30'),
 (33, 'Son Goten', 'https://www.dragonballrebirth.fr/img/characters/son-goten/', 78, 157, 81, 0, NULL, 1, '2022-05-20 09:45:10', '2022-06-08 18:42:37'),
 (34, 'Videl', 'https://www.dragonballrebirth.fr/img/characters/videl/', 79, 158, 81, 0, NULL, 1, '2022-05-20 09:45:11', '2022-06-08 18:42:43'),
@@ -290,30 +290,30 @@ INSERT INTO `characters` (`id`, `name`, `avatar`, `caps_id`, `step_unlock`, `sto
 (41, 'Buu', 'https://www.dragonballrebirth.fr/img/characters/buu/', 86, 234, 82, 0, NULL, 1, '2022-05-20 09:45:16', '2022-06-08 18:43:32'),
 (42, 'Vegetto', 'https://www.dragonballrebirth.fr/img/characters/vegetto/', 87, 267, 82, 0, NULL, 1, '2022-05-20 09:45:17', '2022-06-08 18:43:43'),
 (43, 'Super Buu', 'https://www.dragonballrebirth.fr/img/characters/super-buu/', 88, 294, 82, 0, NULL, 1, '2022-05-20 09:45:17', '2022-06-08 18:43:52'),
-(44, 'Oozaru', 'https://www.dragonballrebirth.fr/img/characters/oozaru/', 89, 1, 1, 25, NULL, 1, '2022-05-20 09:45:18', '2022-06-08 18:45:48'),
-(45, 'Roi Vegeta', 'https://www.dragonballrebirth.fr/img/characters/king-vegeta/', 90, 1, 1, 25, NULL, 1, '2022-05-20 09:45:19', '2022-06-08 18:46:07'),
-(46, 'Zangya', 'https://www.dragonballrebirth.fr/img/characters/zangya/', 91, 1, 1, 25, NULL, 1, '2022-05-20 09:45:20', '2022-06-08 18:45:54'),
-(47, 'Evil Buu', 'https://www.dragonballrebirth.fr/img/characters/evil-buu/', 92, 1, 1, 25, NULL, 1, '2022-05-20 09:45:20', '2022-06-08 18:46:24'),
-(48, 'Bido', 'https://www.dragonballrebirth.fr/img/characters/bido/', 93, 1, 1, 25, NULL, 1, '2022-05-20 09:45:21', '2022-06-08 18:46:19'),
-(49, 'Kibitoshin', 'https://www.dragonballrebirth.fr/img/characters/kibitoshin/', 94, 1, 1, 25, NULL, NULL, '2022-05-20 09:45:22', '2022-05-20 09:45:22'),
-(50, 'Baddack', 'https://www.dragonballrebirth.fr/img/characters/baddack/', 95, 1, 85, 0, NULL, 1000, '2022-05-20 09:45:23', '2022-06-08 18:43:58'),
-(51, 'Toma', 'https://www.dragonballrebirth.fr/img/characters/toma/', 96, 5, 85, 0, NULL, 1000, '2022-05-20 09:45:23', '2022-06-08 18:44:05'),
-(52, 'Vasha', 'https://www.dragonballrebirth.fr/img/characters/vasha/', 97, 18, 85, 0, NULL, 1000, '2022-05-20 09:45:24', '2022-06-08 18:44:10'),
-(53, 'Kami Sama', 'https://www.dragonballrebirth.fr/img/characters/kami-sama/', 98, 7, 86, 0, NULL, 1000, '2022-05-20 09:45:25', '2022-06-02 13:59:20'),
-(54, 'Garlic Jr.', 'https://www.dragonballrebirth.fr/img/characters/garlic/', 99, 16, 86, 0, NULL, 1000, '2022-05-20 09:45:26', '2022-06-08 18:44:17'),
-(55, 'Toto le lapin', 'https://www.dragonballrebirth.fr/img/characters/toto/', 100, 3, 87, 0, NULL, 1000, '2022-05-20 09:45:26', '2022-06-08 18:44:23'),
-(56, 'Gokua', 'https://www.dragonballrebirth.fr/img/characters/gokua/', 101, 11, 88, 0, NULL, 1000, '2022-05-20 09:45:27', '2022-06-08 18:44:30'),
-(57, 'Bujin', 'https://www.dragonballrebirth.fr/img/characters/bujin/', 102, 33, 88, 0, NULL, 1000, '2022-05-20 09:45:28', '2022-06-08 18:44:35'),
-(58, 'Bojack', 'https://www.dragonballrebirth.fr/img/characters/bojack/', 103, 35, 88, 0, NULL, 1000, '2022-05-20 09:45:28', '2022-06-08 18:44:40'),
-(59, 'Broly', 'https://www.dragonballrebirth.fr/img/characters/broly/', 104, 20, 90, 0, NULL, 1000, '2022-05-20 09:45:29', '2022-06-08 18:44:46'),
-(60, 'Cooler', 'https://www.dragonballrebirth.fr/img/characters/cooler/', 105, 16, 91, 0, NULL, 1000, '2022-05-20 09:45:30', '2022-06-08 18:44:52'),
-(61, 'Mirai Gohan', 'https://www.dragonballrebirth.fr/img/characters/mirai-gohan/', 106, 9, 92, 0, NULL, 1000, '2022-05-20 09:45:31', '2022-06-08 18:44:57'),
-(62, 'C-14', 'https://www.dragonballrebirth.fr/img/characters/c14/', 107, 14, 94, 0, NULL, 1000, '2022-05-20 09:45:31', '2022-06-08 18:45:25'),
-(63, 'C-15', 'https://www.dragonballrebirth.fr/img/characters/c15/', 108, 16, 94, 0, NULL, 1000, '2022-05-20 09:45:32', '2022-06-08 18:45:31'),
-(64, 'C-13', 'https://www.dragonballrebirth.fr/img/characters/c13/', 109, 28, 94, 0, NULL, 1000, '2022-05-20 09:45:33', '2022-06-08 18:45:36'),
-(65, 'Thales', 'https://www.dragonballrebirth.fr/img/characters/thales/', 110, 10, 95, 0, NULL, 1000, '2022-05-20 09:45:34', '2022-06-08 18:45:43'),
-(66, 'Malfrat', NULL, NULL, NULL, NULL, NULL, 1, NULL, '2022-05-27 09:45:57', '2022-05-27 09:45:57'),
-(69, 'Sbire de freezer', NULL, NULL, NULL, NULL, NULL, 1, NULL, '2022-05-31 08:40:41', '2022-05-31 08:44:22'),
+(44, 'Oozaru', 'https://www.dragonballrebirth.fr/img/characters/oozaru/', 89, 1, 1, 25, NULL, 150, '2022-05-20 09:45:18', '2022-06-08 18:45:48'),
+(45, 'Roi Vegeta', 'https://www.dragonballrebirth.fr/img/characters/king-vegeta/', 90, 1, 1, 25, NULL, 150, '2022-05-20 09:45:19', '2022-06-08 18:46:07'),
+(46, 'Zangya', 'https://www.dragonballrebirth.fr/img/characters/zangya/', 91, 1, 1, 25, NULL, 150, '2022-05-20 09:45:20', '2022-06-08 18:45:54'),
+(47, 'Evil Buu', 'https://www.dragonballrebirth.fr/img/characters/evil-buu/', 92, 1, 1, 25, NULL, 150, '2022-05-20 09:45:20', '2022-06-08 18:46:24'),
+(48, 'Bido', 'https://www.dragonballrebirth.fr/img/characters/bido/', 93, 1, 1, 25, NULL, 150, '2022-05-20 09:45:21', '2022-06-08 18:46:19'),
+(49, 'Kibitoshin', 'https://www.dragonballrebirth.fr/img/characters/kibitoshin/', 94, 1, 1, 25, NULL, 150, '2022-05-20 09:45:22', '2022-05-20 09:45:22'),
+(50, 'Baddack', 'https://www.dragonballrebirth.fr/img/characters/baddack/', 95, 1, 85, 0, NULL, 100, '2022-05-20 09:45:23', '2022-06-08 18:43:58'),
+(51, 'Toma', 'https://www.dragonballrebirth.fr/img/characters/toma/', 96, 5, 85, 0, NULL, 100, '2022-05-20 09:45:23', '2022-06-08 18:44:05'),
+(52, 'Vasha', 'https://www.dragonballrebirth.fr/img/characters/vasha/', 97, 18, 85, 0, NULL, 100, '2022-05-20 09:45:24', '2022-06-08 18:44:10'),
+(53, 'Kami Sama', 'https://www.dragonballrebirth.fr/img/characters/kami-sama/', 98, 7, 86, 0, NULL, 100, '2022-05-20 09:45:25', '2022-06-02 13:59:20'),
+(54, 'Garlic Jr.', 'https://www.dragonballrebirth.fr/img/characters/garlic/', 99, 16, 86, 0, NULL, 100, '2022-05-20 09:45:26', '2022-06-08 18:44:17'),
+(55, 'Toto le lapin', 'https://www.dragonballrebirth.fr/img/characters/toto/', 100, 3, 87, 0, NULL, 100, '2022-05-20 09:45:26', '2022-06-08 18:44:23'),
+(56, 'Gokua', 'https://www.dragonballrebirth.fr/img/characters/gokua/', 101, 11, 88, 0, NULL, 100, '2022-05-20 09:45:27', '2022-06-08 18:44:30'),
+(57, 'Bujin', 'https://www.dragonballrebirth.fr/img/characters/bujin/', 102, 33, 88, 0, NULL, 100, '2022-05-20 09:45:28', '2022-06-08 18:44:35'),
+(58, 'Bojack', 'https://www.dragonballrebirth.fr/img/characters/bojack/', 103, 35, 88, 0, NULL, 100, '2022-05-20 09:45:28', '2022-06-08 18:44:40'),
+(59, 'Broly', 'https://www.dragonballrebirth.fr/img/characters/broly/', 104, 20, 90, 0, NULL, 100, '2022-05-20 09:45:29', '2022-06-08 18:44:46'),
+(60, 'Cooler', 'https://www.dragonballrebirth.fr/img/characters/cooler/', 105, 16, 91, 0, NULL, 100, '2022-05-20 09:45:30', '2022-06-08 18:44:52'),
+(61, 'Mirai Gohan', 'https://www.dragonballrebirth.fr/img/characters/mirai-gohan/', 106, 9, 92, 0, NULL, 100, '2022-05-20 09:45:31', '2022-06-08 18:44:57'),
+(62, 'C-14', 'https://www.dragonballrebirth.fr/img/characters/c14/', 107, 14, 94, 0, NULL, 100, '2022-05-20 09:45:31', '2022-06-08 18:45:25'),
+(63, 'C-15', 'https://www.dragonballrebirth.fr/img/characters/c15/', 108, 16, 94, 0, NULL, 100, '2022-05-20 09:45:32', '2022-06-08 18:45:31'),
+(64, 'C-13', 'https://www.dragonballrebirth.fr/img/characters/c13/', 109, 28, 94, 0, NULL, 100, '2022-05-20 09:45:33', '2022-06-08 18:45:36'),
+(65, 'Thales', 'https://www.dragonballrebirth.fr/img/characters/thales/', 110, 10, 95, 0, NULL, 100, '2022-05-20 09:45:34', '2022-06-08 18:45:43'),
+(66, 'Malfrat', NULL, NULL, NULL, NULL, NULL, 1, 150, '2022-05-27 09:45:57', '2022-05-27 09:45:57'),
+(69, 'Sbire de freezer', NULL, NULL, NULL, NULL, NULL, 1, 150, '2022-05-31 08:40:41', '2022-05-31 08:44:22'),
 (70, 'Michel', 'https://dragonballrebirth.fr/img/characters/tenshinhan/', NULL, 50, 81, 0, NULL, 1, '2022-06-09 16:19:03', '2022-06-09 16:19:03');
 
 -- --------------------------------------------------------
@@ -324,21 +324,23 @@ INSERT INTO `characters` (`id`, `name`, `avatar`, `caps_id`, `step_unlock`, `sto
 
 CREATE TABLE `character_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `character_categories`
 --
 
-INSERT INTO `character_categories` (`id`, `name`) VALUES
-(1, 'Saiyan'),
-(2, 'Terrien'),
-(3, 'Demi Saiyan'),
-(4, 'Vie artificielle'),
-(5, 'Alien'),
-(6, 'Armée de Freezer'),
-(7, 'Démon');
+INSERT INTO `character_categories` (`id`, `name`, `updated_at`, `created_at`) VALUES
+(1, 'Saiyan', '2022-06-11 12:35:54', '2022-06-11 14:24:26'),
+(2, 'Terrien', '2022-06-11 14:24:26', '2022-06-11 14:24:26'),
+(3, 'Demi Saiyan', '2022-06-11 12:34:17', '2022-06-11 14:24:26'),
+(4, 'Vie artificielle', '2022-06-11 14:24:26', '2022-06-11 14:24:26'),
+(5, 'Alien', '2022-06-11 14:24:26', '2022-06-11 14:24:26'),
+(6, 'Armée de Freezer', '2022-06-11 12:32:36', '2022-06-11 14:24:26'),
+(7, 'Démon', '2022-06-11 14:24:26', '2022-06-11 14:24:26');
 
 -- --------------------------------------------------------
 
@@ -375,7 +377,6 @@ CREATE TABLE `link_characters_to_categories` (
 INSERT INTO `link_characters_to_categories` (`id`, `character_id`, `category_id`) VALUES
 (2, 2, 2),
 (3, 3, 2),
-(14, 1, 1),
 (15, 4, 1),
 (16, 5, 3),
 (17, 6, 2),
@@ -433,7 +434,8 @@ INSERT INTO `link_characters_to_categories` (`id`, `character_id`, `category_id`
 (76, 46, 5),
 (77, 45, 1),
 (78, 48, 5),
-(79, 47, 7);
+(79, 47, 7),
+(86, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -528,8 +530,8 @@ CREATE TABLE `main_stories` (
 INSERT INTO `main_stories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Mode Aventure : Normale', '2022-05-20 10:37:07', '2022-05-20 10:37:07'),
 (2, 'Mode Aventure : Hard', '2022-05-20 10:37:18', '2022-05-20 10:37:18'),
-(1000, 'Quêtes Annexes', NULL, NULL),
-(1500, 'Aucune', NULL, NULL);
+(100, 'Quêtes Annexes', NULL, '2022-06-14 14:40:22'),
+(150, 'Aucune', NULL, '2022-06-14 14:40:58');
 
 -- --------------------------------------------------------
 
@@ -703,7 +705,7 @@ CREATE TABLE `object_durations` (
 
 INSERT INTO `object_durations` (`id`, `duration`, `created_at`, `updated_at`) VALUES
 (1, 'Disparaît après utilisation', '2022-05-18 20:03:07', '2022-05-18 20:03:07'),
-(2, '30j après obtention', '2022-05-19 23:57:43', '2022-05-19 23:57:43'),
+(2, '30j après obtention', '2022-05-19 23:57:43', '2022-06-11 14:08:42'),
 (3, 'Illimité', '2022-05-19 23:57:43', '2022-05-19 23:57:44'),
 (4, '3 jours', '2022-05-19 23:57:44', '2022-05-19 23:57:44');
 
@@ -836,7 +838,13 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (25, 'App\\Models\\User', 2, 'token', 'ec6922dbffa1d8decc3fdb0bc1e0b70e05ea9564885c80eca581a5664bfcc259', '[\"*\"]', NULL, '2022-06-08 14:13:04', '2022-06-08 14:13:04'),
 (26, 'App\\Models\\User', 2, 'token', '5f8e0416e7e5378620e1d039ff0fc5982b47e3f8334c2f3bdeae7414ea0c9360', '[\"*\"]', '2022-06-08 15:02:24', '2022-06-08 14:13:04', '2022-06-08 15:02:24'),
 (27, 'App\\Models\\User', 2, 'token', '6743c23b234102b40f138c1792a0fe68362def7747e1d5cadab882b1322f04bc', '[\"*\"]', '2022-06-09 16:31:30', '2022-06-08 17:03:41', '2022-06-09 16:31:30'),
-(28, 'App\\Models\\User', 2, 'token', '7b52a70a59ddb60215ee1fa6cd06f1d9dfdb98c05591f95e22042df55c09709a', '[\"*\"]', '2022-06-09 20:07:54', '2022-06-09 16:44:05', '2022-06-09 20:07:54');
+(28, 'App\\Models\\User', 2, 'token', '7b52a70a59ddb60215ee1fa6cd06f1d9dfdb98c05591f95e22042df55c09709a', '[\"*\"]', '2022-06-13 04:47:43', '2022-06-09 16:44:05', '2022-06-13 04:47:43'),
+(29, 'App\\Models\\User', 2, 'token', 'd8c6aed7f621e3ecef523b6d61ed3e880f5de52d64fcf439ff9046f631f4d4dd', '[\"*\"]', NULL, '2022-06-13 04:56:51', '2022-06-13 04:56:51'),
+(30, 'App\\Models\\User', 2, 'token', '9ed599d418363b9ad93df7328545cb730d0076a0cf1390be85536378dffaadcc', '[\"*\"]', '2022-06-13 05:18:22', '2022-06-13 04:59:22', '2022-06-13 05:18:22'),
+(31, 'App\\Models\\User', 2, 'token', '212713056c7aa76a78aecab0af50b71b592afdf6a3c88cfb47d9b7766d31ceac', '[\"*\"]', '2022-06-14 14:40:59', '2022-06-14 13:49:55', '2022-06-14 14:40:59'),
+(32, 'App\\Models\\User', 2, 'token', 'de3f3baee96de23c98bf2c479254c43fc43efea5f613f0baf0030e3b94dc9902', '[\"*\"]', '2022-06-15 12:48:55', '2022-06-15 12:19:51', '2022-06-15 12:48:55'),
+(33, 'App\\Models\\User', 2, 'token', 'deef72ac927eb9bf0afa52c262814027910ae18d9e6c78f119ff14c6795dc2fb', '[\"*\"]', '2022-06-15 12:49:46', '2022-06-15 12:49:42', '2022-06-15 12:49:46'),
+(34, 'App\\Models\\User', 2, 'token', 'c4fe5b0a5e5be30e4a864e1e3e0e86afc515061b7eb4e86c3e3ac400dba9820c', '[\"*\"]', '2022-06-18 12:44:29', '2022-06-15 12:49:59', '2022-06-18 12:44:29');
 
 -- --------------------------------------------------------
 
@@ -859,7 +867,7 @@ CREATE TABLE `planets` (
 INSERT INTO `planets` (`id`, `planet`, `created_at`, `updated_at`, `icon`) VALUES
 (1, 'Terre', '2022-05-18 20:03:07', '2022-05-18 20:03:07', 'https://www.dragonballrebirth.fr/img/icon/planet-earth.png'),
 (2, 'Monde des morts', '2022-05-19 18:51:36', '2022-05-19 18:51:36', 'https://www.dragonballrebirth.fr/img/icon/planet-kaio.png'),
-(3, 'Namek', '2022-05-19 18:53:28', '2022-05-19 18:53:29', 'https://www.dragonballrebirth.fr/img/icon/planet-namek.png'),
+(3, 'Namek', '2022-05-19 18:53:28', '2022-06-13 05:05:04', 'https://www.dragonballrebirth.fr/img/icon/planet-namek.png'),
 (4, 'Espace', '2022-05-19 18:57:06', '2022-05-19 18:57:06', 'https://www.dragonballrebirth.fr/img/icon/planet-space.png');
 
 -- --------------------------------------------------------
@@ -911,7 +919,8 @@ INSERT INTO `rewards` (`id`, `name`, `character_id`, `object_id`, `quantity_obje
 (20, '5 Viande', NULL, 4, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:37:15', '2022-05-26 21:37:17'),
 (21, '5 Poisson', NULL, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:37:16', '2022-05-26 21:37:17'),
 (22, '5 Lait', NULL, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:37:16', '2022-05-26 21:37:17'),
-(23, '3 000 Zenis', NULL, NULL, NULL, NULL, NULL, 3000, NULL, NULL, NULL, '2022-05-26 21:37:51', '2022-05-26 21:37:51');
+(23, '3 000 Zenis', NULL, NULL, NULL, NULL, NULL, 3000, NULL, NULL, NULL, '2022-05-26 21:37:51', '2022-05-26 21:37:51'),
+(29, '2x Z Sword', NULL, NULL, NULL, 46, 2, NULL, NULL, NULL, NULL, '2022-06-15 19:20:09', '2022-06-15 19:20:09');
 
 -- --------------------------------------------------------
 
@@ -925,7 +934,7 @@ CREATE TABLE `stories` (
   `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `main_story` bigint(20) DEFAULT NULL,
+  `main_story` bigint(20) UNSIGNED DEFAULT NULL,
   `story_number` int(11) NOT NULL,
   `story_unlock` bigint(20) UNSIGNED DEFAULT NULL,
   `step_unlock` bigint(20) DEFAULT NULL,
@@ -946,18 +955,18 @@ INSERT INTO `stories` (`id`, `story_name`, `thumbnail`, `created_at`, `updated_a
 (82, 'Saga Buu', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-1-6.png', '2022-05-20 10:31:32', '2022-05-20 10:31:32', 1, 1, 81, 205, '', 1),
 (83, 'Saga Saiyan : Hard', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-1-1.png', '2022-05-20 10:31:32', '2022-05-20 10:31:32', 2, 1, 82, 298, '', 1),
 (84, 'Saga Namek : Hard', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-1-2.png', '2022-05-20 10:31:32', '2022-05-20 10:31:33', 2, 1, 83, 26, '', 1),
-(85, 'Vision d\'un destin funeste', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-5.png', '2022-05-20 10:31:33', '2022-05-20 10:31:33', 0, 5, 78, 70, '', 1),
-(86, 'A la poursuite de Garlic', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-6.png', '2022-05-20 10:31:33', '2022-05-20 10:31:33', 0, 6, 1, 10, '', 1),
-(87, 'La bande du lapin', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-7.png', '2022-05-20 10:31:33', '2022-05-20 10:31:33', 0, 7, 1, 0, 'Lancé l\'évènement de Pâques', 1),
-(88, 'Les Mercenaires de l\'espace', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-8.png', '2022-05-20 10:31:34', '2022-05-20 10:31:34', 0, 8, 80, 149, '', 1),
-(89, 'Tour du Muscle', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-9.png', '2022-05-20 10:31:34', '2022-05-20 10:31:34', 0, 9, 1, 0, 'Aucun', 1),
-(90, 'Broly le super guerrier', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-10.png', '2022-05-20 10:31:35', '2022-05-20 10:31:35', 0, 10, 80, 129, '', 1),
-(91, 'La Revance de Cooler', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-11.png', '2022-05-20 10:31:35', '2022-05-20 10:31:35', 0, 11, 78, 70, '', 1),
-(92, 'L\'histoire de Trunks !', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-13.png', '2022-05-20 10:31:35', '2022-05-20 10:31:35', 0, 13, 80, 130, '', 1),
-(93, 'Grand Quizz DBZ - 1ère édition', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-23.png', '2022-05-20 10:31:36', '2022-05-20 10:31:36', 0, 23, 1, 0, 'Aucun', 1),
-(94, 'L\'offensive des Cyborgs', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-22.png', '2022-05-20 10:31:36', '2022-05-20 10:31:36', 0, 22, 80, 152, '', 1),
-(95, 'Le combat fratricide', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-15.png', '2022-05-20 10:31:36', '2022-05-20 10:31:36', 0, 15, 78, 27, '', 1),
-(96, 'L\'attaque du Dragon', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-14.png', '2022-05-20 10:31:36', '2022-05-20 10:31:37', 0, 14, 82, 259, '', 1);
+(85, 'Vision d\'un destin funeste', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-5.png', '2022-05-20 10:31:33', '2022-05-20 10:31:33', 100, 5, 78, 70, '', 1),
+(86, 'A la poursuite de Garlic', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-6.png', '2022-05-20 10:31:33', '2022-05-20 10:31:33', 100, 6, 1, 10, '', 1),
+(87, 'La bande du lapin', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-7.png', '2022-05-20 10:31:33', '2022-05-20 10:31:33', 100, 7, 1, 0, 'Lancé l\'évènement de Pâques', 1),
+(88, 'Les Mercenaires de l\'espace', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-8.png', '2022-05-20 10:31:34', '2022-05-20 10:31:34', 100, 8, 80, 149, '', 1),
+(89, 'Tour du Muscle', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-9.png', '2022-05-20 10:31:34', '2022-05-20 10:31:34', 100, 9, 1, 0, 'Aucun', 1),
+(90, 'Broly le super guerrier', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-10.png', '2022-05-20 10:31:35', '2022-05-20 10:31:35', 100, 10, 80, 129, '', 1),
+(91, 'La Revance de Cooler', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-11.png', '2022-05-20 10:31:35', '2022-05-20 10:31:35', 100, 11, 78, 70, '', 1),
+(92, 'L\'histoire de Trunks !', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-13.png', '2022-05-20 10:31:35', '2022-05-20 10:31:35', 100, 13, 80, 130, '', 1),
+(93, 'Grand Quizz DBZ - 1ère édition', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-23.png', '2022-05-20 10:31:36', '2022-05-20 10:31:36', 100, 23, 1, 0, 'Aucun', 1),
+(94, 'L\'offensive des Cyborgs', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-22.png', '2022-05-20 10:31:36', '2022-05-20 10:31:36', 100, 22, 80, 152, '', 1),
+(95, 'Le combat fratricide', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-15.png', '2022-05-20 10:31:36', '2022-05-20 10:31:36', 100, 15, 78, 27, '', 1),
+(96, 'L\'attaque du Dragon', 'https://www.dragonballrebirth.fr/img/aventure/histoires/story-14.png', '2022-05-20 10:31:36', '2022-05-20 10:31:37', 100, 14, 82, 259, '', 1);
 
 -- --------------------------------------------------------
 
@@ -1048,7 +1057,7 @@ CREATE TABLE `waiting_durations` (
 
 INSERT INTO `waiting_durations` (`id`, `duration`, `created_at`, `updated_at`) VALUES
 (1, '2h / 4h', '2022-05-18 20:03:07', '2022-05-18 20:03:07'),
-(2, '12h', '2022-05-19 16:53:17', '2022-05-19 16:53:16'),
+(2, '12h', '2022-05-19 16:53:17', '2022-06-11 14:11:42'),
 (3, '18h / 1j 12h', '2022-05-19 23:27:08', '2022-05-19 23:27:09'),
 (4, '3 jours', '2022-05-19 23:27:09', '2022-05-19 23:27:09'),
 (5, '2j 6h / 3j', '2022-05-19 23:27:10', '2022-05-19 23:27:10'),
@@ -1098,7 +1107,9 @@ INSERT INTO `win_conditions` (`id`, `name`, `custom_condition`, `condition_base_
 (13, '2 train', NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, '2022-05-26 21:38:21', '2022-05-26 21:38:22'),
 (14, '20 Viande', NULL, NULL, 4, 20, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:39:22', '2022-05-26 21:39:23'),
 (15, '20 Poisson', NULL, NULL, 2, 20, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:39:23', '2022-05-26 21:39:23'),
-(16, '20 Lait', NULL, NULL, 1, 20, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:39:24', '2022-05-26 21:39:25');
+(16, '20 Lait', NULL, NULL, 1, 20, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:39:24', '2022-05-26 21:39:25'),
+(18, 'Exemple Perso', 'Bouffer un gros tacos sa mère', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-18 12:17:27', '2022-06-18 12:44:08'),
+(22, 'IT\'S OVER 9000', NULL, NULL, NULL, NULL, 8, 800, NULL, NULL, NULL, NULL, '2022-06-18 12:22:30', '2022-06-18 12:44:29');
 
 -- --------------------------------------------------------
 
@@ -1296,7 +1307,8 @@ ALTER TABLE `rewards`
 --
 ALTER TABLE `stories`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `story_unlock` (`story_unlock`);
+  ADD KEY `story_unlock` (`story_unlock`),
+  ADD KEY `main_story` (`main_story`);
 
 --
 -- Index pour la table `trains`
@@ -1359,7 +1371,7 @@ ALTER TABLE `adventure_modes`
 -- AUTO_INCREMENT pour la table `caps`
 --
 ALTER TABLE `caps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT pour la table `caps_scarecities`
@@ -1389,7 +1401,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT pour la table `link_characters_to_categories`
 --
 ALTER TABLE `link_characters_to_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT pour la table `link_rewards_to_steps`
@@ -1407,7 +1419,7 @@ ALTER TABLE `link_win_conditions_to_steps`
 -- AUTO_INCREMENT pour la table `main_stories`
 --
 ALTER TABLE `main_stories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1501;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT pour la table `map_cases`
@@ -1431,13 +1443,13 @@ ALTER TABLE `object_durations`
 -- AUTO_INCREMENT pour la table `object_items`
 --
 ALTER TABLE `object_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `planets`
@@ -1449,7 +1461,7 @@ ALTER TABLE `planets`
 -- AUTO_INCREMENT pour la table `rewards`
 --
 ALTER TABLE `rewards`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT pour la table `stories`
@@ -1479,7 +1491,7 @@ ALTER TABLE `waiting_durations`
 -- AUTO_INCREMENT pour la table `win_conditions`
 --
 ALTER TABLE `win_conditions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `win_condition_bases`
@@ -1491,7 +1503,7 @@ ALTER TABLE `win_condition_bases`
 -- AUTO_INCREMENT pour la table `works`
 --
 ALTER TABLE `works`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Contraintes pour les tables déchargées
@@ -1511,14 +1523,14 @@ ALTER TABLE `adventure_modes`
 -- Contraintes pour la table `caps`
 --
 ALTER TABLE `caps`
-  ADD CONSTRAINT `caps_caps_scarecities_id_foreign` FOREIGN KEY (`caps_scarecities_id`) REFERENCES `caps_scarecities` (`id`);
+  ADD CONSTRAINT `caps_caps_scarecities_id_foreign` FOREIGN KEY (`caps_scarecities_id`) REFERENCES `caps_scarecities` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `characters`
 --
 ALTER TABLE `characters`
   ADD CONSTRAINT `characters_caps_id_foreign` FOREIGN KEY (`caps_id`) REFERENCES `caps` (`id`),
-  ADD CONSTRAINT `characters_ibfk_1` FOREIGN KEY (`main_story_id`) REFERENCES `main_stories` (`id`),
+  ADD CONSTRAINT `characters_ibfk_1` FOREIGN KEY (`main_story_id`) REFERENCES `main_stories` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `characters_story_id_foreign` FOREIGN KEY (`story_id`) REFERENCES `stories` (`id`);
 
 --
@@ -1561,7 +1573,8 @@ ALTER TABLE `rewards`
 -- Contraintes pour la table `stories`
 --
 ALTER TABLE `stories`
-  ADD CONSTRAINT `FK_stories_stories` FOREIGN KEY (`story_unlock`) REFERENCES `stories` (`id`);
+  ADD CONSTRAINT `FK_stories_stories` FOREIGN KEY (`story_unlock`) REFERENCES `stories` (`id`),
+  ADD CONSTRAINT `stories_ibfk_1` FOREIGN KEY (`main_story`) REFERENCES `main_stories` (`id`) ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `trains`

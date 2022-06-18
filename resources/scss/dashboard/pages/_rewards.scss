@@ -1,0 +1,35 @@
+.reward-list,
+.condition-list {
+    @include card;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.2fr 0.2fr;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .reward-given,
+    .condition-given {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name,
+    .reward-name,
+    .condition-name {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+
+        img {
+            width: 30px;
+            margin-left: 15px;
+        }
+    }
+
+    .condition-name {
+        font-weight: 500;
+        font-size: 16px;
+    }
+}

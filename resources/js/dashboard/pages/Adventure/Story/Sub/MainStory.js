@@ -1,49 +1,30 @@
-import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import { useInsertOrUpdate } from "../../../../customHook/useInsertOrUpdate";
+import { useDelete } from "../../../../customHook/useDelete";
 
-export default function Scarecity({ getData, refreshData }) {
-    const initialIconLink =
-        "https://www.dragonballrebirth.fr/css/images/capsules/[image]";
-    const [scarecities, setScarecities] = useState([]);
+export default function MainStory({ getData, refreshData }) {
+    const [mainStories, setMainStories] = useState([]);
     const [onEdit, setOnEdit] = useState(false);
     const [name, setName] = useState(onEdit.name || "");
-    const [icon, setIcon] = useState(onEdit.icon || initialIconLink);
+    const [id, setId] = useState(onEdit.id || "");
 
     useEffect(() => {
-        setScarecities(getData.capsScarecities);
+        setMainStories(getData.mainStories);
     }, [getData]);
 
-    const deleteScarecity = (id) => {
-        const confirm = window.confirm(
-            "ATTENTION ! Tu es sur le point de supprimer une rareté. Cette action est irréversible."
-        );
-        let confirmWarning = false;
-        if (confirm) {
-            confirmWarning = window.confirm(
-                "Si tu supprime cette rareté, TOUTES LES CAPSULES possèdant cette rareté seront supprimées. Es-tu sûr de vouloir supprimer cette rareté ?"
-            );
-        }
-
-        if (confirmWarning) {
-            axios
-                .post("api/caps/scarecity/delete", { id: id })
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
+    const handleDelete = (id) => {
+        const message =
+            "ATTENTION ! Tu es sur le point de supprimer une catégorie d'histoire. Cette action est irréversible.";
+        useDelete(id, "story/category", refreshData, message);
     };
 
-    // !FORM scarecity
+    // !FORM story
     const form = useRef();
 
     const switchUpdateToCreate = () => {
         setOnEdit(false);
         setName("");
-        setIcon(initialIconLink);
+        setId("");
     };
 
     const handleSubmit = (e) => {
@@ -54,13 +35,13 @@ export default function Scarecity({ getData, refreshData }) {
 
         data = {
             name: inputs[0].value,
-            icon: inputs[1].value,
-            id: onEdit ? onEdit.id : null,
+            id: inputs[1].value,
+            origin_id: onEdit ? onEdit.id : null,
         };
 
         useInsertOrUpdate(
             onEdit === false,
-            "caps/scarecity",
+            "story/category",
             data,
             refreshData,
             switchUpdateToCreate
@@ -70,7 +51,7 @@ export default function Scarecity({ getData, refreshData }) {
     return (
         <>
             <h2 className="title">
-                Rareté de capsule
+                Catégories d'histoire
                 {onEdit && (
                     <span
                         onClick={switchUpdateToCreate}
@@ -82,29 +63,27 @@ export default function Scarecity({ getData, refreshData }) {
             </h2>
             <div className="flex-galery align-start">
                 <div className="item-list w-50">
-                    {scarecities &&
-                        scarecities.length !== 0 &&
-                        scarecities.map((scarecity) => (
-                            <div className="scarecity" key={scarecity.id}>
+                    {mainStories &&
+                        mainStories.length !== 0 &&
+                        mainStories.map((story) => (
+                            <div className="main-story" key={story.id}>
                                 <p className="name">
-                                    {scarecity.name}
-                                    <img src={scarecity.icon} alt="" />
+                                    <span>{story.id}&nbsp;:&nbsp; </span>
+                                    {story.name}
                                 </p>
                                 <span
                                     className="edit"
                                     onClick={() => {
-                                        setOnEdit(scarecity);
-                                        setName(scarecity.name);
-                                        setIcon(scarecity.icon);
+                                        setOnEdit(story);
+                                        setName(story.name);
+                                        setId(story.id);
                                     }}
                                 >
                                     <i className="fa-solid fa-pen-to-square"></i>
                                 </span>
                                 <span
                                     className="delete"
-                                    onClick={() =>
-                                        deleteScarecity(scarecity.id)
-                                    }
+                                    onClick={() => handleDelete(story.id)}
                                 >
                                     <i className="fa-solid fa-trash"></i>
                                 </span>
@@ -130,14 +109,14 @@ export default function Scarecity({ getData, refreshData }) {
                     </div>
                     <div className="form-group">
                         <input
-                            type="text"
-                            name="icon"
+                            type="number"
+                            name="id"
                             placeholder="CSS"
-                            value={icon}
+                            value={id}
                             className="w-100"
-                            onChange={(e) => setIcon(e.target.value)}
+                            onChange={(e) => setId(Number(e.target.value))}
                         />
-                        <label htmlFor="icon">Icône</label>
+                        <label htmlFor="id">Position (Doit être unique)</label>
                     </div>
                     <button type="submit">
                         {onEdit ? "Mettre à jour" : "Ajouter"}

@@ -68,6 +68,9 @@ h2.title {
 .shadow {
     filter: drop-shadow($box-shadow);
 }
+.w-33 {
+    width: 32%;
+}
 .w-50 {
     width: 48% !important;
 }
@@ -117,6 +120,10 @@ h2.title {
     &.align-start {
         align-items: flex-start;
     }
+
+    .category {
+        color: lighten($blue, 20);
+    }
 }
 .flex-center {
     height: 50%;
@@ -126,6 +133,22 @@ h2.title {
 
     &.column {
         flex-direction: column;
+    }
+}
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .btn-home {
+        font-family: "Edo SZ";
+        font-size: 20px;
+        margin: 0 0 60px 0;
+
+        &.active {
+            color: $white;
+            background: $orange;
+        }
     }
 }
 .full-grid {

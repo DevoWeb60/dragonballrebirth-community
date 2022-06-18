@@ -19,6 +19,10 @@ import MapCase from "./pages/Various/Planet/MapCase/MapCase";
 {
     /* !ADVENTURE  */
 }
+import ConditionBase from "./pages/Adventure/Conditions/Sub/ConditionBase";
+import MainStory from "./pages/Adventure/Story/Sub/MainStory";
+import Reward from "./pages/Adventure/Rewards/Reward";
+import Conditions from "./pages/Adventure/Conditions/Conditions";
 {
     /* OTHER PAGE  */
 }
@@ -126,6 +130,21 @@ export default function App() {
                         <MapCase getData={data} refreshData={getAllData} />
                     )}
                     {/* !ADVENTURE  */}
+                    {page === "mainStories" && (
+                        <MainStory getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "condition" && (
+                        <Conditions getData={data} refreshData={getAllData} />
+                    )}
+                    {page === "conditionBase" && (
+                        <ConditionBase
+                            getData={data}
+                            refreshData={getAllData}
+                        />
+                    )}
+                    {page === "reward" && (
+                        <Reward getData={data} refreshData={getAllData} />
+                    )}
                     {/* OTHER PAGE  */}
                     {/* USERS  */}
                 </div>

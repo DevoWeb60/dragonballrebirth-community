@@ -3,6 +3,7 @@ import React from "react";
 export default function CapsSelect({
     selectName = "",
     greenCaps = false,
+    allCaps = false,
     characterCapsId = 0,
     caps,
     capsIcon,
@@ -43,7 +44,22 @@ export default function CapsSelect({
             </select>
         );
     }
-
+    if (allCaps) {
+        return (
+            <select
+                name={selectName}
+                value={characterCapsId}
+                onChange={onChangeFunc}
+                disabled={disabled}
+            >
+                {caps.map((cap) => (
+                    <option value={cap.id} key={cap.id}>
+                        {cap.name}
+                    </option>
+                ))}
+            </select>
+        );
+    }
     return (
         <select
             name={selectName}
@@ -55,7 +71,6 @@ export default function CapsSelect({
                 if (cap.caps_scarecities_id !== 1) {
                     <option value={cap.id} key={cap.id}>
                         {cap.name}
-                        <img src={capsIcon} alt={cap.name} />
                     </option>;
                 }
             })}

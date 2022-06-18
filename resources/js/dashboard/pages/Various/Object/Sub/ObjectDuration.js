@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
+import { useInsertOrUpdate } from "../../../../customHook/useInsertOrUpdate";
+import { useDelete } from "../../../../customHook/useDelete";
 
 export default function ObjectDuration({ getData, refreshData }) {
     const [durations, setDurations] = useState([]);
@@ -10,20 +12,10 @@ export default function ObjectDuration({ getData, refreshData }) {
         setDurations(getData.objectDurations);
     }, [getData]);
 
-    const deleteDuration = (id) => {
-        const confirm = window.confirm(
-            "ATTENTION ! Tu es sur le point de supprimer une durée d'objet. Cette action est irréversible."
-        );
-        if (confirm) {
-            axios
-                .post("api/object/duration/delete", { id: id })
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
+    const handleDelete = (id) => {
+        const message =
+            "ATTENTION ! Tu es sur le point de supprimer une durée d'objet. Cette action est irréversible.";
+        useDelete(id, "object/duration", refreshData, message);
     };
 
     // !FORM duration
@@ -45,27 +37,13 @@ export default function ObjectDuration({ getData, refreshData }) {
             id: onEdit ? onEdit.id : null,
         };
 
-        if (onEdit === false) {
-            axios
-                .post("api/object/duration/create", data)
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                        switchUpdateToCreate();
-                    }
-                })
-                .catch((err) => console.log(err));
-        } else {
-            axios
-                .post("api/object/duration/update", data)
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                        switchUpdateToCreate();
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
+        useInsertOrUpdate(
+            onEdit === false,
+            "object/duration",
+            data,
+            refreshData,
+            switchUpdateToCreate
+        );
     };
 
     return (
@@ -75,7 +53,7 @@ export default function ObjectDuration({ getData, refreshData }) {
                 {onEdit && (
                     <span
                         onClick={switchUpdateToCreate}
-                        class="btn-home invert"
+                        className="btn-home invert"
                     >
                         Annuler la modification
                     </span>
@@ -99,7 +77,7 @@ export default function ObjectDuration({ getData, refreshData }) {
                                 </span>
                                 <span
                                     className="delete"
-                                    onClick={() => deleteDuration(duration.id)}
+                                    onClick={() => handleDelete(duration.id)}
                                 >
                                     <i className="fa-solid fa-trash"></i>
                                 </span>

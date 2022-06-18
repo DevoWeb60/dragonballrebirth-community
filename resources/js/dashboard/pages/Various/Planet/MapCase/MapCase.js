@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
+import { useInsertOrUpdate } from "../../../../customHook/useInsertOrUpdate";
+import { useDelete } from "../../../../customHook/useDelete";
 
 export default function MapCase({ getData, refreshData }) {
     const [cases, setCases] = useState([]);
@@ -10,20 +12,10 @@ export default function MapCase({ getData, refreshData }) {
         setCases(getData.mapCases);
     }, [getData]);
 
-    const deleteCase = (id) => {
-        const confirm = window.confirm(
-            "ATTENTION ! Tu es sur le point de supprimer une case. Cette action est irréversible."
-        );
-        if (confirm) {
-            axios
-                .post("api/planet/case/delete", { id: id })
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
+    const handleDelete = (id) => {
+        const message =
+            "ATTENTION ! Tu es sur le point de supprimer une case. Cette action est irréversible.";
+        useDelete(id, "planet/case", refreshData, message);
     };
 
     // !FORM mapCase
@@ -45,27 +37,13 @@ export default function MapCase({ getData, refreshData }) {
             id: onEdit ? onEdit.id : null,
         };
 
-        if (onEdit === false) {
-            axios
-                .post("api/planet/case/create", data)
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                        switchUpdateToCreate();
-                    }
-                })
-                .catch((err) => console.log(err));
-        } else {
-            axios
-                .post("api/planet/case/update", data)
-                .then((res) => {
-                    if (res.status === 200) {
-                        refreshData();
-                        switchUpdateToCreate();
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
+        useInsertOrUpdate(
+            onEdit === false,
+            "planet/case",
+            data,
+            refreshData,
+            switchUpdateToCreate
+        );
     };
 
     return (
@@ -75,7 +53,7 @@ export default function MapCase({ getData, refreshData }) {
                 {onEdit && (
                     <span
                         onClick={switchUpdateToCreate}
-                        class="btn-home invert"
+                        className="btn-home invert"
                     >
                         Annuler la modification
                     </span>
@@ -99,7 +77,7 @@ export default function MapCase({ getData, refreshData }) {
                                 </span>
                                 <span
                                     className="delete"
-                                    onClick={() => deleteCase(mapCase.id)}
+                                    onClick={() => handleDelete(mapCase.id)}
                                 >
                                     <i className="fa-solid fa-trash"></i>
                                 </span>
