@@ -1101,6 +1101,10 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
 .step-container {
   padding: 30px 0;
 }
+.step-container.admin {
+  width: 100%;
+  margin: 50px auto;
+}
 .step-container .step {
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -1297,6 +1301,21 @@ form.form-flex .form-group select,
 form.form-flex .form-group textarea {
   width: 100%;
 }
+form .dynamic {
+  margin: 0px 0px 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  background: rgba(255, 139, 23, 0.2);
+  padding: 40px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+form .dynamic :last-child {
+  margin-bottom: 0;
+}
 form .form-group-check {
   width: 100%;
 }
@@ -1413,6 +1432,13 @@ form .delete-categories li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: rgba(255, 139, 23, 0.4);
+  padding: 15px 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+form .delete-categories li .delete {
+  color: #fff;
 }
 
 .sidebar {
@@ -1515,6 +1541,7 @@ form .delete-categories li {
   margin: 5px 0;
   font-size: 13px;
   font-weight: 600;
+  color: #333;
 }
 .character-list span.name {
   font-family: "Edo SZ";
@@ -1767,6 +1794,7 @@ form .delete-categories li {
   display: flex;
   align-items: center;
   font-weight: 600;
+  color: #333;
 }
 .item-list .category .name img,
 .item-list .scarecity .name img,
@@ -1788,7 +1816,8 @@ form .delete-categories li {
   grid-template-columns: 1fr 0.1fr 0.1fr;
 }
 
-.story-list {
+.story-list,
+.step-list {
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -1797,53 +1826,72 @@ form .delete-categories li {
   margin-bottom: 15px;
   display: grid;
   grid-template-columns: 1fr 0.7fr 1fr 0.5fr 0.2fr 0.2fr;
+  grid-template-rows: 1fr 0.1fr;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-.story-list:nth-child(odd) {
+.story-list:nth-child(odd),
+.step-list:nth-child(odd) {
   background: rgba(255, 255, 255, 0.5);
 }
-.story-list .thumbnail {
+.story-list .thumbnail,
+.step-list .thumbnail {
+  grid-row-start: span 2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   overflow: hidden;
   margin-right: 30px;
 }
-.story-list .thumbnail img {
+.story-list .thumbnail img,
+.step-list .thumbnail img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 .story-list .story-info,
 .story-list .story-unlock,
-.story-list .visible {
+.story-list .visible,
+.step-list .story-info,
+.step-list .story-unlock,
+.step-list .visible {
   display: flex;
   flex-direction: column;
 }
 .story-list .story-info .name,
 .story-list .story-unlock .name,
-.story-list .visible .name {
+.story-list .visible .name,
+.step-list .story-info .name,
+.step-list .story-unlock .name,
+.step-list .visible .name {
   font-weight: 600;
   margin-bottom: 5px;
 }
 .story-list .story-info .main-story,
 .story-list .story-unlock .main-story,
-.story-list .visible .main-story {
+.story-list .visible .main-story,
+.step-list .story-info .main-story,
+.step-list .story-unlock .main-story,
+.step-list .visible .main-story {
   margin-top: 15px;
   font-style: italic;
 }
 .story-list .story-unlock,
-.story-list .visible {
+.story-list .visible,
+.step-list .story-unlock,
+.step-list .visible {
   justify-content: center;
   align-items: center;
 }
 .story-list .story-unlock strong,
-.story-list .visible strong {
+.story-list .visible strong,
+.step-list .story-unlock strong,
+.step-list .visible strong {
   display: inline-block;
   margin-bottom: 15px;
 }
-.story-list .visible strong {
+.story-list .visible strong,
+.step-list .visible strong {
   min-width: 70%;
   padding: 10px;
   border-radius: 5px;
@@ -1851,14 +1899,80 @@ form .delete-categories li {
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.story-list .visible strong.publish {
+.story-list .visible strong.publish,
+.step-list .visible strong.publish {
   background-color: #25cc33;
 }
-.story-list .visible strong.no-publish {
+.story-list .visible strong.no-publish,
+.step-list .visible strong.no-publish {
   background-color: #cc2525;
 }
-.story-list strong {
+.story-list strong,
+.step-list strong {
   font-weight: 600;
+}
+.story-list .step-button,
+.step-list .step-button {
+  grid-column-start: span 5;
+  text-align: center;
+  background-color: transparent;
+  border: 2px solid #2591cc;
+  color: #2591cc;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.4s ease-in-out;
+}
+.story-list .step-button:hover,
+.step-list .step-button:hover {
+  background-color: #2591cc;
+  color: #fff;
+}
+
+.step-list {
+  grid-template-columns: 0.2fr 0.3fr 0.3fr 0.5fr 0.5fr 0.1fr 0.1fr;
+  grid-template-rows: none;
+  align-items: flex-start;
+}
+.step-list .step-info {
+  display: flex;
+  flex-direction: column;
+}
+.step-list .step-info .step {
+  margin-bottom: 25px;
+}
+.step-list .characterSelect,
+.step-list .enemySelect,
+.step-list .conditions,
+.step-list .rewards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.step-list .characterSelect .title,
+.step-list .enemySelect .title,
+.step-list .conditions .title,
+.step-list .rewards .title {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.step-list .content,
+.step-list .planet {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.step-list .content img,
+.step-list .planet img {
+  width: 25px;
+  margin-left: 10px;
+}
+.step-list .edit,
+.step-list .delete {
+  align-self: center;
 }
 
 .mainStory h2 {

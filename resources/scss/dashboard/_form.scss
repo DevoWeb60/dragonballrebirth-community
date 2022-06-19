@@ -21,6 +21,23 @@ form {
         }
     }
 
+    .dynamic {
+        margin: 0px 0px 40px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        background: rgba($orange, 0.2);
+        padding: 40px 20px;
+        box-shadow: $box-shadow;
+        border-radius: 10px;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+
     .form-group-check {
         width: 100%;
 
@@ -128,6 +145,14 @@ form {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            background: rgba($orange, 0.4);
+            padding: 15px 30px;
+            border-radius: 5px;
+            box-shadow: $box-shadow;
+
+            .delete {
+                color: $white;
+            }
         }
     }
 }

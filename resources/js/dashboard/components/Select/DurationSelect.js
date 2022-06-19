@@ -26,6 +26,9 @@ export default function DurationSelect({
                 value={durationId}
                 disabled={disabled}
             >
+                <option value="0" disabled>
+                    Sélectionner une durée
+                </option>
                 {durations.map((duration) => (
                     <option value={duration.id} key={duration.id}>
                         {duration.duration}

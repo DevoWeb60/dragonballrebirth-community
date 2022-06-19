@@ -5,10 +5,29 @@ export default function CharacterSelect({
     selectMode,
     selectName,
     characterId,
+    stepMode = false,
     onChangeFunc,
     noPnj = true,
 }) {
     let customCondition = true;
+    if (stepMode) {
+        return characters.map((character) => {
+            return (
+                character.id === characterId && (
+                    <span className="icon" key={character.id}>
+                        {character.name}
+                        <img
+                            src={
+                                character.avatar +
+                                "/transformations/base/head.png"
+                            }
+                            alt={character.name}
+                        />
+                    </span>
+                )
+            );
+        });
+    }
 
     if (!selectMode) {
         return characters.map((character) => {
@@ -31,6 +50,9 @@ export default function CharacterSelect({
 
     return (
         <select name={selectName} value={characterId} onChange={onChangeFunc}>
+            <option value="0" disabled>
+                Sélectionner un personnage
+            </option>
             {characters.map((character) => {
                 if (noPnj) {
                     customCondition = character.is_pnj === null;

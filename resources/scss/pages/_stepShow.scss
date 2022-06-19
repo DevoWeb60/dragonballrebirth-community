@@ -1,6 +1,11 @@
 .step-container {
     padding: 30px 0;
 
+    &.admin {
+        width: 100%;
+        margin: 50px auto;
+    }
+
     .step {
         @include card;
         position: relative;

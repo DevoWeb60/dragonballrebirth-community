@@ -26,6 +26,9 @@ export default function CapsScarecitiesSelect({
             value={capScarecityId}
             onChange={onChangeFunc}
         >
+            <option value="0" disabled>
+                Sélectionner une rareté
+            </option>
             {scarecities.map((scarecity) => (
                 <option value={scarecity.id} key={scarecity.id}>
                     {scarecity.name}

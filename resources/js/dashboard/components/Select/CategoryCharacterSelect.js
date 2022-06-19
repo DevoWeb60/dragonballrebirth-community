@@ -35,6 +35,7 @@ export default function CategoryCharacterSelect({
                 name={selectName}
                 onChange={onChangeFunc}
                 disabled={disabled}
+                defaultValue="0"
             >
                 <option value="0">Ajouter une catégorie</option>
                 {categories.map((category) => (

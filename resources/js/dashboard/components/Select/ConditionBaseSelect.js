@@ -33,7 +33,9 @@ export default function ConditionBaseSelect({
                 disabled={disabled}
                 value={conditionBaseId}
             >
-                <option value="0">Ajouter une base</option>
+                <option value="0" disabled>
+                    Ajouter une base
+                </option>
                 {conditions.map((condition) => (
                     <option value={condition.id} key={condition.id}>
                         {condition.condition}

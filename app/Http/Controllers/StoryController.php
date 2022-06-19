@@ -38,15 +38,13 @@ class StoryController extends Controller
     {
         $storyThumbnail = null;
         $storyNumber = null;
-        if ($story->main_story !== 0) {
-            $storyNumber = $story->main_story;
-        } else if ($story->story_number === 9) {
+        if ($story->story_number === 9) {
             $storyThumbnail = "https://www.dragonballrebirth.fr/img/aventure/etapes/9/1.png";
         } else {
             $storyNumber = $story->story_number;
         }
 
-        https: //www.dragonballrebirth.fr/img/aventure/etapes/{{ $storyThumbnail }}/story-{{ $storyThumbnail }}-
+        // https: //www.dragonballrebirth.fr/img/aventure/etapes/{{ $storyThumbnail }}/story-{{ $storyThumbnail }}-
 
         return view('stepShow', [
             'story' => $story,

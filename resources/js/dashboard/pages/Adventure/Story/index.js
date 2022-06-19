@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Title from "../../../components/Partials/Title";
 import { useDelete } from "../../../customHook/useDelete";
+import UpdateStepStory from "./Steps/UpdateStepStory";
 import UpdateStory from "./UpdateStory";
 
 export default function Story({ getData, refreshData }) {
     const [stories, setStories] = useState([]);
     const [onUpdate, setOnUpdate] = useState(false);
+    const [onUpdateStep, setOnUpdateStep] = useState(false);
 
     useEffect(() => {
         setStories(getData.stories);
     }, [getData]);
 
-    console.log(stories);
+    // console.log(stories);
 
     const handleDelete = (id) => {
         const message =
@@ -21,7 +23,7 @@ export default function Story({ getData, refreshData }) {
 
     return (
         <>
-            {onUpdate === false ? (
+            {onUpdate === false && onUpdateStep === false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les histoires
@@ -94,18 +96,37 @@ export default function Story({ getData, refreshData }) {
                                         >
                                             <i className="fa-solid fa-trash"></i>
                                         </span>
+                                        <div
+                                            className="step-button"
+                                            onClick={() =>
+                                                setOnUpdateStep(story)
+                                            }
+                                        >
+                                            Gérer les étapes
+                                        </div>
                                     </div>
                                 );
                             })}
                     </div>
                 </>
             ) : (
-                <UpdateStory
-                    refreshData={refreshData}
-                    setOnUpdate={setOnUpdate}
-                    story={onUpdate}
-                    getData={getData}
-                />
+                <>
+                    {onUpdate !== false && onUpdateStep === false ? (
+                        <UpdateStory
+                            refreshData={refreshData}
+                            setOnUpdate={setOnUpdate}
+                            story={onUpdate}
+                            getData={getData}
+                        />
+                    ) : (
+                        <UpdateStepStory
+                            refreshData={refreshData}
+                            setOnUpdateStep={setOnUpdateStep}
+                            story={onUpdateStep}
+                            getData={getData}
+                        />
+                    )}
+                </>
             )}
         </>
     );

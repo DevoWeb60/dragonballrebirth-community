@@ -18,9 +18,6 @@ export default function Sidebar({ setPage }) {
                 <li className="title">
                     <h3>Aventure</h3>
                 </li>
-                <li className="page" onClick={() => changePage("steps")}>
-                    Étapes
-                </li>
                 <li className="page" onClick={() => changePage("story")}>
                     Histoires
                 </li>

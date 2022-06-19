@@ -29,6 +29,9 @@ export default function ObjectSelect({
                 value={objectId}
                 disabled={disabled}
             >
+                <option value="0" disabled>
+                    Sélectionner un objet
+                </option>
                 {objects.map((object) => (
                     <option value={object.id} key={object.id}>
                         {object.name}

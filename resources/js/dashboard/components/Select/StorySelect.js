@@ -26,6 +26,9 @@ export default function StorySelect({
                 value={characterUnlock}
                 disabled={disabled}
             >
+                <option value="0" disabled>
+                    Sélectionner une histoire
+                </option>
                 {stories.map((story) => (
                     <option value={story.id} key={story.id}>
                         {story.story_name}

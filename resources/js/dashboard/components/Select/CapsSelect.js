@@ -17,7 +17,7 @@ export default function CapsSelect({
                 cap.id === characterCapsId && (
                     <span key={cap.id}>
                         {cap.name}
-                        {capsIcon && <img src={capsIcon} alt={cap.name} />}
+                        <img src={cap.scarecities.icon} alt={cap.name} />
                     </span>
                 )
             );
@@ -32,12 +32,18 @@ export default function CapsSelect({
                 onChange={onChangeFunc}
                 disabled={disabled}
             >
+                <option value="0" disabled>
+                    Sélectionner une capsule
+                </option>
+
                 {caps.map((cap) => {
                     if (cap.caps_scarecities_id === 1) {
                         return (
-                            <option value={cap.id} key={cap.id}>
-                                {cap.name}
-                            </option>
+                            <>
+                                <option value={cap.id} key={cap.id}>
+                                    {cap.name}
+                                </option>
+                            </>
                         );
                     }
                 })}
@@ -67,6 +73,9 @@ export default function CapsSelect({
             onChange={onChangeFunc}
             disabled={disabled}
         >
+            <option value="0" disabled>
+                Sélectionner une capsule
+            </option>
             {caps.map((cap) => {
                 if (cap.caps_scarecities_id !== 1) {
                     <option value={cap.id} key={cap.id}>

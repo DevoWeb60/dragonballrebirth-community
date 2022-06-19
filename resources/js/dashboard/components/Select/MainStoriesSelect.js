@@ -26,6 +26,9 @@ export default function MainStoriesSelect({
                 value={characterMainStory}
                 disabled={disabled}
             >
+                <option value="0" disabled>
+                    Sélectionner une histoire principal
+                </option>
                 {mainStories.map((mainStory) => (
                     <option value={mainStory.id} key={mainStory.id}>
                         {mainStory.name}

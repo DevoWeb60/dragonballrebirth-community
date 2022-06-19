@@ -1,9 +1,11 @@
-.story-list {
+.story-list,
+.step-list {
     @include card;
     width: 100%;
     margin-bottom: 15px;
     display: grid;
     grid-template-columns: 1fr 0.7fr 1fr 0.5fr 0.2fr 0.2fr;
+    grid-template-rows: 1fr 0.1fr;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -13,6 +15,7 @@
     }
 
     .thumbnail {
+        grid-row-start: span 2;
         box-shadow: $box-shadow;
         border-radius: 10px;
         overflow: hidden;
@@ -64,5 +67,69 @@
 
     strong {
         font-weight: 600;
+    }
+
+    .step-button {
+        grid-column-start: span 5;
+        text-align: center;
+        background-color: transparent;
+        border: 2px solid $blue;
+        color: $blue;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: $transition;
+
+        &:hover {
+            background-color: $blue;
+            color: $white;
+        }
+    }
+}
+
+.step-list {
+    grid-template-columns: 0.2fr 0.3fr 0.3fr 0.5fr 0.5fr 0.1fr 0.1fr;
+    grid-template-rows: none;
+    align-items: flex-start;
+
+    .step-info {
+        display: flex;
+        flex-direction: column;
+
+        .step {
+            margin-bottom: 25px;
+        }
+    }
+
+    .characterSelect,
+    .enemySelect,
+    .conditions,
+    .rewards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .title {
+            color: $black;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    }
+
+    .content,
+    .planet {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        img {
+            width: 25px;
+            margin-left: 10px;
+        }
+    }
+
+    .edit,
+    .delete {
+        align-self: center;
     }
 }

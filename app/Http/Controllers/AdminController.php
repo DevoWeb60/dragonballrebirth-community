@@ -37,7 +37,7 @@ class AdminController extends Controller
         $mainStories = MainStory::all();
         $caps = Caps::orderBy('caps_scarecities_id')->get();
         $categories = CharacterCategory::orderBy('id', 'DESC')->get();
-        $steps = AdventureMode::all();
+        $steps = AdventureMode::orderBy('step_number', 'DESC')->get();
         $capsScarecities = CapsScarecity::orderBy('id', 'DESC')->get();
         $mapCase = MapCase::orderBy('id', 'DESC')->get();
         $objectDurations = ObjectDuration::orderBy('id', 'DESC')->get();

@@ -64,7 +64,7 @@ class CharacterController extends Controller
             DB::table('link_characters_to_categories')->where('character_id', $request->id)->delete();
 
             foreach ($request->categories as $category) {
-                DB::insert('insert into link_characters_to_categories (character_id, category_id) values (?, ?)', [$request->id, $category]);
+                DB::insert('INSERT INTO link_characters_to_categories (character_id, category_id) VALUES (?, ?)', [$request->id, $category]);
             }
         }
     }
