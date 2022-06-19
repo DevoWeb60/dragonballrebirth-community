@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : sam. 18 juin 2022 à 14:45
+-- Généré le : dim. 19 juin 2022 à 23:15
 -- Version du serveur : 5.7.33
 -- Version de PHP : 8.1.6
 
@@ -49,7 +49,7 @@ INSERT INTO `adventure_modes` (`id`, `step_number`, `story_id`, `character_id`, 
 (1, 1, 1, 1, NULL, NULL, NULL, 88, 1, '2022-05-20 11:13:22', '2022-05-20 11:13:23'),
 (2, 2, 1, 1, 4, 2, 500, 88, 1, '2022-05-20 11:14:08', '2022-05-20 11:14:09'),
 (3, 3, 1, 1, NULL, NULL, NULL, 88, 1, '2022-05-20 11:17:03', '2022-05-20 11:17:03'),
-(4, 4, 1, 1, 4, 2, 500, 88, 1, '2022-05-20 11:19:43', '2022-05-20 11:19:43'),
+(4, 4, 1, 1, 4, 2, 500, 75, 1, '2022-05-20 11:19:43', '2022-06-19 20:53:18'),
 (5, 1, 89, 1, NULL, NULL, NULL, 83, 1, '2022-05-20 11:33:53', '2022-05-20 11:33:53'),
 (6, 1, 85, 15, NULL, NULL, NULL, 15, 4, '2022-05-25 21:28:56', '2022-05-25 21:28:56'),
 (7, 1, 92, 23, NULL, NULL, NULL, 20, 1, '2022-05-25 23:03:47', '2022-05-25 23:03:47'),
@@ -57,7 +57,29 @@ INSERT INTO `adventure_modes` (`id`, `step_number`, `story_id`, `character_id`, 
 (9, 1, 88, 10, 23, 22, 36000, 44, 1, '2022-05-25 23:30:58', '2022-05-25 23:30:58'),
 (10, 1, 94, 31, 26, 22, 35000, 31, 1, '2022-05-25 23:35:33', '2022-05-25 23:35:34'),
 (11, 27, 78, 2, NULL, NULL, NULL, 31, 1, '2022-05-26 21:35:38', '2022-05-26 21:35:39'),
-(12, 28, 78, 2, NULL, NULL, NULL, 17, 1, '2022-05-26 21:41:17', '2022-05-26 21:41:18');
+(12, 28, 78, 2, NULL, NULL, NULL, 17, 1, '2022-05-26 21:41:17', '2022-05-26 21:41:18'),
+(18, 5, 1, 3, 4, 2, 300, 75, 1, '2022-06-19 20:54:04', '2022-06-19 20:54:04'),
+(19, 6, 1, 1, NULL, NULL, NULL, 42, 2, '2022-06-19 20:54:58', '2022-06-19 20:54:58'),
+(20, 7, 1, 1, NULL, NULL, NULL, 4, 2, '2022-06-19 20:56:33', '2022-06-19 20:56:33'),
+(21, 8, 1, 1, NULL, NULL, NULL, 4, 2, '2022-06-19 20:57:04', '2022-06-19 20:57:04'),
+(22, 9, 1, 3, NULL, NULL, NULL, 66, 1, '2022-06-19 21:01:02', '2022-06-19 21:03:14'),
+(23, 10, 1, 5, 3, 2, 700, 66, 1, '2022-06-19 21:01:54', '2022-06-19 21:01:54'),
+(24, 11, 1, 3, 44, 3, 700, 66, 1, '2022-06-19 21:02:55', '2022-06-19 21:02:55'),
+(25, 12, 1, 6, 7, 3, 800, 21, 1, '2022-06-19 21:04:09', '2022-06-19 21:04:09'),
+(26, 13, 1, 6, NULL, NULL, NULL, 21, 1, '2022-06-19 21:04:43', '2022-06-19 21:04:43'),
+(27, 14, 1, 7, 6, 2, 600, 21, 1, '2022-06-19 21:05:29', '2022-06-19 21:05:29'),
+(28, 15, 1, 8, 9, 2, 800, 21, 1, '2022-06-19 21:06:12', '2022-06-19 21:06:12'),
+(29, 16, 1, 9, 10, 4, 900, 21, 1, '2022-06-19 21:07:21', '2022-06-19 21:07:21'),
+(30, 17, 1, 5, 9, 4, 900, 21, 1, '2022-06-19 21:08:12', '2022-06-19 21:08:12'),
+(31, 18, 1, 1, 9, 4, 1000, 21, 1, '2022-06-19 21:09:04', '2022-06-19 21:09:04'),
+(32, 19, 1, 11, 9, 4, 500, 21, 1, '2022-06-19 21:09:43', '2022-06-19 21:09:43'),
+(33, 20, 1, 11, NULL, NULL, NULL, 21, 1, '2022-06-19 21:10:27', '2022-06-19 21:10:27'),
+(34, 21, 1, 1, 11, 5, 3700, 30, 1, '2022-06-19 21:11:01', '2022-06-19 21:11:01'),
+(35, 22, 1, 1, 44, 5, 4000, 30, 1, '2022-06-19 21:11:42', '2022-06-19 21:11:42'),
+(36, 23, 1, 12, 44, 4, 4000, 30, 1, '2022-06-19 21:12:34', '2022-06-19 21:13:32'),
+(37, 24, 1, 5, 11, 3, 4200, 30, 1, '2022-06-19 21:13:24', '2022-06-19 21:13:24'),
+(38, 25, 1, 1, NULL, NULL, NULL, 30, 1, '2022-06-19 21:14:02', '2022-06-19 21:14:02'),
+(39, 26, 1, 1, NULL, NULL, NULL, 29, 1, '2022-06-19 21:14:27', '2022-06-19 21:14:27');
 
 -- --------------------------------------------------------
 
@@ -247,7 +269,7 @@ CREATE TABLE `characters` (
 --
 
 INSERT INTO `characters` (`id`, `name`, `avatar`, `caps_id`, `step_unlock`, `story_id`, `ruby_cost`, `is_pnj`, `main_story_id`, `created_at`, `updated_at`) VALUES
-(1, 'Son Goku', 'https://dragonballrebirth.fr/img/characters/son-goku/', 1, 1, 1, 0, NULL, 1, '2022-05-18 20:03:07', '2022-06-11 12:36:11'),
+(1, 'Son Goku', 'https://dragonballrebirth.fr/img/characters/son-goku/', 1, 1, 1, 0, NULL, 1, '2022-05-18 20:03:07', '2022-06-19 19:11:11'),
 (2, 'Krilin', 'https://www.dragonballrebirth.fr/img/characters/krilin/', 47, 2, 1, 0, NULL, 1, '2022-05-20 09:44:46', '2022-05-20 09:44:46'),
 (3, 'Piccolo', 'https://www.dragonballrebirth.fr/img/characters/piccolo/', 48, 3, 1, 0, NULL, 1, '2022-05-20 09:44:48', '2022-05-20 09:44:48'),
 (4, 'Raditz', 'https://www.dragonballrebirth.fr/img/characters/raditz/', 49, 6, 1, 0, NULL, 1, '2022-05-20 09:44:48', '2022-06-08 18:18:36'),
@@ -435,7 +457,7 @@ INSERT INTO `link_characters_to_categories` (`id`, `character_id`, `category_id`
 (77, 45, 1),
 (78, 48, 5),
 (79, 47, 7),
-(86, 1, 1);
+(87, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -461,8 +483,6 @@ INSERT INTO `link_rewards_to_steps` (`id`, `rewards_id`, `step_number`, `created
 (3, 1, 2, '2022-05-20 11:15:49', '2022-05-20 11:15:50'),
 (4, 4, 3, '2022-05-20 11:18:31', '2022-05-20 11:18:32'),
 (5, 3, 3, '2022-05-20 11:18:40', '2022-05-20 11:18:40'),
-(6, 6, 4, '2022-05-20 11:22:21', '2022-05-20 11:22:22'),
-(7, 5, 4, '2022-05-20 11:22:30', '2022-05-20 11:22:30'),
 (8, 7, 5, '2022-05-20 11:35:10', '2022-05-20 11:35:10'),
 (9, 9, 6, '2022-05-25 21:29:19', '2022-05-25 21:29:20'),
 (10, 8, 6, '2022-05-25 21:29:31', '2022-05-25 21:29:32'),
@@ -475,7 +495,45 @@ INSERT INTO `link_rewards_to_steps` (`id`, `rewards_id`, `step_number`, `created
 (20, 19, 11, '2022-05-26 21:40:41', '2022-05-26 21:40:41'),
 (21, 22, 12, '2022-05-26 21:42:31', '2022-05-26 21:42:34'),
 (22, 21, 12, '2022-05-26 21:42:32', '2022-05-26 21:42:34'),
-(23, 20, 12, '2022-05-26 21:42:33', '2022-05-26 21:42:33');
+(23, 20, 12, '2022-05-26 21:42:33', '2022-05-26 21:42:33'),
+(45, 6, 4, NULL, NULL),
+(46, 5, 4, NULL, NULL),
+(47, 31, 18, NULL, NULL),
+(48, 32, 19, NULL, NULL),
+(49, 33, 19, NULL, NULL),
+(50, 34, 20, NULL, NULL),
+(51, 35, 21, NULL, NULL),
+(54, 38, 23, NULL, NULL),
+(55, 46, 23, NULL, NULL),
+(56, 39, 24, NULL, NULL),
+(57, 2, 24, NULL, NULL),
+(58, 2, 22, NULL, NULL),
+(59, 36, 22, NULL, NULL),
+(60, 40, 25, NULL, NULL),
+(61, 41, 25, NULL, NULL),
+(62, 6, 26, NULL, NULL),
+(63, 42, 26, NULL, NULL),
+(64, 6, 27, NULL, NULL),
+(65, 43, 27, NULL, NULL),
+(66, 31, 28, NULL, NULL),
+(67, 44, 28, NULL, NULL),
+(68, 31, 29, NULL, NULL),
+(69, 45, 29, NULL, NULL),
+(70, 47, 30, NULL, NULL),
+(71, 46, 30, NULL, NULL),
+(72, 48, 31, NULL, NULL),
+(73, 34, 31, NULL, NULL),
+(74, 49, 32, NULL, NULL),
+(75, 50, 33, NULL, NULL),
+(76, 51, 33, NULL, NULL),
+(77, 52, 34, NULL, NULL),
+(78, 35, 35, NULL, NULL),
+(79, 53, 35, NULL, NULL),
+(81, 55, 37, NULL, NULL),
+(82, 54, 36, NULL, NULL),
+(83, 56, 38, NULL, NULL),
+(84, 57, 39, NULL, NULL),
+(85, 58, 39, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -499,7 +557,6 @@ INSERT INTO `link_win_conditions_to_steps` (`id`, `conditions_id`, `step_number`
 (1, 1, 1, '2022-05-20 10:55:51', '2022-05-20 10:55:51'),
 (2, 2, 2, '2022-05-20 11:16:08', '2022-05-20 11:16:08'),
 (3, 1, 3, '2022-05-20 11:17:39', '2022-05-20 11:17:39'),
-(4, 4, 4, '2022-05-20 11:20:08', '2022-05-20 11:20:09'),
 (5, 1, 5, '2022-05-20 11:36:32', '2022-05-20 11:36:32'),
 (7, 1, 6, '2022-05-25 21:29:45', '2022-05-25 21:29:46'),
 (8, 5, 7, '2022-05-25 23:06:00', '2022-05-25 23:06:01'),
@@ -508,7 +565,30 @@ INSERT INTO `link_win_conditions_to_steps` (`id`, `conditions_id`, `step_number`
 (15, 14, 12, '2022-05-26 21:40:13', '2022-05-26 21:40:15'),
 (16, 15, 12, '2022-05-26 21:40:13', '2022-05-26 21:40:15'),
 (17, 16, 12, '2022-05-26 21:40:14', '2022-05-26 21:40:14'),
-(18, 13, 11, '2022-05-26 21:41:36', '2022-05-26 21:41:37');
+(18, 13, 11, '2022-05-26 21:41:36', '2022-05-26 21:41:37'),
+(40, 4, 4, NULL, NULL),
+(41, 3, 18, NULL, NULL),
+(42, 1, 19, NULL, NULL),
+(43, 23, 20, NULL, NULL),
+(44, 22, 21, NULL, NULL),
+(46, 4, 23, NULL, NULL),
+(47, 4, 24, NULL, NULL),
+(48, 1, 22, NULL, NULL),
+(49, 4, 25, NULL, NULL),
+(50, 1, 26, NULL, NULL),
+(51, 3, 27, NULL, NULL),
+(52, 2, 28, NULL, NULL),
+(53, 4, 29, NULL, NULL),
+(54, 4, 30, NULL, NULL),
+(55, 4, 31, NULL, NULL),
+(56, 3, 32, NULL, NULL),
+(57, 1, 33, NULL, NULL),
+(58, 4, 34, NULL, NULL),
+(59, 2, 35, NULL, NULL),
+(61, 4, 37, NULL, NULL),
+(62, 4, 36, NULL, NULL),
+(63, 1, 38, NULL, NULL),
+(64, 1, 39, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -844,7 +924,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (31, 'App\\Models\\User', 2, 'token', '212713056c7aa76a78aecab0af50b71b592afdf6a3c88cfb47d9b7766d31ceac', '[\"*\"]', '2022-06-14 14:40:59', '2022-06-14 13:49:55', '2022-06-14 14:40:59'),
 (32, 'App\\Models\\User', 2, 'token', 'de3f3baee96de23c98bf2c479254c43fc43efea5f613f0baf0030e3b94dc9902', '[\"*\"]', '2022-06-15 12:48:55', '2022-06-15 12:19:51', '2022-06-15 12:48:55'),
 (33, 'App\\Models\\User', 2, 'token', 'deef72ac927eb9bf0afa52c262814027910ae18d9e6c78f119ff14c6795dc2fb', '[\"*\"]', '2022-06-15 12:49:46', '2022-06-15 12:49:42', '2022-06-15 12:49:46'),
-(34, 'App\\Models\\User', 2, 'token', 'c4fe5b0a5e5be30e4a864e1e3e0e86afc515061b7eb4e86c3e3ac400dba9820c', '[\"*\"]', '2022-06-18 12:44:29', '2022-06-15 12:49:59', '2022-06-18 12:44:29');
+(34, 'App\\Models\\User', 2, 'token', 'c4fe5b0a5e5be30e4a864e1e3e0e86afc515061b7eb4e86c3e3ac400dba9820c', '[\"*\"]', '2022-06-19 21:14:28', '2022-06-15 12:49:59', '2022-06-19 21:14:28');
 
 -- --------------------------------------------------------
 
@@ -920,7 +1000,35 @@ INSERT INTO `rewards` (`id`, `name`, `character_id`, `object_id`, `quantity_obje
 (21, '5 Poisson', NULL, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:37:16', '2022-05-26 21:37:17'),
 (22, '5 Lait', NULL, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:37:16', '2022-05-26 21:37:17'),
 (23, '3 000 Zenis', NULL, NULL, NULL, NULL, NULL, 3000, NULL, NULL, NULL, '2022-05-26 21:37:51', '2022-05-26 21:37:51'),
-(29, '2x Z Sword', NULL, NULL, NULL, 46, 2, NULL, NULL, NULL, NULL, '2022-06-15 19:20:09', '2022-06-15 19:20:09');
+(29, '2x Z Sword', NULL, NULL, NULL, 46, 2, NULL, NULL, NULL, NULL, '2022-06-15 19:20:09', '2022-06-15 19:20:09'),
+(31, '700 Zenis', NULL, NULL, NULL, NULL, NULL, 700, NULL, NULL, NULL, '2022-06-19 20:44:10', '2022-06-19 20:44:10'),
+(32, 'Raditz', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:44:26', '2022-06-19 20:44:26'),
+(33, '400 Zenis', NULL, NULL, NULL, NULL, NULL, 400, NULL, NULL, NULL, '2022-06-19 20:44:42', '2022-06-19 20:44:42'),
+(34, '800 Zenis', NULL, NULL, NULL, NULL, NULL, 800, NULL, NULL, NULL, '2022-06-19 20:44:53', '2022-06-19 20:44:53'),
+(35, '900 Zenis', NULL, NULL, NULL, NULL, NULL, 900, NULL, NULL, NULL, '2022-06-19 20:45:16', '2022-06-19 20:45:16'),
+(36, 'Gohan', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:45:29', '2022-06-19 20:45:29'),
+(37, 'Caps : Baton de force', NULL, NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, '2022-06-19 20:45:56', '2022-06-19 20:45:56'),
+(38, '1000 Zenis', NULL, NULL, NULL, NULL, NULL, 1000, NULL, NULL, NULL, '2022-06-19 20:46:03', '2022-06-19 20:46:03'),
+(39, 'Yamcha', 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:46:20', '2022-06-19 20:46:20'),
+(40, 'Caps : Eventail Magique', NULL, NULL, NULL, 5, 1, NULL, NULL, NULL, NULL, '2022-06-19 20:47:41', '2022-06-19 20:47:41'),
+(41, '1100 Zenis', NULL, NULL, NULL, NULL, NULL, 1100, NULL, NULL, NULL, '2022-06-19 20:47:54', '2022-06-19 20:47:54'),
+(42, 'Saibaman', 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:48:09', '2022-06-19 20:48:09'),
+(43, 'Chaozu', 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:48:19', '2022-06-19 20:48:19'),
+(44, 'Nappa', 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:48:29', '2022-06-19 20:48:29'),
+(45, 'Tenshinhan', 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:48:44', '2022-06-19 20:48:44'),
+(46, 'Caps : Pierre de force', NULL, NULL, NULL, 9, 1, NULL, NULL, NULL, NULL, '2022-06-19 20:49:18', '2022-06-19 20:49:18'),
+(47, '1200 Zenis', NULL, NULL, NULL, NULL, NULL, 1200, NULL, NULL, NULL, '2022-06-19 20:49:33', '2022-06-19 20:49:33'),
+(48, 'Végéta', 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:49:42', '2022-06-19 20:49:42'),
+(49, '1300 Zenis', NULL, NULL, NULL, NULL, NULL, 1300, NULL, NULL, NULL, '2022-06-19 20:49:56', '2022-06-19 20:49:56'),
+(50, '1400 Zenis', NULL, NULL, NULL, NULL, NULL, 1400, NULL, NULL, NULL, '2022-06-19 20:50:09', '2022-06-19 20:50:09'),
+(51, 'Caps : Pierre énergétique', NULL, NULL, NULL, 13, 1, NULL, NULL, NULL, NULL, '2022-06-19 20:50:48', '2022-06-19 20:50:48'),
+(52, '1500 Zenis', NULL, NULL, NULL, NULL, NULL, 1500, NULL, NULL, NULL, '2022-06-19 20:51:00', '2022-06-19 20:51:00'),
+(53, 'Yajirobe', 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:51:11', '2022-06-19 20:51:11'),
+(54, '1600 Zenis', NULL, NULL, NULL, NULL, NULL, 1600, NULL, NULL, NULL, '2022-06-19 20:51:21', '2022-06-19 20:51:21'),
+(55, '1700 Zenis', NULL, NULL, NULL, NULL, NULL, 1700, NULL, NULL, NULL, '2022-06-19 20:51:33', '2022-06-19 20:51:33'),
+(56, '1800 Zenis', NULL, NULL, NULL, NULL, NULL, 1800, NULL, NULL, NULL, '2022-06-19 20:51:44', '2022-06-19 20:51:44'),
+(57, '4800 Zenis', NULL, NULL, NULL, NULL, NULL, 4800, NULL, NULL, NULL, '2022-06-19 20:51:53', '2022-06-19 20:51:53'),
+(58, 'Caps : Pierre de vitalité', NULL, NULL, NULL, 12, 1, NULL, NULL, NULL, NULL, '2022-06-19 20:52:14', '2022-06-19 20:52:14');
 
 -- --------------------------------------------------------
 
@@ -1109,7 +1217,8 @@ INSERT INTO `win_conditions` (`id`, `name`, `custom_condition`, `condition_base_
 (15, '20 Poisson', NULL, NULL, 2, 20, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:39:23', '2022-05-26 21:39:23'),
 (16, '20 Lait', NULL, NULL, 1, 20, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 21:39:24', '2022-05-26 21:39:25'),
 (18, 'Exemple Perso', 'Bouffer un gros tacos sa mère', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-18 12:17:27', '2022-06-18 12:44:08'),
-(22, 'IT\'S OVER 9000', NULL, NULL, NULL, NULL, 8, 800, NULL, NULL, NULL, NULL, '2022-06-18 12:22:30', '2022-06-18 12:44:29');
+(22, 'Kaio', NULL, NULL, NULL, NULL, 8, 1, NULL, NULL, NULL, NULL, '2022-06-18 12:22:30', '2022-06-18 14:10:43'),
+(23, 'Quizz', NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-19 20:56:09', '2022-06-19 20:56:09');
 
 -- --------------------------------------------------------
 
@@ -1365,7 +1474,7 @@ ALTER TABLE `works`
 -- AUTO_INCREMENT pour la table `adventure_modes`
 --
 ALTER TABLE `adventure_modes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT pour la table `caps`
@@ -1401,19 +1510,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT pour la table `link_characters_to_categories`
 --
 ALTER TABLE `link_characters_to_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT pour la table `link_rewards_to_steps`
 --
 ALTER TABLE `link_rewards_to_steps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT pour la table `link_win_conditions_to_steps`
 --
 ALTER TABLE `link_win_conditions_to_steps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT pour la table `main_stories`
@@ -1461,13 +1570,13 @@ ALTER TABLE `planets`
 -- AUTO_INCREMENT pour la table `rewards`
 --
 ALTER TABLE `rewards`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT pour la table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT pour la table `trains`
@@ -1491,7 +1600,7 @@ ALTER TABLE `waiting_durations`
 -- AUTO_INCREMENT pour la table `win_conditions`
 --
 ALTER TABLE `win_conditions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `win_condition_bases`
