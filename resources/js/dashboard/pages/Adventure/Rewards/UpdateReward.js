@@ -158,6 +158,7 @@ export default function UpdateReward({
                                     setCaps(Number(e.target.value))
                                 }
                                 allCaps={true}
+                                scarecities={getData.capsScarecities}
                             />
                             <label htmlFor="caps_id">Capsule</label>
                         </div>

@@ -101,11 +101,61 @@ export default function RewardsSelect({
                 <option value="0" disabled>
                     Ajouter une récompense
                 </option>
-                {rewards.map((reward) => (
-                    <option value={reward.id} key={reward.id}>
-                        {reward.name}
-                    </option>
-                ))}
+                <optgroup label="objets">
+                    {rewards.map((reward) => {
+                        if (reward.object_id) {
+                            return (
+                                <option value={reward.id} key={reward.id}>
+                                    {reward.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="xp et skin">
+                    {rewards.map((reward) => {
+                        if (reward.rewards_on_character) {
+                            return (
+                                <option value={reward.id} key={reward.id}>
+                                    {reward.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="capsules">
+                    {rewards.map((reward) => {
+                        if (reward.caps_id) {
+                            return (
+                                <option value={reward.id} key={reward.id}>
+                                    {reward.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="personnages">
+                    {rewards.map((reward) => {
+                        if (reward.character_id) {
+                            return (
+                                <option value={reward.id} key={reward.id}>
+                                    {reward.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="zenis">
+                    {rewards.map((reward) => {
+                        if (reward.zenis) {
+                            return (
+                                <option value={reward.id} key={reward.id}>
+                                    {reward.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
             </select>
         </>
     );

@@ -30,6 +30,8 @@ import Reward from "./pages/Adventure/Rewards/Reward";
 {
     /* USERS  */
 }
+import Register from "./pages/Login/Register";
+import User from "./pages/Login/User";
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -69,6 +71,8 @@ export default function App() {
             // console.log("request");
         }
     }, [token]);
+
+    // console.log(data);
 
     if (!token) {
         return (
@@ -148,6 +152,20 @@ export default function App() {
                     )}
                     {/* OTHER PAGE  */}
                     {/* USERS  */}
+                    {page === "newUser" && (
+                        <Register
+                            getData={data}
+                            refreshData={getAllData}
+                            setPage={setPage}
+                        />
+                    )}
+                    {page === "profil" && (
+                        <User
+                            user={data.user}
+                            refreshData={getAllData}
+                            setPage={setPage}
+                        />
+                    )}
                 </div>
             </>
         );

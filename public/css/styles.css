@@ -1147,18 +1147,25 @@ header nav ul li.nav-link ul li.nav-link-dropdown a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
+  width: 100%;
 }
 .step-container .step .thumbnail-container .location p {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-align: center;
+}
+.step-container .step .thumbnail-container .location p:last-child {
+  font-size: 20px;
 }
 .step-container .step .thumbnail-container .location p img {
-  margin-left: 10px;
   filter: drop-shadow(0 0 2px rgb(255, 255, 255));
+  margin: 10px 0;
+  width: 40px;
 }
 .step-container .step .thumbnail-container .thumbnail {
   width: 100%;
@@ -1390,7 +1397,12 @@ form .form-group textarea:not(:placeholder-shown) + label {
 }
 form .form-group select option {
   color: #333;
+  font-family: "Montserrat";
   font-weight: 600;
+}
+form .form-group select optgroup {
+  color: #1d72a1;
+  font-family: "Edo SZ";
 }
 form button {
   position: relative;
@@ -1866,6 +1878,8 @@ form .delete-categories li .delete {
 .step-list .visible .name {
   font-weight: 600;
   margin-bottom: 5px;
+  font-family: "Edo SZ";
+  font-size: 22px;
 }
 .story-list .story-info .main-story,
 .story-list .story-unlock .main-story,
@@ -1889,6 +1903,15 @@ form .delete-categories li .delete {
 .step-list .visible strong {
   display: inline-block;
   margin-bottom: 15px;
+}
+.story-list .visible,
+.story-list .step-button,
+.step-list .visible,
+.step-list .step-button {
+  font-family: "Edo SZ";
+  text-shadow: 2px 2px #333;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 .story-list .visible strong,
 .step-list .visible strong {
@@ -1916,6 +1939,7 @@ form .delete-categories li .delete {
   grid-column-start: span 5;
   text-align: center;
   background-color: transparent;
+  text-shadow: 2px 2px #fff;
   border: 2px solid #2591cc;
   color: #2591cc;
   padding: 10px;
@@ -1927,6 +1951,7 @@ form .delete-categories li .delete {
 .story-list .step-button:hover,
 .step-list .step-button:hover {
   background-color: #2591cc;
+  text-shadow: 2px 2px #333;
   color: #fff;
 }
 

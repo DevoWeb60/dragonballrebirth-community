@@ -15,7 +15,7 @@ export default function EditStep({
     // !PREVIEW DATA CHARACTER
     const [characterId, setCharacterId] = useState(step.character_id || 0);
     const [stepNumber, setStepNumber] = useState(
-        step.step_number || countOfSteps + 1
+        step.step_number || countOfSteps + 1 || 1
     );
     const [enemyId, setEnemyId] = useState(step.enemy_id || 0);
     const [enemyHealth, setEnemyHealth] = useState(step.enemy_health || 0);

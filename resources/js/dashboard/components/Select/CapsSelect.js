@@ -6,10 +6,10 @@ export default function CapsSelect({
     allCaps = false,
     characterCapsId = 0,
     caps,
-    capsIcon,
     selectMode,
     onChangeFunc,
     disabled = false,
+    scarecities,
 }) {
     if (!selectMode) {
         return caps.map((cap) => {
@@ -58,10 +58,23 @@ export default function CapsSelect({
                 onChange={onChangeFunc}
                 disabled={disabled}
             >
-                {caps.map((cap) => (
-                    <option value={cap.id} key={cap.id}>
-                        {cap.name}
-                    </option>
+                <option value="0" disabled>
+                    Sélectionner une capsule
+                </option>
+                {scarecities.map((scarecity) => (
+                    <optgroup label={scarecity.name}>
+                        {caps.map((cap) => {
+                            if (cap.caps_scarecities_id === scarecity.id) {
+                                return (
+                                    <option value={cap.id} key={cap.id}>
+                                        {cap.character &&
+                                            cap.character.name + " :"}
+                                        &nbsp;{cap.name}
+                                    </option>
+                                );
+                            }
+                        })}
+                    </optgroup>
                 ))}
             </select>
         );
@@ -76,13 +89,22 @@ export default function CapsSelect({
             <option value="0" disabled>
                 Sélectionner une capsule
             </option>
-            {caps.map((cap) => {
-                if (cap.caps_scarecities_id !== 1) {
-                    <option value={cap.id} key={cap.id}>
-                        {cap.name}
-                    </option>;
-                }
-            })}
+            {scarecities.map((scarecity) => (
+                <optgroup label={scarecity.name}>
+                    {caps.map((cap) => {
+                        if (
+                            cap.caps_scarecities_id === scarecity.id &&
+                            scarecity.id !== 1
+                        ) {
+                            return (
+                                <option value={cap.id} key={cap.id}>
+                                    {cap.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+            ))}
         </select>
     );
 }

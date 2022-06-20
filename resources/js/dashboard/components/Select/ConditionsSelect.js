@@ -161,11 +161,79 @@ export default function ConditionsSelect({
                 <option value="0" disabled>
                     Ajouter une condition
                 </option>
-                {conditions.map((condition) => (
-                    <option value={condition.id} key={condition.id}>
-                        {condition.name}
-                    </option>
-                ))}
+                <optgroup label="basiques">
+                    {conditions.map((condition) => {
+                        if (condition.condition_base_id) {
+                            return (
+                                <option value={condition.id} key={condition.id}>
+                                    {condition.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="objets">
+                    {conditions.map((condition) => {
+                        if (condition.object_harvest) {
+                            return (
+                                <option value={condition.id} key={condition.id}>
+                                    {condition.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="entrainements">
+                    {conditions.map((condition) => {
+                        if (
+                            condition.special_trains ||
+                            condition.any_trains_quantity
+                        ) {
+                            return (
+                                <option value={condition.id} key={condition.id}>
+                                    {condition.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="magie">
+                    {conditions.map((condition) => {
+                        if (condition.spell_condition_number) {
+                            return (
+                                <option value={condition.id} key={condition.id}>
+                                    {condition.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="attaques">
+                    {conditions.map((condition) => {
+                        if (
+                            condition.min_damage ||
+                            condition.dodge_attack ||
+                            condition.critical_strike
+                        ) {
+                            return (
+                                <option value={condition.id} key={condition.id}>
+                                    {condition.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
+                <optgroup label="personnalisé">
+                    {conditions.map((condition) => {
+                        if (condition.custom_condition) {
+                            return (
+                                <option value={condition.id} key={condition.id}>
+                                    {condition.name}
+                                </option>
+                            );
+                        }
+                    })}
+                </optgroup>
             </select>
         </>
     );

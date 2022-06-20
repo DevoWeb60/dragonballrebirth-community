@@ -21,6 +21,7 @@ use App\Http\Controllers\ObjectDurationController;
 use App\Http\Controllers\WaitingDurationController;
 use App\Http\Controllers\CharacterCategoryController;
 use App\Http\Controllers\StepController;
+use App\Http\Controllers\UserController;
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -129,5 +130,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::post('/create', [StepController::class, 'create']);
             Route::post('/delete', [StepController::class, 'destroy']);
         });
+    });
+
+    Route::prefix('user')->group(function () {
+        Route::post('/create', [UserController::class, 'create']);
+        Route::post('/update', [UserController::class, 'update']);
+        Route::post('/upload', [UserController::class, 'uploadPicture']);
     });
 });

@@ -97,7 +97,13 @@ form {
 
         select option {
             color: $black;
+            font-family: "Montserrat";
             font-weight: 600;
+        }
+
+        select optgroup {
+            color: darken($blue, 10);
+            font-family: "Edo SZ";
         }
     }
     button {

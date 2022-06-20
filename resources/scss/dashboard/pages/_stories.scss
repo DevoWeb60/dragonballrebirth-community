@@ -34,6 +34,8 @@
         .name {
             font-weight: 600;
             margin-bottom: 5px;
+            font-family: "Edo SZ";
+            font-size: 22px;
         }
         .main-story {
             margin-top: 15px;
@@ -50,6 +52,14 @@
             margin-bottom: 15px;
         }
     }
+
+    .visible,
+    .step-button {
+        font-family: "Edo SZ";
+        text-shadow: 2px 2px $black;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
     .visible strong {
         min-width: 70%;
         padding: 10px;
@@ -57,6 +67,7 @@
         color: $white;
         text-align: center;
         box-shadow: $box-shadow;
+
         &.publish {
             background-color: $green;
         }
@@ -73,6 +84,7 @@
         grid-column-start: span 5;
         text-align: center;
         background-color: transparent;
+        text-shadow: 2px 2px $white;
         border: 2px solid $blue;
         color: $blue;
         padding: 10px;
@@ -83,6 +95,7 @@
 
         &:hover {
             background-color: $blue;
+            text-shadow: 2px 2px $black;
             color: $white;
         }
     }

@@ -160,7 +160,7 @@ export default function UpdateStepStory({
                     getData={getData}
                     refreshData={refreshData}
                     story={story}
-                    countOfSteps={steps.length}
+                    countOfSteps={steps[0]?.step_number}
                 />
             )}
         </>

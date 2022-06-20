@@ -47,17 +47,25 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
                 color: $white;
+                width: 100%;
                 p {
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    flex-direction: column;
                     font-weight: 900;
                     text-transform: uppercase;
                     letter-spacing: 1px;
+                    text-align: center;
+
+                    &:last-child {
+                        font-size: 20px;
+                    }
 
                     img {
-                        margin-left: 10px;
                         filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1));
+                        margin: 10px 0;
+                        width: 40px;
                     }
                 }
             }
