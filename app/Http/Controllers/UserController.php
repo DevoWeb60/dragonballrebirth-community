@@ -23,10 +23,12 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
+        $file = Storage::disk('public')->put('images', $request->file('picture'));
+
         $user::where('id', $request->id)->update([
             'name' => $request->name,
             'role' => $request->role,
-            'picture' => $request->picture,
+            'picture' => $file,
             'email' => $request->email,
         ]);
 

@@ -4,8 +4,11 @@ export function useInsertOrUpdate(
     route,
     data,
     refreshData,
-    switchMethod = false
+    switchMethod = false,
+    isFile = false
 ) {
+    let contentType = isFile ? "multipart/form-data" : "application/json";
+
     if (condition) {
         axios
             .post(`api/${route}/create`, data)
@@ -21,7 +24,11 @@ export function useInsertOrUpdate(
             .catch((err) => console.log(err));
     } else {
         axios
-            .post(`api/${route}/update`, data)
+            .post(`api/${route}/update`, data, {
+                headers: {
+                    "Content-Type": contentType,
+                },
+            })
             .then((res) => {
                 if (res.status === 200) {
                     refreshData();

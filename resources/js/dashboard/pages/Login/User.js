@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useRef, useState, useEffect } from "react";
 import { useInsertOrUpdate } from "../../customHook/useInsertOrUpdate";
 
@@ -11,6 +10,8 @@ export default function User({ user, refreshData, setPage }) {
             setLoading(false);
         }
     }, [user]);
+
+    // console.log(user);
 
     const form = useRef();
     const handleSubmit = async (e) => {
@@ -33,13 +34,21 @@ export default function User({ user, refreshData, setPage }) {
             }
         }
         // if (inputs.picture.files[0]) {
-        //     data = { ...data, picture: inputs.picture.files[0] };
+        const formData = new FormData(form.current);
+        formData.append("picture", inputs.picture.files[0]);
+        formData.append("id", user.id);
+        // data = { ...data, picture: formData };
         // }
 
         // console.log(data);
 
-        useInsertOrUpdate(false, "user", data, refreshData, () =>
-            setPage("home")
+        useInsertOrUpdate(
+            false,
+            "user",
+            formData,
+            refreshData,
+            () => setPage("home"),
+            true
         );
     };
 
@@ -61,7 +70,7 @@ export default function User({ user, refreshData, setPage }) {
                 className="w-100 form-flex"
                 encType="multipart/form-data"
             >
-                {/* <div className="form-group w-100">
+                <div className="form-group w-100">
                     <input
                         type="file"
                         name="picture"
@@ -69,7 +78,7 @@ export default function User({ user, refreshData, setPage }) {
                         accept="image/*"
                     />
                     <label htmlFor="picture">Avatar</label>
-                </div> */}
+                </div>
                 <div className="form-group">
                     <input
                         type="text"
