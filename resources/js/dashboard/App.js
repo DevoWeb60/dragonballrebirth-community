@@ -41,6 +41,11 @@ export default function App() {
         localStorage.getItem("connected") || false
     );
 
+    const changePage = (newPage) => {
+        localStorage.setItem("page", newPage);
+        setPage(localStorage.getItem("page"));
+    };
+
     const getAllData = () => {
         axios
             .get("api/alldata")
@@ -83,7 +88,7 @@ export default function App() {
     } else {
         return (
             <>
-                <Sidebar setPage={setPage} />
+                <Sidebar changePage={changePage} />
                 <div className="container-dashboard">
                     {page === "home" && (
                         <Home getData={data} refreshData={getAllData} />
@@ -156,14 +161,14 @@ export default function App() {
                         <Register
                             getData={data}
                             refreshData={getAllData}
-                            setPage={setPage}
+                            changePage={changePage}
                         />
                     )}
                     {page === "profil" && (
                         <User
                             user={data.user}
                             refreshData={getAllData}
-                            setPage={setPage}
+                            changePage={changePage}
                         />
                     )}
                 </div>

@@ -65,6 +65,10 @@ h2.title {
     color: $orange;
     font-size: $fs-title;
 }
+h2.sub-title {
+    color: $orange;
+    font-size: $fs-subtitle;
+}
 .shadow {
     filter: drop-shadow($box-shadow);
 }

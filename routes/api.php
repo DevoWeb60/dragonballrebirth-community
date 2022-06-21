@@ -135,6 +135,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::prefix('user')->group(function () {
         Route::post('/create', [UserController::class, 'create']);
         Route::post('/update', [UserController::class, 'update']);
-        Route::post('/upload', [UserController::class, 'uploadPicture']);
     });
 });

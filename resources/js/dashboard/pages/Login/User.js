@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useInsertOrUpdate } from "../../customHook/useInsertOrUpdate";
 
-export default function User({ user, refreshData, setPage }) {
+export default function User({ user, refreshData, changePage }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState({});
 
@@ -18,36 +18,25 @@ export default function User({ user, refreshData, setPage }) {
         e.preventDefault();
 
         const inputs = form.current;
-        let data = {
-            id: user.id,
-            name: inputs.name.value,
-            email: inputs.email.value,
-            role: inputs.role.value,
-        };
+
+        const formData = new FormData(form.current);
+        formData.append("picture", inputs.picture.files[0]);
+        formData.append("id", user.id);
+
         if (inputs.password.value !== "") {
-            if (inputs.password.value === inputs.confirm_password.value) {
-                data = { ...data, password: inputs.password.value };
-            } else {
+            if (inputs.password.value !== inputs.confirm_password.value) {
                 setError({
                     password: "Les mots de passe ne correspondent pas.",
                 });
             }
         }
-        // if (inputs.picture.files[0]) {
-        const formData = new FormData(form.current);
-        formData.append("picture", inputs.picture.files[0]);
-        formData.append("id", user.id);
-        // data = { ...data, picture: formData };
-        // }
-
-        // console.log(data);
 
         useInsertOrUpdate(
             false,
             "user",
             formData,
             refreshData,
-            () => setPage("home"),
+            () => changePage("home"),
             true
         );
     };

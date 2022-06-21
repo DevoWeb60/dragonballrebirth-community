@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function Sidebar({ setPage }) {
-    const changePage = (newPage) => {
-        localStorage.setItem("page", newPage);
-        setPage(localStorage.getItem("page"));
+export default function Sidebar({ changePage }) {
+    const logout = () => {
+        localStorage.removeItem("connected");
+        localStorage.removeItem("page");
+        window.location = "/dashboard";
     };
 
     return (
@@ -116,6 +117,10 @@ export default function Sidebar({ setPage }) {
                     Nouveau
                 </li>
             </ul>
+            <a className="logout" onClick={logout}>
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}
+                Déconnexion
+            </a>
         </div>
     );
 }

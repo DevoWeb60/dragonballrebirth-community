@@ -7,6 +7,7 @@ export default function MainStory({ getData, refreshData }) {
     const [onEdit, setOnEdit] = useState(false);
     const [name, setName] = useState(onEdit.name || "");
     const [id, setId] = useState(onEdit.id || "");
+    const notEditableStory = [100, 150];
 
     useEffect(() => {
         setMainStories(getData.mainStories);
@@ -71,22 +72,33 @@ export default function MainStory({ getData, refreshData }) {
                                     <span>{story.id}&nbsp;:&nbsp; </span>
                                     {story.name}
                                 </p>
-                                <span
-                                    className="edit"
-                                    onClick={() => {
-                                        setOnEdit(story);
-                                        setName(story.name);
-                                        setId(story.id);
-                                    }}
-                                >
-                                    <i className="fa-solid fa-pen-to-square"></i>
-                                </span>
-                                <span
-                                    className="delete"
-                                    onClick={() => handleDelete(story.id)}
-                                >
-                                    <i className="fa-solid fa-trash"></i>
-                                </span>
+                                {!notEditableStory.includes(story.id) ? (
+                                    <>
+                                        <span
+                                            className="edit"
+                                            onClick={() => {
+                                                setOnEdit(story);
+                                                setName(story.name);
+                                                setId(story.id);
+                                            }}
+                                        >
+                                            <i className="fa-solid fa-pen-to-square"></i>
+                                        </span>
+                                        <span
+                                            className="delete"
+                                            onClick={() =>
+                                                handleDelete(story.id)
+                                            }
+                                        >
+                                            <i className="fa-solid fa-trash"></i>
+                                        </span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span></span>
+                                        <span></span>
+                                    </>
+                                )}
                             </div>
                         ))}
                 </div>

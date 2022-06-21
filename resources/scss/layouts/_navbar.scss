@@ -5,6 +5,7 @@ header {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: $box-shadow;
     z-index: 1000;
+    backdrop-filter: blur(10px);
 
     h1 {
         width: 200px;
@@ -31,13 +32,12 @@ header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transform: translateX(-100px);
+            transform: translate(-100px, 7px);
 
             li.nav-link {
                 position: relative;
                 margin-left: 30px;
                 padding-bottom: 15px;
-                transform: translateY(15px);
                 transition: $transition;
 
                 &:hover {
@@ -69,6 +69,8 @@ header {
                     box-shadow: $box-shadow;
                     transition: $transition;
                     overflow: hidden;
+                    transform-origin: top left;
+                    transform: scale(0);
 
                     li.nav-link-dropdown {
                         width: 100%;

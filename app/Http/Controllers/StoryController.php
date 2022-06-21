@@ -10,7 +10,7 @@ class StoryController extends Controller
 
     public function index()
     {
-        $stories = Story::where('main_story', 0)->get();
+        $stories = Story::where('main_story', 100)->get();
 
         return view('additionalQuest.index', [
             'stories' => $stories

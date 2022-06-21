@@ -32,10 +32,10 @@ export function useInsertOrUpdate(
             .then((res) => {
                 if (res.status === 200) {
                     refreshData();
-                    // if (switchMethod !== false) {
-                    //     switchMethod();
-                    // }
-                    console.log(res.data);
+                    if (switchMethod !== false) {
+                        switchMethod();
+                    }
+                    // console.log(res.data);
                 }
             })
             .catch((err) => console.log(err));

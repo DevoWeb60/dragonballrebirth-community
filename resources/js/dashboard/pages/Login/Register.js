@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useInsertOrUpdate } from "../../customHook/useInsertOrUpdate";
 
-export default function Register({ getData, refreshData, setPage }) {
+export default function Register({ refreshData, changePage }) {
     const [error, setError] = useState({});
     const form = useRef();
 
@@ -17,7 +17,7 @@ export default function Register({ getData, refreshData, setPage }) {
                 password: inputs.password.value,
             };
             useInsertOrUpdate(true, "user", data, refreshData, () =>
-                setPage("home")
+                changePage("home")
             );
         } else {
             setError({
