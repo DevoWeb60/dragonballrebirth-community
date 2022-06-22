@@ -31,7 +31,7 @@ export default function ConditionList({
                 )}
                 {condition.special_trains && (
                     <span className="condition-name">
-                        {condition.special_trains !== null && (
+                        {condition.special_trains != null && (
                             <>
                                 Faire {condition.any_trains_quantity || 1} fois
                                 l'entrainement&nbsp;:&nbsp;

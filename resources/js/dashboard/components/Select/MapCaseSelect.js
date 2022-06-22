@@ -11,7 +11,7 @@ export default function MapCaseSelect({
 }) {
     if (stepMode) {
         return mapCases.map((mapCase) => {
-            if (mapCase.id === mapCaseId) {
+            if (mapCase.id == mapCaseId) {
                 return <p key={mapCase.id}>{mapCase.case}</p>;
             }
         });
@@ -19,7 +19,7 @@ export default function MapCaseSelect({
     if (!selectMode) {
         return mapCases.map((mapCase) => {
             return (
-                mapCase.id === mapCaseId && (
+                mapCase.id == mapCaseId && (
                     <span key={mapCase.id}>{mapCase.case}</span>
                 )
             );

@@ -11,7 +11,7 @@
         </div>
         <div class="story-unlock">
             <h3>Débloquer</h3>
-            @if ($character->ruby_cost === 0)
+            @if ($character->ruby_cost == 0)
                 <p>
                     Étape N° <span class="step">{{ $character->step_unlock }}</span>
                 </p>
@@ -39,7 +39,7 @@
         <div class="categories">
             <h3>Catégories</h3>
             <ul>
-                @if (count($character->category) !== 0)
+                @if (count($character->category) != 0)
                     @foreach ($character->category as $category)
                         <li>{{ $category->name }}</li>
                     @endforeach

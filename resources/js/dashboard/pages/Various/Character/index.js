@@ -19,7 +19,7 @@ export default function Character({ getData, refreshData }) {
             axios
                 .post("api/character/delete", { id: characterToDelete.id })
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                     }
                 })
@@ -29,14 +29,14 @@ export default function Character({ getData, refreshData }) {
 
     return (
         <>
-            {onUpdate === false ? (
+            {onUpdate == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les personnages
                     </Title>
                     <div className="flex-galery">
                         {characters &&
-                            characters.length !== 0 &&
+                            characters.length != 0 &&
                             characters.map((character) => {
                                 return (
                                     <div
@@ -77,7 +77,7 @@ export default function Character({ getData, refreshData }) {
                                         </div>
                                         {!character.is_pnj ? (
                                             <>
-                                                {character.ruby_cost === 0 ? (
+                                                {character.ruby_cost == 0 ? (
                                                     <div className="story-info">
                                                         {
                                                             character.story
@@ -107,7 +107,7 @@ export default function Character({ getData, refreshData }) {
                                                         }
                                                     />
                                                 </span>
-                                                {character.ruby_cost !== 0 ? (
+                                                {character.ruby_cost != 0 ? (
                                                     <span className="ruby">
                                                         {character.ruby_cost}{" "}
                                                         <img

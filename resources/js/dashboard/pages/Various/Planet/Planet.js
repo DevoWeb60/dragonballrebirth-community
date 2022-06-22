@@ -35,7 +35,7 @@ export default function Planet({ getData, refreshData }) {
         };
 
         useInsertOrUpdate(
-            onEdit === false,
+            onEdit == false,
             "planet",
             data,
             refreshData,
@@ -65,7 +65,7 @@ export default function Planet({ getData, refreshData }) {
             <div className="flex-galery align-start">
                 <div className="item-list w-50">
                     {planets &&
-                        planets.length !== 0 &&
+                        planets.length != 0 &&
                         planets.map((planet) => (
                             <div className="planet" key={planet.id}>
                                 <p className="name">

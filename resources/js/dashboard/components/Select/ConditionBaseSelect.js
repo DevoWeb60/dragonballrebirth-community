@@ -14,7 +14,7 @@ export default function ConditionBaseSelect({
     if (!selectMode) {
         return conditions.map((condition) => {
             return conditionBaseId.map((characterCat) => {
-                if (characterCat === condition.id) {
+                if (characterCat == condition.id) {
                     return (
                         <li key={condition.id + Math.random() * 1000}>
                             {condition.condition}

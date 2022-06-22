@@ -37,7 +37,7 @@ export default function Preview({
                 </div>
                 <div className="story-unlock">
                     <h3>Débloquer</h3>
-                    {ruby === 0 ? (
+                    {ruby == 0 ? (
                         <>
                             <p>
                                 Étape N°{" "}

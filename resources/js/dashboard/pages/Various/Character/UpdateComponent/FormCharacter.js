@@ -29,7 +29,7 @@ export default function FormCharacter({
     buttonText,
 }) {
     const deleteCategory = (id) => {
-        const newCategories = categories.filter((category) => category !== id);
+        const newCategories = categories.filter((category) => category != id);
         setCategories(newCategories);
     };
 
@@ -143,11 +143,11 @@ export default function FormCharacter({
                 />
                 <label htmlFor="isPnj">PNJ</label>
             </div>
-            {categories.length !== 0 && (
+            {categories.length != 0 && (
                 <ul className="delete-categories">
                     {getData.categories.map((category) => {
                         return categories.map((characterCat) => {
-                            if (characterCat === category.id) {
+                            if (characterCat == category.id) {
                                 return (
                                     <li key={category + Math.random() * 1000}>
                                         {category.name}

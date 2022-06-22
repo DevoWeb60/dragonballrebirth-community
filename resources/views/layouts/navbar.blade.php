@@ -14,7 +14,7 @@
                     <a href="{{ route('additionalQuest.index') }}">Quêtes Annexes</a>
                     <ul>
                         @foreach (\App\Models\Story::all() as $story)
-                            @if ($story->main_story === 100)
+                            @if ($story->main_story == 100 && $story->visible == 1)
                                 <li class="nav-link-dropdown"><a
                                         href="{{ route('additionalQuest.show', ['story' => $story->id]) }}">{{ $story->story_name }}</a>
                                 </li>

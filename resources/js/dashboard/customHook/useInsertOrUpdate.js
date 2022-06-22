@@ -13,9 +13,9 @@ export function useInsertOrUpdate(
         axios
             .post(`api/${route}/create`, data)
             .then((res) => {
-                if (res.status === 200) {
+                if (res.status == 200) {
                     refreshData();
-                    if (switchMethod !== false) {
+                    if (switchMethod != false) {
                         switchMethod();
                     }
                 }
@@ -30,9 +30,9 @@ export function useInsertOrUpdate(
                 },
             })
             .then((res) => {
-                if (res.status === 200) {
+                if (res.status == 200) {
                     refreshData();
-                    if (switchMethod !== false) {
+                    if (switchMethod != false) {
                         switchMethod();
                     }
                     // console.log(res.data);

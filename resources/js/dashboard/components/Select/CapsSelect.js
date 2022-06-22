@@ -14,7 +14,7 @@ export default function CapsSelect({
     if (!selectMode) {
         return caps.map((cap) => {
             return (
-                cap.id === characterCapsId && (
+                cap.id == characterCapsId && (
                     <span key={cap.id}>
                         {cap.name}
                         <img src={cap.scarecities.icon} alt={cap.name} />
@@ -37,7 +37,7 @@ export default function CapsSelect({
                 </option>
 
                 {caps.map((cap) => {
-                    if (cap.caps_scarecities_id === 1) {
+                    if (cap.caps_scarecities_id == 1) {
                         return (
                             <>
                                 <option value={cap.id} key={cap.id}>
@@ -64,7 +64,7 @@ export default function CapsSelect({
                 {scarecities.map((scarecity) => (
                     <optgroup label={scarecity.name}>
                         {caps.map((cap) => {
-                            if (cap.caps_scarecities_id === scarecity.id) {
+                            if (cap.caps_scarecities_id == scarecity.id) {
                                 return (
                                     <option value={cap.id} key={cap.id}>
                                         {cap.character &&
@@ -93,8 +93,8 @@ export default function CapsSelect({
                 <optgroup label={scarecity.name}>
                     {caps.map((cap) => {
                         if (
-                            cap.caps_scarecities_id === scarecity.id &&
-                            scarecity.id !== 1
+                            cap.caps_scarecities_id == scarecity.id &&
+                            scarecity.id != 1
                         ) {
                             return (
                                 <option value={cap.id} key={cap.id}>

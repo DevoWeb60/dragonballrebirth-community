@@ -11,7 +11,7 @@ export default function StorySelect({
     if (!selectMode) {
         return stories.map((story) => {
             return (
-                story.id === characterUnlock && (
+                story.id == characterUnlock && (
                     <span key={story.id}>{story.story_name}</span>
                 )
             );

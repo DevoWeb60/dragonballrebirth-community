@@ -20,7 +20,8 @@ class ApiAuth
     public function handle(Request $request, Closure $next)
     {
         if ((!is_null(Auth::user())) ||
-            ($request->has('token') && $request->get('token') === ApiAuth::TOKEN)) {
+            ($request->has('token') && $request->get('token') == ApiAuth::TOKEN)
+        ) {
             return $next($request);
         }
 
@@ -28,6 +29,5 @@ class ApiAuth
             'status' => 'error',
             'message' => 'Access denied',
         ], 403);
-
     }
 }

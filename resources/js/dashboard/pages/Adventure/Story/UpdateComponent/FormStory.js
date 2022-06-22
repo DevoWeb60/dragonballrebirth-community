@@ -101,7 +101,7 @@ export default function FormStory({
                     type="checkbox"
                     name="visible"
                     id="visible"
-                    defaultChecked={story.visible === 1 ? true : false}
+                    defaultChecked={story.visible == 1 ? true : false}
                 />
                 <label htmlFor="visible">Publié</label>
             </div>

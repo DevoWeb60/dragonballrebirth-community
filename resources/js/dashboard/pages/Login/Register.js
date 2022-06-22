@@ -9,7 +9,7 @@ export default function Register({ refreshData, changePage }) {
         e.preventDefault();
 
         const inputs = form.current;
-        if (inputs.password.value === inputs.confirm_password.value) {
+        if (inputs.password.value == inputs.confirm_password.value) {
             let data = {
                 name: inputs.name.value,
                 email: inputs.email.value,

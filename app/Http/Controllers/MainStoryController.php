@@ -26,7 +26,7 @@ class MainStoryController extends Controller
     public function update(Request $request, MainStory $mainStory)
     {
         $newData = [];
-        if ($request->id !== $request->origin_id) {
+        if ($request->id != $request->origin_id) {
             $newData = [
                 'name' => $request->name,
                 'id' => $request->id,

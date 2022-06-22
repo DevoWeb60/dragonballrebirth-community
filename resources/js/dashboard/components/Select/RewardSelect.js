@@ -13,7 +13,7 @@ export default function RewardsSelect({
     if (!selectMode) {
         return rewards.map((reward) => {
             return (
-                reward.id === rewardId && (
+                reward.id == rewardId && (
                     <p key={reward.id}>
                         {reward.zenis && (
                             <>

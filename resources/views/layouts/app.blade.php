@@ -17,9 +17,9 @@
     @include('layouts.navbar')
     @yield('content')
     <div class="rs-links">
-        <a href="https://www.dragonballrebirth.fr/" target='_blank'><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/DBRebirthLeJeu/" target='_blank'><i class="fab fa-facebook-f"></i></a>
         <a href="https://discord.com/invite/DzGbGx9" target='_blank'><i class="fab fa-discord"></i></a>
-        <a href="https://www.facebook.com/DBRebirthLeJeu/" target='_blank'><img
+        <a href="https://www.dragonballrebirth.fr/" target='_blank'><img
                 src="https://www.dragonballrebirth.fr/css/images/favicon.png" alt="Dragon Ball Rebirth"></a>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>

@@ -25,7 +25,7 @@ export default function Rewards({ getData, refreshData }) {
 
     return (
         <>
-            {onUpdate === false ? (
+            {onUpdate == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les récompenses
@@ -33,7 +33,7 @@ export default function Rewards({ getData, refreshData }) {
                     <div className="flex-galery">
                         <h2 className="category">Objets</h2>
                         {rewards &&
-                            rewards.length !== 0 &&
+                            rewards.length != 0 &&
                             rewards.map((reward) => {
                                 if (reward.object) {
                                     return (
@@ -49,7 +49,7 @@ export default function Rewards({ getData, refreshData }) {
                             })}
                         <h2 className="category">Capsules</h2>
                         {rewards &&
-                            rewards.length !== 0 &&
+                            rewards.length != 0 &&
                             rewards.map((reward) => {
                                 if (reward.caps) {
                                     return (
@@ -65,7 +65,7 @@ export default function Rewards({ getData, refreshData }) {
                             })}
                         <h2 className="category">Personnages</h2>
                         {rewards &&
-                            rewards.length !== 0 &&
+                            rewards.length != 0 &&
                             rewards.map((reward) => {
                                 if (reward.character) {
                                     return (
@@ -81,7 +81,7 @@ export default function Rewards({ getData, refreshData }) {
                             })}
                         <h2 className="category">XP et Skin</h2>
                         {rewards &&
-                            rewards.length !== 0 &&
+                            rewards.length != 0 &&
                             rewards.map((reward) => {
                                 if (reward.rewards_character_id) {
                                     return (
@@ -97,7 +97,7 @@ export default function Rewards({ getData, refreshData }) {
                             })}
                         <h2 className="category">zenis</h2>
                         {rewards &&
-                            rewards.length !== 0 &&
+                            rewards.length != 0 &&
                             rewards.map((reward) => {
                                 if (reward.zenis) {
                                     return (

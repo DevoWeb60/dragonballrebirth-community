@@ -20,7 +20,7 @@ export default function train({ getData, refreshData }) {
                     id,
                 })
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                     }
                 })
@@ -30,7 +30,7 @@ export default function train({ getData, refreshData }) {
 
     return (
         <>
-            {onUpdate === false ? (
+            {onUpdate == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les entrainements
@@ -41,7 +41,7 @@ export default function train({ getData, refreshData }) {
                                 <div className="train-list" key={train.id}>
                                     <span className="name">
                                         {train.name}
-                                        {train.icon !== null && (
+                                        {train.icon != null && (
                                             <img src={train.icon} alt="" />
                                         )}
                                     </span>

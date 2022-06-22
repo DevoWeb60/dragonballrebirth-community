@@ -17,7 +17,7 @@ export default function CapsList({
                     characterId: characterId,
                 })
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                     }
                 })
@@ -28,12 +28,12 @@ export default function CapsList({
     return (
         <div className="caps-container">
             {caps &&
-                caps.length !== 0 &&
+                caps.length != 0 &&
                 caps.map((cap) => {
                     const condition =
-                        character === true
-                            ? cap.scarecities.id === 1
-                            : cap.scarecities.id !== 1;
+                        character == true
+                            ? cap.scarecities.id == 1
+                            : cap.scarecities.id != 1;
                     if (condition) {
                         return (
                             <div className="caps-list" key={cap.id}>
@@ -59,7 +59,7 @@ export default function CapsList({
                                     </span>
                                 </div>
                                 <div className="stats">
-                                    {cap.strength !== 0 && (
+                                    {cap.strength != 0 && (
                                         <span className="strength">
                                             Force&nbsp;:&nbsp;
                                             <span
@@ -73,7 +73,7 @@ export default function CapsList({
                                             </span>
                                         </span>
                                     )}
-                                    {cap.defense !== 0 && (
+                                    {cap.defense != 0 && (
                                         <span className="defense">
                                             Défense&nbsp;:&nbsp;
                                             <span
@@ -87,7 +87,7 @@ export default function CapsList({
                                             </span>
                                         </span>
                                     )}
-                                    {cap.energy !== 0 && (
+                                    {cap.energy != 0 && (
                                         <span className="energy">
                                             Energie&nbsp;:&nbsp;
                                             <span
@@ -101,7 +101,7 @@ export default function CapsList({
                                             </span>
                                         </span>
                                     )}
-                                    {cap.vitality !== 0 && (
+                                    {cap.vitality != 0 && (
                                         <span className="vitality">
                                             Vitalité&nbsp;:&nbsp;
                                             <span

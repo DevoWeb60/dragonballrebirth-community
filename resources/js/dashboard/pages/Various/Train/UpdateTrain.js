@@ -48,11 +48,11 @@ export default function UpdateTrain({
             id: train.id,
         };
 
-        if (train === "NEW") {
+        if (train == "NEW") {
             axios
                 .post("api/train/create", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -62,7 +62,7 @@ export default function UpdateTrain({
             axios
                 .post("api/train/update", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -75,7 +75,7 @@ export default function UpdateTrain({
         <>
             <Title setOnUpdate={setOnUpdate} onUpdate={train}>
                 <span>
-                    {train === "NEW" ? (
+                    {train == "NEW" ? (
                         <span>Nouveau métier</span>
                     ) : (
                         <span>
@@ -88,7 +88,7 @@ export default function UpdateTrain({
             <FormTrain
                 forwardRef={form}
                 handleSubmit={handleSubmit}
-                buttonText={train === "NEW" ? "Ajouter" : "Mettre à jour"}
+                buttonText={train == "NEW" ? "Ajouter" : "Mettre à jour"}
                 getData={getData}
                 name={name}
                 duration={duration}

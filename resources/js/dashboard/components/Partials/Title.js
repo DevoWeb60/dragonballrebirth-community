@@ -8,10 +8,10 @@ export default function Title({ setOnUpdate, children, onUpdate }) {
                 <span
                     className="btn-home invert"
                     onClick={() =>
-                        setOnUpdate(onUpdate === false ? "NEW" : false)
+                        setOnUpdate(onUpdate == false ? "NEW" : false)
                     }
                 >
-                    {onUpdate === false ? "Ajouter" : "Retour"}
+                    {onUpdate == false ? "Ajouter" : "Retour"}
                 </span>
             </span>
         </h2>

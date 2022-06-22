@@ -20,7 +20,7 @@ export default function Work({ getData, refreshData }) {
                     id,
                 })
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                     }
                 })
@@ -29,7 +29,7 @@ export default function Work({ getData, refreshData }) {
     };
     return (
         <>
-            {onUpdate === false ? (
+            {onUpdate == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les métiers

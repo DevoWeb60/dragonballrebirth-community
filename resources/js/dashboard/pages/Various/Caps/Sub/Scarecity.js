@@ -29,7 +29,7 @@ export default function Scarecity({ getData, refreshData }) {
             axios
                 .post("api/caps/scarecity/delete", { id: id })
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                     }
                 })
@@ -59,7 +59,7 @@ export default function Scarecity({ getData, refreshData }) {
         };
 
         useInsertOrUpdate(
-            onEdit === false,
+            onEdit == false,
             "caps/scarecity",
             data,
             refreshData,
@@ -83,7 +83,7 @@ export default function Scarecity({ getData, refreshData }) {
             <div className="flex-galery align-start">
                 <div className="item-list w-50">
                     {scarecities &&
-                        scarecities.length !== 0 &&
+                        scarecities.length != 0 &&
                         scarecities.map((scarecity) => (
                             <div className="scarecity" key={scarecity.id}>
                                 <p className="name">

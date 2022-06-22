@@ -2165,16 +2165,18 @@ module.exports = {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // !DASHBOARD
 
 
-if (window.location.pathname === "/dashboard") {
+if (window.location.pathname == "/dashboard") {
   __webpack_require__(/*! ./dashboard/index */ "./resources/js/dashboard/index.js");
 }
 
-var hamburger = document.querySelector("#hamburger");
-var navList = document.querySelector(".nav-list");
-hamburger.addEventListener("click", function () {
-  console.log(navList);
-  navList.classList.toggle("active");
-});
+if (window.location.pathname != "/dashboard") {
+  var hamburger = document.querySelector("#hamburger");
+  var navList = document.querySelector(".nav-list");
+  hamburger.addEventListener("click", function () {
+    console.log(navList);
+    navList.classList.toggle("active");
+  });
+}
 
 /***/ }),
 
@@ -2366,62 +2368,62 @@ function App() {
         changePage: changePage
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
         className: "container-dashboard",
-        children: [page === "home" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: [page == "home" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "character" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Character__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }), page == "character" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Character__WEBPACK_IMPORTED_MODULE_3__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "characterCategory" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Character_Sub_CategoryCharacter__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        }), page == "characterCategory" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Character_Sub_CategoryCharacter__WEBPACK_IMPORTED_MODULE_9__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "object" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Object__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }), page == "object" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Object__WEBPACK_IMPORTED_MODULE_4__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "objectDuration" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Object_Sub_ObjectDuration__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        }), page == "objectDuration" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Object_Sub_ObjectDuration__WEBPACK_IMPORTED_MODULE_11__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "story" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Story__WEBPACK_IMPORTED_MODULE_15__["default"], {
+        }), page == "story" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Story__WEBPACK_IMPORTED_MODULE_15__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "train" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Train__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        }), page == "train" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Train__WEBPACK_IMPORTED_MODULE_7__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "work" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Work__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }), page == "work" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Work__WEBPACK_IMPORTED_MODULE_6__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "caps" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Caps__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        }), page == "caps" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Caps__WEBPACK_IMPORTED_MODULE_5__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "scarecity" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Caps_Sub_Scarecity__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        }), page == "scarecity" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Caps_Sub_Scarecity__WEBPACK_IMPORTED_MODULE_10__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "duration" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_WaitingDuration_WaitingDuration__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        }), page == "duration" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_WaitingDuration_WaitingDuration__WEBPACK_IMPORTED_MODULE_12__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "planet" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Planet_Planet__WEBPACK_IMPORTED_MODULE_13__["default"], {
+        }), page == "planet" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Planet_Planet__WEBPACK_IMPORTED_MODULE_13__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "mapCase" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Planet_MapCase_MapCase__WEBPACK_IMPORTED_MODULE_14__["default"], {
+        }), page == "mapCase" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Various_Planet_MapCase_MapCase__WEBPACK_IMPORTED_MODULE_14__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "mainStories" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Story_Sub_MainStory__WEBPACK_IMPORTED_MODULE_16__["default"], {
+        }), page == "mainStories" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Story_Sub_MainStory__WEBPACK_IMPORTED_MODULE_16__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "condition" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Conditions_Conditions__WEBPACK_IMPORTED_MODULE_17__["default"], {
+        }), page == "condition" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Conditions_Conditions__WEBPACK_IMPORTED_MODULE_17__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "conditionBase" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Conditions_Sub_ConditionBase__WEBPACK_IMPORTED_MODULE_18__["default"], {
+        }), page == "conditionBase" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Conditions_Sub_ConditionBase__WEBPACK_IMPORTED_MODULE_18__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "reward" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Rewards_Reward__WEBPACK_IMPORTED_MODULE_19__["default"], {
+        }), page == "reward" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Adventure_Rewards_Reward__WEBPACK_IMPORTED_MODULE_19__["default"], {
           getData: data,
           refreshData: getAllData
-        }), page === "newUser" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Login_Register__WEBPACK_IMPORTED_MODULE_20__["default"], {
+        }), page == "newUser" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Login_Register__WEBPACK_IMPORTED_MODULE_20__["default"], {
           getData: data,
           refreshData: getAllData,
           changePage: changePage
-        }), page === "profil" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Login_User__WEBPACK_IMPORTED_MODULE_21__["default"], {
+        }), page == "profil" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_pages_Login_User__WEBPACK_IMPORTED_MODULE_21__["default"], {
           user: data.user,
           refreshData: getAllData,
           changePage: changePage
@@ -2461,9 +2463,9 @@ function Title(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         className: "btn-home invert",
         onClick: function onClick() {
-          return setOnUpdate(onUpdate === false ? "NEW" : false);
+          return setOnUpdate(onUpdate == false ? "NEW" : false);
         },
-        children: onUpdate === false ? "Ajouter" : "Retour"
+        children: onUpdate == false ? "Ajouter" : "Retour"
       })
     })]
   });
@@ -2497,7 +2499,7 @@ function CapsScarecitiesSelect(_ref) {
 
   if (!selectMode) {
     return scarecities.map(function (scarecity) {
-      return scarecity.id === capScarecityId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      return scarecity.id == capScarecityId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "icon",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           src: scarecity.icon,
@@ -2564,7 +2566,7 @@ function CapsSelect(_ref) {
 
   if (!selectMode) {
     return caps.map(function (cap) {
-      return cap.id === characterCapsId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+      return cap.id == characterCapsId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
         children: [cap.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           src: cap.scarecities.icon,
           alt: cap.name
@@ -2584,7 +2586,7 @@ function CapsSelect(_ref) {
         disabled: true,
         children: "S\xE9lectionner une capsule"
       }), caps.map(function (cap) {
-        if (cap.caps_scarecities_id === 1) {
+        if (cap.caps_scarecities_id == 1) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
               value: cap.id,
@@ -2610,7 +2612,7 @@ function CapsSelect(_ref) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("optgroup", {
           label: scarecity.name,
           children: caps.map(function (cap) {
-            if (cap.caps_scarecities_id === scarecity.id) {
+            if (cap.caps_scarecities_id == scarecity.id) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("option", {
                 value: cap.id,
                 children: [cap.character && cap.character.name + " :", "\xA0", cap.name]
@@ -2635,7 +2637,7 @@ function CapsSelect(_ref) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("optgroup", {
         label: scarecity.name,
         children: caps.map(function (cap) {
-          if (cap.caps_scarecities_id === scarecity.id && scarecity.id !== 1) {
+          if (cap.caps_scarecities_id == scarecity.id && scarecity.id != 1) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
               value: cap.id,
               children: cap.name
@@ -2679,7 +2681,7 @@ function CategoryCharacterSelect(_ref) {
   // console.log(categories);
   // console.log(characterCategory);
   if (!selectMode) {
-    if (characterCategory.length === 0) {
+    if (characterCategory.length == 0) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
         children: "Aucune"
       });
@@ -2687,7 +2689,7 @@ function CategoryCharacterSelect(_ref) {
 
     return categories.map(function (category) {
       return characterCategory.map(function (characterCat) {
-        if (characterCat === category.id) {
+        if (characterCat == category.id) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
             children: category.name
           }, category.id + Math.random() * 1000);
@@ -2748,7 +2750,7 @@ function CharacterSelect(_ref) {
 
   if (stepMode) {
     return characters.map(function (character) {
-      return character.id === characterId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+      return character.id == characterId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
         className: "icon",
         children: [character.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           src: character.avatar + "/transformations/base/head.png",
@@ -2760,7 +2762,7 @@ function CharacterSelect(_ref) {
 
   if (!selectMode) {
     return characters.map(function (character) {
-      return character.id === characterId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      return character.id == characterId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "icon",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
           children: character.name
@@ -2782,7 +2784,7 @@ function CharacterSelect(_ref) {
       children: "S\xE9lectionner un personnage"
     }), characters.map(function (character) {
       if (noPnj) {
-        customCondition = character.is_pnj === null;
+        customCondition = character.is_pnj == null;
       }
 
       if (customCondition) {
@@ -2829,7 +2831,7 @@ function ConditionBaseSelect(_ref) {
   if (!selectMode) {
     return conditions.map(function (condition) {
       return conditionBaseId.map(function (characterCat) {
-        if (characterCat === condition.id) {
+        if (characterCat == condition.id) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
             children: condition.condition
           }, condition.id + Math.random() * 1000);
@@ -2890,7 +2892,7 @@ function ConditionsSelect(_ref) {
       disabled = _ref$disabled === void 0 ? false : _ref$disabled;
 
   if (conditionList) {
-    if (conditionId.length === 0) {
+    if (conditionId.length == 0) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
         children: "Aucune"
       });
@@ -2898,7 +2900,7 @@ function ConditionsSelect(_ref) {
 
     return conditions.map(function (condition) {
       return conditionId.map(function (stepCondition) {
-        if (stepCondition === condition.id) {
+        if (stepCondition == condition.id) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
             children: condition.name
           }, condition.id + Math.random() * 1000);
@@ -2909,7 +2911,7 @@ function ConditionsSelect(_ref) {
 
   if (!selectMode) {
     return conditions.map(function (condition) {
-      return condition.id === conditionId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      return condition.id == conditionId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "condition",
         children: [condition.condition_base_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
@@ -3099,7 +3101,7 @@ function DurationSelect(_ref) {
 
   if (!selectMode) {
     return durations.map(function (duration) {
-      return duration.id === durationId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      return duration.id == durationId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         children: duration.duration
       }, duration.id);
     });
@@ -3156,7 +3158,7 @@ function MainStoriesSelect(_ref) {
 
   if (!selectMode) {
     return mainStories.map(function (mainStory) {
-      return mainStory.id === characterMainStory && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      return mainStory.id == characterMainStory && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         children: mainStory.name
       }, mainStory.id);
     });
@@ -3215,7 +3217,7 @@ function MapCaseSelect(_ref) {
 
   if (stepMode) {
     return mapCases.map(function (mapCase) {
-      if (mapCase.id === mapCaseId) {
+      if (mapCase.id == mapCaseId) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
           children: mapCase["case"]
         }, mapCase.id);
@@ -3225,7 +3227,7 @@ function MapCaseSelect(_ref) {
 
   if (!selectMode) {
     return mapCases.map(function (mapCase) {
-      return mapCase.id === mapCaseId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      return mapCase.id == mapCaseId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         children: mapCase["case"]
       }, mapCase.id);
     });
@@ -3282,7 +3284,7 @@ function ObjectSelect(_ref) {
 
   if (!selectMode) {
     return objects.map(function (object) {
-      return object.id === objectId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+      return object.id == objectId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
         children: [object.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           src: object.icon,
           alt: ""
@@ -3344,7 +3346,7 @@ function PlanetSelect(_ref) {
 
   if (stepMode) {
     return planets.map(function (planet) {
-      return planet.id === planetId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+      return planet.id == planetId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
         children: [planet.planet, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           src: planet.icon,
           alt: ""
@@ -3355,7 +3357,7 @@ function PlanetSelect(_ref) {
 
   if (!selectMode) {
     return planets.map(function (planet) {
-      return planet.id === planetId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      return planet.id == planetId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "planet",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           src: planet.icon,
@@ -3421,7 +3423,7 @@ function RewardsSelect(_ref) {
 
   if (!selectMode) {
     return rewards.map(function (reward) {
-      return reward.id === rewardId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+      return reward.id == rewardId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
         children: [reward.zenis && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
           children: [reward.zenis, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
             className: "zenis",
@@ -3553,7 +3555,7 @@ function StorySelect(_ref) {
 
   if (!selectMode) {
     return stories.map(function (story) {
-      return story.id === characterUnlock && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      return story.id == characterUnlock && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         children: story.story_name
       }, story.id);
     });
@@ -3613,7 +3615,7 @@ function TrainSelect(_ref) {
   if (!selectMode) {
     return trains.map(function (train) {
       return trainId.map(function (characterCat) {
-        if (characterCat === train.id) {
+        if (characterCat == train.id) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
             children: train.name
           }, train.id + Math.random() * 1000);
@@ -3831,12 +3833,6 @@ function Sidebar(_ref) {
           return changePage("profil");
         },
         children: "Profil"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-        className: "page",
-        onClick: function onClick() {
-          return changePage("newUser");
-        },
-        children: "Nouveau"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
       className: "logout",
@@ -3871,7 +3867,7 @@ function useDelete(id, route, refreshData, message) {
     axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/".concat(route, "/delete"), {
       id: id
     }).then(function (res) {
-      if (res.status === 200) {
+      if (res.status == 200) {
         refreshData();
       }
     })["catch"](function (err) {
@@ -3903,10 +3899,10 @@ function useInsertOrUpdate(condition, route, data, refreshData) {
 
   if (condition) {
     axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/".concat(route, "/create"), data).then(function (res) {
-      if (res.status === 200) {
+      if (res.status == 200) {
         refreshData();
 
-        if (switchMethod !== false) {
+        if (switchMethod != false) {
           switchMethod();
         }
       } // console.log(res.data);
@@ -3920,10 +3916,10 @@ function useInsertOrUpdate(condition, route, data, refreshData) {
         "Content-Type": contentType
       }
     }).then(function (res) {
-      if (res.status === 200) {
+      if (res.status == 200) {
         refreshData();
 
-        if (switchMethod !== false) {
+        if (switchMethod != false) {
           switchMethod();
         } // console.log(res.data);
 
@@ -4006,7 +4002,7 @@ function ConditionList(_ref) {
         children: condition.real_name.condition
       }), condition.special_trains && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         className: "condition-name",
-        children: condition.special_trains !== null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+        children: condition.special_trains != null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
           children: ["Faire ", condition.any_trains_quantity || 1, " fois l'entrainement\xA0:\xA0", condition.train.name, condition.train.icon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
             src: condition.train.icon,
             alt: ""
@@ -4099,43 +4095,43 @@ function ConditionType(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "flex-space-between w-100",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: conditionType === object ? "btn-home active" : "btn-home",
+      className: conditionType == object ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setConditionType(object);
       },
       children: "Objets"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: conditionType === damage ? "btn-home active" : "btn-home",
+      className: conditionType == damage ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setConditionType(damage);
       },
       children: "Dommages"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: conditionType === spell ? "btn-home active" : "btn-home",
+      className: conditionType == spell ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setConditionType(spell);
       },
       children: "Magie"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: conditionType === base ? "btn-home active" : "btn-home",
+      className: conditionType == base ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setConditionType(base);
       },
       children: "Basique"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: conditionType === train ? "btn-home active" : "btn-home",
+      className: conditionType == train ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setConditionType(train);
       },
       children: "Entrainements"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: conditionType === attack ? "btn-home active" : "btn-home",
+      className: conditionType == attack ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setConditionType(attack);
       },
       children: "Attaques"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: conditionType === custom ? "btn-home active" : "btn-home",
+      className: conditionType == custom ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setConditionType(custom);
       },
@@ -4244,33 +4240,33 @@ function ConditionUpdate(_ref) {
     var inputs = form.current;
     var specificData = {};
 
-    if (conditionType === conditionTypeName.object) {
+    if (conditionType == conditionTypeName.object) {
       specificData = {
         object_harvest: Number(inputs.object_harvest.value),
         object_harvest_quantity: Number(inputs.object_harvest_quantity.value)
       };
-    } else if (conditionType === conditionTypeName.base) {
+    } else if (conditionType == conditionTypeName.base) {
       specificData = {
         condition_base_id: Number(inputs.condition_base_id.value)
       };
-    } else if (conditionType === conditionTypeName.train) {
+    } else if (conditionType == conditionTypeName.train) {
       specificData = {
-        special_trains: Number(inputs.special_trains.value) !== 0 ? Number(inputs.special_trains.value) : null,
-        any_trains_quantity: Number(inputs.any_trains_quantity.value) !== 0 ? Number(inputs.any_trains_quantity.value) : null
+        special_trains: Number(inputs.special_trains.value) != 0 ? Number(inputs.special_trains.value) : null,
+        any_trains_quantity: Number(inputs.any_trains_quantity.value) != 0 ? Number(inputs.any_trains_quantity.value) : null
       };
-    } else if (conditionType === conditionTypeName.spell) {
+    } else if (conditionType == conditionTypeName.spell) {
       specificData = {
         spell_condition_number: Number(inputs.spell_condition_number.value)
       };
-    } else if (conditionType === conditionTypeName.damage) {
+    } else if (conditionType == conditionTypeName.damage) {
       specificData = {
         min_damage: Number(inputs.min_damage.value)
       };
-    } else if (conditionType === conditionTypeName.custom) {
+    } else if (conditionType == conditionTypeName.custom) {
       specificData = {
         custom_condition: inputs.custom_condition.value
       };
-    } else if (conditionType === conditionTypeName.attack) {
+    } else if (conditionType == conditionTypeName.attack) {
       specificData = {
         critical_strike: inputs.critical_strike.checked ? 1 : null,
         dodge_attack: inputs.dodge_attack.checked ? 1 : null
@@ -4283,7 +4279,7 @@ function ConditionUpdate(_ref) {
     }, specificData); // console.log(data);
 
 
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_4__.useInsertOrUpdate)(condition === "NEW", "condition", data, refreshData, function () {
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_4__.useInsertOrUpdate)(condition == "NEW", "condition", data, refreshData, function () {
       return setOnUpdate(false);
     });
   };
@@ -4293,7 +4289,7 @@ function ConditionUpdate(_ref) {
       setOnUpdate: setOnUpdate,
       onUpdate: condition,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-        children: condition === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+        children: condition == "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           children: "Nouvelle condition"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           children: condition.name
@@ -4325,7 +4321,7 @@ function ConditionUpdate(_ref) {
           htmlFor: "name",
           children: "Nom de la condition"
         })]
-      }), conditionType === conditionTypeName.object && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), conditionType == conditionTypeName.object && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
@@ -4352,7 +4348,7 @@ function ConditionUpdate(_ref) {
             children: "Objet"
           })]
         })]
-      }), conditionType === conditionTypeName.base && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), conditionType == conditionTypeName.base && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Select_ConditionBaseSelect__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -4368,7 +4364,7 @@ function ConditionUpdate(_ref) {
             children: "Basique"
           })]
         })
-      }), conditionType === conditionTypeName.train && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), conditionType == conditionTypeName.train && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Select_TrainSelect__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -4395,7 +4391,7 @@ function ConditionUpdate(_ref) {
             children: "Quantit\xE9"
           })]
         })]
-      }), conditionType === conditionTypeName.spell && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), conditionType == conditionTypeName.spell && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
@@ -4408,7 +4404,7 @@ function ConditionUpdate(_ref) {
             children: "Num\xE9ro de la magie"
           })]
         })
-      }), conditionType === conditionTypeName.damage && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), conditionType == conditionTypeName.damage && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
@@ -4421,7 +4417,7 @@ function ConditionUpdate(_ref) {
             children: "Dommage minimum"
           })]
         })
-      }), conditionType === conditionTypeName.custom && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), conditionType == conditionTypeName.custom && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "form-group w-100",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
           type: "text",
@@ -4432,7 +4428,7 @@ function ConditionUpdate(_ref) {
           htmlFor: "custom_condition",
           children: "Condition personnalis\xE9"
         })]
-      }), conditionType === conditionTypeName.attack && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), conditionType == conditionTypeName.attack && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group-check",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
@@ -4458,7 +4454,7 @@ function ConditionUpdate(_ref) {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
         type: "submit",
-        children: condition === "NEW" ? "Ajouter" : "Mettre à jour"
+        children: condition == "NEW" ? "Ajouter" : "Mettre à jour"
       })]
     })]
   });
@@ -4532,7 +4528,7 @@ function Conditions(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: onUpdate == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,
@@ -4542,7 +4538,7 @@ function Conditions(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Basique"
-        }), conditions && conditions.length !== 0 && conditions.map(function (condition) {
+        }), conditions && conditions.length != 0 && conditions.map(function (condition) {
           if (condition.condition_base_id) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_ConditionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               condition: condition,
@@ -4553,7 +4549,7 @@ function Conditions(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Objets"
-        }), conditions && conditions.length !== 0 && conditions.map(function (condition) {
+        }), conditions && conditions.length != 0 && conditions.map(function (condition) {
           if (condition.object) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_ConditionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               condition: condition,
@@ -4564,7 +4560,7 @@ function Conditions(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Entrainement"
-        }), conditions && conditions.length !== 0 && conditions.map(function (condition) {
+        }), conditions && conditions.length != 0 && conditions.map(function (condition) {
           if (condition.special_trains || condition.any_trains_quantity) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_ConditionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               condition: condition,
@@ -4575,7 +4571,7 @@ function Conditions(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Magie"
-        }), conditions && conditions.length !== 0 && conditions.map(function (condition) {
+        }), conditions && conditions.length != 0 && conditions.map(function (condition) {
           if (condition.spell_condition_number) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_ConditionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               condition: condition,
@@ -4586,7 +4582,7 @@ function Conditions(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Attaques"
-        }), conditions && conditions.length !== 0 && conditions.map(function (condition) {
+        }), conditions && conditions.length != 0 && conditions.map(function (condition) {
           if (condition.critical_strike || condition.min_damage || condition.dodge_attack) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_ConditionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               condition: condition,
@@ -4597,7 +4593,7 @@ function Conditions(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Personnalis\xE9"
-        }), conditions && conditions.length !== 0 && conditions.map(function (condition) {
+        }), conditions && conditions.length != 0 && conditions.map(function (condition) {
           if (condition.custom_condition) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_ConditionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               condition: condition,
@@ -4696,7 +4692,7 @@ function ConditionBase(_ref) {
       name: inputs[0].value,
       id: onEdit ? onEdit.id : null
     };
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_1__.useInsertOrUpdate)(onEdit === false, "condition/base", data, refreshData, switchUpdateToCreate);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_1__.useInsertOrUpdate)(onEdit == false, "condition/base", data, refreshData, switchUpdateToCreate);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
@@ -4711,7 +4707,7 @@ function ConditionBase(_ref) {
       className: "flex-galery align-start",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "item-list w-50",
-        children: conditionBase && conditionBase.length !== 0 && conditionBase.map(function (condition) {
+        children: conditionBase && conditionBase.length != 0 && conditionBase.map(function (condition) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "condition-base",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
@@ -4815,7 +4811,7 @@ function RewardList(_ref) {
       }), reward.caps && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
         className: "reward-name",
         children: [reward.quantity_caps ? reward.quantity_caps : 1, "x\xA0", reward.caps.name, capsIcon && capsIcon.map(function (icon) {
-          if (icon.id === reward.caps.caps_scarecities_id) {
+          if (icon.id == reward.caps.caps_scarecities_id) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               src: icon.icon,
               alt: ""
@@ -4900,37 +4896,37 @@ function RewardType(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "flex-space-between w-100",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: rewardType === object ? "btn-home active" : "btn-home",
+      className: rewardType == object ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setRewardType(object);
       },
       children: "Objets"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: rewardType === caps ? "btn-home active" : "btn-home",
+      className: rewardType == caps ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setRewardType(caps);
       },
       children: "Capsules"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: rewardType === character ? "btn-home active" : "btn-home",
+      className: rewardType == character ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setRewardType(character);
       },
       children: "Personnages"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: rewardType === exp ? "btn-home active" : "btn-home",
+      className: rewardType == exp ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setRewardType(exp);
       },
       children: "Exp\xE9rience"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: rewardType === skin ? "btn-home active" : "btn-home",
+      className: rewardType == skin ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setRewardType(skin);
       },
       children: "Skin"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: rewardType === zenis ? "btn-home active" : "btn-home",
+      className: rewardType == zenis ? "btn-home active" : "btn-home",
       onClick: function onClick() {
         return setRewardType(zenis);
       },
@@ -5013,7 +5009,7 @@ function Rewards(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: onUpdate == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,
@@ -5023,7 +5019,7 @@ function Rewards(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Objets"
-        }), rewards && rewards.length !== 0 && rewards.map(function (reward) {
+        }), rewards && rewards.length != 0 && rewards.map(function (reward) {
           if (reward.object) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_RewardList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               reward: reward,
@@ -5035,7 +5031,7 @@ function Rewards(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Capsules"
-        }), rewards && rewards.length !== 0 && rewards.map(function (reward) {
+        }), rewards && rewards.length != 0 && rewards.map(function (reward) {
           if (reward.caps) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_RewardList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               reward: reward,
@@ -5047,7 +5043,7 @@ function Rewards(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "Personnages"
-        }), rewards && rewards.length !== 0 && rewards.map(function (reward) {
+        }), rewards && rewards.length != 0 && rewards.map(function (reward) {
           if (reward.character) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_RewardList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               reward: reward,
@@ -5059,7 +5055,7 @@ function Rewards(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "XP et Skin"
-        }), rewards && rewards.length !== 0 && rewards.map(function (reward) {
+        }), rewards && rewards.length != 0 && rewards.map(function (reward) {
           if (reward.rewards_character_id) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_RewardList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               reward: reward,
@@ -5071,7 +5067,7 @@ function Rewards(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           className: "category",
           children: "zenis"
-        }), rewards && rewards.length !== 0 && rewards.map(function (reward) {
+        }), rewards && rewards.length != 0 && rewards.map(function (reward) {
           if (reward.zenis) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Component_RewardList__WEBPACK_IMPORTED_MODULE_4__["default"], {
               reward: reward,
@@ -5195,31 +5191,31 @@ function UpdateReward(_ref) {
     var inputs = form.current;
     var specificData = {};
 
-    if (rewardType === rewardTypeName.object) {
+    if (rewardType == rewardTypeName.object) {
       specificData = {
         quantity_object: Number(inputs.quantity_object.value),
         object_id: Number(inputs.object_id.value)
       };
-    } else if (rewardType === rewardTypeName.caps) {
+    } else if (rewardType == rewardTypeName.caps) {
       specificData = {
         quantity_caps: Number(inputs.quantity_caps.value),
         caps_id: Number(inputs.caps_id.value)
       };
-    } else if (rewardType === rewardTypeName.character) {
+    } else if (rewardType == rewardTypeName.character) {
       specificData = {
         character_id: Number(inputs.character_id.value)
       };
-    } else if (rewardType === rewardTypeName.exp) {
+    } else if (rewardType == rewardTypeName.exp) {
       specificData = {
         experience: Number(inputs.experience.value),
         reward_character_id: Number(inputs.reward_character_id.value)
       };
-    } else if (rewardType === rewardTypeName.skin) {
+    } else if (rewardType == rewardTypeName.skin) {
       specificData = {
         skin: 1,
         reward_character_id: Number(inputs.reward_character_id.value)
       };
-    } else if (rewardType === rewardTypeName.zenis) {
+    } else if (rewardType == rewardTypeName.zenis) {
       specificData = {
         zenis: Number(inputs.zenis.value)
       };
@@ -5231,7 +5227,7 @@ function UpdateReward(_ref) {
     }, specificData); // console.log(data);
 
 
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_6__.useInsertOrUpdate)(reward === "NEW", "reward", data, refreshData, function () {
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_6__.useInsertOrUpdate)(reward == "NEW", "reward", data, refreshData, function () {
       return setOnUpdate(false);
     });
   };
@@ -5241,7 +5237,7 @@ function UpdateReward(_ref) {
       setOnUpdate: setOnUpdate,
       onUpdate: reward,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-        children: reward === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+        children: reward == "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           children: "Nouvelle r\xE9compense"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           children: reward.name
@@ -5273,7 +5269,7 @@ function UpdateReward(_ref) {
           htmlFor: "name",
           children: "Nom de la r\xE9compense"
         })]
-      }), rewardType === rewardTypeName.object && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), rewardType == rewardTypeName.object && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
@@ -5300,7 +5296,7 @@ function UpdateReward(_ref) {
             children: "Objet"
           })]
         })]
-      }), rewardType === rewardTypeName.caps && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), rewardType == rewardTypeName.caps && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
@@ -5329,7 +5325,7 @@ function UpdateReward(_ref) {
             children: "Capsule"
           })]
         })]
-      }), rewardType === rewardTypeName.character && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), rewardType == rewardTypeName.character && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Select_CharacterSelect__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -5346,7 +5342,7 @@ function UpdateReward(_ref) {
             children: "Personnage"
           })]
         })
-      }), rewardType === rewardTypeName.exp && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), rewardType == rewardTypeName.exp && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
@@ -5374,7 +5370,7 @@ function UpdateReward(_ref) {
             children: "Personnage"
           })]
         })]
-      }), rewardType === rewardTypeName.skin && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      }), rewardType == rewardTypeName.skin && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-group w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Select_CharacterSelect__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -5391,7 +5387,7 @@ function UpdateReward(_ref) {
             children: "Skin pour"
           })]
         })
-      }), rewardType === rewardTypeName.zenis && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), rewardType == rewardTypeName.zenis && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "form-group w-100",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
           type: "number",
@@ -5404,7 +5400,7 @@ function UpdateReward(_ref) {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
         type: "submit",
-        children: reward === "NEW" ? "Ajouter" : "Mettre à jour"
+        children: reward == "NEW" ? "Ajouter" : "Mettre à jour"
       })]
     })]
   });
@@ -5481,14 +5477,14 @@ function FormStep(_ref) {
 
   var deleteConditions = function deleteConditions(id) {
     var newData = conditions.filter(function (condition) {
-      return condition !== id;
+      return condition != id;
     });
     setConditions(newData);
   };
 
   var deleteRewards = function deleteRewards(id) {
     var newData = rewards.filter(function (reward) {
-      return reward !== id;
+      return reward != id;
     });
     setRewards(newData);
   };
@@ -5652,11 +5648,11 @@ function FormStep(_ref) {
         className: "conditions-delete-list w-50",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
           children: "Conditions"
-        }), conditions.length !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
+        }), conditions.length != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
           className: "delete-categories w-100",
           children: getData.winConditions.map(function (condition) {
             return conditions.map(function (stepCondition) {
-              if (stepCondition === condition.id) {
+              if (stepCondition == condition.id) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
                   children: [condition.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                     className: "delete",
@@ -5676,11 +5672,11 @@ function FormStep(_ref) {
         className: "reward-list-delete w-50",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
           children: "R\xE9compenses"
-        }), rewards.length !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
+        }), rewards.length != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
           className: "delete-categories w-100",
           children: getData.rewards.map(function (reward) {
             return rewards.map(function (stepReward) {
-              if (stepReward === reward.id) {
+              if (stepReward == reward.id) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
                   children: [reward.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                     className: "delete",
@@ -5956,7 +5952,7 @@ function EditStep(_ref) {
       rewards: rewards
     };
     console.log(data);
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_1__.useInsertOrUpdate)(step === "NEW", "story/step", data, refreshData, function () {
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_1__.useInsertOrUpdate)(step == "NEW", "story/step", data, refreshData, function () {
       return setOnEditStep(false);
     });
   };
@@ -5965,7 +5961,7 @@ function EditStep(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_4__["default"], {
       setOnUpdate: setOnEditStep,
       onUpdate: step,
-      children: step === "NEW" ? "Nouvelle étape" : "Étape " + step.step_number
+      children: step == "NEW" ? "Nouvelle étape" : "Étape " + step.step_number
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Component_FormStep__WEBPACK_IMPORTED_MODULE_2__["default"], {
       forwardRef: form,
       step: step,
@@ -5991,7 +5987,7 @@ function EditStep(_ref) {
       selectEnemy: selectEnemy,
       setSelectEnemy: setSelectEnemy,
       getData: getData,
-      buttonText: step === "NEW" ? "Ajouter" : "Mettre à jour"
+      buttonText: step == "NEW" ? "Ajouter" : "Mettre à jour"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Component_Preview__WEBPACK_IMPORTED_MODULE_3__["default"], {
       step: step,
       characterId: characterId,
@@ -6068,7 +6064,7 @@ function UpdateStepStory(_ref) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var stepStory = getData.steps.filter(function (step) {
-      return step.story_id === story.id;
+      return step.story_id == story.id;
     });
     setSteps(stepStory);
   }, [getData]);
@@ -6080,7 +6076,7 @@ function UpdateStepStory(_ref) {
 
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: onEditStep === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: onEditStep == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setOnUpdate: setOnUpdateStep,
         onUpdate: story,
@@ -6093,7 +6089,7 @@ function UpdateStepStory(_ref) {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "flex-galery",
-        children: steps && steps.length !== 0 && steps.map(function (step) {
+        children: steps && steps.length != 0 && steps.map(function (step) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "step-list",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -6287,7 +6283,7 @@ function MainStory(_ref) {
       id: inputs[1].value,
       origin_id: onEdit ? onEdit.id : null
     };
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_1__.useInsertOrUpdate)(onEdit === false, "story/category", data, refreshData, switchUpdateToCreate);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_1__.useInsertOrUpdate)(onEdit == false, "story/category", data, refreshData, switchUpdateToCreate);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
@@ -6302,7 +6298,7 @@ function MainStory(_ref) {
       className: "flex-galery align-start",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "item-list w-50",
-        children: mainStories && mainStories.length !== 0 && mainStories.map(function (story) {
+        children: mainStories && mainStories.length != 0 && mainStories.map(function (story) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "main-story",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
@@ -6512,7 +6508,7 @@ function FormStory(_ref) {
         type: "checkbox",
         name: "visible",
         id: "visible",
-        defaultChecked: story.visible === 1 ? true : false
+        defaultChecked: story.visible == 1 ? true : false
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
         htmlFor: "visible",
         children: "Publi\xE9"
@@ -6600,7 +6596,7 @@ function UpdateStory(_ref) {
       id: story.id
     };
     console.log(data);
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(story === "NEW", "story", data, refreshData, function () {
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(story == "NEW", "story", data, refreshData, function () {
       return setOnUpdate(false);
     });
   };
@@ -6609,7 +6605,7 @@ function UpdateStory(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
       setOnUpdate: setOnUpdate,
       onUpdate: story,
-      children: story === "NEW" ? "Nouvelle histoire" : story.story_name
+      children: story == "NEW" ? "Nouvelle histoire" : story.story_name
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormStory__WEBPACK_IMPORTED_MODULE_1__["default"], {
       forwardRef: form,
       story: story,
@@ -6619,7 +6615,7 @@ function UpdateStory(_ref) {
       mainStoryId: mainStoryId,
       setMainStoryId: setMainStoryId,
       getData: getData,
-      buttonText: story === "NEW" ? "Ajouter" : "Mettre à jour"
+      buttonText: story == "NEW" ? "Ajouter" : "Mettre à jour"
     })]
   });
 }
@@ -6693,14 +6689,14 @@ function Story(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: onUpdate === false && onUpdateStep === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: onUpdate == false && onUpdateStep == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,
         children: "Les histoires"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "flex-galery",
-        children: stories && stories.length !== 0 && stories.map(function (story) {
+        children: stories && stories.length != 0 && stories.map(function (story) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "story-list",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -6726,7 +6722,7 @@ function Story(_ref) {
               className: "story-unlock",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                 children: "D\xE9blocage"
-              }), story.custom_requirement.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+              }), story.custom_requirement.length == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                   children: story.story_unlock.story_name
                 }), "\xA0 \xE0 l'\xE9tape N\xB0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
@@ -6737,7 +6733,7 @@ function Story(_ref) {
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "visible",
-              children: story.visible === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+              children: story.visible == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                 className: "publish",
                 children: "Publi\xE9"
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
@@ -6771,7 +6767,7 @@ function Story(_ref) {
         })
       })]
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-      children: onUpdate !== false && onUpdateStep === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_UpdateStory__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      children: onUpdate != false && onUpdateStep == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_UpdateStory__WEBPACK_IMPORTED_MODULE_4__["default"], {
         refreshData: refreshData,
         setOnUpdate: setOnUpdate,
         story: onUpdate,
@@ -6902,7 +6898,7 @@ function Register(_ref) {
               e.preventDefault();
               inputs = form.current;
 
-              if (inputs.password.value === inputs.confirm_password.value) {
+              if (inputs.password.value == inputs.confirm_password.value) {
                 data = {
                   name: inputs.name.value,
                   email: inputs.email.value,
@@ -7086,8 +7082,8 @@ function User(_ref) {
               formData.append("picture", inputs.picture.files[0]);
               formData.append("id", user.id);
 
-              if (inputs.password.value !== "") {
-                if (inputs.password.value !== inputs.confirm_password.value) {
+              if (inputs.password.value != "") {
+                if (inputs.password.value != inputs.confirm_password.value) {
                   setError({
                     password: "Les mots de passe ne correspondent pas."
                   });
@@ -7359,7 +7355,7 @@ function CapsList(_ref) {
         id: capsToDelete,
         characterId: characterId
       }).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
         }
       })["catch"](function (err) {
@@ -7370,8 +7366,8 @@ function CapsList(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "caps-container",
-    children: caps && caps.length !== 0 && caps.map(function (cap) {
-      var condition = character === true ? cap.scarecities.id === 1 : cap.scarecities.id !== 1;
+    children: caps && caps.length != 0 && caps.map(function (cap) {
+      var condition = character == true ? cap.scarecities.id == 1 : cap.scarecities.id != 1;
 
       if (condition) {
         var _cap$character;
@@ -7395,25 +7391,25 @@ function CapsList(_ref) {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "stats",
-            children: [cap.strength !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+            children: [cap.strength != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
               className: "strength",
               children: ["Force\xA0:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
                 className: cap.strength > 0 ? "plus stat" : "minus stat",
                 children: cap.strength
               })]
-            }), cap.defense !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+            }), cap.defense != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
               className: "defense",
               children: ["D\xE9fense\xA0:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
                 className: cap.defense > 0 ? "plus stat" : "minus stat",
                 children: cap.defense
               })]
-            }), cap.energy !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+            }), cap.energy != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
               className: "energy",
               children: ["Energie\xA0:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
                 className: cap.energy > 0 ? "plus stat" : "minus stat",
                 children: cap.energy
               })]
-            }), cap.vitality !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+            }), cap.vitality != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
               className: "vitality",
               children: ["Vitalit\xE9\xA0:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
                 className: cap.vitality > 0 ? "plus stat" : "minus stat",
@@ -7523,7 +7519,7 @@ function Scarecity(_ref) {
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/caps/scarecity/delete", {
         id: id
       }).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
         }
       })["catch"](function (err) {
@@ -7550,7 +7546,7 @@ function Scarecity(_ref) {
       icon: inputs[1].value,
       id: onEdit ? onEdit.id : null
     };
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit === false, "caps/scarecity", data, refreshData, switchUpdateToCreate);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit == false, "caps/scarecity", data, refreshData, switchUpdateToCreate);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
@@ -7565,7 +7561,7 @@ function Scarecity(_ref) {
       className: "flex-galery align-start",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "item-list w-50",
-        children: scarecities && scarecities.length !== 0 && scarecities.map(function (scarecity) {
+        children: scarecities && scarecities.length != 0 && scarecities.map(function (scarecity) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "scarecity",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
@@ -7754,9 +7750,9 @@ function UpdateCaps(_ref) {
       id: cap.id
     };
 
-    if (cap === "NEW") {
+    if (cap == "NEW") {
       axios.post("api/caps/create", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -7765,7 +7761,7 @@ function UpdateCaps(_ref) {
       });
     } else {
       axios.post("api/caps/update", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -7780,7 +7776,7 @@ function UpdateCaps(_ref) {
       setOnUpdate: setOnUpdate,
       onUpdate: cap,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-        children: cap === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        children: cap == "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           children: "Nouvelle capsule"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
           children: [cap.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
@@ -7813,7 +7809,7 @@ function UpdateCaps(_ref) {
       setMalus: setMalus,
       malus: malus,
       getData: getData,
-      buttonText: cap === "NEW" ? "Ajouter" : "Mettre à jour"
+      buttonText: cap == "NEW" ? "Ajouter" : "Mettre à jour"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Caps_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_2__["default"], {
       getData: getData,
       name: name,
@@ -8100,32 +8096,32 @@ function Preview(_ref) {
           className: "malus",
           children: malus
         })]
-      }), strength !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+      }), strength != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
         className: strength > 0 ? "strength positive" : "strength negative",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "attribute",
           children: "Force "
         }), " ", strength]
-      }), defense !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+      }), defense != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
         className: defense > 0 ? "defense positive" : "defense negative",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "attribute",
           children: "D\xE9fense "
         }), " ", defense]
-      }), energy !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+      }), energy != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
         className: energy > 0 ? "energy positive" : "energy negative",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "attribute",
           children: "\xC9nergie "
         }), " ", energy]
-      }), vitality !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+      }), vitality != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
         className: vitality > 0 ? "vitality positive" : "vitality negative",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "attribute",
           children: "Vitalit\xE9 "
         }), " ", vitality]
       })]
-    }), price !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
+    }), price != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
       className: "price",
       children: [price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
         children: "Z"
@@ -8191,7 +8187,7 @@ function Caps(_ref) {
   }, [getData]);
   console.log(caps);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: onUpdate == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,
@@ -8301,7 +8297,7 @@ function CategoryCharacter(_ref) {
       name: inputs[0].value,
       id: onEdit ? onEdit.id : null
     };
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit === false, "character/category", data, refreshData, switchUpdateToCreate);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit == false, "character/category", data, refreshData, switchUpdateToCreate);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
@@ -8316,7 +8312,7 @@ function CategoryCharacter(_ref) {
       className: "flex-galery align-start",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "item-list w-50",
-        children: categories && categories.length !== 0 && categories.map(function (category) {
+        children: categories && categories.length != 0 && categories.map(function (category) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "category",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
@@ -8486,9 +8482,9 @@ function UpdateCharacter(_ref) {
       id: character.id
     };
 
-    if (character === "NEW") {
+    if (character == "NEW") {
       axios__WEBPACK_IMPORTED_MODULE_3___default().post("api/character/create", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -8497,7 +8493,7 @@ function UpdateCharacter(_ref) {
       });
     } else {
       axios__WEBPACK_IMPORTED_MODULE_3___default().post("api/character/update", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -8540,7 +8536,7 @@ function UpdateCharacter(_ref) {
       categories: categories,
       setCategories: setCategories,
       getData: getData,
-      buttonText: character === "NEW" ? "Ajouter" : "Mettre à jour"
+      buttonText: character == "NEW" ? "Ajouter" : "Mettre à jour"
     }), !pnj && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_Preview__WEBPACK_IMPORTED_MODULE_1__["default"], {
       getData: getData,
       name: name,
@@ -8619,7 +8615,7 @@ function FormCharacter(_ref) {
 
   var deleteCategory = function deleteCategory(id) {
     var newCategories = categories.filter(function (category) {
-      return category !== id;
+      return category != id;
     });
     setCategories(newCategories);
   };
@@ -8768,11 +8764,11 @@ function FormCharacter(_ref) {
         htmlFor: "isPnj",
         children: "PNJ"
       })]
-    }), categories.length !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
+    }), categories.length != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
       className: "delete-categories",
       children: getData.categories.map(function (category) {
         return categories.map(function (characterCat) {
-          if (characterCat === category.id) {
+          if (characterCat == category.id) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
               children: [category.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "delete",
@@ -8856,7 +8852,7 @@ function Preview(_ref) {
         className: "story-unlock",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
           children: "D\xE9bloquer"
-        }), ruby === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+        }), ruby == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
             children: ["\xC9tape N\xB0", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "step",
@@ -8976,7 +8972,7 @@ function Character(_ref) {
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/character/delete", {
         id: characterToDelete.id
       }).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
         }
       })["catch"](function (err) {
@@ -8986,14 +8982,14 @@ function Character(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: onUpdate == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,
         children: "Les personnages"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "flex-galery",
-        children: characters && characters.length !== 0 && characters.map(function (character) {
+        children: characters && characters.length != 0 && characters.map(function (character) {
           var _character$caps, _character$scarecitie, _character$caps2;
 
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -9016,7 +9012,7 @@ function Character(_ref) {
                 })
               })]
             }), !character.is_pnj ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-              children: [character.ruby_cost === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [character.ruby_cost == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "story-info",
                 children: [character.story.story_name, "\xA0 \xA0 \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
                   className: "step",
@@ -9029,7 +9025,7 @@ function Character(_ref) {
                   src: (_character$scarecitie = character.scarecities) === null || _character$scarecitie === void 0 ? void 0 : _character$scarecitie.icon,
                   alt: (_character$caps2 = character.caps) === null || _character$caps2 === void 0 ? void 0 : _character$caps2.name
                 })]
-              }), character.ruby_cost !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              }), character.ruby_cost != 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
                 className: "ruby",
                 children: [character.ruby_cost, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   src: "https://www.dragonballrebirth.fr/css/images/ruby.svg",
@@ -9159,7 +9155,7 @@ function ObjectDuration(_ref) {
       name: inputs[0].value,
       id: onEdit ? onEdit.id : null
     };
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit === false, "object/duration", data, refreshData, switchUpdateToCreate);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit == false, "object/duration", data, refreshData, switchUpdateToCreate);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
@@ -9174,7 +9170,7 @@ function ObjectDuration(_ref) {
       className: "flex-galery align-start",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "item-list w-50",
-        children: durations && durations.length !== 0 && durations.map(function (duration) {
+        children: durations && durations.length != 0 && durations.map(function (duration) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "duration",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
@@ -9288,7 +9284,7 @@ function UpdateObject(_ref) {
       duration = _useState6[0],
       setDuration = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(object.consumable === 1 ? true :  false || false),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(object.consumable == 1 ? true :  false || false),
       _useState8 = _slicedToArray(_useState7, 2),
       consumable = _useState8[0],
       setConsumable = _useState8[1];
@@ -9320,9 +9316,9 @@ function UpdateObject(_ref) {
       id: object.id
     };
 
-    if (object === "NEW") {
+    if (object == "NEW") {
       axios.post("api/object/create", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -9331,7 +9327,7 @@ function UpdateObject(_ref) {
       });
     } else {
       axios.post("api/object/update", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -9346,7 +9342,7 @@ function UpdateObject(_ref) {
       setOnUpdate: setOnUpdate,
       onUpdate: object,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-        children: object === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        children: object == "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           children: "Nouvelle objet"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
           children: [object.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
@@ -9370,7 +9366,7 @@ function UpdateObject(_ref) {
       setConsumable: setConsumable,
       setUsing: setUsing,
       setDescription: setDescription,
-      buttonText: object === "NEW" ? "Ajouter" : "Mettre à jour",
+      buttonText: object == "NEW" ? "Ajouter" : "Mettre à jour",
       getData: getData
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateObject_Preview__WEBPACK_IMPORTED_MODULE_3__["default"], {
       getData: getData,
@@ -9650,7 +9646,7 @@ function _Object(_ref) {
       axios.post("api/object/delete", {
         id: id
       }).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
         }
       })["catch"](function (err) {
@@ -9660,7 +9656,7 @@ function _Object(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: onUpdate == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,
@@ -9679,7 +9675,7 @@ function _Object(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               children: object.duration.duration
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              children: object.consumable === 1 ? "Consommable" : null
+              children: object.consumable == 1 ? "Consommable" : null
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "edit",
               onClick: function onClick() {
@@ -9794,7 +9790,7 @@ function MapCase(_ref) {
       name: inputs[0].value,
       id: onEdit ? onEdit.id : null
     };
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit === false, "planet/case", data, refreshData, switchUpdateToCreate);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit == false, "planet/case", data, refreshData, switchUpdateToCreate);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
@@ -9809,7 +9805,7 @@ function MapCase(_ref) {
       className: "flex-galery align-start",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "item-list w-50",
-        children: cases && cases.length !== 0 && cases.map(function (mapCase) {
+        children: cases && cases.length != 0 && cases.map(function (mapCase) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "mapCase",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
@@ -9946,7 +9942,7 @@ function Planet(_ref) {
       icon: inputs[1].value,
       id: onEdit ? onEdit.id : null
     };
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit === false, "planet", data, refreshData, switchUpdateToCreate);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit == false, "planet", data, refreshData, switchUpdateToCreate);
   };
 
   var handleDelete = function handleDelete(id) {
@@ -9966,7 +9962,7 @@ function Planet(_ref) {
       className: "flex-galery align-start",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "item-list w-50",
-        children: planets && planets.length !== 0 && planets.map(function (planet) {
+        children: planets && planets.length != 0 && planets.map(function (planet) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "planet",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
@@ -10423,9 +10419,9 @@ function UpdateTrain(_ref) {
       id: train.id
     };
 
-    if (train === "NEW") {
+    if (train == "NEW") {
       axios.post("api/train/create", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -10434,7 +10430,7 @@ function UpdateTrain(_ref) {
       });
     } else {
       axios.post("api/train/update", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -10449,7 +10445,7 @@ function UpdateTrain(_ref) {
       setOnUpdate: setOnUpdate,
       onUpdate: train,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-        children: train === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        children: train == "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           children: "Nouveau m\xE9tier"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
           children: [train.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
@@ -10461,7 +10457,7 @@ function UpdateTrain(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormTrain__WEBPACK_IMPORTED_MODULE_3__["default"], {
       forwardRef: form,
       handleSubmit: handleSubmit,
-      buttonText: train === "NEW" ? "Ajouter" : "Mettre à jour",
+      buttonText: train == "NEW" ? "Ajouter" : "Mettre à jour",
       getData: getData,
       name: name,
       duration: duration,
@@ -10557,7 +10553,7 @@ function train(_ref) {
       axios.post("api/train/delete", {
         id: id
       }).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
         }
       })["catch"](function (err) {
@@ -10567,7 +10563,7 @@ function train(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: onUpdate == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,
@@ -10579,7 +10575,7 @@ function train(_ref) {
             className: "train-list",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
               className: "name",
-              children: [train.name, train.icon !== null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              children: [train.name, train.icon != null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 src: train.icon,
                 alt: ""
               })]
@@ -10708,7 +10704,7 @@ function WaitingDuration(_ref) {
       name: inputs[0].value,
       id: onEdit ? onEdit.id : null
     };
-    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit === false, "waiting/duration", data, refreshData, switchUpdateToCreate);
+    (0,_customHook_useInsertOrUpdate__WEBPACK_IMPORTED_MODULE_2__.useInsertOrUpdate)(onEdit == false, "waiting/duration", data, refreshData, switchUpdateToCreate);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
@@ -10723,7 +10719,7 @@ function WaitingDuration(_ref) {
       className: "flex-galery align-start",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "item-list w-50",
-        children: durations && durations.length !== 0 && durations.map(function (duration) {
+        children: durations && durations.length != 0 && durations.map(function (duration) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "duration",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
@@ -11137,9 +11133,9 @@ function UpdateWork(_ref) {
     };
     console.log(data);
 
-    if (work === "NEW") {
+    if (work == "NEW") {
       axios.post("api/work/create", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -11148,7 +11144,7 @@ function UpdateWork(_ref) {
       });
     } else {
       axios.post("api/work/update", data).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
           setOnUpdate(false);
         }
@@ -11163,7 +11159,7 @@ function UpdateWork(_ref) {
       setOnUpdate: setOnUpdate,
       onUpdate: work,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-        children: work === "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+        children: work == "NEW" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           children: "Nouveau m\xE9tier"
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
           children: [work.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
@@ -11175,7 +11171,7 @@ function UpdateWork(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_UpdateComponent_FormWork__WEBPACK_IMPORTED_MODULE_3__["default"], {
       forwardRef: form,
       handleSubmit: handleSubmit,
-      buttonText: work === "NEW" ? "Ajouter" : "Mettre à jour",
+      buttonText: work == "NEW" ? "Ajouter" : "Mettre à jour",
       getData: getData,
       name: name,
       duration: duration,
@@ -11268,7 +11264,7 @@ function Work(_ref) {
       axios.post("api/work/delete", {
         id: id
       }).then(function (res) {
-        if (res.status === 200) {
+        if (res.status == 200) {
           refreshData();
         }
       })["catch"](function (err) {
@@ -11278,7 +11274,7 @@ function Work(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: onUpdate === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: onUpdate == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Partials_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
         setOnUpdate: setOnUpdate,
         onUpdate: onUpdate,

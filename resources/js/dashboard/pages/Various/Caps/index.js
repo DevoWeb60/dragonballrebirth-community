@@ -15,7 +15,7 @@ export default function Caps({ getData, refreshData }) {
 
     return (
         <>
-            {onUpdate === false ? (
+            {onUpdate == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les capsules

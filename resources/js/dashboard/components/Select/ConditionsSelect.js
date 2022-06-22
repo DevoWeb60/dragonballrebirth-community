@@ -10,13 +10,13 @@ export default function ConditionsSelect({
     disabled = false,
 }) {
     if (conditionList) {
-        if (conditionId.length === 0) {
+        if (conditionId.length == 0) {
             return <li>Aucune</li>;
         }
 
         return conditions.map((condition) => {
             return conditionId.map((stepCondition) => {
-                if (stepCondition === condition.id) {
+                if (stepCondition == condition.id) {
                     return (
                         <li key={condition.id + Math.random() * 1000}>
                             {condition.name}
@@ -30,7 +30,7 @@ export default function ConditionsSelect({
     if (!selectMode) {
         return conditions.map((condition) => {
             return (
-                condition.id === conditionId && (
+                condition.id == conditionId && (
                     <div key={condition.id} className="condition">
                         {condition.condition_base_id && (
                             <>

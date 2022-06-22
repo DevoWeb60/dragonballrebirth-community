@@ -23,8 +23,8 @@ export default function User({ user, refreshData, changePage }) {
         formData.append("picture", inputs.picture.files[0]);
         formData.append("id", user.id);
 
-        if (inputs.password.value !== "") {
-            if (inputs.password.value !== inputs.confirm_password.value) {
+        if (inputs.password.value != "") {
+            if (inputs.password.value != inputs.confirm_password.value) {
                 setError({
                     password: "Les mots de passe ne correspondent pas.",
                 });

@@ -36,7 +36,7 @@ export default function UpdateStory({
 
         console.log(data);
 
-        useInsertOrUpdate(story === "NEW", "story", data, refreshData, () =>
+        useInsertOrUpdate(story == "NEW", "story", data, refreshData, () =>
             setOnUpdate(false)
         );
     };
@@ -44,7 +44,7 @@ export default function UpdateStory({
     return (
         <>
             <Title setOnUpdate={setOnUpdate} onUpdate={story}>
-                {story === "NEW" ? "Nouvelle histoire" : story.story_name}
+                {story == "NEW" ? "Nouvelle histoire" : story.story_name}
             </Title>
             <FormStory
                 forwardRef={form}
@@ -55,7 +55,7 @@ export default function UpdateStory({
                 mainStoryId={mainStoryId}
                 setMainStoryId={setMainStoryId}
                 getData={getData}
-                buttonText={story === "NEW" ? "Ajouter" : "Mettre à jour"}
+                buttonText={story == "NEW" ? "Ajouter" : "Mettre à jour"}
             />
         </>
     );

@@ -13,7 +13,7 @@ export default function CharacterSelect({
     if (stepMode) {
         return characters.map((character) => {
             return (
-                character.id === characterId && (
+                character.id == characterId && (
                     <span className="icon" key={character.id}>
                         {character.name}
                         <img
@@ -32,7 +32,7 @@ export default function CharacterSelect({
     if (!selectMode) {
         return characters.map((character) => {
             return (
-                character.id === characterId && (
+                character.id == characterId && (
                     <div className="icon" key={character.id}>
                         <h4>{character.name}</h4>
                         <img
@@ -55,7 +55,7 @@ export default function CharacterSelect({
             </option>
             {characters.map((character) => {
                 if (noPnj) {
-                    customCondition = character.is_pnj === null;
+                    customCondition = character.is_pnj == null;
                 }
                 if (customCondition) {
                     return (

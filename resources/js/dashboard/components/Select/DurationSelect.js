@@ -11,7 +11,7 @@ export default function DurationSelect({
     if (!selectMode) {
         return durations.map((duration) => {
             return (
-                duration.id === durationId && (
+                duration.id == durationId && (
                     <span key={duration.id}>{duration.duration}</span>
                 )
             );

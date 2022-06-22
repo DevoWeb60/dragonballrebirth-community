@@ -11,7 +11,7 @@ export default function ObjectSelect({
     if (!selectMode) {
         return objects.map((object) => {
             return (
-                object.id === objectId && (
+                object.id == objectId && (
                     <span key={object.id}>
                         {object.name}
                         <img src={object.icon} alt="" />

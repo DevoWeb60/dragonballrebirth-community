@@ -113,9 +113,9 @@ export default function Sidebar({ changePage }) {
                 <li className="page" onClick={() => changePage("profil")}>
                     Profil
                 </li>
-                <li className="page" onClick={() => changePage("newUser")}>
+                {/* <li className="page" onClick={() => changePage("newUser")}>
                     Nouveau
-                </li>
+                </li> */}
             </ul>
             <a className="logout" onClick={logout}>
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}

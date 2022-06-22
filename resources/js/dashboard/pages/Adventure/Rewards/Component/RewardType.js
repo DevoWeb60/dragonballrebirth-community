@@ -28,42 +28,40 @@ export default function RewardType({
         <div className="flex-space-between w-100">
             <span
                 className={
-                    rewardType === object ? "btn-home active" : "btn-home"
+                    rewardType == object ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setRewardType(object)}
             >
                 Objets
             </span>
             <span
-                className={rewardType === caps ? "btn-home active" : "btn-home"}
+                className={rewardType == caps ? "btn-home active" : "btn-home"}
                 onClick={() => setRewardType(caps)}
             >
                 Capsules
             </span>
             <span
                 className={
-                    rewardType === character ? "btn-home active" : "btn-home"
+                    rewardType == character ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setRewardType(character)}
             >
                 Personnages
             </span>
             <span
-                className={rewardType === exp ? "btn-home active" : "btn-home"}
+                className={rewardType == exp ? "btn-home active" : "btn-home"}
                 onClick={() => setRewardType(exp)}
             >
                 Expérience
             </span>
             <span
-                className={rewardType === skin ? "btn-home active" : "btn-home"}
+                className={rewardType == skin ? "btn-home active" : "btn-home"}
                 onClick={() => setRewardType(skin)}
             >
                 Skin
             </span>
             <span
-                className={
-                    rewardType === zenis ? "btn-home active" : "btn-home"
-                }
+                className={rewardType == zenis ? "btn-home active" : "btn-home"}
                 onClick={() => setRewardType(zenis)}
             >
                 Zenis

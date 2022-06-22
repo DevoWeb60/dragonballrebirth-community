@@ -38,7 +38,7 @@ export default function ObjectDuration({ getData, refreshData }) {
         };
 
         useInsertOrUpdate(
-            onEdit === false,
+            onEdit == false,
             "object/duration",
             data,
             refreshData,
@@ -62,7 +62,7 @@ export default function ObjectDuration({ getData, refreshData }) {
             <div className="flex-galery align-start">
                 <div className="item-list w-50">
                     {durations &&
-                        durations.length !== 0 &&
+                        durations.length != 0 &&
                         durations.map((duration) => (
                             <div className="duration" key={duration.id}>
                                 <p className="name">{duration.duration}</p>

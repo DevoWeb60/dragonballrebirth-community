@@ -14,7 +14,7 @@ export default function UpdateStepStory({
 
     useEffect(() => {
         let stepStory = getData.steps.filter(
-            (step) => step.story_id === story.id
+            (step) => step.story_id == story.id
         );
         setSteps(stepStory);
     }, [getData]);
@@ -29,7 +29,7 @@ export default function UpdateStepStory({
 
     return (
         <>
-            {onEditStep === false ? (
+            {onEditStep == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdateStep} onUpdate={story}>
                         {story.story_name}
@@ -42,7 +42,7 @@ export default function UpdateStepStory({
                     </Title>
                     <div className="flex-galery">
                         {steps &&
-                            steps.length !== 0 &&
+                            steps.length != 0 &&
                             steps.map((step) => (
                                 <div className="step-list" key={step.id}>
                                     <div className="step-info">

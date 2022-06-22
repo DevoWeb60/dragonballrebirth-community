@@ -12,13 +12,13 @@ export default function CategoryCharacterSelect({
     // console.log(characterCategory);
 
     if (!selectMode) {
-        if (characterCategory.length === 0) {
+        if (characterCategory.length == 0) {
             return <li>Aucune</li>;
         }
 
         return categories.map((category) => {
             return characterCategory.map((characterCat) => {
-                if (characterCat === category.id) {
+                if (characterCat == category.id) {
                     return (
                         <li key={category.id + Math.random() * 1000}>
                             {category.name}

@@ -56,7 +56,7 @@ export default function EditStep({
 
         console.log(data);
 
-        useInsertOrUpdate(step === "NEW", "story/step", data, refreshData, () =>
+        useInsertOrUpdate(step == "NEW", "story/step", data, refreshData, () =>
             setOnEditStep(false)
         );
     };
@@ -64,9 +64,7 @@ export default function EditStep({
     return (
         <>
             <Title setOnUpdate={setOnEditStep} onUpdate={step}>
-                {step === "NEW"
-                    ? "Nouvelle étape"
-                    : "Étape " + step.step_number}
+                {step == "NEW" ? "Nouvelle étape" : "Étape " + step.step_number}
             </Title>
             <FormStep
                 forwardRef={form}
@@ -93,7 +91,7 @@ export default function EditStep({
                 selectEnemy={selectEnemy}
                 setSelectEnemy={setSelectEnemy}
                 getData={getData}
-                buttonText={step === "NEW" ? "Ajouter" : "Mettre à jour"}
+                buttonText={step == "NEW" ? "Ajouter" : "Mettre à jour"}
             />
             <Preview
                 step={step}

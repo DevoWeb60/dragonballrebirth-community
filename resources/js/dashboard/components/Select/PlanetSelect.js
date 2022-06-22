@@ -12,7 +12,7 @@ export default function PlanetSelect({
     if (stepMode) {
         return planets.map((planet) => {
             return (
-                planet.id === planetId && (
+                planet.id == planetId && (
                     <p key={planet.id}>
                         {planet.planet} <img src={planet.icon} alt="" />
                     </p>
@@ -23,7 +23,7 @@ export default function PlanetSelect({
     if (!selectMode) {
         return planets.map((planet) => {
             return (
-                planet.id === planetId && (
+                planet.id == planetId && (
                     <div key={planet.id} className="planet">
                         <img src={planet.icon} alt="" />
                         <h4>{planet.planet}</h4>

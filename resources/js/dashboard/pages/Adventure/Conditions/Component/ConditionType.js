@@ -31,7 +31,7 @@ export default function ConditionType({
         <div className="flex-space-between w-100">
             <span
                 className={
-                    conditionType === object ? "btn-home active" : "btn-home"
+                    conditionType == object ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setConditionType(object)}
             >
@@ -39,7 +39,7 @@ export default function ConditionType({
             </span>
             <span
                 className={
-                    conditionType === damage ? "btn-home active" : "btn-home"
+                    conditionType == damage ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setConditionType(damage)}
             >
@@ -47,7 +47,7 @@ export default function ConditionType({
             </span>
             <span
                 className={
-                    conditionType === spell ? "btn-home active" : "btn-home"
+                    conditionType == spell ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setConditionType(spell)}
             >
@@ -55,7 +55,7 @@ export default function ConditionType({
             </span>
             <span
                 className={
-                    conditionType === base ? "btn-home active" : "btn-home"
+                    conditionType == base ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setConditionType(base)}
             >
@@ -63,7 +63,7 @@ export default function ConditionType({
             </span>
             <span
                 className={
-                    conditionType === train ? "btn-home active" : "btn-home"
+                    conditionType == train ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setConditionType(train)}
             >
@@ -71,7 +71,7 @@ export default function ConditionType({
             </span>
             <span
                 className={
-                    conditionType === attack ? "btn-home active" : "btn-home"
+                    conditionType == attack ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setConditionType(attack)}
             >
@@ -79,7 +79,7 @@ export default function ConditionType({
             </span>
             <span
                 className={
-                    conditionType === custom ? "btn-home active" : "btn-home"
+                    conditionType == custom ? "btn-home active" : "btn-home"
                 }
                 onClick={() => setConditionType(custom)}
             >

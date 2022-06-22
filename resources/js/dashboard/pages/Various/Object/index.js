@@ -22,7 +22,7 @@ export default function Object({ getData, refreshData }) {
                     id,
                 })
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                     }
                 })
@@ -32,7 +32,7 @@ export default function Object({ getData, refreshData }) {
 
     return (
         <>
-            {onUpdate === false ? (
+            {onUpdate == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les objets
@@ -47,7 +47,7 @@ export default function Object({ getData, refreshData }) {
                                     </span>
                                     <span>{object.duration.duration}</span>
                                     <span>
-                                        {object.consumable === 1
+                                        {object.consumable == 1
                                             ? "Consommable"
                                             : null}
                                     </span>

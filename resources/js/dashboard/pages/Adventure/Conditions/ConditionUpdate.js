@@ -37,43 +37,43 @@ export default function ConditionUpdate({
 
         let specificData = {};
 
-        if (conditionType === conditionTypeName.object) {
+        if (conditionType == conditionTypeName.object) {
             specificData = {
                 object_harvest: Number(inputs.object_harvest.value),
                 object_harvest_quantity: Number(
                     inputs.object_harvest_quantity.value
                 ),
             };
-        } else if (conditionType === conditionTypeName.base) {
+        } else if (conditionType == conditionTypeName.base) {
             specificData = {
                 condition_base_id: Number(inputs.condition_base_id.value),
             };
-        } else if (conditionType === conditionTypeName.train) {
+        } else if (conditionType == conditionTypeName.train) {
             specificData = {
                 special_trains:
-                    Number(inputs.special_trains.value) !== 0
+                    Number(inputs.special_trains.value) != 0
                         ? Number(inputs.special_trains.value)
                         : null,
                 any_trains_quantity:
-                    Number(inputs.any_trains_quantity.value) !== 0
+                    Number(inputs.any_trains_quantity.value) != 0
                         ? Number(inputs.any_trains_quantity.value)
                         : null,
             };
-        } else if (conditionType === conditionTypeName.spell) {
+        } else if (conditionType == conditionTypeName.spell) {
             specificData = {
                 spell_condition_number: Number(
                     inputs.spell_condition_number.value
                 ),
             };
-        } else if (conditionType === conditionTypeName.damage) {
+        } else if (conditionType == conditionTypeName.damage) {
             specificData = {
                 min_damage: Number(inputs.min_damage.value),
             };
-        } else if (conditionType === conditionTypeName.custom) {
+        } else if (conditionType == conditionTypeName.custom) {
             specificData = {
                 custom_condition: inputs.custom_condition.value,
             };
-        } else if (conditionType === conditionTypeName.attack) {
+        } else if (conditionType == conditionTypeName.attack) {
             specificData = {
                 critical_strike: inputs.critical_strike.checked ? 1 : null,
                 dodge_attack: inputs.dodge_attack.checked ? 1 : null,
@@ -88,7 +88,7 @@ export default function ConditionUpdate({
 
         // console.log(data);
         useInsertOrUpdate(
-            condition === "NEW",
+            condition == "NEW",
             "condition",
             data,
             refreshData,
@@ -99,7 +99,7 @@ export default function ConditionUpdate({
         <>
             <Title setOnUpdate={setOnUpdate} onUpdate={condition}>
                 <span>
-                    {condition === "NEW" ? (
+                    {condition == "NEW" ? (
                         <span>Nouvelle condition</span>
                     ) : (
                         <span>{condition.name}</span>
@@ -128,7 +128,7 @@ export default function ConditionUpdate({
                     />
                     <label htmlFor="name">Nom de la condition</label>
                 </div>
-                {conditionType === conditionTypeName.object && (
+                {conditionType == conditionTypeName.object && (
                     <>
                         <div className="form-group">
                             <input
@@ -157,7 +157,7 @@ export default function ConditionUpdate({
                         </div>
                     </>
                 )}
-                {conditionType === conditionTypeName.base && (
+                {conditionType == conditionTypeName.base && (
                     <>
                         <div className="form-group">
                             <ConditionBaseSelect
@@ -173,7 +173,7 @@ export default function ConditionUpdate({
                         </div>
                     </>
                 )}
-                {conditionType === conditionTypeName.train && (
+                {conditionType == conditionTypeName.train && (
                     <>
                         <div className="form-group">
                             <TrainSelect
@@ -204,7 +204,7 @@ export default function ConditionUpdate({
                         </div>
                     </>
                 )}
-                {conditionType === conditionTypeName.spell && (
+                {conditionType == conditionTypeName.spell && (
                     <>
                         <div className="form-group w-100">
                             <input
@@ -221,7 +221,7 @@ export default function ConditionUpdate({
                         </div>
                     </>
                 )}
-                {conditionType === conditionTypeName.damage && (
+                {conditionType == conditionTypeName.damage && (
                     <>
                         <div className="form-group w-100">
                             <input
@@ -234,7 +234,7 @@ export default function ConditionUpdate({
                         </div>
                     </>
                 )}
-                {conditionType === conditionTypeName.custom && (
+                {conditionType == conditionTypeName.custom && (
                     <div className="form-group w-100">
                         <input
                             type="text"
@@ -247,7 +247,7 @@ export default function ConditionUpdate({
                         </label>
                     </div>
                 )}
-                {conditionType === conditionTypeName.attack && (
+                {conditionType == conditionTypeName.attack && (
                     <>
                         <div className="form-group-check">
                             <input
@@ -272,7 +272,7 @@ export default function ConditionUpdate({
                     </>
                 )}
                 <button type="submit">
-                    {condition === "NEW" ? "Ajouter" : "Mettre à jour"}
+                    {condition == "NEW" ? "Ajouter" : "Mettre à jour"}
                 </button>
             </form>
         </>

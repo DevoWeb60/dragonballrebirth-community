@@ -48,11 +48,11 @@ export default function UpdateCharacter({
             id: character.id,
         };
 
-        if (character === "NEW") {
+        if (character == "NEW") {
             axios
                 .post("api/character/create", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -62,7 +62,7 @@ export default function UpdateCharacter({
             axios
                 .post("api/character/update", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -105,7 +105,7 @@ export default function UpdateCharacter({
                 categories={categories}
                 setCategories={setCategories}
                 getData={getData}
-                buttonText={character === "NEW" ? "Ajouter" : "Mettre à jour"}
+                buttonText={character == "NEW" ? "Ajouter" : "Mettre à jour"}
             />
             {!pnj && (
                 <Preview

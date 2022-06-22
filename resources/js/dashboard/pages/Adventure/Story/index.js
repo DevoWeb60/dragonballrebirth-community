@@ -23,14 +23,14 @@ export default function Story({ getData, refreshData }) {
 
     return (
         <>
-            {onUpdate === false && onUpdateStep === false ? (
+            {onUpdate == false && onUpdateStep == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les histoires
                     </Title>
                     <div className="flex-galery">
                         {stories &&
-                            stories.length !== 0 &&
+                            stories.length != 0 &&
                             stories.map((story) => {
                                 return (
                                     <div className="story-list" key={story.id}>
@@ -53,7 +53,7 @@ export default function Story({ getData, refreshData }) {
                                         </div>
                                         <div className="story-unlock">
                                             <strong>Déblocage</strong>
-                                            {story.custom_requirement.length ===
+                                            {story.custom_requirement.length ==
                                             0 ? (
                                                 <span>
                                                     <strong>
@@ -74,7 +74,7 @@ export default function Story({ getData, refreshData }) {
                                             )}
                                         </div>
                                         <div className="visible">
-                                            {story.visible === 1 ? (
+                                            {story.visible == 1 ? (
                                                 <strong className="publish">
                                                     Publié
                                                 </strong>
@@ -111,7 +111,7 @@ export default function Story({ getData, refreshData }) {
                 </>
             ) : (
                 <>
-                    {onUpdate !== false && onUpdateStep === false ? (
+                    {onUpdate != false && onUpdateStep == false ? (
                         <UpdateStory
                             refreshData={refreshData}
                             setOnUpdate={setOnUpdate}

@@ -90,81 +90,81 @@ export default function App() {
             <>
                 <Sidebar changePage={changePage} />
                 <div className="container-dashboard">
-                    {page === "home" && (
+                    {page == "home" && (
                         <Home getData={data} refreshData={getAllData} />
                     )}
                     {/* !VARIOUS */}
-                    {page === "character" && (
+                    {page == "character" && (
                         <Character getData={data} refreshData={getAllData} />
                     )}
-                    {page === "characterCategory" && (
+                    {page == "characterCategory" && (
                         <CategoryCharacter
                             getData={data}
                             refreshData={getAllData}
                         />
                     )}
-                    {page === "object" && (
+                    {page == "object" && (
                         <Object getData={data} refreshData={getAllData} />
                     )}
-                    {page === "objectDuration" && (
+                    {page == "objectDuration" && (
                         <ObjectDuration
                             getData={data}
                             refreshData={getAllData}
                         />
                     )}
-                    {page === "story" && (
+                    {page == "story" && (
                         <Story getData={data} refreshData={getAllData} />
                     )}
-                    {page === "train" && (
+                    {page == "train" && (
                         <Train getData={data} refreshData={getAllData} />
                     )}
-                    {page === "work" && (
+                    {page == "work" && (
                         <Work getData={data} refreshData={getAllData} />
                     )}
-                    {page === "caps" && (
+                    {page == "caps" && (
                         <Caps getData={data} refreshData={getAllData} />
                     )}
-                    {page === "scarecity" && (
+                    {page == "scarecity" && (
                         <Scarecity getData={data} refreshData={getAllData} />
                     )}
-                    {page === "duration" && (
+                    {page == "duration" && (
                         <WaitingDuration
                             getData={data}
                             refreshData={getAllData}
                         />
                     )}
-                    {page === "planet" && (
+                    {page == "planet" && (
                         <Planet getData={data} refreshData={getAllData} />
                     )}
-                    {page === "mapCase" && (
+                    {page == "mapCase" && (
                         <MapCase getData={data} refreshData={getAllData} />
                     )}
                     {/* !ADVENTURE  */}
-                    {page === "mainStories" && (
+                    {page == "mainStories" && (
                         <MainStory getData={data} refreshData={getAllData} />
                     )}
-                    {page === "condition" && (
+                    {page == "condition" && (
                         <Conditions getData={data} refreshData={getAllData} />
                     )}
-                    {page === "conditionBase" && (
+                    {page == "conditionBase" && (
                         <ConditionBase
                             getData={data}
                             refreshData={getAllData}
                         />
                     )}
-                    {page === "reward" && (
+                    {page == "reward" && (
                         <Reward getData={data} refreshData={getAllData} />
                     )}
                     {/* OTHER PAGE  */}
                     {/* USERS  */}
-                    {page === "newUser" && (
+                    {page == "newUser" && (
                         <Register
                             getData={data}
                             refreshData={getAllData}
                             changePage={changePage}
                         />
                     )}
-                    {page === "profil" && (
+                    {page == "profil" && (
                         <User
                             user={data.user}
                             refreshData={getAllData}

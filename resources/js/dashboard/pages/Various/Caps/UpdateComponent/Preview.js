@@ -33,7 +33,7 @@ export default function Preview({
                     <span className="bonus">{bonus}</span>
                     <span className="malus">{malus}</span>
                 </h4>
-                {strength !== 0 && (
+                {strength != 0 && (
                     <p
                         className={
                             strength > 0
@@ -44,7 +44,7 @@ export default function Preview({
                         <span className="attribute">Force </span> {strength}
                     </p>
                 )}
-                {defense !== 0 && (
+                {defense != 0 && (
                     <p
                         className={
                             defense > 0
@@ -55,7 +55,7 @@ export default function Preview({
                         <span className="attribute">Défense </span> {defense}
                     </p>
                 )}
-                {energy !== 0 && (
+                {energy != 0 && (
                     <p
                         className={
                             energy > 0 ? "energy positive" : "energy negative"
@@ -64,7 +64,7 @@ export default function Preview({
                         <span className="attribute">Énergie </span> {energy}
                     </p>
                 )}
-                {vitality !== 0 && (
+                {vitality != 0 && (
                     <p
                         className={
                             vitality > 0
@@ -76,7 +76,7 @@ export default function Preview({
                     </p>
                 )}
             </div>
-            {price !== 0 && (
+            {price != 0 && (
                 <h4 className="price">
                     {price}
                     <span>Z</span>

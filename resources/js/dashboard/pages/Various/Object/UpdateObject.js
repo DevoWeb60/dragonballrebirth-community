@@ -16,7 +16,7 @@ export default function UpdateObject({
     );
     const [duration, setDuration] = useState(object.object_duration_id || 0);
     const [consumable, setConsumable] = useState(
-        object.consumable === 1 ? true : false || false
+        object.consumable == 1 ? true : false || false
     );
     const [using, setUsing] = useState(object.using || "");
     const [description, setDescription] = useState(object.description || "");
@@ -40,11 +40,11 @@ export default function UpdateObject({
             id: object.id,
         };
 
-        if (object === "NEW") {
+        if (object == "NEW") {
             axios
                 .post("api/object/create", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -54,7 +54,7 @@ export default function UpdateObject({
             axios
                 .post("api/object/update", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -67,7 +67,7 @@ export default function UpdateObject({
         <>
             <Title setOnUpdate={setOnUpdate} onUpdate={object}>
                 <span>
-                    {object === "NEW" ? (
+                    {object == "NEW" ? (
                         <span>Nouvelle objet</span>
                     ) : (
                         <span>
@@ -92,7 +92,7 @@ export default function UpdateObject({
                 setConsumable={setConsumable}
                 setUsing={setUsing}
                 setDescription={setDescription}
-                buttonText={object === "NEW" ? "Ajouter" : "Mettre à jour"}
+                buttonText={object == "NEW" ? "Ajouter" : "Mettre à jour"}
                 getData={getData}
             />
             <Preview

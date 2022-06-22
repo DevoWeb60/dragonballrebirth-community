@@ -5,7 +5,7 @@ export function useDelete(id, route, refreshData, message) {
         axios
             .post(`api/${route}/delete`, { id: id })
             .then((res) => {
-                if (res.status === 200) {
+                if (res.status == 200) {
                     refreshData();
                 }
             })

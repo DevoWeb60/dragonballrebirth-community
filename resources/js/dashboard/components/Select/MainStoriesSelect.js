@@ -11,7 +11,7 @@ export default function MainStoriesSelect({
     if (!selectMode) {
         return mainStories.map((mainStory) => {
             return (
-                mainStory.id === characterMainStory && (
+                mainStory.id == characterMainStory && (
                     <span key={mainStory.id}>{mainStory.name}</span>
                 )
             );

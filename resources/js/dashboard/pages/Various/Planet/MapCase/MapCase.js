@@ -38,7 +38,7 @@ export default function MapCase({ getData, refreshData }) {
         };
 
         useInsertOrUpdate(
-            onEdit === false,
+            onEdit == false,
             "planet/case",
             data,
             refreshData,
@@ -62,7 +62,7 @@ export default function MapCase({ getData, refreshData }) {
             <div className="flex-galery align-start">
                 <div className="item-list w-50">
                     {cases &&
-                        cases.length !== 0 &&
+                        cases.length != 0 &&
                         cases.map((mapCase) => (
                             <div className="mapCase" key={mapCase.id}>
                                 <p className="name">{mapCase.case}</p>

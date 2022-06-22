@@ -10,7 +10,7 @@ export default function CapsScarecitiesSelect({
     if (!selectMode) {
         return scarecities.map((scarecity) => {
             return (
-                scarecity.id === capScarecityId && (
+                scarecity.id == capScarecityId && (
                     <div className="icon" key={scarecity.id}>
                         <img src={scarecity.icon} alt={scarecity.name} />
                         <h4>{scarecity.name}</h4>

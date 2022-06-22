@@ -39,31 +39,31 @@ export default function UpdateReward({
 
         let specificData = {};
 
-        if (rewardType === rewardTypeName.object) {
+        if (rewardType == rewardTypeName.object) {
             specificData = {
                 quantity_object: Number(inputs.quantity_object.value),
                 object_id: Number(inputs.object_id.value),
             };
-        } else if (rewardType === rewardTypeName.caps) {
+        } else if (rewardType == rewardTypeName.caps) {
             specificData = {
                 quantity_caps: Number(inputs.quantity_caps.value),
                 caps_id: Number(inputs.caps_id.value),
             };
-        } else if (rewardType === rewardTypeName.character) {
+        } else if (rewardType == rewardTypeName.character) {
             specificData = {
                 character_id: Number(inputs.character_id.value),
             };
-        } else if (rewardType === rewardTypeName.exp) {
+        } else if (rewardType == rewardTypeName.exp) {
             specificData = {
                 experience: Number(inputs.experience.value),
                 reward_character_id: Number(inputs.reward_character_id.value),
             };
-        } else if (rewardType === rewardTypeName.skin) {
+        } else if (rewardType == rewardTypeName.skin) {
             specificData = {
                 skin: 1,
                 reward_character_id: Number(inputs.reward_character_id.value),
             };
-        } else if (rewardType === rewardTypeName.zenis) {
+        } else if (rewardType == rewardTypeName.zenis) {
             specificData = {
                 zenis: Number(inputs.zenis.value),
             };
@@ -75,7 +75,7 @@ export default function UpdateReward({
         };
 
         // console.log(data);
-        useInsertOrUpdate(reward === "NEW", "reward", data, refreshData, () =>
+        useInsertOrUpdate(reward == "NEW", "reward", data, refreshData, () =>
             setOnUpdate(false)
         );
     };
@@ -83,7 +83,7 @@ export default function UpdateReward({
         <>
             <Title setOnUpdate={setOnUpdate} onUpdate={reward}>
                 <span>
-                    {reward === "NEW" ? (
+                    {reward == "NEW" ? (
                         <span>Nouvelle récompense</span>
                     ) : (
                         <span>{reward.name}</span>
@@ -112,7 +112,7 @@ export default function UpdateReward({
                     />
                     <label htmlFor="name">Nom de la récompense</label>
                 </div>
-                {rewardType === rewardTypeName.object && (
+                {rewardType == rewardTypeName.object && (
                     <>
                         <div className="form-group">
                             <input
@@ -137,7 +137,7 @@ export default function UpdateReward({
                         </div>
                     </>
                 )}
-                {rewardType === rewardTypeName.caps && (
+                {rewardType == rewardTypeName.caps && (
                     <>
                         <div className="form-group">
                             <input
@@ -164,7 +164,7 @@ export default function UpdateReward({
                         </div>
                     </>
                 )}
-                {rewardType === rewardTypeName.character && (
+                {rewardType == rewardTypeName.character && (
                     <>
                         <div className="form-group w-100">
                             <CharacterSelect
@@ -181,7 +181,7 @@ export default function UpdateReward({
                         </div>
                     </>
                 )}
-                {rewardType === rewardTypeName.exp && (
+                {rewardType == rewardTypeName.exp && (
                     <>
                         <div className="form-group">
                             <input
@@ -211,7 +211,7 @@ export default function UpdateReward({
                         </div>
                     </>
                 )}
-                {rewardType === rewardTypeName.skin && (
+                {rewardType == rewardTypeName.skin && (
                     <>
                         <div className="form-group w-100">
                             <CharacterSelect
@@ -230,7 +230,7 @@ export default function UpdateReward({
                         </div>
                     </>
                 )}
-                {rewardType === rewardTypeName.zenis && (
+                {rewardType == rewardTypeName.zenis && (
                     <div className="form-group w-100">
                         <input
                             type="number"
@@ -242,7 +242,7 @@ export default function UpdateReward({
                     </div>
                 )}
                 <button type="submit">
-                    {reward === "NEW" ? "Ajouter" : "Mettre à jour"}
+                    {reward == "NEW" ? "Ajouter" : "Mettre à jour"}
                 </button>
             </form>
         </>

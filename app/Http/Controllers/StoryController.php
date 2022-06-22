@@ -38,7 +38,7 @@ class StoryController extends Controller
     {
         $storyThumbnail = null;
         $storyNumber = null;
-        if ($story->story_number === 9) {
+        if ($story->story_number == 9) {
             $storyThumbnail = "https://www.dragonballrebirth.fr/img/aventure/etapes/9/1.png";
         } else {
             $storyNumber = $story->story_number;

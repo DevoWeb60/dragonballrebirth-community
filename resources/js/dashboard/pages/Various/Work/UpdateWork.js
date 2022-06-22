@@ -44,11 +44,11 @@ export default function UpdateWork({
 
         console.log(data);
 
-        if (work === "NEW") {
+        if (work == "NEW") {
             axios
                 .post("api/work/create", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -58,7 +58,7 @@ export default function UpdateWork({
             axios
                 .post("api/work/update", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -71,7 +71,7 @@ export default function UpdateWork({
         <>
             <Title setOnUpdate={setOnUpdate} onUpdate={work}>
                 <span>
-                    {work === "NEW" ? (
+                    {work == "NEW" ? (
                         <span>Nouveau métier</span>
                     ) : (
                         <span>
@@ -84,7 +84,7 @@ export default function UpdateWork({
             <FormWork
                 forwardRef={form}
                 handleSubmit={handleSubmit}
-                buttonText={work === "NEW" ? "Ajouter" : "Mettre à jour"}
+                buttonText={work == "NEW" ? "Ajouter" : "Mettre à jour"}
                 getData={getData}
                 name={name}
                 duration={duration}

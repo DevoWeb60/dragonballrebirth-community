@@ -23,7 +23,7 @@ export default function Conditions({ getData, refreshData }) {
 
     return (
         <>
-            {onUpdate === false ? (
+            {onUpdate == false ? (
                 <>
                     <Title setOnUpdate={setOnUpdate} onUpdate={onUpdate}>
                         Les conditions
@@ -31,7 +31,7 @@ export default function Conditions({ getData, refreshData }) {
                     <div className="flex-galery">
                         <h2 className="category">Basique</h2>
                         {conditions &&
-                            conditions.length !== 0 &&
+                            conditions.length != 0 &&
                             conditions.map((condition) => {
                                 if (condition.condition_base_id) {
                                     return (
@@ -46,7 +46,7 @@ export default function Conditions({ getData, refreshData }) {
                             })}
                         <h2 className="category">Objets</h2>
                         {conditions &&
-                            conditions.length !== 0 &&
+                            conditions.length != 0 &&
                             conditions.map((condition) => {
                                 if (condition.object) {
                                     return (
@@ -62,7 +62,7 @@ export default function Conditions({ getData, refreshData }) {
 
                         <h2 className="category">Entrainement</h2>
                         {conditions &&
-                            conditions.length !== 0 &&
+                            conditions.length != 0 &&
                             conditions.map((condition) => {
                                 if (
                                     condition.special_trains ||
@@ -80,7 +80,7 @@ export default function Conditions({ getData, refreshData }) {
                             })}
                         <h2 className="category">Magie</h2>
                         {conditions &&
-                            conditions.length !== 0 &&
+                            conditions.length != 0 &&
                             conditions.map((condition) => {
                                 if (condition.spell_condition_number) {
                                     return (
@@ -95,7 +95,7 @@ export default function Conditions({ getData, refreshData }) {
                             })}
                         <h2 className="category">Attaques</h2>
                         {conditions &&
-                            conditions.length !== 0 &&
+                            conditions.length != 0 &&
                             conditions.map((condition) => {
                                 if (
                                     condition.critical_strike ||
@@ -114,7 +114,7 @@ export default function Conditions({ getData, refreshData }) {
                             })}
                         <h2 className="category">Personnalisé</h2>
                         {conditions &&
-                            conditions.length !== 0 &&
+                            conditions.length != 0 &&
                             conditions.map((condition) => {
                                 if (condition.custom_condition) {
                                     return (

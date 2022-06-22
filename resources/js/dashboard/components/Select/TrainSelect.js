@@ -14,7 +14,7 @@ export default function TrainSelect({
     if (!selectMode) {
         return trains.map((train) => {
             return trainId.map((characterCat) => {
-                if (characterCat === train.id) {
+                if (characterCat == train.id) {
                     return (
                         <li key={train.id + Math.random() * 1000}>
                             {train.name}

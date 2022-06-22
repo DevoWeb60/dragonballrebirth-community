@@ -40,11 +40,11 @@ export default function UpdateCaps({ cap, setOnUpdate, refreshData, getData }) {
             id: cap.id,
         };
 
-        if (cap === "NEW") {
+        if (cap == "NEW") {
             axios
                 .post("api/caps/create", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -54,7 +54,7 @@ export default function UpdateCaps({ cap, setOnUpdate, refreshData, getData }) {
             axios
                 .post("api/caps/update", data)
                 .then((res) => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         refreshData();
                         setOnUpdate(false);
                     }
@@ -67,7 +67,7 @@ export default function UpdateCaps({ cap, setOnUpdate, refreshData, getData }) {
         <>
             <Title setOnUpdate={setOnUpdate} onUpdate={cap}>
                 <span>
-                    {cap === "NEW" ? (
+                    {cap == "NEW" ? (
                         <span>Nouvelle capsule</span>
                     ) : (
                         <span>
@@ -101,7 +101,7 @@ export default function UpdateCaps({ cap, setOnUpdate, refreshData, getData }) {
                 setMalus={setMalus}
                 malus={malus}
                 getData={getData}
-                buttonText={cap === "NEW" ? "Ajouter" : "Mettre à jour"}
+                buttonText={cap == "NEW" ? "Ajouter" : "Mettre à jour"}
             />
 
             <Preview

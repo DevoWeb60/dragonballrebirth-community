@@ -41,7 +41,7 @@ export default function MainStory({ getData, refreshData }) {
         };
 
         useInsertOrUpdate(
-            onEdit === false,
+            onEdit == false,
             "story/category",
             data,
             refreshData,
@@ -65,7 +65,7 @@ export default function MainStory({ getData, refreshData }) {
             <div className="flex-galery align-start">
                 <div className="item-list w-50">
                     {mainStories &&
-                        mainStories.length !== 0 &&
+                        mainStories.length != 0 &&
                         mainStories.map((story) => (
                             <div className="main-story" key={story.id}>
                                 <p className="name">

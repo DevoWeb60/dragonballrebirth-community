@@ -34,11 +34,11 @@ export default function FormStep({
     buttonText,
 }) {
     const deleteConditions = (id) => {
-        const newData = conditions.filter((condition) => condition !== id);
+        const newData = conditions.filter((condition) => condition != id);
         setConditions(newData);
     };
     const deleteRewards = (id) => {
-        const newData = rewards.filter((reward) => reward !== id);
+        const newData = rewards.filter((reward) => reward != id);
         setRewards(newData);
     };
 
@@ -168,11 +168,11 @@ export default function FormStep({
             <div className="flex-galery w-100" style={{ marginTop: "30px" }}>
                 <div className="conditions-delete-list w-50">
                     <h3>Conditions</h3>
-                    {conditions.length !== 0 && (
+                    {conditions.length != 0 && (
                         <ul className="delete-categories w-100">
                             {getData.winConditions.map((condition) => {
                                 return conditions.map((stepCondition) => {
-                                    if (stepCondition === condition.id) {
+                                    if (stepCondition == condition.id) {
                                         return (
                                             <li
                                                 key={
@@ -203,11 +203,11 @@ export default function FormStep({
                 </div>
                 <div className="reward-list-delete w-50">
                     <h3>Récompenses</h3>
-                    {rewards.length !== 0 && (
+                    {rewards.length != 0 && (
                         <ul className="delete-categories w-100">
                             {getData.rewards.map((reward) => {
                                 return rewards.map((stepReward) => {
-                                    if (stepReward === reward.id) {
+                                    if (stepReward == reward.id) {
                                         return (
                                             <li
                                                 key={

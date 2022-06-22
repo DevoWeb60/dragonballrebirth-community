@@ -38,7 +38,7 @@ export default function CategoryCharacter({ getData, refreshData }) {
         };
 
         useInsertOrUpdate(
-            onEdit === false,
+            onEdit == false,
             "character/category",
             data,
             refreshData,
@@ -62,7 +62,7 @@ export default function CategoryCharacter({ getData, refreshData }) {
             <div className="flex-galery align-start">
                 <div className="item-list w-50">
                     {categories &&
-                        categories.length !== 0 &&
+                        categories.length != 0 &&
                         categories.map((category) => (
                             <div className="category" key={category.id}>
                                 <p className="name">{category.name}</p>

@@ -37,7 +37,7 @@ export default function ConditionBase({ getData, refreshData }) {
         };
 
         useInsertOrUpdate(
-            onEdit === false,
+            onEdit == false,
             "condition/base",
             data,
             refreshData,
@@ -61,7 +61,7 @@ export default function ConditionBase({ getData, refreshData }) {
             <div className="flex-galery align-start">
                 <div className="item-list w-50">
                     {conditionBase &&
-                        conditionBase.length !== 0 &&
+                        conditionBase.length != 0 &&
                         conditionBase.map((condition) => (
                             <div className="condition-base" key={condition.id}>
                                 <p className="name">{condition.condition}</p>

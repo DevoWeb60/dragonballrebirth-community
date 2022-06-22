@@ -41,7 +41,7 @@ export default function RewardList({
                         {capsIcon &&
                             capsIcon.map((icon) => {
                                 if (
-                                    icon.id === reward.caps.caps_scarecities_id
+                                    icon.id == reward.caps.caps_scarecities_id
                                 ) {
                                     return (
                                         <img
