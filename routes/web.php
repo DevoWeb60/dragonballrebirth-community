@@ -29,6 +29,7 @@ Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index')
 // HOME
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
+Route::get('/divers', [HomeController::class, 'various'])->name('various.index');
 // CHARACTERS
 Route::get("/personnages", [CharacterController::class, 'index'])->name('character.index');
 
@@ -51,39 +52,3 @@ Route::get("/mode-aventure/{story}", [StoryController::class, 'show'])->name('ad
 // ADDITIONAL QUEST
 Route::get("/quetes-annexes/", [StoryController::class, 'index'])->name('additionalQuest.index');
 Route::get("/quetes-annexes/{story}", [StoryController::class, 'show'])->name('additionalQuest.show');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

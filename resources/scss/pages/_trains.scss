@@ -75,3 +75,19 @@
         }
     }
 }
+
+@media screen and (max-width: 560px) {
+    .train {
+        .duration,
+        .location {
+            text-align: right;
+            position: static;
+        }
+        .location .planet {
+            justify-content: flex-start;
+        }
+        .duration {
+            margin-bottom: 20px;
+        }
+    }
+}

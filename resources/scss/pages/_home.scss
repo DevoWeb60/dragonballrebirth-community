@@ -7,6 +7,8 @@
     .team {
         gap: 20px;
         margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         justify-content: center;
 
         .card {
@@ -14,9 +16,8 @@
             background: rgba($black, 0.4);
             box-shadow: $box-shadow;
             display: flex;
-            width: 30%;
+            justify-content: flex-start;
             border-radius: 10px;
-            justify-content: center;
             flex-grow: 0;
             backdrop-filter: blur(10px);
 
@@ -122,5 +123,15 @@
 
     .title {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 666px) {
+    .last-container .news-content .character-container {
+        width: 100%;
+
+        .character {
+            width: 100%;
+        }
     }
 }

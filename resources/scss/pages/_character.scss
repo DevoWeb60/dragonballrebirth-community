@@ -129,3 +129,38 @@
         }
     }
 }
+
+@media screen and (max-width: 835px) {
+    #character-section {
+        transform: none;
+
+        h2.title {
+            transform: none;
+        }
+    }
+
+    .character {
+        margin: 20px 0;
+        padding: 20px;
+        .shadow {
+            width: auto;
+            position: relative;
+            transform: none;
+            h2,
+            h5,
+            .presentation {
+                color: darken($orange, 10);
+                background: transparent;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    object-fit: cover;
+                }
+            }
+            .avatar {
+                display: none;
+            }
+        }
+    }
+}

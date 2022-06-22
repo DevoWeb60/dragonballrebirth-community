@@ -22,18 +22,17 @@
                         @endforeach
                     </ul>
                 </li>
-                <li class="nav-link">
-                    {{-- <a href="/evenements">Évènements</a> --}}
-                    <a href="#">Évènements</a>
+                {{-- <li class="nav-link">
+                    <a href="/evenements">Évènements</a>
                     <ul>
                         <li class="nav-link-dropdown"><a href="#" disabled>A venir</a></li>
-                        {{-- <li class="nav-link-dropdown"><a href="/tournois-termine">Tournois terminé</a></li>
+                        <li class="nav-link-dropdown"><a href="/tournois-termine">Tournois terminé</a></li>
                         <li class="nav-link-dropdown"><a href="/tournois-a-venir">Tournois à venir</a></li>
-                        <li class="nav-link-dropdown"><a href="/guerre-des-clans">Guerres des clans</a></li> --}}
+                        <li class="nav-link-dropdown"><a href="/guerre-des-clans">Guerres des clans</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-link">
-                    <a href="#">Divers</a>
+                    <a href="{{ route('various.index') }}">Divers</a>
                     <ul>
                         <li class="nav-link-dropdown"><a href="{{ route('character.index') }}">Personnages</a></li>
                         <li class="nav-link-dropdown"><a href="{{ route('caps.index') }}">Capsules</a></li>

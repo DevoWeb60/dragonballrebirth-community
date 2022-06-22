@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Caps;
 use App\Models\User;
+use App\Models\Work;
 use App\Models\Story;
+use App\Models\Train;
 use App\Models\Character;
+use App\Models\MainStory;
 use Illuminate\Http\Request;
 use App\Models\CapsScarecity;
-use App\Models\MainStory;
+use App\Models\ObjectItem;
 
 class HomeController extends Controller
 {
@@ -29,6 +33,23 @@ class HomeController extends Controller
             'capsIcon' => $capsIcon,
             'mainStory' => $mainStory,
 
+        ]);
+    }
+
+    public function various()
+    {
+        $characters = Character::orderBy('id', 'DESC')->where('is_pnj', null)->take(5)->get();
+        $objects = ObjectItem::orderBy('id', 'DESC')->take(5)->get();
+        $works = Work::orderBy('id', 'DESC')->take(5)->get();
+        $caps = Caps::orderBy('id', 'DESC')->take(5)->whereNot('caps_scarecities_id', 1)->get();
+        $trains = Train::orderBy('id', 'DESC')->take(5)->get();
+
+        return view('various', [
+            'characters' => $characters,
+            'objects' => $objects,
+            'works' => $works,
+            'caps' => $caps,
+            'trains' => $trains
         ]);
     }
 }

@@ -41,7 +41,7 @@
         </div>
         <div class="team-container">
             <h2 class="sub-title">L'équipe</h2>
-            <div class="team flex-galery">
+            <div class="team">
                 @foreach ($users as $user)
                     <div class="card">
                         @if (!empty($user->picture))
