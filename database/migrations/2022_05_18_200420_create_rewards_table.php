@@ -29,7 +29,6 @@ return new class extends Migration
             $table->boolean('skin')->nullable();
             $table->unsignedBigInteger('rewards_character_id')->nullable();
             $table->foreign('rewards_character_id')->references('id')->on('characters');
-            $table->integer('step_number')->nullable();
             $table->timestamps();
         });
     }

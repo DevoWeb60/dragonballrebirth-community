@@ -27,6 +27,7 @@ return new class extends Migration
             $table->unsignedBigInteger('duration_id');
             $table->foreign('duration_id')->references('id')->on('waiting_durations');
             $table->string('specificity', 255);
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }

@@ -23,6 +23,9 @@ return new class extends Migration
             $table->unsignedBigInteger('story_id');
             $table->foreign('story_id')->references('id')->on('stories');
             $table->integer('ruby_cost')->nullable();
+            $table->integer('is_pnj')->nullable();
+            $table->unsignedBigInteger('main_story_id')->nullable();
+            $table->foreign('main_story_id')->references('id')->on('main_stories');
             $table->timestamps();
         });
     }

@@ -17,8 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('story_name', 255);
             $table->string('thumbnail', 255);
-            $table->unsignedBigInteger('main_story');
+            $table->unsignedBigInteger('main_story')->nullable();
             $table->foreign('main_story')->references('id')->on('main_stories');
+            $table->integer('story_number');
+            $table->unsignedBigInteger('story_unlock')->nullable();
+            $table->foreign('story_unlock')->references('id')->on('stories');
+            $table->integer('step_unlock')->nullable();
+            $table->string('custom_requirement')->nullable();
+            $table->integer('visible')->nullable();
             $table->timestamps();
         });
     }

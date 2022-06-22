@@ -29,7 +29,6 @@ return new class extends Migration
             $table->boolean('critical_strike')->nullable();
             $table->boolean('dodge_attack')->nullable();
             $table->integer('min_damage')->nullable();
-            $table->integer('step_number');
             $table->timestamps();
         });
     }
