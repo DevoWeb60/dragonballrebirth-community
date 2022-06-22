@@ -193,6 +193,7 @@ h2.sub-title {
     align-items: center;
     margin-bottom: 15px;
     height: calc(60px * 3 + 3 * 15px);
+    z-index: 1000;
 
     img {
         transition: $transition;

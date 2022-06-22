@@ -2162,9 +2162,19 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // !DASHBOARD
 
-__webpack_require__(/*! ./dashboard/index */ "./resources/js/dashboard/index.js");
+
+if (window.location.pathname === "/dashboard") {
+  __webpack_require__(/*! ./dashboard/index */ "./resources/js/dashboard/index.js");
+}
+
+var hamburger = document.querySelector("#hamburger");
+var navList = document.querySelector(".nav-list");
+hamburger.addEventListener("click", function () {
+  console.log(navList);
+  navList.classList.toggle("active");
+});
 
 /***/ }),
 

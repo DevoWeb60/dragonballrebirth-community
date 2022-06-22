@@ -28,6 +28,10 @@ header {
         justify-content: center;
         align-items: center;
 
+        #hamburger {
+            display: none;
+        }
+
         ul {
             display: flex;
             justify-content: space-between;
@@ -99,4 +103,46 @@ header {
     text-transform: uppercase;
     color: $white;
     font-size: $fs-menu;
+}
+
+@media screen and (max-width: 1160px) {
+    header nav {
+        justify-content: flex-end;
+
+        #hamburger {
+            font-size: 30px;
+            color: $white;
+            display: block;
+            cursor: pointer;
+        }
+
+        ul.nav-list {
+            display: none;
+
+            &.active {
+                display: block;
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 10px;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                background: rgba($black, 0.9);
+                padding: 20px;
+                margin: 0;
+                border-radius: 10px;
+                box-shadow: $box-shadow;
+                transform: translate(0);
+
+                li.nav-link {
+                    margin: 0;
+                    padding: 15px 0;
+
+                    &:hover ul {
+                        transform: scale(0);
+                    }
+                }
+            }
+        }
+    }
 }

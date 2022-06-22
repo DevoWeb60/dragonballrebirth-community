@@ -6,7 +6,7 @@
         </h1>
 
         <nav>
-            <ul>
+            <ul class="nav-list">
                 <li class="nav-link">
                     <a href="{{ route('adventureMode.index') }}">Mode Aventure</a>
                 </li>
@@ -43,5 +43,6 @@
                     </ul>
                 </li>
             </ul>
+            <i class="fa-solid fa-bars" id="hamburger"></i>
         </nav>
     </header>
