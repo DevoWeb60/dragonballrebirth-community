@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::all();
-        $story = Story::orderBy('id', 'DESC')->whereNot('main_story', 100)->first();
+        $story = Story::orderBy('id', 'DESC')->whereNot('main_story', 100)->whereNot('visible', 0)->first();
         $mainStory = MainStory::find($story->main_story);
         $additionalQuest = Story::orderBy('id', 'DESC')->where('main_story', 100)->first();
         $character = Character::orderBy('id', 'DESC')->where('is_pnj', null)->first();
