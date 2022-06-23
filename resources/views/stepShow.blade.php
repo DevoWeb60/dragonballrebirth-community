@@ -87,7 +87,7 @@
                             @endif
                             @if ($condition->min_damage)
                                 <p class="condition">Infliger au moins <span
-                                        class="number">{{ $condition->min_damage }}</span> dégâts&nbsp;<i
+                                        class="number">{{ number_format($condition->min_damage, 0, ' ', ' ') }}</span> dégâts&nbsp;<i
                                         class="fa-solid fa-bullseye"></i></p>
                                 <hr>
                             @endif
