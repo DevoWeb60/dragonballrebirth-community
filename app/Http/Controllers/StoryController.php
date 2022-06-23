@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdventureMode;
 use App\Models\Story;
 use Illuminate\Http\Request;
 
@@ -47,6 +48,7 @@ class StoryController extends Controller
         // https: //www.dragonballrebirth.fr/img/aventure/etapes/{{ $storyThumbnail }}/story-{{ $storyThumbnail }}-
 
         return view('stepShow', [
+            "steps" => AdventureMode::where('story_id', $story->id)->orderBy('step_number')->get(),
             'story' => $story,
             'storyThumbnail' => $storyThumbnail,
             "storyNumber" => $storyNumber

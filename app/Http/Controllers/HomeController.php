@@ -21,7 +21,7 @@ class HomeController extends Controller
         $users = User::all();
         $story = Story::orderBy('id', 'DESC')->whereNot('main_story', 100)->whereNot('visible', 0)->first();
         $mainStory = MainStory::find($story->main_story);
-        $additionalQuest = Story::orderBy('id', 'DESC')->where('main_story', 100)->first();
+        $additionalQuest = Story::orderBy('id', 'DESC')->where('main_story', 100)->whereNot('visible', 0)->first();
         $character = Character::orderBy('id', 'DESC')->where('is_pnj', null)->first();
         $capsIcon = CapsScarecity::find(1);
 

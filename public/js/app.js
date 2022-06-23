@@ -5882,7 +5882,7 @@ function EditStep(_ref) {
       characterId = _useState2[0],
       setCharacterId = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(step.step_number || countOfSteps + 1 || 1),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(step.step_number || Number(countOfSteps) + 1 || 1),
       _useState4 = _slicedToArray(_useState3, 2),
       stepNumber = _useState4[0],
       setStepNumber = _useState4[1];

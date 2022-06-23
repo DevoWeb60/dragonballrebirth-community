@@ -4,7 +4,7 @@
     <div class="container">
         <h2 class="title">{{ $story->story_name }}</h2>
         <div class="step-container">
-            @foreach ($story->steps as $step)
+            @foreach ($steps as $step)
                 <div class="step">
                     <div class="step-number">
                         <h3>Étape {{ $step->step_number }}</h3>
