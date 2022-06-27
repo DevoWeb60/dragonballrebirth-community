@@ -13,7 +13,7 @@ class CapsController extends Controller
     public function index()
     {
         return view('capsules', [
-            'caps' => Caps::all(),
+            'caps' => Caps::orderBy('caps_scarecities_id')->orderBy('name')->get(),
         ]);
     }
 

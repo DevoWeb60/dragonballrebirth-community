@@ -101,6 +101,7 @@ export default function FormStep({
                             characters={getData.characters}
                             selectMode={true}
                             selectName="enemy_id"
+                            noPnj={false}
                         />
                         <label htmlFor="enemy_id">Ennemi</label>
                     </div>

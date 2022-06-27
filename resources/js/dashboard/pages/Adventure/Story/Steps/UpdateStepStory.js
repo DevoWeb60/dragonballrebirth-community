@@ -81,13 +81,15 @@ export default function UpdateStepStory({
                                             </span>
                                             <span className="content">
                                                 {step.enemy.name}
-                                                <img
-                                                    src={
-                                                        step.enemy.avatar +
-                                                        "/transformations/base/head.png"
-                                                    }
-                                                    alt=""
-                                                />
+                                                {step.enemy.avatar && (
+                                                    <img
+                                                        src={
+                                                            step.enemy.avatar +
+                                                            "/transformations/base/head.png"
+                                                        }
+                                                        alt=""
+                                                    />
+                                                )}
                                             </span>
                                             <span className="health">
                                                 <strong>PV : </strong>

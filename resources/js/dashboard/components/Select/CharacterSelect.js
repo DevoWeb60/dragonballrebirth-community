@@ -8,21 +8,25 @@ export default function CharacterSelect({
     stepMode = false,
     onChangeFunc,
     noPnj = true,
+    withPnj = false,
 }) {
     let customCondition = true;
+
     if (stepMode) {
         return characters.map((character) => {
             return (
                 character.id == characterId && (
                     <span className="icon" key={character.id}>
                         {character.name}
-                        <img
-                            src={
-                                character.avatar +
-                                "/transformations/base/head.png"
-                            }
-                            alt={character.name}
-                        />
+                        {character.avatar && (
+                            <img
+                                src={
+                                    character.avatar +
+                                    "/transformations/base/head.png"
+                                }
+                                alt={character.name}
+                            />
+                        )}
                     </span>
                 )
             );
@@ -48,6 +52,26 @@ export default function CharacterSelect({
         });
     }
 
+    // if (withPnj) {
+    //     return (
+    //         <select
+    //             name={selectName}
+    //             value={characterId}
+    //             onChange={onChangeFunc}
+    //         >
+    //             <option value="0" disabled>
+    //                 Sélectionner un personnage
+    //             </option>
+    //             {characters.map((character) => {
+    //                 return (
+    //                     <option value={character.id} key={character.id}>
+    //                         {character.name}
+    //                     </option>
+    //                 );
+    //             })}
+    //         </select>
+    //     );
+    // }
     return (
         <select name={selectName} value={characterId} onChange={onChangeFunc}>
             <option value="0" disabled>

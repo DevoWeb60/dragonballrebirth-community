@@ -87,8 +87,8 @@
                             @endif
                             @if ($condition->min_damage)
                                 <p class="condition">Infliger au moins <span
-                                        class="number">{{ number_format($condition->min_damage, 0, ' ', ' ') }}</span> dégâts&nbsp;<i
-                                        class="fa-solid fa-bullseye"></i></p>
+                                        class="number">{{ number_format($condition->min_damage, 0, ' ', ' ') }}</span>
+                                    dégâts&nbsp;<i class="fa-solid fa-bullseye"></i></p>
                                 <hr>
                             @endif
                         @endforeach
@@ -106,8 +106,10 @@
                             <h2 class="enemy">
                                 <span>
                                     {{ $step->enemy->name }}
-                                    <img src="{{ $step->enemy->avatar }}transformations/base/head.png"
-                                        alt="{{ $step->enemy->name }}">
+                                    @if ($step->enemy->avatar)
+                                        <img src="{{ $step->enemy->avatar }}transformations/base/head.png"
+                                            alt="{{ $step->enemy->name }}">
+                                    @endif
                                 </span>
                                 <span class="info">Niveau : {{ $step->enemy_level }}</span>
                                 <span class="info">Vitalité :

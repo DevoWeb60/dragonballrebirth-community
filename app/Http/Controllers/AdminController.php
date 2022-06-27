@@ -35,7 +35,7 @@ class AdminController extends Controller
         $characters = Character::orderBy('is_pnj')->orderBy('ruby_cost')->orderBy('main_story_id')->orderBy('story_id')->orderBy('step_unlock')->get();
         $stories = Story::orderBy('main_story')->orderBy('story_number')->get();
         $mainStories = MainStory::all();
-        $caps = Caps::orderBy('caps_scarecities_id')->get();
+        $caps = Caps::orderBy('caps_scarecities_id')->orderBy('name')->get();
         $categories = CharacterCategory::orderBy('id', 'DESC')->get();
         $steps = AdventureMode::orderBy('step_number', 'DESC')->get();
         $capsScarecities = CapsScarecity::orderBy('id', 'DESC')->get();
@@ -43,8 +43,8 @@ class AdminController extends Controller
         $objectDurations = ObjectDuration::orderBy('id', 'DESC')->get();
         $objects = ObjectItem::all();
         $planets = Planet::orderBy('id', 'DESC')->get();
-        $rewards = Rewards::orderBy('zenis', 'DESC')->orderBy('character_id')->orderBy('object_id')->orderBy('caps_id')->get();
-        $winConditions = WinCondition::orderBy('id', 'DESC')->get();
+        $rewards = Rewards::orderBy('zenis', 'DESC')->orderBy('name')->get();
+        $winConditions = WinCondition::orderBy('name')->get();
         $works = Work::all();
         $trains = Train::all();
         $waitingDurations = WaitingDuration::orderBy('id', 'DESC')->get();

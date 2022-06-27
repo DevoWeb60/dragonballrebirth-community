@@ -2745,14 +2745,16 @@ function CharacterSelect(_ref) {
       stepMode = _ref$stepMode === void 0 ? false : _ref$stepMode,
       onChangeFunc = _ref.onChangeFunc,
       _ref$noPnj = _ref.noPnj,
-      noPnj = _ref$noPnj === void 0 ? true : _ref$noPnj;
+      noPnj = _ref$noPnj === void 0 ? true : _ref$noPnj,
+      _ref$withPnj = _ref.withPnj,
+      withPnj = _ref$withPnj === void 0 ? false : _ref$withPnj;
   var customCondition = true;
 
   if (stepMode) {
     return characters.map(function (character) {
       return character.id == characterId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
         className: "icon",
-        children: [character.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+        children: [character.name, character.avatar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           src: character.avatar + "/transformations/base/head.png",
           alt: character.name
         })]
@@ -2772,7 +2774,27 @@ function CharacterSelect(_ref) {
         })]
       }, character.id);
     });
-  }
+  } // if (withPnj) {
+  //     return (
+  //         <select
+  //             name={selectName}
+  //             value={characterId}
+  //             onChange={onChangeFunc}
+  //         >
+  //             <option value="0" disabled>
+  //                 Sélectionner un personnage
+  //             </option>
+  //             {characters.map((character) => {
+  //                 return (
+  //                     <option value={character.id} key={character.id}>
+  //                         {character.name}
+  //                     </option>
+  //                 );
+  //             })}
+  //         </select>
+  //     );
+  // }
+
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
     name: selectName,
@@ -5563,7 +5585,8 @@ function FormStep(_ref) {
           },
           characters: getData.characters,
           selectMode: true,
-          selectName: "enemy_id"
+          selectName: "enemy_id",
+          noPnj: false
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
           htmlFor: "enemy_id",
           children: "Ennemi"
@@ -6127,7 +6150,7 @@ function UpdateStepStory(_ref) {
                 children: "Ennemi"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
                 className: "content",
-                children: [step.enemy.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                children: [step.enemy.name, step.enemy.avatar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   src: step.enemy.avatar + "/transformations/base/head.png",
                   alt: ""
                 })]
