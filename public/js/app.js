@@ -8674,8 +8674,7 @@ function FormCharacter(_ref) {
         onChange: function onChange(e) {
           return setAvatar(e.target.value);
         },
-        placeholder: "CSS",
-        disabled: pnj
+        placeholder: "CSS"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
         htmlFor: "avatar",
         children: "Avatar"

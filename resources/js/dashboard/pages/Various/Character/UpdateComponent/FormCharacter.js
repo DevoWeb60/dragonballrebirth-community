@@ -58,7 +58,6 @@ export default function FormCharacter({
                     value={avatar}
                     onChange={(e) => setAvatar(e.target.value)}
                     placeholder="CSS"
-                    disabled={pnj}
                 />
                 <label htmlFor="avatar">Avatar</label>
             </div>
