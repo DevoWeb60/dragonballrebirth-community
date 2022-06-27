@@ -37,7 +37,11 @@ export default function UpdateCharacter({
 
         data = {
             name: inputs[0].value,
-            avatar: !pnj ? inputs[1].value : null,
+            avatar:
+                inputs[1].value !=
+                "https://dragonballrebirth.fr/img/characters/[nom]/"
+                    ? inputs[1].value
+                    : null,
             step_unlock: !pnj ? Number(inputs[2].value) : null,
             story_id: !pnj ? Number(inputs[3].value) : null,
             ruby_cost: !pnj ? Number(inputs[4].value) : null,
